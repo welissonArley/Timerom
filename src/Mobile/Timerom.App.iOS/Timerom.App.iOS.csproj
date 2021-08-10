@@ -63,6 +63,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AppVersion\AppVersioniOS.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -123,6 +124,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
@@ -132,5 +136,23 @@
       <Project>{E211B3BE-7318-4AF8-9161-A31AB53C3B60}</Project>
       <Name>Timerom.App</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Ilustration_Switch_darkmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Ilustration_Switch_darkmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Ilustration_Switch_darkmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Ilustration_Switch_lightmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Ilustration_Switch_lightmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Ilustration_Switch_lightmode%403x.png" />
   </ItemGroup>
 </Project>

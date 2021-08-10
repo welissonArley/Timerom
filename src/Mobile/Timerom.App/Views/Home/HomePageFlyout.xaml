@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:resource="clr-namespace:Timerom.App"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             xmlns:enuns="clr-namespace:Timerom.App.ValueObjects.Enuns"
+             x:Class="Timerom.App.Views.Home.HomePageFlyout"
+             Title=" ">
+    <StackLayout Margin="40,30,20,5">
+        <StackLayout Orientation="Horizontal">
+            <StackLayout WidthRequest="180">
+                <Label Text="{x:Static resource:ResourceText.PHRASE_MENU_FLYOUT_1}" Style="{StaticResource LabelBold}"></Label>
+                <Label Style="{StaticResource LabelExtraLight}" HorizontalOptions="EndAndExpand" Text="Joel Jota" FontSize="11"></Label>
+            </StackLayout>
+
+            <Image Source="{AppThemeBinding Dark=Ilustration_Switch_darkmode.png, Light=Ilustration_Switch_lightmode.png}" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" WidthRequest="30" HeightRequest="30"></Image>
+        </StackLayout>
+        
+        <Line></Line>
+
+        <StackLayout Margin="0,30,0,0" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" Opacity="0.3">
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.Dashboard}">
+                        <Setter Property="Opacity" Value="1"></Setter>
+                    </DataTrigger>
+                </StackLayout.Triggers>
+                <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconDashboard.svg">
+                    <ffimageloadingsvg:SvgCachedImage.Transformations>
+                        <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                    </ffimageloadingsvg:SvgCachedImage.Transformations>
+                </ffimageloadingsvg:SvgCachedImage>
+                <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_DASHBOARD}" Margin="12,-1,0,0"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="0,25,0,0" Opacity="0.3">
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.Categories}">
+                        <Setter Property="Opacity" Value="1"></Setter>
+                    </DataTrigger>
+                </StackLayout.Triggers>
+                <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconCategories.svg">
+                    <ffimageloadingsvg:SvgCachedImage.Transformations>
+                        <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                    </ffimageloadingsvg:SvgCachedImage.Transformations>
+                </ffimageloadingsvg:SvgCachedImage>
+                <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_CATEGORIES}" Margin="12,-1,0,0"/>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="EndAndExpand">
+                <xct:Expander IsExpanded="False">
+                    <xct:Expander.Header>
+                        <Grid>
+                            <Label Text="{x:Static resource:ResourceText.TITLE_ABOUT_THIS_PROJECT}" TextTransform="Uppercase" Style="{StaticResource LabelSemiBold}" />
+                            <ffimageloadingsvg:SvgCachedImage Rotation="90" HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest="12" HeightRequest="12" Source="resource://Timerom.App.Resources.Svgs.ExpansionIndicator.svg">
+                                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                <ffimageloadingsvg:SvgCachedImage.Triggers>
+                                    <DataTrigger TargetType="ffimageloadingsvg:SvgCachedImage" Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" Value="True">
+                                        <Setter Property="Rotation" Value="0"></Setter>
+                                    </DataTrigger>
+                                </ffimageloadingsvg:SvgCachedImage.Triggers>
+                            </ffimageloadingsvg:SvgCachedImage>
+                        </Grid>
+                    </xct:Expander.Header>
+                    <xct:Expander.ContentTemplate>
+                        <DataTemplate>
+                            <StackLayout Margin="0,20,0,0">
+                                <StackLayout Orientation="Horizontal" Opacity="0.3">
+                                    <StackLayout.Triggers>
+                                        <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.PrivacyPolicy}">
+                                            <Setter Property="Opacity" Value="1"></Setter>
+                                        </DataTrigger>
+                                    </StackLayout.Triggers>
+                                    <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconPrivacyPolicy.svg">
+                                        <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                            <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                        </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    </ffimageloadingsvg:SvgCachedImage>
+                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_PRIVACY_POLICY}" Margin="12,-1,0,0"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Margin="0,25,0,0" Opacity="0.3">
+                                    <StackLayout.Triggers>
+                                        <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.UseTerms}">
+                                            <Setter Property="Opacity" Value="1"></Setter>
+                                        </DataTrigger>
+                                    </StackLayout.Triggers>
+                                    <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconUseTerms.svg">
+                                        <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                            <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                        </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    </ffimageloadingsvg:SvgCachedImage>
+                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_USE_TERMS}" Margin="12,-1,0,0"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Margin="0,25,0,0" Opacity="0.3">
+                                    <StackLayout.Triggers>
+                                        <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}">
+                                            <Setter Property="Opacity" Value="1"></Setter>
+                                        </DataTrigger>
+                                    </StackLayout.Triggers>
+                                    <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconIconsAndIllustrations.svg">
+                                        <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                            <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                        </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    </ffimageloadingsvg:SvgCachedImage>
+                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_ICONS_ILLUSTRATIONS_USED}" Margin="12,-1,0,0"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </DataTemplate>
+                    </xct:Expander.ContentTemplate>
+                </xct:Expander>
+
+                <xct:Expander Margin="0,30,0,0" IsExpanded="False">
+                    <xct:Expander.Header>
+                        <Grid>
+                            <Label Text="{x:Static resource:ResourceText.TITLE_CONTACT_US}" TextTransform="Uppercase" Style="{StaticResource LabelSemiBold}" />
+                            <ffimageloadingsvg:SvgCachedImage Rotation="90" HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest="12" HeightRequest="12" Source="resource://Timerom.App.Resources.Svgs.ExpansionIndicator.svg">
+                                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                <ffimageloadingsvg:SvgCachedImage.Triggers>
+                                    <DataTrigger TargetType="ffimageloadingsvg:SvgCachedImage" Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" Value="True">
+                                        <Setter Property="Rotation" Value="0"></Setter>
+                                    </DataTrigger>
+                                </ffimageloadingsvg:SvgCachedImage.Triggers>
+                            </ffimageloadingsvg:SvgCachedImage>
+                        </Grid>
+                    </xct:Expander.Header>
+                    <xct:Expander.ContentTemplate>
+                        <DataTemplate>
+                            <StackLayout Margin="0,20,0,0" Opacity="0.3">
+                                <StackLayout.Triggers>
+                                    <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.ContactUs}">
+                                        <Setter Property="Opacity" Value="1"></Setter>
+                                    </DataTrigger>
+                                </StackLayout.Triggers>
+                                <StackLayout Orientation="Horizontal">
+                                    <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconActionSupport.svg">
+                                        <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                            <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                        </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    </ffimageloadingsvg:SvgCachedImage>
+                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_CONTACT_US}" Margin="12,-1,0,0"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </DataTemplate>
+                    </xct:Expander.ContentTemplate>
+                </xct:Expander>
+            </StackLayout>
+        </StackLayout>
+
+        <Label x:Name="LabelVersion" Style="{StaticResource LabelBold}" Margin="0,50,0,0"></Label>
+    </StackLayout>
+</ContentPage>

@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Timerom.App.Views.Home;
+using Xamarin.Forms;
 
 namespace Timerom.App
 {
@@ -8,7 +9,14 @@ namespace Timerom.App
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            SetAppTheme();
+
+            MainPage = new HomePage();
+        }
+
+        private void SetAppTheme()
+        {
+            Current.UserAppTheme = Current.RequestedTheme == OSAppTheme.Unspecified ? OSAppTheme.Light : Current.RequestedTheme;
         }
     }
 }

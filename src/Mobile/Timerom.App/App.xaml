@@ -1,8 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              x:Class="Timerom.App.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DarkModePrimaryColor">#1F1E19</Color>
 
+            <Style TargetType="StackLayout" x:Key="MarginStyleDefault">
+                <Setter Property="Margin" Value="20,0,20,30"></Setter>
+                <Setter Property="Spacing" Value="0"></Setter>
+            </Style>
+            
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" />
+                <Setter Property="NavigationPage.BackButtonTitle" Value=""></Setter>
+            </Style>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}"></Setter>
+                <Setter Property="BarTextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+                <Setter Property="ios:NavigationPage.HideNavigationBarSeparator" Value="True" ></Setter>
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelBaseStyle">
+                <Setter Property="FontFamily" Value="RalewayRegular"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}"></Setter>
+            </Style>
+
+            <Style TargetType="Label" ApplyToDerivedTypes="True" BasedOn="{StaticResource LabelBaseStyle}"/>
+
+            <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelExtraLight" BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="FontFamily" Value="RalewayExtraLight"></Setter>
+            </Style>
+            <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelBold" BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="FontFamily" Value="RalewayBold"></Setter>
+            </Style>
+            <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelSemiBold" BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="FontFamily" Value="RalewaySemiBold"></Setter>
+            </Style>
+
+            <Style TargetType="Line" ApplyToDerivedTypes="True">
+                <Setter Property="Opacity" Value="0.05"></Setter>
+                <Setter Property="HeightRequest" Value="2"></Setter>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=White, Light=Black}"></Setter>
+                <Setter Property="Margin" Value="0,10,0,0"></Setter>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
