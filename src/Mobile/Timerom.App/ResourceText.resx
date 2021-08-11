@@ -117,6 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DESCRIPTION_ILUSTRATIONS_INFORMATIONS" xml:space="preserve">
+    <value>One of the goals of this App is to have a creative design. And for that, nothing better than using images to illustrate and amuse the user, right?
+
+All images used have a free license for use, and as a thank you, we leave below the links to the sites that our team used :)</value>
+  </data>
   <data name="PHRASE_MENU_FLYOUT_1" xml:space="preserve">
     <value>No need to accelerate, just don't stop.</value>
   </data>

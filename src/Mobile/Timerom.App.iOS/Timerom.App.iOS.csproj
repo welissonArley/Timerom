@@ -64,6 +64,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AppVersion\AppVersioniOS.cs" />
+    <Compile Include="CustomControl\LabelJustifyTextRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -154,5 +155,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Ilustration_Switch_lightmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IlustrationGirlAndCat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IlustrationGirlAndCat%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IlustrationGirlAndCat%403x.png" />
   </ItemGroup>
 </Project>

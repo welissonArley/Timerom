@@ -22,6 +22,9 @@
 
         <StackLayout Margin="0,30,0,0" VerticalOptions="FillAndExpand">
             <StackLayout Orientation="Horizontal" Opacity="0.3">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Dashboard_Tapped"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.Dashboard}">
                         <Setter Property="Opacity" Value="1"></Setter>
@@ -98,6 +101,9 @@
                                 </StackLayout>
 
                                 <StackLayout Orientation="Horizontal" Margin="0,25,0,0" Opacity="0.3">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="IconsAndIllustrationsUsed_Tapped"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
                                     <StackLayout.Triggers>
                                         <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}">
                                             <Setter Property="Opacity" Value="1"></Setter>
@@ -115,7 +121,7 @@
                     </xct:Expander.ContentTemplate>
                 </xct:Expander>
 
-                <xct:Expander Margin="0,30,0,0" IsExpanded="False">
+                <xct:Expander Margin="0,30,0,0" IsExpanded="False" IsVisible="False">
                     <xct:Expander.Header>
                         <Grid>
                             <Label Text="{x:Static resource:ResourceText.TITLE_CONTACT_US}" TextTransform="Uppercase" Style="{StaticResource LabelSemiBold}" />
