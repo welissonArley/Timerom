@@ -40,6 +40,10 @@
             <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelSemiBold" BasedOn="{StaticResource LabelBaseStyle}">
                 <Setter Property="FontFamily" Value="RalewaySemiBold"></Setter>
             </Style>
+            <Style TargetType="Label" x:Key="LabelUrlLink">
+                <Setter Property="FontFamily" Value="RalewayRegular"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light='#0077AA', Dark='#05B4FF'}"></Setter>
+            </Style>
 
             <Style TargetType="Line" ApplyToDerivedTypes="True">
                 <Setter Property="Opacity" Value="0.05"></Setter>

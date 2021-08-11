@@ -61,6 +61,17 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to One of the goals of this App is to have a creative design. And for that, nothing better than using images to illustrate and amuse the user, right?
+        ///
+        ///All images used have a free license for use, and as a thank you, we leave below the links to the sites that our team used :).
+        /// </summary>
+        public static string DESCRIPTION_ILUSTRATIONS_INFORMATIONS {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_ILUSTRATIONS_INFORMATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No need to accelerate, just don&apos;t stop..
         /// </summary>
         public static string PHRASE_MENU_FLYOUT_1 {
