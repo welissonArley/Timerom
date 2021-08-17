@@ -5,7 +5,7 @@ using Timerom.App.ViewModels.Home;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Timerom.App.Views.Home
+namespace Timerom.App.Views.Views.Home
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePageFlyout : ContentPage
@@ -32,6 +32,12 @@ namespace Timerom.App.Views.Home
         {
             ChangeBindingContext(MenuItemOptions.Dashboard);
             _callBackItemMenuSelectedAction(MenuItemOptions.Dashboard);
+        }
+
+        private void Categories_Tapped(object sender, EventArgs e)
+        {
+            ChangeBindingContext(MenuItemOptions.Categories);
+            _callBackItemMenuSelectedAction(MenuItemOptions.Categories);
         }
 
         private void ChangeBindingContext(MenuItemOptions selected)

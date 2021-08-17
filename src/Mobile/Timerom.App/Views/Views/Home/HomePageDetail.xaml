@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Timerom.App.Views.Home.HomePageDetail"
+             x:Class="Timerom.App.Views.Views.Home.HomePageDetail"
              Title=" ">
     <StackLayout Style="{StaticResource MarginStyleDefault}">
         <Label Text="This is a detail page. To get the 'triple' line icon on each platform add a icon to each platform and update the 'Flyout' page with an Icon that references it."/>

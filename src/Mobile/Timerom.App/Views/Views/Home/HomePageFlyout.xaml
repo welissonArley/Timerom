@@ -6,7 +6,7 @@
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
              xmlns:enuns="clr-namespace:Timerom.App.ValueObjects.Enuns"
-             x:Class="Timerom.App.Views.Home.HomePageFlyout"
+             x:Class="Timerom.App.Views.Views.Home.HomePageFlyout"
              Title=" ">
     <StackLayout Margin="40,30,20,5">
         <StackLayout Orientation="Horizontal">
@@ -39,6 +39,9 @@
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" Margin="0,25,0,0" Opacity="0.3">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Categories_Tapped"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.Categories}">
                         <Setter Property="Opacity" Value="1"></Setter>

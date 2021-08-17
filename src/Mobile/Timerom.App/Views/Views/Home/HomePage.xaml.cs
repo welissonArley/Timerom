@@ -1,9 +1,10 @@
 ﻿using Timerom.App.ValueObjects.Enuns;
-using Timerom.App.Views.AboutThisProject;
+using Timerom.App.Views.Views.AboutThisProject;
+using Timerom.App.Views.Views.Category;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Timerom.App.Views.Home
+namespace Timerom.App.Views.Views.Home
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : FlyoutPage
@@ -37,6 +38,9 @@ namespace Timerom.App.Views.Home
                     }
                     break;
                 case MenuItemOptions.Categories:
+                    {
+                        Detail = new NavigationPage(new CategoriesPage());
+                    }
                     break;
                 case MenuItemOptions.PrivacyPolicy:
                     break;

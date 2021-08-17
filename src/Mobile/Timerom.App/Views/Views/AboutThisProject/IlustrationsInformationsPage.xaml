@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:customControl="clr-namespace:Timerom.App.CustomControl"
-             x:Class="Timerom.App.Views.AboutThisProject.IlustrationsInformationsPage">
+             x:Class="Timerom.App.Views.Views.AboutThisProject.IlustrationsInformationsPage">
     <ContentPage.Content>
         <StackLayout Style="{x:StaticResource MarginStyleDefault}">
             <Image Source="IlustrationGirlAndCat" HorizontalOptions="CenterAndExpand"></Image>
