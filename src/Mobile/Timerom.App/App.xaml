@@ -6,6 +6,12 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="DarkModePrimaryColor">#1F1E19</Color>
+            <Color x:Key="LigthProductiveColor">#37705C</Color>
+            <Color x:Key="LigthNeutralColor">#3455DB</Color>
+            <Color x:Key="LigthUnproductiveColor">#DC143C</Color>
+            <Color x:Key="DarkProductiveColor">#90EE90</Color>
+            <Color x:Key="DarkNeutralColor">#99D2E5</Color>
+            <Color x:Key="DarkUnproductiveColor">#F690B5</Color>
 
             <Style TargetType="StackLayout" x:Key="MarginStyleDefault">
                 <Setter Property="Margin" Value="20,0,20,30"></Setter>

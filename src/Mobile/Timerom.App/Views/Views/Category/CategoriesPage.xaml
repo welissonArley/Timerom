@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:Timerom.App"
+             xmlns:enuns="clr-namespace:Timerom.App.ValueObjects.Enuns"
+             xmlns:component="clr-namespace:Timerom.App.Views.Templates.Information"
+             x:Class="Timerom.App.Views.Views.Category.CategoriesPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Style="{StaticResource MarginStyleDefault}">
+                <component:CategoryExpanderComponent CategoryList="{Binding ProductiveCategories}" Title="{x:Static resource:ResourceText.TITLE_PRODUCTIVE}" Category="{x:Static enuns:CategoryType.Productive}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

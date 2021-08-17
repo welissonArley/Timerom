@@ -128,25 +128,112 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_ABOUT_THIS_PROJECT" xml:space="preserve">
     <value>About this project</value>
   </data>
+  <data name="TITLE_BOOKS" xml:space="preserve">
+    <value>Books</value>
+  </data>
+  <data name="TITLE_BREAKFAST" xml:space="preserve">
+    <value>Breakfast</value>
+  </data>
+  <data name="TITLE_CALL" xml:space="preserve">
+    <value>Call</value>
+  </data>
   <data name="TITLE_CATEGORIES" xml:space="preserve">
     <value>Categories</value>
   </data>
   <data name="TITLE_CONTACT_US" xml:space="preserve">
     <value>Contact Us</value>
   </data>
+  <data name="TITLE_COURSES" xml:space="preserve">
+    <value>Courses</value>
+  </data>
   <data name="TITLE_DASHBOARD" xml:space="preserve">
     <value>Dashboard</value>
+  </data>
+  <data name="TITLE_DINNER" xml:space="preserve">
+    <value>Dinner</value>
+  </data>
+  <data name="TITLE_FACEBOOK" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="TITLE_FAMILY" xml:space="preserve">
+    <value>Family</value>
+  </data>
+  <data name="TITLE_FOOD" xml:space="preserve">
+    <value>Food</value>
+  </data>
+  <data name="TITLE_GYM" xml:space="preserve">
+    <value>Gym</value>
   </data>
   <data name="TITLE_ICONS_ILLUSTRATIONS_USED" xml:space="preserve">
     <value>Icons and Illustrations used</value>
   </data>
+  <data name="TITLE_INSTAGRAM" xml:space="preserve">
+    <value>Instagram</value>
+  </data>
+  <data name="TITLE_LUNCH" xml:space="preserve">
+    <value>Lunch</value>
+  </data>
+  <data name="TITLE_MEETINGS" xml:space="preserve">
+    <value>Meetings</value>
+  </data>
+  <data name="TITLE_NEUTRAL" xml:space="preserve">
+    <value>Neutral</value>
+  </data>
+  <data name="TITLE_PERSONAL_PROJECTS" xml:space="preserve">
+    <value>Personal projects</value>
+  </data>
+  <data name="TITLE_PODCASTS" xml:space="preserve">
+    <value>Podcasts</value>
+  </data>
   <data name="TITLE_PRIVACY_POLICY" xml:space="preserve">
     <value>Privacy Policy</value>
+  </data>
+  <data name="TITLE_PRODUCTIVE" xml:space="preserve">
+    <value>Productive</value>
+  </data>
+  <data name="TITLE_PRODUCT_SEARCH" xml:space="preserve">
+    <value>Product search</value>
+  </data>
+  <data name="TITLE_PURCHASES" xml:space="preserve">
+    <value>Purchases</value>
+  </data>
+  <data name="TITLE_SOCIAL_MEDIA" xml:space="preserve">
+    <value>Social media</value>
+  </data>
+  <data name="TITLE_SPORT" xml:space="preserve">
+    <value>Sport</value>
+  </data>
+  <data name="TITLE_STUDIES" xml:space="preserve">
+    <value>Studies</value>
+  </data>
+  <data name="TITLE_SUPERMARKET" xml:space="preserve">
+    <value>Supermarket</value>
+  </data>
+  <data name="TITLE_TASKS" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="TITLE_TECHNOLOGY" xml:space="preserve">
+    <value>Technology</value>
+  </data>
+  <data name="TITLE_TOUR" xml:space="preserve">
+    <value>Tour</value>
+  </data>
+  <data name="TITLE_UNPRODUCTIVE" xml:space="preserve">
+    <value>Unproductive</value>
   </data>
   <data name="TITLE_USE_TERMS" xml:space="preserve">
     <value>Use Terms</value>
   </data>
   <data name="TITLE_VERSION_NUMBER" xml:space="preserve">
     <value>Version: {0}</value>
+  </data>
+  <data name="TITLE_WALKING" xml:space="preserve">
+    <value>Walking</value>
+  </data>
+  <data name="TITLE_WORK" xml:space="preserve">
+    <value>Work</value>
+  </data>
+  <data name="TITLE_YOUTUBE" xml:space="preserve">
+    <value>YouTube</value>
   </data>
 </root>

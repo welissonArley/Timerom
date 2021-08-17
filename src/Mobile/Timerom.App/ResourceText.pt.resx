@@ -128,25 +128,112 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_ABOUT_THIS_PROJECT" xml:space="preserve">
     <value>Sobre este projeto</value>
   </data>
+  <data name="TITLE_BOOKS" xml:space="preserve">
+    <value>Livros</value>
+  </data>
+  <data name="TITLE_BREAKFAST" xml:space="preserve">
+    <value>Café da manhã</value>
+  </data>
+  <data name="TITLE_CALL" xml:space="preserve">
+    <value>Chamada</value>
+  </data>
   <data name="TITLE_CATEGORIES" xml:space="preserve">
     <value>Categorias</value>
   </data>
   <data name="TITLE_CONTACT_US" xml:space="preserve">
     <value>Contate-nos</value>
   </data>
+  <data name="TITLE_COURSES" xml:space="preserve">
+    <value>Cursos</value>
+  </data>
   <data name="TITLE_DASHBOARD" xml:space="preserve">
     <value>Início</value>
+  </data>
+  <data name="TITLE_DINNER" xml:space="preserve">
+    <value>Jantar</value>
+  </data>
+  <data name="TITLE_FACEBOOK" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="TITLE_FAMILY" xml:space="preserve">
+    <value>Familia</value>
+  </data>
+  <data name="TITLE_FOOD" xml:space="preserve">
+    <value>Alimentação</value>
+  </data>
+  <data name="TITLE_GYM" xml:space="preserve">
+    <value>Academia</value>
   </data>
   <data name="TITLE_ICONS_ILLUSTRATIONS_USED" xml:space="preserve">
     <value>Icones e ilustrações utilizados</value>
   </data>
+  <data name="TITLE_INSTAGRAM" xml:space="preserve">
+    <value>Instagram</value>
+  </data>
+  <data name="TITLE_LUNCH" xml:space="preserve">
+    <value>Almoço</value>
+  </data>
+  <data name="TITLE_MEETINGS" xml:space="preserve">
+    <value>Reuniões</value>
+  </data>
+  <data name="TITLE_NEUTRAL" xml:space="preserve">
+    <value>Neutro</value>
+  </data>
+  <data name="TITLE_PERSONAL_PROJECTS" xml:space="preserve">
+    <value>Projetos pessoais</value>
+  </data>
+  <data name="TITLE_PODCASTS" xml:space="preserve">
+    <value>Podcasts</value>
+  </data>
   <data name="TITLE_PRIVACY_POLICY" xml:space="preserve">
     <value>Política de Privacidade</value>
+  </data>
+  <data name="TITLE_PRODUCTIVE" xml:space="preserve">
+    <value>Produtivo</value>
+  </data>
+  <data name="TITLE_PRODUCT_SEARCH" xml:space="preserve">
+    <value>Pesquisa de produto</value>
+  </data>
+  <data name="TITLE_PURCHASES" xml:space="preserve">
+    <value>Compras</value>
+  </data>
+  <data name="TITLE_SOCIAL_MEDIA" xml:space="preserve">
+    <value>Midias sociais</value>
+  </data>
+  <data name="TITLE_SPORT" xml:space="preserve">
+    <value>Esporte</value>
+  </data>
+  <data name="TITLE_STUDIES" xml:space="preserve">
+    <value>Estudos</value>
+  </data>
+  <data name="TITLE_SUPERMARKET" xml:space="preserve">
+    <value>Supermercado</value>
+  </data>
+  <data name="TITLE_TASKS" xml:space="preserve">
+    <value>Tarefas</value>
+  </data>
+  <data name="TITLE_TECHNOLOGY" xml:space="preserve">
+    <value>Tecnologia</value>
+  </data>
+  <data name="TITLE_TOUR" xml:space="preserve">
+    <value>Passeio</value>
+  </data>
+  <data name="TITLE_UNPRODUCTIVE" xml:space="preserve">
+    <value>Improdutivo</value>
   </data>
   <data name="TITLE_USE_TERMS" xml:space="preserve">
     <value>Termos de Uso</value>
   </data>
   <data name="TITLE_VERSION_NUMBER" xml:space="preserve">
     <value>Versão: {0}</value>
+  </data>
+  <data name="TITLE_WALKING" xml:space="preserve">
+    <value>Caminhada</value>
+  </data>
+  <data name="TITLE_WORK" xml:space="preserve">
+    <value>Trabalho</value>
+  </data>
+  <data name="TITLE_YOUTUBE" xml:space="preserve">
+    <value>YouTube</value>
   </data>
 </root>

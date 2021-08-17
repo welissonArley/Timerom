@@ -90,6 +90,33 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Books.
+        /// </summary>
+        public static string TITLE_BOOKS {
+            get {
+                return ResourceManager.GetString("TITLE_BOOKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Breakfast.
+        /// </summary>
+        public static string TITLE_BREAKFAST {
+            get {
+                return ResourceManager.GetString("TITLE_BREAKFAST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Call.
+        /// </summary>
+        public static string TITLE_CALL {
+            get {
+                return ResourceManager.GetString("TITLE_CALL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Categories.
         /// </summary>
         public static string TITLE_CATEGORIES {
@@ -108,11 +135,65 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Courses.
+        /// </summary>
+        public static string TITLE_COURSES {
+            get {
+                return ResourceManager.GetString("TITLE_COURSES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboard.
         /// </summary>
         public static string TITLE_DASHBOARD {
             get {
                 return ResourceManager.GetString("TITLE_DASHBOARD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dinner.
+        /// </summary>
+        public static string TITLE_DINNER {
+            get {
+                return ResourceManager.GetString("TITLE_DINNER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facebook.
+        /// </summary>
+        public static string TITLE_FACEBOOK {
+            get {
+                return ResourceManager.GetString("TITLE_FACEBOOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Family.
+        /// </summary>
+        public static string TITLE_FAMILY {
+            get {
+                return ResourceManager.GetString("TITLE_FAMILY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Food.
+        /// </summary>
+        public static string TITLE_FOOD {
+            get {
+                return ResourceManager.GetString("TITLE_FOOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gym.
+        /// </summary>
+        public static string TITLE_GYM {
+            get {
+                return ResourceManager.GetString("TITLE_GYM", resourceCulture);
             }
         }
         
@@ -126,11 +207,164 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Instagram.
+        /// </summary>
+        public static string TITLE_INSTAGRAM {
+            get {
+                return ResourceManager.GetString("TITLE_INSTAGRAM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lunch.
+        /// </summary>
+        public static string TITLE_LUNCH {
+            get {
+                return ResourceManager.GetString("TITLE_LUNCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meetings.
+        /// </summary>
+        public static string TITLE_MEETINGS {
+            get {
+                return ResourceManager.GetString("TITLE_MEETINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Neutral.
+        /// </summary>
+        public static string TITLE_NEUTRAL {
+            get {
+                return ResourceManager.GetString("TITLE_NEUTRAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal projects.
+        /// </summary>
+        public static string TITLE_PERSONAL_PROJECTS {
+            get {
+                return ResourceManager.GetString("TITLE_PERSONAL_PROJECTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podcasts.
+        /// </summary>
+        public static string TITLE_PODCASTS {
+            get {
+                return ResourceManager.GetString("TITLE_PODCASTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Privacy Policy.
         /// </summary>
         public static string TITLE_PRIVACY_POLICY {
             get {
                 return ResourceManager.GetString("TITLE_PRIVACY_POLICY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product search.
+        /// </summary>
+        public static string TITLE_PRODUCT_SEARCH {
+            get {
+                return ResourceManager.GetString("TITLE_PRODUCT_SEARCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Productive.
+        /// </summary>
+        public static string TITLE_PRODUCTIVE {
+            get {
+                return ResourceManager.GetString("TITLE_PRODUCTIVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Purchases.
+        /// </summary>
+        public static string TITLE_PURCHASES {
+            get {
+                return ResourceManager.GetString("TITLE_PURCHASES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Social media.
+        /// </summary>
+        public static string TITLE_SOCIAL_MEDIA {
+            get {
+                return ResourceManager.GetString("TITLE_SOCIAL_MEDIA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sport.
+        /// </summary>
+        public static string TITLE_SPORT {
+            get {
+                return ResourceManager.GetString("TITLE_SPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Studies.
+        /// </summary>
+        public static string TITLE_STUDIES {
+            get {
+                return ResourceManager.GetString("TITLE_STUDIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supermarket.
+        /// </summary>
+        public static string TITLE_SUPERMARKET {
+            get {
+                return ResourceManager.GetString("TITLE_SUPERMARKET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tasks.
+        /// </summary>
+        public static string TITLE_TASKS {
+            get {
+                return ResourceManager.GetString("TITLE_TASKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Technology.
+        /// </summary>
+        public static string TITLE_TECHNOLOGY {
+            get {
+                return ResourceManager.GetString("TITLE_TECHNOLOGY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tour.
+        /// </summary>
+        public static string TITLE_TOUR {
+            get {
+                return ResourceManager.GetString("TITLE_TOUR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unproductive.
+        /// </summary>
+        public static string TITLE_UNPRODUCTIVE {
+            get {
+                return ResourceManager.GetString("TITLE_UNPRODUCTIVE", resourceCulture);
             }
         }
         
@@ -149,6 +383,33 @@ namespace Timerom.App {
         public static string TITLE_VERSION_NUMBER {
             get {
                 return ResourceManager.GetString("TITLE_VERSION_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Walking.
+        /// </summary>
+        public static string TITLE_WALKING {
+            get {
+                return ResourceManager.GetString("TITLE_WALKING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work.
+        /// </summary>
+        public static string TITLE_WORK {
+            get {
+                return ResourceManager.GetString("TITLE_WORK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to YouTube.
+        /// </summary>
+        public static string TITLE_YOUTUBE {
+            get {
+                return ResourceManager.GetString("TITLE_YOUTUBE", resourceCulture);
             }
         }
     }

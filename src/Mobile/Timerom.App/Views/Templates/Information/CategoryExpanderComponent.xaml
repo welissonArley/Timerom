@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             x:Class="Timerom.App.Views.Templates.Information.CategoryExpanderComponent">
+  <ContentView.Content>
+        <xct:Expander IsExpanded="True" x:Name="ExpanderContent">
+            <xct:Expander.Header>
+                <StackLayout>
+                    <Grid ColumnDefinitions="12,*">
+                        <ffimageloadingsvg:SvgCachedImage VerticalOptions="CenterAndExpand" x:Name="ExpansionIndicatorHeader" Grid.Column="0" WidthRequest="12" Rotation="270" HeightRequest="12" Source="resource://Timerom.App.Resources.Svgs.ExpansionIndicator.svg">
+                            <ffimageloadingsvg:SvgCachedImage.Triggers>
+                                <DataTrigger TargetType="ffimageloadingsvg:SvgCachedImage" Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" Value="True">
+                                    <Setter Property="Rotation" Value="0"></Setter>
+                                </DataTrigger>
+                            </ffimageloadingsvg:SvgCachedImage.Triggers>
+                        </ffimageloadingsvg:SvgCachedImage>
+                        <Label Grid.Column="1" x:Name="LabelExpanderTitle" Margin="0,-4,0,0" VerticalOptions="CenterAndExpand" Style="{StaticResource LabelBold}"/>
+                    </Grid>
+                    <Line x:Name="LineHeader" Grid.Column="0" Grid.ColumnSpan="2" Margin="0"></Line>
+                </StackLayout>
+            </xct:Expander.Header>
+            <xct:Expander.ContentTemplate>
+                <DataTemplate>
+                    <StackLayout BindableLayout.ItemsSource="{Binding .}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <xct:Expander IsExpanded="False" Margin="22,20,0,0">
+                                    <xct:Expander.Header>
+                                        <Grid ColumnDefinitions="12,*">
+                                            <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Rotation="270" WidthRequest="12" HeightRequest="12" Source="resource://Timerom.App.Resources.Svgs.ExpansionIndicator.svg">
+                                                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                                    <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                                </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                                <ffimageloadingsvg:SvgCachedImage.Triggers>
+                                                    <DataTrigger TargetType="ffimageloadingsvg:SvgCachedImage" Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" Value="True">
+                                                        <Setter Property="Rotation" Value="0"></Setter>
+                                                    </DataTrigger>
+                                                </ffimageloadingsvg:SvgCachedImage.Triggers>
+                                            </ffimageloadingsvg:SvgCachedImage>
+                                            <Label Grid.Column="1" Text="{Binding Name}" Style="{StaticResource LabelBold}" Margin="0,0,0,0" />
+                                        </Grid>
+                                    </xct:Expander.Header>
+                                    <xct:Expander.ContentTemplate>
+                                        <DataTemplate>
+                                            <StackLayout BindableLayout.ItemsSource="{Binding Childrens}" Margin="26,0,0,0">
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Label Text="{Binding Name}" Margin="0,20,0,0"></Label>
+                                                    </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </xct:Expander.ContentTemplate>
+                                </xct:Expander>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </DataTemplate>
+            </xct:Expander.ContentTemplate>
+        </xct:Expander>
+    </ContentView.Content>
+</ContentView>

@@ -1,4 +1,4 @@
-﻿using Timerom.App.Views.Home;
+﻿using Timerom.App.Views.Views.Home;
 using Xamarin.Forms;
 
 namespace Timerom.App
