@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             x:Class="Timerom.App.App">
+<prism:PrismApplication   xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:prism="http://prismlibrary.com"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                          x:Class="Timerom.App.App">
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="DarkModePrimaryColor">#1F1E19</Color>
@@ -59,4 +60,4 @@
             </Style>
         </ResourceDictionary>
     </Application.Resources>
-</Application>
+</prism:PrismApplication>

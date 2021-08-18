@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timerom.App.Android", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timerom.App.iOS", "src\Mobile\Timerom.App.iOS\Timerom.App.iOS.csproj", "{F172AF30-1D47-49D3-83FD-74877B168A46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timerom.App", "src\Mobile\Timerom.App\Timerom.App.csproj", "{A940BC8B-4177-4239-A333-655833CADAB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timerom.App", "src\Mobile\Timerom.App\Timerom.App.csproj", "{A940BC8B-4177-4239-A333-655833CADAB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,5 @@
-﻿using Timerom.App.Droid.AppVersion;
-using Timerom.App.Services.AppVersion;
+﻿using Timerom.App.Services.AppVersion;
 
-[assembly: Xamarin.Forms.Dependency(typeof(AppVersionAndroid))]
 namespace Timerom.App.Droid.AppVersion
 {
     public class AppVersionAndroid : IAppVersion

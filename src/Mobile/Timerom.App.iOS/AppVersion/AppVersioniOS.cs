@@ -1,8 +1,6 @@
 ﻿using Foundation;
-using Timerom.App.iOS.AppVersion;
 using Timerom.App.Services.AppVersion;
 
-[assembly: Xamarin.Forms.Dependency(typeof(AppVersioniOS))]
 namespace Timerom.App.iOS.AppVersion
 {
     public class AppVersioniOS : IAppVersion
