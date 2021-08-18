@@ -29,26 +29,30 @@
                             <DataTemplate>
                                 <xct:Expander IsExpanded="False" Margin="22,20,0,0">
                                     <xct:Expander.Header>
-                                        <Grid ColumnDefinitions="12,*">
-                                            <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Rotation="270" WidthRequest="12" HeightRequest="12" Source="resource://Timerom.App.Resources.Svgs.ExpansionIndicator.svg">
-                                                <ffimageloadingsvg:SvgCachedImage.Transformations>
-                                                    <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
-                                                </ffimageloadingsvg:SvgCachedImage.Transformations>
-                                                <ffimageloadingsvg:SvgCachedImage.Triggers>
-                                                    <DataTrigger TargetType="ffimageloadingsvg:SvgCachedImage" Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" Value="True">
-                                                        <Setter Property="Rotation" Value="0"></Setter>
-                                                    </DataTrigger>
-                                                </ffimageloadingsvg:SvgCachedImage.Triggers>
-                                            </ffimageloadingsvg:SvgCachedImage>
-                                            <Label Grid.Column="1" Text="{Binding Name}" Style="{StaticResource LabelBold}" Margin="0,0,0,0" />
-                                        </Grid>
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <ffimageloadingsvg:SvgCachedImage Margin="0,3,0,0" VerticalOptions="CenterAndExpand" Rotation="270" WidthRequest="12" HeightRequest="12" Source="resource://Timerom.App.Resources.Svgs.ExpansionIndicator.svg">
+                                                    <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                                        <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                                    </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                                    <ffimageloadingsvg:SvgCachedImage.Triggers>
+                                                        <DataTrigger TargetType="ffimageloadingsvg:SvgCachedImage" Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" Value="True">
+                                                            <Setter Property="Rotation" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </ffimageloadingsvg:SvgCachedImage.Triggers>
+                                                </ffimageloadingsvg:SvgCachedImage>
+                                                <Label Text="{Binding Name}" VerticalOptions="CenterAndExpand" Style="{StaticResource LabelBold}" />
+                                            </StackLayout>
+                                        </StackLayout>
                                     </xct:Expander.Header>
                                     <xct:Expander.ContentTemplate>
                                         <DataTemplate>
                                             <StackLayout BindableLayout.ItemsSource="{Binding Childrens}" Margin="26,0,0,0">
                                                 <BindableLayout.ItemTemplate>
                                                     <DataTemplate>
-                                                        <Label Text="{Binding Name}" Margin="0,20,0,0"></Label>
+                                                        <StackLayout Margin="0,20,0,0">
+                                                            <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand"/>
+                                                        </StackLayout>
                                                     </DataTemplate>
                                                 </BindableLayout.ItemTemplate>
                                             </StackLayout>

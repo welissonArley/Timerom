@@ -1,4 +1,5 @@
 ﻿using Prism.Ioc;
+using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.App.ViewModels.AboutThisProject;
 using Timerom.App.ViewModels.Category;
 using Timerom.App.ViewModels.Home;
@@ -35,6 +36,8 @@ namespace Timerom.App
             containerRegistry.RegisterForNavigation<IlustrationsInformationsPage, IlustrationsInformationsViewModel>();
             containerRegistry.RegisterForNavigation<HomePageFlyout, HomePageFlyoutViewModel>();
             containerRegistry.RegisterForNavigation<CategoriesPage, CategoriesViewModel>();
+
+            containerRegistry.RegisterScoped<IGetAllCategoriesUseCase, UseCase.Categories.Local.GetAll.GetAllCategoriesUseCase>();
         }
     }
 }

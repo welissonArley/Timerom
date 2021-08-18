@@ -1,5 +1,4 @@
-﻿using Timerom.App.ViewModels.Category;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Timerom.App.Views.Views.Category
@@ -10,8 +9,6 @@ namespace Timerom.App.Views.Views.Category
         public CategoriesPage()
         {
             InitializeComponent();
-
-            BindingContext = new CategoriesViewModel();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using FFImageLoading.Transformations;
 using System.Collections.ObjectModel;
 using Timerom.App.ValueObjects;
 using Timerom.App.ValueObjects.Enuns;
@@ -36,14 +36,14 @@ namespace Timerom.App.Views.Templates.Information
                                                         defaultBindingMode: BindingMode.TwoWay,
                                                         propertyChanged: CategoryTypeChanged);
 
-        public IList<Model.Category> CategoryList
+        public ObservableCollection<Model.Category> CategoryList
         {
-            get => (IList<Model.Category>)GetValue(CategoryListProperty);
+            get => (ObservableCollection<Model.Category>)GetValue(CategoryListProperty);
             set => SetValue(CategoryListProperty, value);
         }
         public static readonly BindableProperty CategoryListProperty = BindableProperty.Create(
                                                         propertyName: "CategoryList",
-                                                        returnType: typeof(IList<Model.Category>),
+                                                        returnType: typeof(ObservableCollection<Model.Category>),
                                                         declaringType: typeof(CategoryExpanderComponent),
                                                         defaultValue: null,
                                                         defaultBindingMode: BindingMode.TwoWay,
@@ -63,7 +63,7 @@ namespace Timerom.App.Views.Templates.Information
                         var color = Application.Current.RequestedTheme == OSAppTheme.Light ? 
                             (Color)Application.Current.Resources["LigthProductiveColor"] : (Color)Application.Current.Resources["DarkProductiveColor"];
 
-                        ChangeComponentsHeaderColor(bindable, color);
+                        ChangeComponentsHeaderColor(bindable, color, new SvgColorTransformationLightModeDarkModeProductive());
                     }
                     break;
                 case CategoryType.Neutral:
@@ -71,7 +71,7 @@ namespace Timerom.App.Views.Templates.Information
                         var color = Application.Current.RequestedTheme == OSAppTheme.Light ?
                             (Color)Application.Current.Resources["LigthNeutralColor"] : (Color)Application.Current.Resources["DarkNeutralColor"];
 
-                        ChangeComponentsHeaderColor(bindable, color);
+                        ChangeComponentsHeaderColor(bindable, color, new SvgColorTransformationLightModeDarkModeNeutral());
                     }
                     break;
                 case CategoryType.Unproductive:
@@ -79,7 +79,7 @@ namespace Timerom.App.Views.Templates.Information
                         var color = Application.Current.RequestedTheme == OSAppTheme.Light ?
                             (Color)Application.Current.Resources["LigthUnproductiveColor"] : (Color)Application.Current.Resources["DarkUnproductiveColor"];
 
-                        ChangeComponentsHeaderColor(bindable, color);
+                        ChangeComponentsHeaderColor(bindable, color, new SvgColorTransformationLightModeDarkModeUnproductive());
                     }
                     break;
                 default:
@@ -91,14 +91,14 @@ namespace Timerom.App.Views.Templates.Information
             var list = oldValue != null && newValue == null ? oldValue : newValue;
 
             var component = (CategoryExpanderComponent)bindable;
-            component.BindingContext = new ObservableCollection<Model.Category>((IList<Model.Category>)list);
+            component.BindingContext = (ObservableCollection<Model.Category>)list;
         }
 
-        private static void ChangeComponentsHeaderColor(BindableObject bindable, Color color)
+        private static void ChangeComponentsHeaderColor(BindableObject bindable, Color color, TintTransformation transformation)
         {
             var component = (CategoryExpanderComponent)bindable;
 
-            component.ExpansionIndicatorHeader.Transformations.Add(new SvgColorTransformationLightModeDarkModeProductive());
+            component.ExpansionIndicatorHeader.Transformations.Add(transformation);
             component.LabelExpanderTitle.TextColor = color;
             component.LineHeader.BackgroundColor = color;
         }
