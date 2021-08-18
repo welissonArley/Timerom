@@ -42,6 +42,13 @@
                                                     </ffimageloadingsvg:SvgCachedImage.Triggers>
                                                 </ffimageloadingsvg:SvgCachedImage>
                                                 <Label Text="{Binding Name}" VerticalOptions="CenterAndExpand" Style="{StaticResource LabelBold}" />
+                                                <StackLayout WidthRequest="20" HeightRequest="15" HorizontalOptions="EndAndExpand">
+                                                    <ffimageloadingsvg:SvgCachedImage HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="10" HeightRequest="10" Source="resource://Timerom.App.Resources.Svgs.IconAddSolid.svg">
+                                                        <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                                            <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                                        </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                                    </ffimageloadingsvg:SvgCachedImage>
+                                                </StackLayout>
                                             </StackLayout>
                                         </StackLayout>
                                     </xct:Expander.Header>

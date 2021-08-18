@@ -17,6 +17,7 @@
     <None Remove="Resources\Fonts\Raleway-SemiBold.ttf" />
     <None Remove="Resources\Svgs\ExpansionIndicator.svg" />
     <None Remove="Resources\Svgs\IconActionSupport.svg" />
+    <None Remove="Resources\Svgs\IconAddSolid.svg" />
     <None Remove="Resources\Svgs\IconCategories.svg" />
     <None Remove="Resources\Svgs\IconDashboard.svg" />
     <None Remove="Resources\Svgs\IconIconsAndIllustrations.svg" />
@@ -31,6 +32,7 @@
     <EmbeddedResource Include="Resources\Fonts\Raleway-SemiBold.ttf" />
     <EmbeddedResource Include="Resources\Svgs\ExpansionIndicator.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconActionSupport.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconAddSolid.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconCategories.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconDashboard.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconIconsAndIllustrations.svg" />

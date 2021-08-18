@@ -7,12 +7,14 @@
              x:Name="CategoriesContentPage"
              x:Class="Timerom.App.Views.Views.Category.CategoriesPage">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Style="{StaticResource MarginStyleDefault}">
-                <component:CategoryExpanderComponent CategoryList="{Binding Path=BindingContext.ProductiveCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_PRODUCTIVE}" Category="{x:Static enuns:CategoryType.Productive}"/>
-                <component:CategoryExpanderComponent Margin="0,30,0,0" CategoryList="{Binding Path=BindingContext.NeutralCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_NEUTRAL}" Category="{x:Static enuns:CategoryType.Neutral}"/>
-                <component:CategoryExpanderComponent Margin="0,30,0,20" CategoryList="{Binding Path=BindingContext.UnproductiveCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_UNPRODUCTIVE}" Category="{x:Static enuns:CategoryType.Unproductive}"/>
-            </StackLayout>
-        </ScrollView>
+        <Grid RowDefinitions="*">
+            <ScrollView Grid.Row="0">
+                <StackLayout Style="{StaticResource MarginStyleDefault}">
+                    <component:CategoryExpanderComponent CategoryList="{Binding Path=BindingContext.ProductiveCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_PRODUCTIVE}" Category="{x:Static enuns:CategoryType.Productive}"/>
+                    <component:CategoryExpanderComponent Margin="0,30,0,0" CategoryList="{Binding Path=BindingContext.NeutralCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_NEUTRAL}" Category="{x:Static enuns:CategoryType.Neutral}"/>
+                    <component:CategoryExpanderComponent Margin="0,30,0,20" CategoryList="{Binding Path=BindingContext.UnproductiveCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_UNPRODUCTIVE}" Category="{x:Static enuns:CategoryType.Unproductive}"/>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
