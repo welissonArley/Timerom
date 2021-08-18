@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace Timerom.App.ViewModels.AboutThisProject
 {
-    public class IlustrationsInformationsViewModel
+    public class IlustrationsInformationsViewModel : Prism.Mvvm.BindableBase
     {
         public ICommand LinkCommand { protected set; get; }
 

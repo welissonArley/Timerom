@@ -1,5 +1,4 @@
-﻿using Timerom.App.ViewModels.AboutThisProject;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Timerom.App.Views.Views.AboutThisProject
@@ -10,8 +9,6 @@ namespace Timerom.App.Views.Views.AboutThisProject
         public IlustrationsInformationsPage()
         {
             InitializeComponent();
-
-            BindingContext = new IlustrationsInformationsViewModel();
         }
     }
 }

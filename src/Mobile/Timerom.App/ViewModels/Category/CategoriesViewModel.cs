@@ -1,24 +1,14 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using Prism.Mvvm;
+using System.Collections.Generic;
 
 namespace Timerom.App.ViewModels.Category
 {
-    public class CategoriesViewModel : INotifyPropertyChanged
+    public class CategoriesViewModel : BindableBase
     {
         public IList<Model.Category> ProductiveCategories { get; private set; }
 
         public CategoriesViewModel()
         {
         }
-
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
     }
 }

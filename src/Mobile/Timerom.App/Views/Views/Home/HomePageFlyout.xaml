@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:prism="http://prismlibrary.com"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
@@ -7,6 +8,7 @@
              xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
              xmlns:enuns="clr-namespace:Timerom.App.ValueObjects.Enuns"
              x:Class="Timerom.App.Views.Views.Home.HomePageFlyout"
+             prism:ViewModelLocator.AutowireViewModel="True"
              Title=" ">
     <StackLayout Margin="40,30,20,5">
         <StackLayout Orientation="Horizontal">
@@ -22,14 +24,14 @@
 
         <StackLayout Margin="0,30,0,0" VerticalOptions="FillAndExpand">
             <StackLayout Orientation="Horizontal" Opacity="0.3">
-                <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Dashboard_Tapped"></TapGestureRecognizer>
-                </StackLayout.GestureRecognizers>
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.Dashboard}">
-                        <Setter Property="Opacity" Value="1"></Setter>
+                        <Setter Property="Opacity" Value="1" />
                     </DataTrigger>
                 </StackLayout.Triggers>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding MenuItemSelectedCommand}" CommandParameter="{x:Static enuns:MenuItemOptions.Dashboard}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
                 <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconDashboard.svg">
                     <ffimageloadingsvg:SvgCachedImage.Transformations>
                         <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
@@ -39,14 +41,14 @@
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" Margin="0,25,0,0" Opacity="0.3">
-                <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Categories_Tapped"></TapGestureRecognizer>
-                </StackLayout.GestureRecognizers>
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.Categories}">
-                        <Setter Property="Opacity" Value="1"></Setter>
+                        <Setter Property="Opacity" Value="1" />
                     </DataTrigger>
                 </StackLayout.Triggers>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding MenuItemSelectedCommand}" CommandParameter="{x:Static enuns:MenuItemOptions.Categories}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
                 <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconCategories.svg">
                     <ffimageloadingsvg:SvgCachedImage.Transformations>
                         <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
@@ -57,6 +59,11 @@
 
             <StackLayout VerticalOptions="EndAndExpand">
                 <xct:Expander IsExpanded="False">
+                    <xct:Expander.Triggers>
+                        <DataTrigger TargetType="xct:Expander" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}">
+                            <Setter Property="IsExpanded" Value="True" />
+                        </DataTrigger>
+                    </xct:Expander.Triggers>
                     <xct:Expander.Header>
                         <Grid>
                             <Label Text="{x:Static resource:ResourceText.TITLE_ABOUT_THIS_PROJECT}" TextTransform="Uppercase" Style="{StaticResource LabelSemiBold}" />
@@ -76,11 +83,6 @@
                         <DataTemplate>
                             <StackLayout Margin="0,20,0,0">
                                 <StackLayout Orientation="Horizontal" Opacity="0.3">
-                                    <StackLayout.Triggers>
-                                        <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.PrivacyPolicy}">
-                                            <Setter Property="Opacity" Value="1"></Setter>
-                                        </DataTrigger>
-                                    </StackLayout.Triggers>
                                     <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconPrivacyPolicy.svg">
                                         <ffimageloadingsvg:SvgCachedImage.Transformations>
                                             <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
@@ -90,11 +92,6 @@
                                 </StackLayout>
 
                                 <StackLayout Orientation="Horizontal" Margin="0,25,0,0" Opacity="0.3">
-                                    <StackLayout.Triggers>
-                                        <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.UseTerms}">
-                                            <Setter Property="Opacity" Value="1"></Setter>
-                                        </DataTrigger>
-                                    </StackLayout.Triggers>
                                     <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconUseTerms.svg">
                                         <ffimageloadingsvg:SvgCachedImage.Transformations>
                                             <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
@@ -104,14 +101,14 @@
                                 </StackLayout>
 
                                 <StackLayout Orientation="Horizontal" Margin="0,25,0,0" Opacity="0.3">
-                                    <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="IconsAndIllustrationsUsed_Tapped"></TapGestureRecognizer>
-                                    </StackLayout.GestureRecognizers>
                                     <StackLayout.Triggers>
                                         <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}">
-                                            <Setter Property="Opacity" Value="1"></Setter>
+                                            <Setter Property="Opacity" Value="1" />
                                         </DataTrigger>
                                     </StackLayout.Triggers>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding MenuItemSelectedCommand}" CommandParameter="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
                                     <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconIconsAndIllustrations.svg">
                                         <ffimageloadingsvg:SvgCachedImage.Transformations>
                                             <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
@@ -143,11 +140,6 @@
                     <xct:Expander.ContentTemplate>
                         <DataTemplate>
                             <StackLayout Margin="0,20,0,0" Opacity="0.3">
-                                <StackLayout.Triggers>
-                                    <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.ContactUs}">
-                                        <Setter Property="Opacity" Value="1"></Setter>
-                                    </DataTrigger>
-                                </StackLayout.Triggers>
                                 <StackLayout Orientation="Horizontal">
                                     <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconActionSupport.svg">
                                         <ffimageloadingsvg:SvgCachedImage.Transformations>
@@ -163,6 +155,6 @@
             </StackLayout>
         </StackLayout>
 
-        <Label x:Name="LabelVersion" Style="{StaticResource LabelBold}" Margin="0,50,0,0"></Label>
+        <Label Text="{Binding VersionText}" Style="{StaticResource LabelBold}" Margin="0,50,0,0"></Label>
     </StackLayout>
 </ContentPage>
