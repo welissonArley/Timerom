@@ -51,7 +51,10 @@
                 <Setter Property="FontFamily" Value="RalewayRegular"></Setter>
                 <Setter Property="TextColor" Value="{AppThemeBinding Light='#0077AA', Dark='#05B4FF'}"></Setter>
             </Style>
-
+            <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelExtraBold" BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="FontFamily" Value="RalewayExtraBold"></Setter>
+            </Style>
+            
             <Style TargetType="Line" ApplyToDerivedTypes="True">
                 <Setter Property="Opacity" Value="0.05"></Setter>
                 <Setter Property="HeightRequest" Value="2"></Setter>
