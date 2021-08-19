@@ -135,6 +135,9 @@
     <PackageReference Include="Prism.Unity.Forms">
       <Version>8.1.97</Version>
     </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>2.0.0.12</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
       <Version>2.4.11.982</Version>
     </PackageReference>
@@ -174,5 +177,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\IlustrationGirlAndCat%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FloatActionButton_Lightmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FloatActionButton_Darkmode.png" />
   </ItemGroup>
 </Project>

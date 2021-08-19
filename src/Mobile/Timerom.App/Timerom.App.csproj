@@ -12,14 +12,17 @@
 
   <ItemGroup>
     <None Remove="Resources\Fonts\Raleway-Bold.ttf" />
+    <None Remove="Resources\Fonts\Raleway-ExtraBold.ttf" />
     <None Remove="Resources\Fonts\Raleway-ExtraLight.ttf" />
     <None Remove="Resources\Fonts\Raleway-Regular.ttf" />
     <None Remove="Resources\Fonts\Raleway-SemiBold.ttf" />
     <None Remove="Resources\Svgs\ExpansionIndicator.svg" />
     <None Remove="Resources\Svgs\IconActionSupport.svg" />
+    <None Remove="Resources\Svgs\IconAdd.svg" />
     <None Remove="Resources\Svgs\IconAddSolid.svg" />
     <None Remove="Resources\Svgs\IconCategories.svg" />
     <None Remove="Resources\Svgs\IconDashboard.svg" />
+    <None Remove="Resources\Svgs\IconEdit.svg" />
     <None Remove="Resources\Svgs\IconIconsAndIllustrations.svg" />
     <None Remove="Resources\Svgs\IconPrivacyPolicy.svg" />
     <None Remove="Resources\Svgs\IconUseTerms.svg" />
@@ -27,14 +30,17 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Fonts\Raleway-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-ExtraBold.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Raleway-ExtraLight.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Raleway-Regular.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Raleway-SemiBold.ttf" />
     <EmbeddedResource Include="Resources\Svgs\ExpansionIndicator.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconActionSupport.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconAdd.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconAddSolid.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconCategories.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconDashboard.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconEdit.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconIconsAndIllustrations.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconPrivacyPolicy.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconUseTerms.svg" />
@@ -43,7 +49,9 @@
   <ItemGroup>
     <PackageReference Include="Prism.DryIoc.Forms" Version="8.1.97" />
     <PackageReference Include="Prism.Forms" Version="8.1.97" />
+    <PackageReference Include="Prism.Plugin.Popups" Version="8.0.76" />
     <PackageReference Include="Prism.Unity.Forms" Version="8.1.97" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.12" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
@@ -71,7 +79,16 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Modal\MenuOptions\FloatActionCategoriesModal.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Button\FloatActionButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\Information\CategoryExpanderComponent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Information\ItemFloatButtonTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Views\AboutThisProject\IlustrationsInformationsPage.xaml">
