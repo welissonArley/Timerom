@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:resource="clr-namespace:Timerom.App"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:template="clr-namespace:Timerom.App.Views.Templates.Information"
+                 BackgroundColor="Transparent"
+                 x:Class="Timerom.App.Views.Modal.MenuOptions.FloatActionCategoriesModal">
+  <Frame BackgroundColor="Transparent" VerticalOptions="End" HorizontalOptions="End" HasShadow="True" WidthRequest="310" HeightRequest="250" Padding="0" Margin="0,0,20,95">
+      <StackLayout VerticalOptions="End" HorizontalOptions="End">
+            <template:ItemFloatButtonTemplate Icon="resource://Timerom.App.Resources.Svgs.IconAdd.svg" ItemName="{x:Static resource:ResourceText.TITLE_ADD_PRODUCTIVE_CATEGORY}" TextColor="{AppThemeBinding Dark={StaticResource LigthProductiveColor}, Light={StaticResource DarkProductiveColor}}">
+                <template:ItemFloatButtonTemplate.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Command}"></TapGestureRecognizer>
+                </template:ItemFloatButtonTemplate.GestureRecognizers>
+            </template:ItemFloatButtonTemplate>
+            <template:ItemFloatButtonTemplate Icon="resource://Timerom.App.Resources.Svgs.IconAdd.svg" ItemName="{x:Static resource:ResourceText.TITLE_ADD_NEUTRAL_CATEGORY}" TextColor="{AppThemeBinding Dark={StaticResource LigthNeutralColor}, Light={StaticResource DarkNeutralColor}}" Margin="0,15,0,0"/>
+            <template:ItemFloatButtonTemplate Icon="resource://Timerom.App.Resources.Svgs.IconAdd.svg" ItemName="{x:Static resource:ResourceText.TITLE_ADD_UNPRODUCTIVE_CATEGORY}" TextColor="{AppThemeBinding Dark={StaticResource LigthUnproductiveColor}, Light={StaticResource DarkUnproductiveColor}}" Margin="0,15,0,0"/>
+            <template:ItemFloatButtonTemplate Icon="resource://Timerom.App.Resources.Svgs.IconEdit.svg" ItemName="{x:Static resource:ResourceText.TITLE_UPDATE_CATEGORY}" TextColor="{AppThemeBinding Dark={StaticResource DarkModePrimaryColor}, Light=White}" Margin="0,15,0,0"/>
+        </StackLayout>
+  </Frame>
+</pages:PopupPage>

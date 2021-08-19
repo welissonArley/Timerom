@@ -90,6 +90,33 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Neutral Category.
+        /// </summary>
+        public static string TITLE_ADD_NEUTRAL_CATEGORY {
+            get {
+                return ResourceManager.GetString("TITLE_ADD_NEUTRAL_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Productive Category.
+        /// </summary>
+        public static string TITLE_ADD_PRODUCTIVE_CATEGORY {
+            get {
+                return ResourceManager.GetString("TITLE_ADD_PRODUCTIVE_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Unproductive Category.
+        /// </summary>
+        public static string TITLE_ADD_UNPRODUCTIVE_CATEGORY {
+            get {
+                return ResourceManager.GetString("TITLE_ADD_UNPRODUCTIVE_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Books.
         /// </summary>
         public static string TITLE_BOOKS {
@@ -365,6 +392,15 @@ namespace Timerom.App {
         public static string TITLE_UNPRODUCTIVE {
             get {
                 return ResourceManager.GetString("TITLE_UNPRODUCTIVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Category.
+        /// </summary>
+        public static string TITLE_UPDATE_CATEGORY {
+            get {
+                return ResourceManager.GetString("TITLE_UPDATE_CATEGORY", resourceCulture);
             }
         }
         

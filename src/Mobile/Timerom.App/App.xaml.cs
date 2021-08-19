@@ -1,8 +1,10 @@
 ﻿using Prism.Ioc;
+using Prism.Plugin.Popups;
 using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.App.ViewModels.AboutThisProject;
 using Timerom.App.ViewModels.Category;
 using Timerom.App.ViewModels.Home;
+using Timerom.App.Views.Modal.MenuOptions;
 using Timerom.App.Views.Views.AboutThisProject;
 using Timerom.App.Views.Views.Category;
 using Timerom.App.Views.Views.Home;
@@ -31,12 +33,27 @@ namespace Timerom.App
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterPopupNavigationService();
+
+            RegisterPages(containerRegistry);
+            RegisterModals(containerRegistry);
+            RegisterUseCases(containerRegistry);
+        }
+
+        private void RegisterPages(IContainerRegistry containerRegistry)
+        {
             containerRegistry.RegisterForNavigation<HomePage>();
             containerRegistry.RegisterForNavigation<HomePageDetail>();
             containerRegistry.RegisterForNavigation<IlustrationsInformationsPage, IlustrationsInformationsViewModel>();
             containerRegistry.RegisterForNavigation<HomePageFlyout, HomePageFlyoutViewModel>();
             containerRegistry.RegisterForNavigation<CategoriesPage, CategoriesViewModel>();
-
+        }
+        private void RegisterModals(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterForNavigation<FloatActionCategoriesModal, FloatActionCategoriesViewModel>();
+        }
+        private void RegisterUseCases(IContainerRegistry containerRegistry)
+        {
             containerRegistry.RegisterScoped<IGetAllCategoriesUseCase, UseCase.Categories.Local.GetAll.GetAllCategoriesUseCase>();
         }
     }
