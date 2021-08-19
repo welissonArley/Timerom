@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:enuns="clr-namespace:Timerom.App.ValueObjects.Enuns"
+             xmlns:templateButton="clr-namespace:Timerom.App.Views.Templates.Button"
              xmlns:component="clr-namespace:Timerom.App.Views.Templates.Information"
              x:Name="CategoriesContentPage"
              x:Class="Timerom.App.Views.Views.Category.CategoriesPage">
@@ -15,6 +16,8 @@
                     <component:CategoryExpanderComponent Margin="0,30,0,20" CategoryList="{Binding Path=BindingContext.UnproductiveCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_UNPRODUCTIVE}" Category="{x:Static enuns:CategoryType.Unproductive}"/>
                 </StackLayout>
             </ScrollView>
+
+            <templateButton:FloatActionButton TappedButtonCommand="{Binding Path=BindingContext.FloatActionCommand, Source={x:Reference Name=CategoriesContentPage}}" Grid.Row="0" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
