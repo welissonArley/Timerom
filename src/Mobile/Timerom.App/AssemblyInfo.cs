@@ -8,3 +8,4 @@ using Xamarin.Forms.Xaml;
 [assembly: ExportFont("Raleway-SemiBold.ttf", Alias = "RalewaySemiBold")]
 [assembly: ExportFont("Raleway-Regular.ttf", Alias = "RalewayRegular")]
 [assembly: ExportFont("Raleway-ExtraBold.ttf", Alias = "RalewayExtraBold")]
+[assembly: ExportFont("Raleway-Light.ttf", Alias = "RalewayLight")]

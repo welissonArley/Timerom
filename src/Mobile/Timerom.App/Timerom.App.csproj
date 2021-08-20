@@ -14,6 +14,7 @@
     <None Remove="Resources\Fonts\Raleway-Bold.ttf" />
     <None Remove="Resources\Fonts\Raleway-ExtraBold.ttf" />
     <None Remove="Resources\Fonts\Raleway-ExtraLight.ttf" />
+    <None Remove="Resources\Fonts\Raleway-Light.ttf" />
     <None Remove="Resources\Fonts\Raleway-Regular.ttf" />
     <None Remove="Resources\Fonts\Raleway-SemiBold.ttf" />
     <None Remove="Resources\Svgs\ExpansionIndicator.svg" />
@@ -32,6 +33,7 @@
     <EmbeddedResource Include="Resources\Fonts\Raleway-Bold.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Raleway-ExtraBold.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Raleway-ExtraLight.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Light.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Raleway-Regular.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Raleway-SemiBold.ttf" />
     <EmbeddedResource Include="Resources\Svgs\ExpansionIndicator.svg" />
@@ -89,6 +91,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\Information\ItemFloatButtonTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\TextWithLabel\InputTextWithLabelComponent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Views\AboutThisProject\IlustrationsInformationsPage.xaml">
