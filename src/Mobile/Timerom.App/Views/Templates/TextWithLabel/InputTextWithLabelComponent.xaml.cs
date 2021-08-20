@@ -32,6 +32,24 @@ namespace Timerom.App.Views.Templates.TextWithLabel
                                                         defaultBindingMode: BindingMode.TwoWay,
                                                         propertyChanged: PlaceHolderChanged);
 
+        public object BindingEntry
+        {
+            get => GetValue(BindindEntryProperty);
+            set => SetValue(BindindEntryProperty, value);
+        }
+        public static readonly BindableProperty BindindEntryProperty = BindableProperty.Create(
+                                                        propertyName: "BindingEntry",
+                                                        returnType: typeof(object),
+                                                        declaringType: typeof(InputTextWithLabelComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.TwoWay,
+                                                        propertyChanged: BindindEntryChanged);
+
+        private static void BindindEntryChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var bindableComponent = (InputTextWithLabelComponent)bindable;
+            bindableComponent.Entry.SetBinding(Xamarin.Forms.Entry.TextProperty, (Binding)newValue);
+        }
         private static void TitleChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var component = (InputTextWithLabelComponent)bindable;
