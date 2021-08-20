@@ -4,6 +4,7 @@ using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.App.ViewModels.AboutThisProject;
 using Timerom.App.ViewModels.Category;
 using Timerom.App.ViewModels.Home;
+using Timerom.App.ViewModels.Modal.MenuOptions;
 using Timerom.App.Views.Modal.MenuOptions;
 using Timerom.App.Views.Views.AboutThisProject;
 using Timerom.App.Views.Views.Category;
@@ -47,6 +48,7 @@ namespace Timerom.App
             containerRegistry.RegisterForNavigation<IlustrationsInformationsPage, IlustrationsInformationsViewModel>();
             containerRegistry.RegisterForNavigation<HomePageFlyout, HomePageFlyoutViewModel>();
             containerRegistry.RegisterForNavigation<CategoriesPage, CategoriesViewModel>();
+            containerRegistry.RegisterForNavigation<AddUpdateCategoryPage, AddUpdateCategoryViewModel>();
         }
         private void RegisterModals(IContainerRegistry containerRegistry)
         {
