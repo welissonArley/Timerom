@@ -38,6 +38,9 @@
 
             <Style TargetType="Label" ApplyToDerivedTypes="True" BasedOn="{StaticResource LabelBaseStyle}"/>
 
+            <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelLight" BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="FontFamily" Value="RalewayLight"></Setter>
+            </Style>
             <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelExtraLight" BasedOn="{StaticResource LabelBaseStyle}">
                 <Setter Property="FontFamily" Value="RalewayExtraLight"></Setter>
             </Style>
@@ -54,12 +57,31 @@
             <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelExtraBold" BasedOn="{StaticResource LabelBaseStyle}">
                 <Setter Property="FontFamily" Value="RalewayExtraBold"></Setter>
             </Style>
+            <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelTitle" BasedOn="{StaticResource LabelExtraBold}">
+                <Setter Property="FontSize" Value="23"></Setter>
+            </Style>
             
             <Style TargetType="Line" ApplyToDerivedTypes="True">
                 <Setter Property="Opacity" Value="0.05"></Setter>
                 <Setter Property="HeightRequest" Value="2"></Setter>
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=White, Light=Black}"></Setter>
                 <Setter Property="Margin" Value="0,10,0,0"></Setter>
+            </Style>
+
+            <Style TargetType="Entry" ApplyToDerivedTypes="True">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontFamily" Value="RalewayRegular"/>
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light=#696969, Dark=#1F1E19}"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=White, Dark=Black}"/>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                <Setter Property="CornerRadius" Value="7"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="RalewayBold"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="Margin" Value="0,30,0,0"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

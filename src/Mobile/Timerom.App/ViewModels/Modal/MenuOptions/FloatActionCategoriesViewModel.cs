@@ -24,7 +24,12 @@ namespace Timerom.App.ViewModels.Modal.MenuOptions
 
         private async Task AddCategoryCommandExecuted(CategoryType categoryType)
         {
-            await _navigationService.NavigateAsync(nameof(AddUpdateCategoryPage));
+            var navParameters = new NavigationParameters
+            {
+                { "Category", new Model.Category { Type = categoryType } }
+            };
+
+            await _navigationService.NavigateAsync(nameof(AddUpdateCategoryPage), navParameters);
         }
     }
 }

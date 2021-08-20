@@ -153,6 +153,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Category name:.
+        /// </summary>
+        public static string TITLE_CATEGORY_NAME_TWO_POINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CATEGORY_NAME_TWO_POINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact Us.
         /// </summary>
         public static string TITLE_CONTACT_US {
@@ -171,6 +180,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create Category.
+        /// </summary>
+        public static string TITLE_CREATE_CATEGORY {
+            get {
+                return ResourceManager.GetString("TITLE_CREATE_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboard.
         /// </summary>
         public static string TITLE_DASHBOARD {
@@ -185,6 +203,15 @@ namespace Timerom.App {
         public static string TITLE_DINNER {
             get {
                 return ResourceManager.GetString("TITLE_DINNER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empty list.
+        /// </summary>
+        public static string TITLE_EMPTY_LIST {
+            get {
+                return ResourceManager.GetString("TITLE_EMPTY_LIST", resourceCulture);
             }
         }
         
@@ -324,6 +351,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string TITLE_SAVE {
+            get {
+                return ResourceManager.GetString("TITLE_SAVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Social media.
         /// </summary>
         public static string TITLE_SOCIAL_MEDIA {
@@ -347,6 +383,15 @@ namespace Timerom.App {
         public static string TITLE_STUDIES {
             get {
                 return ResourceManager.GetString("TITLE_STUDIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sub categories:.
+        /// </summary>
+        public static string TITLE_SUBCATEGORIES_TITLE_TWO_POINTS {
+            get {
+                return ResourceManager.GetString("TITLE_SUBCATEGORIES_TITLE_TWO_POINTS", resourceCulture);
             }
         }
         
@@ -401,6 +446,15 @@ namespace Timerom.App {
         public static string TITLE_UPDATE_CATEGORY {
             get {
                 return ResourceManager.GetString("TITLE_UPDATE_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the field above to Add new Subcategories.
+        /// </summary>
+        public static string TITLE_USE_FIELD_ABOVE_ADD_NEW_SUBCATEGORIES {
+            get {
+                return ResourceManager.GetString("TITLE_USE_FIELD_ABOVE_ADD_NEW_SUBCATEGORIES", resourceCulture);
             }
         }
         
