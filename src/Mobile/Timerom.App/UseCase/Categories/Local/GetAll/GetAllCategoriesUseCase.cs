@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Repository;
@@ -27,12 +28,13 @@ namespace Timerom.App.UseCase.Categories.Local.GetAll
                 Id = c.Id,
                 Name = c.Name,
                 Type = c.Type,
-                Childrens = list.Where(w => w.ParentCategoryId.HasValue && w.ParentCategoryId.Value == c.Id).Select(k => new Model.Category
-                {
-                    Id = k.Id,
-                    Name = k.Name,
-                    Type = k.Type
-                }).OrderBy(w => w.Name).ToList()
+                Childrens = new ObservableCollection<Model.Category>(
+                    list.Where(w => w.ParentCategoryId.HasValue && w.ParentCategoryId.Value == c.Id).Select(k => new Model.Category
+                    {
+                        Id = k.Id,
+                        Name = k.Name,
+                        Type = k.Type
+                    }).OrderBy(w => w.Name))
             }).OrderBy(c => c.Name).ToList();
         }
     }

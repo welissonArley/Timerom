@@ -7,7 +7,7 @@ namespace Timerom.App.ViewModels.AboutThisProject
 {
     public class IlustrationsInformationsViewModel : Prism.Mvvm.BindableBase
     {
-        public ICommand LinkCommand { protected set; get; }
+        public ICommand LinkCommand { private set; get; }
 
         public IlustrationsInformationsViewModel()
         {

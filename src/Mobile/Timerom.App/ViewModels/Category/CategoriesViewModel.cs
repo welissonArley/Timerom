@@ -4,6 +4,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Timerom.App.UseCase.Categories.Interfaces;
+using Timerom.App.Views.Modal.MenuOptions;
 using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Category
@@ -32,7 +33,7 @@ namespace Timerom.App.ViewModels.Category
 
         private async Task FloatActionCommandExecute()
         {
-            await _navigationService.NavigateAsync("FloatActionCategoriesModal", useModalNavigation: true);
+            await _navigationService.NavigateAsync(nameof(FloatActionCategoriesModal), useModalNavigation: true);
         }
 
         public async Task InitializeAsync(INavigationParameters parameters)
