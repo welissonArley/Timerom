@@ -17,7 +17,7 @@
                 </StackLayout>
             </ScrollView>
 
-            <templateButton:FloatActionButton TappedButtonCommand="{Binding Path=BindingContext.FloatActionCommand, Source={x:Reference Name=CategoriesContentPage}}" Grid.Row="0" />
+            <templateButton:FloatActionButton Margin="0,0,20,20" VerticalOptions="End" HorizontalOptions="End" TappedButtonCommand="{Binding Path=BindingContext.FloatActionCommand, Source={x:Reference Name=CategoriesContentPage}}" Grid.Row="0" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
