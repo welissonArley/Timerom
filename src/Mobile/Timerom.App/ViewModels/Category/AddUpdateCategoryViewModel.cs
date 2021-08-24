@@ -30,7 +30,16 @@ namespace Timerom.App.ViewModels.Category
 
         private async Task SaveCommandExecuted()
         {
+            SavingStatus();
+
             await _useCase.Execute(Category);
+
+            SubCategoryName = "";
+            Category = new Model.Category { Type = Category.Type };
+            RaisePropertyChanged("SubCategoryName");
+            RaisePropertyChanged("Category");
+
+            await SucessStatus(3000);
         }
         private Task AddSubCategoryCommandExecuted()
         {

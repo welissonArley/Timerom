@@ -360,6 +360,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Salving ....
+        /// </summary>
+        public static string TITLE_SAVING {
+            get {
+                return ResourceManager.GetString("TITLE_SAVING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Social media.
         /// </summary>
         public static string TITLE_SOCIAL_MEDIA {
@@ -392,6 +401,15 @@ namespace Timerom.App {
         public static string TITLE_SUBCATEGORIES_TITLE_TWO_POINTS {
             get {
                 return ResourceManager.GetString("TITLE_SUBCATEGORIES_TITLE_TWO_POINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        public static string TITLE_SUCCESS {
+            get {
+                return ResourceManager.GetString("TITLE_SUCCESS", resourceCulture);
             }
         }
         
@@ -500,6 +518,15 @@ namespace Timerom.App {
         public static string TITLE_WORK {
             get {
                 return ResourceManager.GetString("TITLE_WORK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can save more categories of the same type if you want :).
+        /// </summary>
+        public static string TITLE_YOU_CAN_SAVE_MORE_CATEGORIES {
+            get {
+                return ResourceManager.GetString("TITLE_YOU_CAN_SAVE_MORE_CATEGORIES", resourceCulture);
             }
         }
         

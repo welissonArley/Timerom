@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Timerom.App.Views.Templates.Status.LoadingTemplate">
+  <ContentView.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <ActivityIndicator HeightRequest="35" WidthRequest="35" IsRunning="True" Color="{AppThemeBinding Light=#4B6A88, Dark=#ECF0F1}"/>
+            <Label x:Name="LabelText" Style="{x:StaticResource LabelBold}" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

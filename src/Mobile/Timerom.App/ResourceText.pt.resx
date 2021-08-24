@@ -218,6 +218,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_SAVE" xml:space="preserve">
     <value>Salvar</value>
   </data>
+  <data name="TITLE_SAVING" xml:space="preserve">
+    <value>Salvando ...</value>
+  </data>
   <data name="TITLE_SOCIAL_MEDIA" xml:space="preserve">
     <value>Midias sociais</value>
   </data>
@@ -229,6 +232,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_SUBCATEGORIES_TITLE_TWO_POINTS" xml:space="preserve">
     <value>Sub categorias:</value>
+  </data>
+  <data name="TITLE_SUCCESS" xml:space="preserve">
+    <value>Sucesso</value>
   </data>
   <data name="TITLE_SUPERMARKET" xml:space="preserve">
     <value>Supermercado</value>
@@ -268,5 +274,8 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_YOUTUBE" xml:space="preserve">
     <value>YouTube</value>
+  </data>
+  <data name="TITLE_YOU_CAN_SAVE_MORE_CATEGORIES" xml:space="preserve">
+    <value>Você pode salvar mais categorias do mesmo tipo se desejar :)</value>
   </data>
 </root>

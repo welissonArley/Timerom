@@ -26,6 +26,7 @@
     <None Remove="Resources\Svgs\IconEdit.svg" />
     <None Remove="Resources\Svgs\IconIconsAndIllustrations.svg" />
     <None Remove="Resources\Svgs\IconPrivacyPolicy.svg" />
+    <None Remove="Resources\Svgs\IconSuccess.svg" />
     <None Remove="Resources\Svgs\IconUseTerms.svg" />
   </ItemGroup>
 
@@ -45,6 +46,7 @@
     <EmbeddedResource Include="Resources\Svgs\IconEdit.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconIconsAndIllustrations.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconPrivacyPolicy.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconSuccess.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconUseTerms.svg" />
   </ItemGroup>
 
@@ -76,6 +78,9 @@
     <Compile Update="Views\Templates\Information\CategoryExpanderComponent.xaml.cs">
       <DependentUpon>CategoryExpanderComponent.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Templates\Status\SuccessTemplate.xaml.cs">
+      <DependentUpon>SuccessTemplate.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -102,6 +107,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\Information\ItemSubCategoryComponent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Status\LoadingTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\TextWithLabel\InputTextWithLabelComponent.xaml">

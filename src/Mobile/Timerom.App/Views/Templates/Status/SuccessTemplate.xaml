@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="Timerom.App.Views.Templates.Status.SuccessTemplate">
+  <ContentView.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <ffimageloadingsvg:SvgCachedImage HorizontalOptions="CenterAndExpand" WidthRequest="70" HeightRequest="70" Source="resource://Timerom.App.Resources.Svgs.IconSuccess.svg"/>
+            <Label Margin="0,10,0,0" x:Name="LabelTitle" Style="{StaticResource LabelBold}" FontSize="20" HorizontalOptions="Fill" HorizontalTextAlignment="Center" />
+            <Label x:Name="LabelMessage" FontSize="16" HorizontalOptions="Fill" HorizontalTextAlignment="Center" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
