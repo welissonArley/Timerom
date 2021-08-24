@@ -242,6 +242,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_TOUR" xml:space="preserve">
     <value>Passeio</value>
   </data>
+  <data name="TITLE_UNKNOWN_ERROR" xml:space="preserve">
+    <value>Erro desconhecido</value>
+  </data>
   <data name="TITLE_UNPRODUCTIVE" xml:space="preserve">
     <value>Improdutivo</value>
   </data>

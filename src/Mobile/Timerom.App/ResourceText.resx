@@ -242,6 +242,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_TOUR" xml:space="preserve">
     <value>Tour</value>
   </data>
+  <data name="TITLE_UNKNOWN_ERROR" xml:space="preserve">
+    <value>Unknown error</value>
+  </data>
   <data name="TITLE_UNPRODUCTIVE" xml:space="preserve">
     <value>Unproductive</value>
   </data>

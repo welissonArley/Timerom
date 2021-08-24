@@ -432,6 +432,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unknown error.
+        /// </summary>
+        public static string TITLE_UNKNOWN_ERROR {
+            get {
+                return ResourceManager.GetString("TITLE_UNKNOWN_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unproductive.
         /// </summary>
         public static string TITLE_UNPRODUCTIVE {

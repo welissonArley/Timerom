@@ -41,6 +41,12 @@ namespace Timerom.App.Repository
             return await _database.Table<Category>().ToListAsync();
         }
 
+        public async Task<bool> ExisteParentCategoryWithName(string name)
+        {
+            var count = await _database.Table<Category>().CountAsync(c => c.Name.ToUpper().Equals(name.ToUpper()) && c.ParentCategoryId == null);
+            return count > 0;
+        }
+
         private static async Task Migrations()
         {
             await _database.InsertAllAsync(FoodCategory());

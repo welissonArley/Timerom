@@ -60,6 +60,7 @@ namespace Timerom.App
         private void RegisterUseCases(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterScoped<IGetAllCategoriesUseCase, UseCase.Categories.Local.GetAll.GetAllCategoriesUseCase>();
+            containerRegistry.RegisterScoped<IInsertCategoryUseCase, UseCase.Categories.Local.Insert.InsertCategoryUseCase>();
         }
     }
 }

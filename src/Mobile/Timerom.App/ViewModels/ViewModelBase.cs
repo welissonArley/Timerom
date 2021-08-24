@@ -2,6 +2,7 @@
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
+using Timerom.Exception.ExceptionBase;
 
 namespace Timerom.App.ViewModels
 {
@@ -17,7 +18,7 @@ namespace Timerom.App.ViewModels
             this.navigationService = navigationService;
         }
 
-        protected void HandleException(Exception exception)
+        protected void HandleException(System.Exception exception)
         {
             NavigationParameters navParameters = new NavigationParameters
             {
@@ -27,9 +28,14 @@ namespace Timerom.App.ViewModels
             _navigationService.NavigateAsync(nameof(Views.Modal.OperationErrorModal), navParameters, useModalNavigation: true);
         }
 
-        private List<string> ShowException(Exception exception)
+        private List<string> ShowException(System.Exception exception)
         {
-            return new List<string> { exception.Message };
+            if (exception is ErrorOnValidationException validacaoException)
+                return validacaoException.ErrorMensages;
+            else if (exception is TimeromException)
+                return new List<string> { exception.Message };
+            else
+                return new List<string> { ResourceText.TITLE_UNKNOWN_ERROR };
         }
     }
 }

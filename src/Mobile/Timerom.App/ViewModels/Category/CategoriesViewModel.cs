@@ -44,7 +44,7 @@ namespace Timerom.App.ViewModels.Category
                 RaisePropertyChanged("NeutralCategories");
                 RaisePropertyChanged("UnproductiveCategories");
             }
-            catch (Exception exception)
+            catch (System.Exception exception)
             {
                 HandleException(exception);
             }
