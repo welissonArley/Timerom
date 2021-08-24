@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.Repository;
@@ -9,30 +10,40 @@ namespace Timerom.App.UseCase.Categories.Local.Insert
 {
     public class InsertCategoryUseCase : IInsertCategoryUseCase
     {
-        public async Task Execute(Category category)
+        public async Task<Category> Execute(Category category)
         {
             CategoryDatabase database = await CategoryDatabase.Instance();
 
             await Validate(category, database);
 
-            await Save(category, database);
+            return await Save(category, database);
         }
 
-        private async Task Save(Category category, CategoryDatabase database)
+        private async Task<Category> Save(Category category, CategoryDatabase database)
         {
-            var parentCategoryId = await SaveParent(database, category);
+            long parentCategoryId = await SaveParent(database, category);
 
-            var tasks = category.Childrens.Select(c => Task.Run(() =>
+            var childrensList = category.Childrens.Select(c => new ValueObjects.Entity.Category
             {
-                _ = database.Save(new ValueObjects.Entity.Category
-                {
-                    Name = c.Name,
-                    ParentCategoryId = parentCategoryId,
-                    Type = category.Type
-                });
-            })).ToArray();
+                Name = c.Name,
+                ParentCategoryId = parentCategoryId,
+                Type = category.Type
+            }).ToList();
 
-            Task.WaitAll(tasks);
+            await database.Save(childrensList);
+
+            return new Category
+            {
+                Id = parentCategoryId,
+                Name = category.Name,
+                Type = category.Type,
+                Childrens = new ObservableCollection<Category>(childrensList.Select(c => new Category
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Type = c.Type
+                }).OrderBy(c => c.Name))
+            };
         }
         private async Task<long> SaveParent(CategoryDatabase database, Category category)
         {

@@ -1,5 +1,6 @@
 ﻿using Prism.Navigation;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.UseCase.Categories.Interfaces;
@@ -12,6 +13,7 @@ namespace Timerom.App.ViewModels.Category
         private readonly Lazy<IInsertCategoryUseCase> useCase;
         protected IInsertCategoryUseCase _useCase => useCase.Value;
 
+        private IList<Model.Category> _categoriesCreated { get; set; }
         public Model.Category Category { get; set; }
         public string SubCategoryName { get; set; }
 
@@ -23,6 +25,8 @@ namespace Timerom.App.ViewModels.Category
         {
             this.useCase = useCase;
 
+            _categoriesCreated = new List<Model.Category>();
+
             SaveCommand = new AsyncCommand(SaveCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
             AddSubCategoryCommand = new AsyncCommand(AddSubCategoryCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
             OptionCategoryCommand = new AsyncCommand<Model.Category>(OptionCategoryCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
@@ -32,14 +36,16 @@ namespace Timerom.App.ViewModels.Category
         {
             SavingStatus();
 
-            await _useCase.Execute(Category);
+            var result = await _useCase.Execute(Category);
+
+            _categoriesCreated.Add(result);
 
             SubCategoryName = "";
             Category = new Model.Category { Type = Category.Type };
             RaisePropertyChanged("SubCategoryName");
             RaisePropertyChanged("Category");
 
-            await SucessStatus(3000);
+            await SucessStatus(2500);
         }
         private Task AddSubCategoryCommandExecuted()
         {
@@ -68,7 +74,11 @@ namespace Timerom.App.ViewModels.Category
             return Task.CompletedTask;
         }
 
-        public void OnNavigatedFrom(INavigationParameters parameters) { }
+        public void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            if(_categoriesCreated.Any())
+                parameters.Add("Created", _categoriesCreated);
+        }
 
         public void OnNavigatedTo(INavigationParameters parameters)
         {

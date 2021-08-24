@@ -1,6 +1,8 @@
 ﻿using Prism.Navigation;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.App.Views.Modal.MenuOptions;
@@ -8,7 +10,7 @@ using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Category
 {
-    public class CategoriesViewModel : ViewModelBase, IInitializeAsync
+    public class CategoriesViewModel : ViewModelBase, IInitializeAsync, INavigationAware
     {
         private readonly Lazy<IGetAllCategoriesUseCase> useCase;
         private IGetAllCategoriesUseCase _useCase => useCase.Value;
@@ -48,6 +50,56 @@ namespace Timerom.App.ViewModels.Category
             {
                 HandleException(exception);
             }
+        }
+
+        public void OnNavigatedFrom(INavigationParameters parameters) { }
+
+        public void OnNavigatedTo(INavigationParameters parameters)
+        {
+            if (parameters.ContainsKey("Created"))
+            {
+                IList<Model.Category> categoriesCreated = parameters.GetValue<IList<Model.Category>>("Created");
+                UpdateCategories(categoriesCreated);
+            }
+        }
+
+        private void UpdateCategories(IList<Model.Category> categoriesCreated)
+        {
+            switch (categoriesCreated.First().Type)
+            {
+                case ValueObjects.Enuns.CategoryType.Productive:
+                    {
+                        var newList = NewListToUpdate(ProductiveCategories, categoriesCreated);
+
+                        ProductiveCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
+                        RaisePropertyChanged("ProductiveCategories");
+                    }
+                    break;
+                case ValueObjects.Enuns.CategoryType.Neutral:
+                    {
+                        var newList = NewListToUpdate(NeutralCategories, categoriesCreated);
+
+                        NeutralCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
+                        RaisePropertyChanged("NeutralCategories");
+                    }
+                    break;
+                case ValueObjects.Enuns.CategoryType.Unproductive:
+                    {
+                        var newList = NewListToUpdate(UnproductiveCategories, categoriesCreated);
+
+                        UnproductiveCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
+                        RaisePropertyChanged("UnproductiveCategories");
+                    }
+                    break;
+            }
+        }
+
+        private List<Model.Category> NewListToUpdate(ObservableCollection<Model.Category> categories, IList<Model.Category> categoriesCreated)
+        {
+            List<Model.Category> newList = categories.ToList();
+            newList.AddRange(categoriesCreated);
+
+            return newList;
         }
     }
 }

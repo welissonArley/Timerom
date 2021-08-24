@@ -36,6 +36,11 @@ namespace Timerom.App.Repository
             _ = await _database.InsertAsync(category);
         }
 
+        public async Task Save(IList<Category> categoryList)
+        {
+            _ = await _database.InsertAllAsync(categoryList);
+        }
+
         public async Task<List<Category>> GetAll()
         {
             return await _database.Table<Category>().ToListAsync();

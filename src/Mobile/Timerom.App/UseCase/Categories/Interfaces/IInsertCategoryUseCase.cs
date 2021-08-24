@@ -5,6 +5,6 @@ namespace Timerom.App.UseCase.Categories.Interfaces
 {
     public interface IInsertCategoryUseCase
     {
-        Task Execute(Category category);
+        Task<Category> Execute(Category category);
     }
 }
