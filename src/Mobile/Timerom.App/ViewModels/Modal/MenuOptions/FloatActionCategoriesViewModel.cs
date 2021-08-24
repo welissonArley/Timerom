@@ -1,5 +1,4 @@
-﻿using Prism.Mvvm;
-using Prism.Navigation;
+﻿using Prism.Navigation;
 using System;
 using System.Threading.Tasks;
 using Timerom.App.ValueObjects.Enuns;
@@ -8,17 +7,12 @@ using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Modal.MenuOptions
 {
-    public class FloatActionCategoriesViewModel : BindableBase
+    public class FloatActionCategoriesViewModel : ViewModelBase
     {
-        private readonly Lazy<INavigationService> navigationService;
-        private INavigationService _navigationService => navigationService.Value;
-
         public IAsyncCommand<CategoryType> AddCategoryCommand { get; private set; }
 
-        public FloatActionCategoriesViewModel(Lazy<INavigationService> navigationService)
+        public FloatActionCategoriesViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
         {
-            this.navigationService = navigationService;
-
             AddCategoryCommand = new AsyncCommand<CategoryType>(AddCategoryCommandExecuted);
         }
 

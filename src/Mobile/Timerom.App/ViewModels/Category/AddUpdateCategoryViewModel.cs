@@ -1,12 +1,12 @@
-﻿using Prism.Mvvm;
-using Prism.Navigation;
+﻿using Prism.Navigation;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Category
 {
-    public class AddUpdateCategoryViewModel : BindableBase, INavigationAware
+    public class AddUpdateCategoryViewModel : ViewModelBase, INavigationAware
     {
         public Model.Category Category { get; set; }
         public string SubCategoryName { get; set; }
@@ -15,16 +15,16 @@ namespace Timerom.App.ViewModels.Category
         public IAsyncCommand AddSubCategoryCommand { get; private set; }
         public IAsyncCommand<Model.Category> OptionCategoryCommand { get; private set; }
 
-        public AddUpdateCategoryViewModel()
+        public AddUpdateCategoryViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
         {
-            SaveCommand = new AsyncCommand(SaveCommandExecuted, allowsMultipleExecutions: false);
-            AddSubCategoryCommand = new AsyncCommand(AddSubCategoryCommandExecuted, allowsMultipleExecutions: false);
-            OptionCategoryCommand = new AsyncCommand<Model.Category>(OptionCategoryCommandExecuted, allowsMultipleExecutions: false);
+            SaveCommand = new AsyncCommand(SaveCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
+            AddSubCategoryCommand = new AsyncCommand(AddSubCategoryCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
+            OptionCategoryCommand = new AsyncCommand<Model.Category>(OptionCategoryCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
         }
 
         private async Task SaveCommandExecuted()
         {
-
+            
         }
         private Task AddSubCategoryCommandExecuted()
         {

@@ -1,5 +1,4 @@
-﻿using Prism.Mvvm;
-using Prism.Navigation;
+﻿using Prism.Navigation;
 using System;
 using System.Threading.Tasks;
 using Timerom.App.Services.AppVersion;
@@ -11,11 +10,8 @@ using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Home
 {
-    public class HomePageFlyoutViewModel : BindableBase
+    public class HomePageFlyoutViewModel : ViewModelBase
     {
-        private readonly Lazy<INavigationService> navigationService;
-        private INavigationService _navigationService => navigationService.Value;
-
         public IAsyncCommand<MenuItemOptions> MenuItemSelectedCommand { get; private set; }
 
         private static MenuItemOptions _menu;
@@ -26,11 +22,9 @@ namespace Timerom.App.ViewModels.Home
         
         public string VersionText { get; set; }
 
-        public HomePageFlyoutViewModel(Lazy<INavigationService> navigationService, IAppVersion appVersion)
+        public HomePageFlyoutViewModel(Lazy<INavigationService> navigationService, IAppVersion appVersion) : base(navigationService)
         {
             MenuItemSelectedCommand = new AsyncCommand<MenuItemOptions>(ItemMenuSelected, allowsMultipleExecutions: false);
-
-            this.navigationService = navigationService;
 
             VersionText = string.Format(ResourceText.TITLE_VERSION_NUMBER, appVersion.GetVersionNumber());
         }
