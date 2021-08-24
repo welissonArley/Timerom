@@ -9,14 +9,16 @@
              x:Class="Timerom.App.Views.Views.Category.CategoriesPage">
     <ContentPage.Content>
         <Grid RowDefinitions="*">
-            <ScrollView Grid.Row="0">
-                <StackLayout Style="{StaticResource MarginStyleDefault}">
-                    <component:CategoryExpanderComponent CategoryList="{Binding Path=BindingContext.ProductiveCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_PRODUCTIVE}" Category="{x:Static enuns:CategoryType.Productive}"/>
-                    <component:CategoryExpanderComponent Margin="0,30,0,0" CategoryList="{Binding Path=BindingContext.NeutralCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_NEUTRAL}" Category="{x:Static enuns:CategoryType.Neutral}"/>
-                    <component:CategoryExpanderComponent Margin="0,30,0,20" CategoryList="{Binding Path=BindingContext.UnproductiveCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_UNPRODUCTIVE}" Category="{x:Static enuns:CategoryType.Unproductive}"/>
-                </StackLayout>
-            </ScrollView>
-
+            <StackLayout Grid.Row="0">
+                <Label Text="{x:Static resource:ResourceText.TITLE_CATEGORIES}" Style="{StaticResource LabelTitle}" Margin="20,0,20,30"/>
+                <ScrollView>
+                    <StackLayout Style="{StaticResource MarginStyleDefault}">
+                        <component:CategoryExpanderComponent CategoryList="{Binding Path=BindingContext.ProductiveCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_PRODUCTIVE}" Category="{x:Static enuns:CategoryType.Productive}"/>
+                        <component:CategoryExpanderComponent Margin="0,30,0,0" CategoryList="{Binding Path=BindingContext.NeutralCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_NEUTRAL}" Category="{x:Static enuns:CategoryType.Neutral}"/>
+                        <component:CategoryExpanderComponent Margin="0,30,0,20" CategoryList="{Binding Path=BindingContext.UnproductiveCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_UNPRODUCTIVE}" Category="{x:Static enuns:CategoryType.Unproductive}"/>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
             <templateButton:FloatActionButton Margin="0,0,20,20" VerticalOptions="End" HorizontalOptions="End" TappedButtonCommand="{Binding Path=BindingContext.FloatActionCommand, Source={x:Reference Name=CategoriesContentPage}}" Grid.Row="0" />
         </Grid>
     </ContentPage.Content>
