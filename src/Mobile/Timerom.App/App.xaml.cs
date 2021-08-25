@@ -51,6 +51,7 @@ namespace Timerom.App
             containerRegistry.RegisterForNavigation<HomePageFlyout, HomePageFlyoutViewModel>();
             containerRegistry.RegisterForNavigation<CategoriesPage, CategoriesViewModel>();
             containerRegistry.RegisterForNavigation<AddUpdateCategoryPage, AddUpdateCategoryViewModel>();
+            containerRegistry.RegisterForNavigation<SelectCategoryToUpdatePage, SelectCategoryToUpdateViewModel>();
         }
         private void RegisterModals(IContainerRegistry containerRegistry)
         {

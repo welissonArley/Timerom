@@ -10,10 +10,12 @@ namespace Timerom.App.ViewModels.Modal.MenuOptions
     public class FloatActionCategoriesViewModel : ViewModelBase
     {
         public IAsyncCommand<CategoryType> AddCategoryCommand { get; private set; }
+        public IAsyncCommand UpdateCategoryCommand { get; private set; }
 
         public FloatActionCategoriesViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
         {
             AddCategoryCommand = new AsyncCommand<CategoryType>(AddCategoryCommandExecuted);
+            UpdateCategoryCommand = new AsyncCommand(UpdateCategoryCommandExecuted);
         }
 
         private async Task AddCategoryCommandExecuted(CategoryType categoryType)
@@ -24,6 +26,10 @@ namespace Timerom.App.ViewModels.Modal.MenuOptions
             };
 
             await _navigationService.NavigateAsync(nameof(AddUpdateCategoryPage), navParameters);
+        }
+        private async Task UpdateCategoryCommandExecuted()
+        {
+            await _navigationService.NavigateAsync(nameof(SelectCategoryToUpdatePage));
         }
     }
 }
