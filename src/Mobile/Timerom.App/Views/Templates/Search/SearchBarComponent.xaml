@@ -14,7 +14,7 @@
                         <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
                     </ffimageloadingsvg:SvgCachedImage.Transformations>
                 </ffimageloadingsvg:SvgCachedImage>
-                <customcontrol:EntrySearchBar Placeholder="{x:Static resource:ResourceText.TITLE_SEARCH_BY_NAME}" HorizontalOptions="FillAndExpand"/>
+                <customcontrol:EntrySearchBar TextChanged="Entry_TextChanged" Placeholder="{x:Static resource:ResourceText.TITLE_SEARCH_BY_NAME}" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
         </Frame>
     </ContentView.Content>
