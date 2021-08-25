@@ -75,7 +75,9 @@
   <ItemGroup>
     <Compile Include="AppVersion\AppVersionAndroid.cs" />
     <Compile Include="CustomControl\EntryNoLineRenderer.cs" />
+    <Compile Include="CustomControl\EntrySearchBarRenderer.cs" />
     <Compile Include="CustomControl\LabelJustifyTextRenderer.cs" />
+    <Compile Include="CustomControl\TimeromCustomEntryRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

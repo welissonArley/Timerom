@@ -26,6 +26,7 @@
     <None Remove="Resources\Svgs\IconEdit.svg" />
     <None Remove="Resources\Svgs\IconIconsAndIllustrations.svg" />
     <None Remove="Resources\Svgs\IconPrivacyPolicy.svg" />
+    <None Remove="Resources\Svgs\IconSearch.svg" />
     <None Remove="Resources\Svgs\IconSuccess.svg" />
     <None Remove="Resources\Svgs\IconUseTerms.svg" />
   </ItemGroup>
@@ -44,6 +45,7 @@
     <EmbeddedResource Include="Resources\Svgs\IconCategories.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconDashboard.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconEdit.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconSearch.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconIconsAndIllustrations.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconPrivacyPolicy.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconSuccess.svg" />
@@ -78,8 +80,14 @@
     <Compile Update="Views\Templates\Information\CategoryExpanderComponent.xaml.cs">
       <DependentUpon>CategoryExpanderComponent.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Templates\Search\SearchBarComponent.xaml.cs">
+      <DependentUpon>SearchBarComponent.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Templates\Status\SuccessTemplate.xaml.cs">
       <DependentUpon>SuccessTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Views\Category\SelectCategoryToUpdatePage.xaml.cs">
+      <DependentUpon>SelectCategoryToUpdatePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -109,6 +117,9 @@
     <EmbeddedResource Update="Views\Templates\Information\ItemSubCategoryComponent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Search\SearchBarComponent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\Status\LoadingTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -122,6 +133,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Views\Category\CategoriesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Category\SelectCategoryToUpdatePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Views\Home\HomePage.xaml">
