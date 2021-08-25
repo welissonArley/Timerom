@@ -2,6 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:resource="clr-namespace:Timerom.App"
              xmlns:customcontrol="clr-namespace:Timerom.App.CustomControl"
              xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
              x:Class="Timerom.App.Views.Templates.Search.SearchBarComponent">
@@ -13,7 +14,7 @@
                         <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
                     </ffimageloadingsvg:SvgCachedImage.Transformations>
                 </ffimageloadingsvg:SvgCachedImage>
-                <customcontrol:EntrySearchBar Placeholder="Search by name" HorizontalOptions="FillAndExpand"/>
+                <customcontrol:EntrySearchBar Placeholder="{x:Static resource:ResourceText.TITLE_SEARCH_BY_NAME}" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
         </Frame>
     </ContentView.Content>

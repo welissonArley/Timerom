@@ -21,6 +21,7 @@
     <None Remove="Resources\Svgs\IconActionSupport.svg" />
     <None Remove="Resources\Svgs\IconAdd.svg" />
     <None Remove="Resources\Svgs\IconAddSolid.svg" />
+    <None Remove="Resources\Svgs\IconArrow.svg" />
     <None Remove="Resources\Svgs\IconCategories.svg" />
     <None Remove="Resources\Svgs\IconDashboard.svg" />
     <None Remove="Resources\Svgs\IconEdit.svg" />
@@ -42,6 +43,7 @@
     <EmbeddedResource Include="Resources\Svgs\IconActionSupport.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconAdd.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconAddSolid.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconArrow.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconCategories.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconDashboard.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconEdit.svg" />
@@ -76,6 +78,9 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceText.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Templates\Information\SelectCategoryExpanderComponent.xaml.cs">
+      <DependentUpon>SelectCategoryExpanderComponent.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Templates\Information\CategoryExpanderComponent.xaml.cs">
       <DependentUpon>CategoryExpanderComponent.xaml</DependentUpon>

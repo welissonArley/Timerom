@@ -369,6 +369,24 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search by name.
+        /// </summary>
+        public static string TITLE_SEARCH_BY_NAME {
+            get {
+                return ResourceManager.GetString("TITLE_SEARCH_BY_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a Category.
+        /// </summary>
+        public static string TITLE_SELECT_CATEGORY {
+            get {
+                return ResourceManager.GetString("TITLE_SELECT_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Social media.
         /// </summary>
         public static string TITLE_SOCIAL_MEDIA {
