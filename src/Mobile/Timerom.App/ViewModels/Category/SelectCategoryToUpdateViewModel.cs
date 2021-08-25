@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.UseCase.Categories.Interfaces;
+using Timerom.App.Views.Views.Category;
 using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Category
@@ -14,6 +15,7 @@ namespace Timerom.App.ViewModels.Category
         private IGetAllCategoriesUseCase _useCase => useCase.Value;
 
         public IAsyncCommand<string> SearchTextChangedCommand { get; private set; }
+        public IAsyncCommand<Model.Category> ItemSelectedCommand { get; private set; }
 
         private ObservableCollection<Model.Category> _productiveCategories { get; set; }
         private ObservableCollection<Model.Category> _neutralCategories { get; set; }
@@ -27,6 +29,7 @@ namespace Timerom.App.ViewModels.Category
             this.useCase = useCase;
 
             SearchTextChangedCommand = new AsyncCommand<string>(OnSearchTextChanged);
+            ItemSelectedCommand = new AsyncCommand<Model.Category>(ItemSelectedCommandExecuted, allowsMultipleExecutions: false);
         }
 
         private Task OnSearchTextChanged(string value)
@@ -40,6 +43,15 @@ namespace Timerom.App.ViewModels.Category
             RaisePropertyChanged("UnproductiveCategories");
 
             return Task.CompletedTask;
+        }
+        private async Task ItemSelectedCommandExecuted(Model.Category category)
+        {
+            var navParameters = new NavigationParameters
+            {
+                { "Category", category }
+            };
+
+            await _navigationService.NavigateAsync(nameof(AddUpdateCategoryPage), navParameters);
         }
 
         public async Task InitializeAsync(INavigationParameters parameters)

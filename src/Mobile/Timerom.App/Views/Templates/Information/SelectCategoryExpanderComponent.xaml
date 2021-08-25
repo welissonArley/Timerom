@@ -28,6 +28,9 @@
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout Margin="0,20,0,0" Orientation="Horizontal">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ItemList_Tapped" CommandParameter="{Binding .}"/>
+                                    </StackLayout.GestureRecognizers>
                                     <Label Text="{Binding Name}" Style="{StaticResource LabelBold}" HorizontalOptions="StartAndExpand"/>
                                     <ffimageloadingsvg:SvgCachedImage Margin="0,3,0,0" VerticalOptions="CenterAndExpand" WidthRequest="15" HeightRequest="13" Source="resource://Timerom.App.Resources.Svgs.IconArrow.svg">
                                         <ffimageloadingsvg:SvgCachedImage.Transformations>

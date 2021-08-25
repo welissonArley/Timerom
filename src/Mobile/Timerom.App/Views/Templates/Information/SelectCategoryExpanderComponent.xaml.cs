@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using Timerom.App.ValueObjects;
 using Timerom.App.ValueObjects.Enuns;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -48,6 +49,19 @@ namespace Timerom.App.Views.Templates.Information
                                                         defaultValue: null,
                                                         defaultBindingMode: BindingMode.TwoWay,
                                                         propertyChanged: CategoryListChanged);
+
+        public IAsyncCommand<Model.Category> SelectedItem
+        {
+            get => (IAsyncCommand<Model.Category>)GetValue(SelectedItemProperty);
+            set => SetValue(SelectedItemProperty, value);
+        }
+        public static readonly BindableProperty SelectedItemProperty = BindableProperty.Create(
+                                                        propertyName: "SelectedItem",
+                                                        returnType: typeof(IAsyncCommand<Model.Category>),
+                                                        declaringType: typeof(SelectCategoryExpanderComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: null);
 
         private static void TitleChanged(BindableObject bindable, object oldValue, object newValue)
         {
@@ -106,6 +120,13 @@ namespace Timerom.App.Views.Templates.Information
         public SelectCategoryExpanderComponent()
         {
             InitializeComponent();
+        }
+
+        private void ItemList_Tapped(object sender, System.EventArgs e)
+        {
+            var tappedEvent = (TappedEventArgs)e;
+
+            SelectedItem?.Execute(tappedEvent.Parameter);
         }
     }
 }
