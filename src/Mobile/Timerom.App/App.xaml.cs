@@ -25,6 +25,7 @@ namespace Timerom.App
 
             SetAppTheme();
 
+            HomePageFlyoutViewModel.Initialize();
             _ = await NavigationService.NavigateAsync("/HomePage/NavigationPage/HomePageDetail");
         }
 

@@ -72,7 +72,7 @@
                 <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="FontFamily" Value="RalewayRegular"/>
-                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light=#696969, Dark=#1F1E19}"/>
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light=#696969, Dark=#989898}"/>
             </Style>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="{AppThemeBinding Light=White, Dark=Black}"/>

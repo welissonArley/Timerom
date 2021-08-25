@@ -60,5 +60,10 @@ namespace Timerom.App.ViewModels.Home
                     break;
             }
         }
+
+        public static void Initialize()
+        {
+            _menu = MenuItemOptions.Dashboard;
+        }
     }
 }
