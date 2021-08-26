@@ -11,28 +11,34 @@ namespace Timerom.App.ViewModels.Category
 {
     public class AddUpdateCategoryViewModel : ViewModelBase, INavigationAware
     {
+        private readonly Lazy<IDeleteCategoryUseCase> deleteUseCase;
         private readonly Lazy<IUpdateCategoryUseCase> updateUseCase;
         private readonly Lazy<IInsertCategoryUseCase> createUseCase;
         protected IInsertCategoryUseCase _createUseCase => createUseCase.Value;
         protected IUpdateCategoryUseCase _updateUseCase => updateUseCase.Value;
+        protected IDeleteCategoryUseCase _deleteUseCase => deleteUseCase.Value;
 
         private IList<Model.Category> _categoriesCreated { get; set; }
         private Model.Category _updateCategory { get; set; }
         public Model.Category Category { get; set; }
         public string SubCategoryName { get; set; }
 
+        public IAsyncCommand DeleteCommand { get; private set; }
         public IAsyncCommand SaveCommand { get; private set; }
         public IAsyncCommand AddSubCategoryCommand { get; private set; }
         public IAsyncCommand<Model.Category> OptionCategoryCommand { get; private set; }
 
         public AddUpdateCategoryViewModel(Lazy<INavigationService> navigationService,
-            Lazy<IInsertCategoryUseCase> createUseCase, Lazy<IUpdateCategoryUseCase> updateUseCase) : base(navigationService)
+            Lazy<IInsertCategoryUseCase> createUseCase, Lazy<IUpdateCategoryUseCase> updateUseCase,
+            Lazy<IDeleteCategoryUseCase> deleteUseCase) : base(navigationService)
         {
             this.createUseCase = createUseCase;
             this.updateUseCase = updateUseCase;
+            this.deleteUseCase = deleteUseCase;
 
             _categoriesCreated = new List<Model.Category>();
 
+            DeleteCommand = new AsyncCommand(DeleteCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
             SaveCommand = new AsyncCommand(SaveCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
             AddSubCategoryCommand = new AsyncCommand(AddSubCategoryCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
             OptionCategoryCommand = new AsyncCommand<Model.Category>(OptionCategoryCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
@@ -46,6 +52,14 @@ namespace Timerom.App.ViewModels.Category
                 await CreateCategory();
             else
                 await UpdateCategory();
+        }
+
+        private async Task DeleteCommandExecuted()
+        {
+            SavingStatus();
+            await _deleteUseCase.Execute(Category);
+            await SucessStatus();
+            await _navigationService.GoBackAsync();
         }
 
         private async Task CreateCategory()

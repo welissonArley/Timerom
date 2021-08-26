@@ -4,6 +4,7 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:local="clr-namespace:Timerom.App.Converter"
+             xmlns:customcontrol="clr-namespace:Timerom.App.CustomControl"
              xmlns:information="clr-namespace:Timerom.App.Views.Templates.Information"
              xmlns:statusTemplate="clr-namespace:Timerom.App.Views.Templates.Status"
              xmlns:textwithlabel="clr-namespace:Timerom.App.Views.Templates.TextWithLabel"
@@ -80,6 +81,14 @@
                     </ContentView>
                 </CollectionView.EmptyView>
             </CollectionView>
+
+            <customcontrol:ButtonTextAlignment Command="{Binding DeleteCommand}" Style="{StaticResource DeleteButton}" TextAlignment="Left" HorizontalOptions="Start" Text="{x:Static resource:ResourceText.TITLE_DELETE_CATEGORY}">
+                <customcontrol:ButtonTextAlignment.Triggers>
+                    <DataTrigger TargetType="customcontrol:ButtonTextAlignment" Binding="{Binding Category.Id}" Value="0">
+                        <Setter Property="IsVisible" Value="False"/>
+                    </DataTrigger>
+                </customcontrol:ButtonTextAlignment.Triggers>
+            </customcontrol:ButtonTextAlignment>
 
             <Button Text="{x:Static resource:ResourceText.TITLE_SAVE}" Command="{Binding SaveCommand}"/>
         </StackLayout>
