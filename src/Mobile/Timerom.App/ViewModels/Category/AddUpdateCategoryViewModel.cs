@@ -1,6 +1,7 @@
 ﻿using Prism.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.UseCase.Categories.Interfaces;
@@ -16,6 +17,7 @@ namespace Timerom.App.ViewModels.Category
         protected IUpdateCategoryUseCase _updateUseCase => updateUseCase.Value;
 
         private IList<Model.Category> _categoriesCreated { get; set; }
+        private Model.Category _updateCategory { get; set; }
         public Model.Category Category { get; set; }
         public string SubCategoryName { get; set; }
 
@@ -61,7 +63,7 @@ namespace Timerom.App.ViewModels.Category
         }
         private async Task UpdateCategory()
         {
-            await _updateUseCase.Execute(Category);
+            _updateCategory = await _updateUseCase.Execute(Category);
             await SucessStatus();
         }
 
@@ -96,11 +98,25 @@ namespace Timerom.App.ViewModels.Category
         {
             if(_categoriesCreated.Any())
                 parameters.Add("Created", _categoriesCreated);
+            else if (_updateCategory != null)
+                parameters.Add("Updated", _updateCategory);
         }
 
         public void OnNavigatedTo(INavigationParameters parameters)
         {
-            Category = parameters.GetValue<Model.Category>("Category");
+            var category = parameters.GetValue<Model.Category>("Category");
+            Category = new Model.Category
+            {
+                Id = category.Id,
+                Name = category.Name,
+                Type = category.Type,
+                Childrens = new ObservableCollection<Model.Category>(category.Childrens.Select(c => new Model.Category
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Type = c.Type
+                }))
+            };
             RaisePropertyChanged("Category");
         }
     }

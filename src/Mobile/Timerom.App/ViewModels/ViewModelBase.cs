@@ -29,7 +29,7 @@ namespace Timerom.App.ViewModels
             CurrentState = LayoutState.Saving;
             RaisePropertyChanged("CurrentState");
         }
-        protected async Task SucessStatus(int millisecondsTimeout = 800)
+        protected async Task SucessStatus(int millisecondsTimeout = 900)
         {
             CurrentState = LayoutState.Success;
             RaisePropertyChanged("CurrentState");

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.Repository;
@@ -9,14 +10,14 @@ namespace Timerom.App.UseCase.Categories.Local.Update
 {
     public class UpdateCategoryUseCase : IUpdateCategoryUseCase
     {
-        public async Task Execute(Category category)
+        public async Task<Category> Execute(Category category)
         {
             Validate(category);
 
-            await Save(category);
+            return await Save(category);
         }
 
-        private async Task Save(Category category)
+        private async Task<Category> Save(Category category)
         {
             CategoryDatabase database = await CategoryDatabase.Instance();
 
@@ -27,6 +28,21 @@ namespace Timerom.App.UseCase.Categories.Local.Update
 
             await RemoveCategoriesChildrens(database, category, categoryModel);
             await InsertNewCategoriesChildrens(database, category);
+
+            var childrensList = await database.GetChildrensByParentId(categoryModel.Id);
+
+            return new Category
+            {
+                Id = categoryModel.Id,
+                Name = categoryModel.Name,
+                Type = categoryModel.Type,
+                Childrens = new ObservableCollection<Category>(childrensList.Select(c => new Category
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Type = c.Type
+                }).OrderBy(c => c.Name))
+            };
         }
 
         private async Task InsertNewCategoriesChildrens(CategoryDatabase database, Category category)
