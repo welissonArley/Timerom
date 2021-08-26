@@ -187,4 +187,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\FloatActionButton_Darkmode.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FloatActionButton_Darkmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FloatActionButton_Darkmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FloatActionButton_Lightmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FloatActionButton_Lightmode%403x.png" />
+  </ItemGroup>
 </Project>

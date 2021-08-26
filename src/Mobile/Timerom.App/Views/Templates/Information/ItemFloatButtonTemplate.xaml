@@ -5,7 +5,7 @@
              x:Class="Timerom.App.Views.Templates.Information.ItemFloatButtonTemplate">
   <ContentView.Content>
         <Grid ColumnDefinitions="*,40" RowDefinitions="40" HorizontalOptions="End">
-            <Label  Grid.Column="0" Grid.Row="0" x:Name="OptionName" VerticalOptions="CenterAndExpand" Padding="5" Style="{StaticResource LabelExtraBold}" TextColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" BackgroundColor="{AppThemeBinding Light={StaticResource DarkModePrimaryColor}, Dark=White}"/>
+            <Label  Grid.Column="0" Grid.Row="0" x:Name="OptionName" VerticalOptions="CenterAndExpand" Padding="6" Style="{StaticResource LabelExtraBold}" TextColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" BackgroundColor="{AppThemeBinding Light={StaticResource DarkModePrimaryColor}, Dark=White}"/>
 
             <Ellipse Grid.Column="1" Grid.Row="0">
                 <Ellipse.Fill>
