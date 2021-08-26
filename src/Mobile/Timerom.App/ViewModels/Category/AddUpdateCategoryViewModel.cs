@@ -19,6 +19,7 @@ namespace Timerom.App.ViewModels.Category
         protected IDeleteCategoryUseCase _deleteUseCase => deleteUseCase.Value;
 
         private IList<Model.Category> _categoriesCreated { get; set; }
+        private Model.Category _categoriesDeleted { get; set; }
         private Model.Category _updateCategory { get; set; }
         public Model.Category Category { get; set; }
         public string SubCategoryName { get; set; }
@@ -59,6 +60,8 @@ namespace Timerom.App.ViewModels.Category
             SavingStatus();
             await _deleteUseCase.Execute(Category);
             await SucessStatus();
+
+            _categoriesDeleted = Category;
             await _navigationService.GoBackAsync();
         }
 
@@ -112,8 +115,10 @@ namespace Timerom.App.ViewModels.Category
         {
             if(_categoriesCreated.Any())
                 parameters.Add("Created", _categoriesCreated);
-            else if (_updateCategory != null)
+            if (_updateCategory != null)
                 parameters.Add("Updated", _updateCategory);
+            if (_categoriesDeleted != null)
+                parameters.Add("Deleted", _categoriesDeleted);
         }
 
         public void OnNavigatedTo(INavigationParameters parameters)

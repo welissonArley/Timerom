@@ -19,6 +19,7 @@ namespace Timerom.App.ViewModels.Category
         public IAsyncCommand<Model.Category> ItemSelectedCommand { get; private set; }
 
         private IList<Model.Category> _categoriesUpdated { get; set; }
+        private IList<Model.Category> _categoriesDeleted { get; set; }
 
         private ObservableCollection<Model.Category> _productiveCategories { get; set; }
         private ObservableCollection<Model.Category> _neutralCategories { get; set; }
@@ -32,6 +33,7 @@ namespace Timerom.App.ViewModels.Category
             this.useCase = useCase;
 
             _categoriesUpdated = new List<Model.Category>();
+            _categoriesDeleted = new List<Model.Category>();
 
             SearchTextChangedCommand = new AsyncCommand<string>(OnSearchTextChanged);
             ItemSelectedCommand = new AsyncCommand<Model.Category>(ItemSelectedCommandExecuted, allowsMultipleExecutions: false);
@@ -87,6 +89,9 @@ namespace Timerom.App.ViewModels.Category
         {
             if (_categoriesUpdated.Any())
                 parameters.Add("Updated", _categoriesUpdated);
+
+            if (_categoriesDeleted.Any())
+                parameters.Add("Deleted", _categoriesDeleted);
         }
 
         public void OnNavigatedTo(INavigationParameters parameters)
@@ -97,14 +102,20 @@ namespace Timerom.App.ViewModels.Category
                 UpdateCategories(categoryUpdated);
                 _categoriesUpdated.Add(categoryUpdated);
             }
+            if (parameters.ContainsKey("Deleted"))
+            {
+                Model.Category categoryDeleted = parameters.GetValue<Model.Category>("Deleted");
+                UpdateCategories(categoryDeleted, delete: true);
+                _categoriesDeleted.Add(categoryDeleted);
+            }
         }
-        private void UpdateCategories(Model.Category categoryUpdated)
+        private void UpdateCategories(Model.Category categoryUpdated, bool delete = false)
         {
             switch (categoryUpdated.Type)
             {
                 case ValueObjects.Enuns.CategoryType.Productive:
                     {
-                        var newList = NewListToUpdate(ProductiveCategories, categoryUpdated);
+                        var newList = NewListToUpdate(ProductiveCategories, categoryUpdated, delete);
 
                         ProductiveCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
                         RaisePropertyChanged("ProductiveCategories");
@@ -112,7 +123,7 @@ namespace Timerom.App.ViewModels.Category
                     break;
                 case ValueObjects.Enuns.CategoryType.Neutral:
                     {
-                        var newList = NewListToUpdate(NeutralCategories, categoryUpdated);
+                        var newList = NewListToUpdate(NeutralCategories, categoryUpdated, delete);
 
                         NeutralCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
                         RaisePropertyChanged("NeutralCategories");
@@ -120,7 +131,7 @@ namespace Timerom.App.ViewModels.Category
                     break;
                 case ValueObjects.Enuns.CategoryType.Unproductive:
                     {
-                        var newList = NewListToUpdate(UnproductiveCategories, categoryUpdated);
+                        var newList = NewListToUpdate(UnproductiveCategories, categoryUpdated, delete);
 
                         UnproductiveCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
                         RaisePropertyChanged("UnproductiveCategories");
@@ -128,10 +139,11 @@ namespace Timerom.App.ViewModels.Category
                     break;
             }
         }
-        private List<Model.Category> NewListToUpdate(ObservableCollection<Model.Category> categories, Model.Category categoryUpdated)
+        private List<Model.Category> NewListToUpdate(ObservableCollection<Model.Category> categories, Model.Category categoryUpdated, bool delete = false)
         {
             List<Model.Category> newList = categories.Where(c => c.Id != categoryUpdated.Id).ToList();
-            newList.Add(categoryUpdated);
+            if(!delete)
+                newList.Add(categoryUpdated);
 
             return newList;
         }
