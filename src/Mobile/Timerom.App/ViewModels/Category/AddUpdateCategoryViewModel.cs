@@ -10,8 +10,10 @@ namespace Timerom.App.ViewModels.Category
 {
     public class AddUpdateCategoryViewModel : ViewModelBase, INavigationAware
     {
-        private readonly Lazy<IInsertCategoryUseCase> useCase;
-        protected IInsertCategoryUseCase _useCase => useCase.Value;
+        private readonly Lazy<IUpdateCategoryUseCase> updateUseCase;
+        private readonly Lazy<IInsertCategoryUseCase> createUseCase;
+        protected IInsertCategoryUseCase _createUseCase => createUseCase.Value;
+        protected IUpdateCategoryUseCase _updateUseCase => updateUseCase.Value;
 
         private IList<Model.Category> _categoriesCreated { get; set; }
         public Model.Category Category { get; set; }
@@ -21,9 +23,11 @@ namespace Timerom.App.ViewModels.Category
         public IAsyncCommand AddSubCategoryCommand { get; private set; }
         public IAsyncCommand<Model.Category> OptionCategoryCommand { get; private set; }
 
-        public AddUpdateCategoryViewModel(Lazy<INavigationService> navigationService, Lazy<IInsertCategoryUseCase> useCase) : base(navigationService)
+        public AddUpdateCategoryViewModel(Lazy<INavigationService> navigationService,
+            Lazy<IInsertCategoryUseCase> createUseCase, Lazy<IUpdateCategoryUseCase> updateUseCase) : base(navigationService)
         {
-            this.useCase = useCase;
+            this.createUseCase = createUseCase;
+            this.updateUseCase = updateUseCase;
 
             _categoriesCreated = new List<Model.Category>();
 
@@ -36,7 +40,15 @@ namespace Timerom.App.ViewModels.Category
         {
             SavingStatus();
 
-            var result = await _useCase.Execute(Category);
+            if (Category.Id == 0)
+                await CreateCategory();
+            else
+                await UpdateCategory();
+        }
+
+        private async Task CreateCategory()
+        {
+            var result = await _createUseCase.Execute(Category);
 
             _categoriesCreated.Add(result);
 
@@ -47,6 +59,12 @@ namespace Timerom.App.ViewModels.Category
 
             await SucessStatus(2500);
         }
+        private async Task UpdateCategory()
+        {
+            await _updateUseCase.Execute(Category);
+            await SucessStatus();
+        }
+
         private Task AddSubCategoryCommandExecuted()
         {
             if(!string.IsNullOrWhiteSpace(SubCategoryName) &&

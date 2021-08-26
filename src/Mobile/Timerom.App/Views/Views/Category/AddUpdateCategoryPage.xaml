@@ -28,7 +28,13 @@
                 <xct:StateView StateKey="Success" VerticalOptions="FillAndExpand">
                     <xct:StateView.Template>
                         <DataTemplate>
-                            <statusTemplate:SuccessTemplate Title="{x:Static resource:ResourceText.TITLE_SUCCESS}" Message="{x:Static resource:ResourceText.TITLE_YOU_CAN_SAVE_MORE_CATEGORIES}" VerticalOptions="FillAndExpand"/>
+                            <statusTemplate:SuccessTemplate Title="{x:Static resource:ResourceText.TITLE_SUCCESS}" VerticalOptions="FillAndExpand">
+                                <statusTemplate:SuccessTemplate.Triggers>
+                                    <DataTrigger TargetType="statusTemplate:SuccessTemplate" Binding="{Binding Path=BindingContext.Category.Id, Source={x:Reference Name=AddUpdateCategoryContentPage}}" Value="0">
+                                        <Setter Property="Message" Value="{x:Static resource:ResourceText.TITLE_YOU_CAN_SAVE_MORE_CATEGORIES}"/>
+                                    </DataTrigger>
+                                </statusTemplate:SuccessTemplate.Triggers>
+                            </statusTemplate:SuccessTemplate>
                         </DataTemplate>
                     </xct:StateView.Template>
                 </xct:StateView>
