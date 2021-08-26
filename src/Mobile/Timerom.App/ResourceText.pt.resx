@@ -164,6 +164,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_DASHBOARD" xml:space="preserve">
     <value>Início</value>
   </data>
+  <data name="TITLE_DELETE_CATEGORY" xml:space="preserve">
+    <value>Deletar Categoria</value>
+  </data>
   <data name="TITLE_DINNER" xml:space="preserve">
     <value>Jantar</value>
   </data>

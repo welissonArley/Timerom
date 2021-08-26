@@ -198,6 +198,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Category.
+        /// </summary>
+        public static string TITLE_DELETE_CATEGORY {
+            get {
+                return ResourceManager.GetString("TITLE_DELETE_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dinner.
         /// </summary>
         public static string TITLE_DINNER {

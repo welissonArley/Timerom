@@ -83,6 +83,15 @@
                 <Setter Property="HeightRequest" Value="40"/>
                 <Setter Property="Margin" Value="0,30,0,0"/>
             </Style>
+            <Style TargetType="Button" ApplyToDerivedTypes="True" x:Key="DeleteButton">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LigthUnproductiveColor}, Dark={StaticResource DarkUnproductiveColor}}"/>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}"/>
+                <Setter Property="CornerRadius" Value="0"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="RalewayLight"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="150"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>
