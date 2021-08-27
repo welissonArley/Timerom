@@ -67,6 +67,7 @@ namespace Timerom.App
             containerRegistry.RegisterScoped<IUpdateCategoryUseCase, UseCase.Categories.Local.Update.UpdateCategoryUseCase>();
             containerRegistry.RegisterScoped<IDeleteCategoryUseCase, UseCase.Categories.Local.Delete.DeleteCategoryUseCase>();
             containerRegistry.RegisterScoped<IInsertSubcategoryUseCase, UseCase.Categories.Local.Insert.InsertSubcategoryUseCase>();
+            containerRegistry.RegisterScoped<IUpdateSubcategoryUseCase, UseCase.Categories.Local.Update.UpdateSubcategoryUseCase>();
         }
     }
 }

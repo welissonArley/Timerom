@@ -20,6 +20,7 @@ namespace Timerom.App.ViewModels.Category
         #endregion
 
         #region Models
+        private List<Model.Category> _categories { get; set; }
         public ObservableCollection<Model.Category> ProductiveCategories { get; private set; }
         public ObservableCollection<Model.Category> NeutralCategories { get; private set; }
         public ObservableCollection<Model.Category> UnproductiveCategories { get; private set; }
@@ -28,6 +29,7 @@ namespace Timerom.App.ViewModels.Category
         #region Commands
         public IAsyncCommand FloatActionCommand { get; set; }
         public IAsyncCommand<Model.Category> AddSubCategoryCommand { get; set; }
+        public IAsyncCommand<Model.Category> UpdateSubCategoryCommand { get; set; }
         #endregion
 
         public CategoriesViewModel(Lazy<IGetAllCategoriesUseCase> useCase, Lazy<INavigationService> navigationService) : base(navigationService)
@@ -36,6 +38,7 @@ namespace Timerom.App.ViewModels.Category
 
             FloatActionCommand = new AsyncCommand(FloatActionCommandExecute, allowsMultipleExecutions: false);
             AddSubCategoryCommand = new AsyncCommand<Model.Category>(AddSubCategoryCommandExecute, allowsMultipleExecutions: false);
+            UpdateSubCategoryCommand = new AsyncCommand<Model.Category>(UpdateSubCategoryCommandExecute, allowsMultipleExecutions: false);
         }
 
         private async Task FloatActionCommandExecute()
@@ -52,12 +55,27 @@ namespace Timerom.App.ViewModels.Category
 
             await _navigationService.NavigateAsync(nameof(AddUpdateSubcategoryPage), navParameters);
         }
+        private async Task UpdateSubCategoryCommandExecute(Model.Category category)
+        {
+            var navParameters = new NavigationParameters
+            {
+                { "SubCategory", category },
+                { "Category", _categories.First(c => c.Childrens.Any(k => k.Id == category.Id)) }
+            };
+
+            await _navigationService.NavigateAsync(nameof(AddUpdateSubcategoryPage), navParameters);
+        }
 
         public async Task InitializeAsync(INavigationParameters parameters)
         {
             try
             {
                 var response = await _useCase.Execute();
+
+                _categories = response.Productive.ToList();
+                _categories.AddRange(response.Neutral);
+                _categories.AddRange(response.Unproductive);
+
                 ProductiveCategories = new ObservableCollection<Model.Category>(response.Productive);
                 NeutralCategories = new ObservableCollection<Model.Category>(response.Neutral);
                 UnproductiveCategories = new ObservableCollection<Model.Category>(response.Unproductive);

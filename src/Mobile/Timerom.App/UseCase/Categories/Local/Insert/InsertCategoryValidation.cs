@@ -15,7 +15,7 @@ namespace Timerom.App.UseCase.Categories.Local.Insert
             RuleFor(c => c.Childrens).Must(c => c.Select(k => k.Name).Distinct().Count() == c.Count).WithMessage(ResourceTextException.THERE_ARE_DUPLICATED_SUBCATEGORIES);
             RuleFor(c => c.Name).MustAsync(async (c, cancellation) =>
             {
-                bool exists = await database.ExistParentCategoryWithName(c);
+                bool exists = await database.ExistParentCategoryWithName(c, 0);
                 return !exists;
             }).WithMessage(ResourceTextException.CATEGORY_ALREADY_EXIST);
         }

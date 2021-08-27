@@ -12,15 +12,15 @@ namespace Timerom.App.UseCase.Categories.Local.Update
     {
         public async Task<Category> Execute(Category category)
         {
-            Validate(category);
-
-            return await Save(category);
-        }
-
-        private async Task<Category> Save(Category category)
-        {
             CategoryDatabase database = await CategoryDatabase.Instance();
 
+            await Validate(database, category);
+
+            return await Save(database, category);
+        }
+
+        private async Task<Category> Save(CategoryDatabase database, Category category)
+        {
             ValueObjects.Entity.Category categoryModel = await database.GetById(category.Id);
             categoryModel.Name = category.Name;
 
@@ -70,9 +70,9 @@ namespace Timerom.App.UseCase.Categories.Local.Update
             await Task.WhenAll(tasks);
         }
 
-        private void Validate(Category category)
+        private async Task Validate(CategoryDatabase database, Category category)
         {
-            var validation = new UpdateCategoryValidation().Validate(category);
+            var validation = await new UpdateCategoryValidation(database).ValidateAsync(category);
 
             if (!validation.IsValid)
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());

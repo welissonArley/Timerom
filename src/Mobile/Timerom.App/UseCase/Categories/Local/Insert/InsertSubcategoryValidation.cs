@@ -12,7 +12,7 @@ namespace Timerom.App.UseCase.Categories.Local.Insert
             RuleFor(c => c.Name).NotEmpty().WithMessage(ResourceTextException.NAME_IS_REQUIRED);
             RuleFor(c => c.Name).MustAsync(async (c, cancellation) =>
             {
-                bool exists = await database.ExistChildrensCategoryWithNameAndParentId(c, parentId);
+                bool exists = await database.ExistChildrensCategoryWithNameAndParentId(name: c, parentId: parentId, disregardId: 0);
                 return !exists;
             }).WithMessage(ResourceTextException.CATEGORY_ALREADY_EXIST);
         }

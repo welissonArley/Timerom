@@ -63,6 +63,19 @@ namespace Timerom.App.Views.Templates.Information
                                                         defaultBindingMode: BindingMode.OneWay,
                                                         propertyChanged: null);
 
+        public IAsyncCommand<Model.Category> UpdateSubCategoryCommand
+        {
+            get => (IAsyncCommand<Model.Category>)GetValue(UpdateSubCategoryCommandProperty);
+            set => SetValue(UpdateSubCategoryCommandProperty, value);
+        }
+        public static readonly BindableProperty UpdateSubCategoryCommandProperty = BindableProperty.Create(
+                                                        propertyName: "UpdateSubCategoryCommand",
+                                                        returnType: typeof(IAsyncCommand<Model.Category>),
+                                                        declaringType: typeof(CategoryExpanderComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: null);
+
         private static void TitleChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var component = (CategoryExpanderComponent)bindable;
@@ -127,6 +140,12 @@ namespace Timerom.App.Views.Templates.Information
             var category = (Model.Category)((TappedEventArgs)e).Parameter;
 
             AddSubCategoryCommand?.Execute(category);
+        }
+
+        private void UpdateSubcategory_Tapped(object sender, System.EventArgs e)
+        {
+            var category = (Model.Category)((TappedEventArgs)e).Parameter;
+            UpdateSubCategoryCommand?.Execute(category);
         }
     }
 }
