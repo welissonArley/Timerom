@@ -13,9 +13,9 @@
                 <Label Text="{x:Static resource:ResourceText.TITLE_CATEGORIES}" Style="{StaticResource LabelTitle}" Margin="20,0,20,30"/>
                 <ScrollView>
                     <StackLayout Style="{StaticResource MarginStyleDefault}">
-                        <component:CategoryExpanderComponent CategoryList="{Binding Path=BindingContext.ProductiveCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_PRODUCTIVE}" Category="{x:Static enuns:CategoryType.Productive}"/>
-                        <component:CategoryExpanderComponent Margin="0,30,0,0" CategoryList="{Binding Path=BindingContext.NeutralCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_NEUTRAL}" Category="{x:Static enuns:CategoryType.Neutral}"/>
-                        <component:CategoryExpanderComponent Margin="0,30,0,20" CategoryList="{Binding Path=BindingContext.UnproductiveCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_UNPRODUCTIVE}" Category="{x:Static enuns:CategoryType.Unproductive}"/>
+                        <component:CategoryExpanderComponent CategoryList="{Binding Path=BindingContext.ProductiveCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_PRODUCTIVE}" Category="{x:Static enuns:CategoryType.Productive}" AddSubCategoryCommand="{Binding Path=BindingContext.AddSubCategoryCommand, Source={x:Reference Name=CategoriesContentPage}}"/>
+                        <component:CategoryExpanderComponent Margin="0,30,0,0" CategoryList="{Binding Path=BindingContext.NeutralCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_NEUTRAL}" Category="{x:Static enuns:CategoryType.Neutral}" AddSubCategoryCommand="{Binding Path=BindingContext.AddSubCategoryCommand, Source={x:Reference Name=CategoriesContentPage}}"/>
+                        <component:CategoryExpanderComponent Margin="0,30,0,20" CategoryList="{Binding Path=BindingContext.UnproductiveCategories, Source={x:Reference Name=CategoriesContentPage}}" Title="{x:Static resource:ResourceText.TITLE_UNPRODUCTIVE}" Category="{x:Static enuns:CategoryType.Unproductive}" AddSubCategoryCommand="{Binding Path=BindingContext.AddSubCategoryCommand, Source={x:Reference Name=CategoriesContentPage}}"/>
                     </StackLayout>
                 </ScrollView>
             </StackLayout>

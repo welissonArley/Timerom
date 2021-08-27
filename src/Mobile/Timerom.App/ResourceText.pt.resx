@@ -137,6 +137,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_ADD_UNPRODUCTIVE_CATEGORY" xml:space="preserve">
     <value>Inserir Categoria Improdutiva</value>
   </data>
+  <data name="TITLE_BELONGS_CATEGORY_TWO_POINTS" xml:space="preserve">
+    <value>Pertence a Categoria:</value>
+  </data>
   <data name="TITLE_BOOKS" xml:space="preserve">
     <value>Livros</value>
   </data>
@@ -160,6 +163,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_CREATE_CATEGORY" xml:space="preserve">
     <value>Criar Categoria</value>
+  </data>
+  <data name="TITLE_CREATE_SUBCATEGORY" xml:space="preserve">
+    <value>Criar Subcategoria</value>
   </data>
   <data name="TITLE_DASHBOARD" xml:space="preserve">
     <value>Início</value>
@@ -242,6 +248,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_SUBCATEGORIES_TITLE_TWO_POINTS" xml:space="preserve">
     <value>Sub categorias:</value>
   </data>
+  <data name="TITLE_SUBCATEGORY_TITLE_TWO_POINTS" xml:space="preserve">
+    <value>Subcategoria:</value>
+  </data>
   <data name="TITLE_SUCCESS" xml:space="preserve">
     <value>Sucesso</value>
   </data>
@@ -266,6 +275,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_UPDATE_CATEGORY" xml:space="preserve">
     <value>Atualizar Categoria</value>
   </data>
+  <data name="TITLE_UPDATE_SUBCATEGOY" xml:space="preserve">
+    <value>Atualizar Subcategoria</value>
+  </data>
   <data name="TITLE_USE_FIELD_ABOVE_ADD_NEW_SUBCATEGORIES" xml:space="preserve">
     <value>Utilize o campo acima para Adicionar novas Subcategorias</value>
   </data>
@@ -286,5 +298,8 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_YOU_CAN_SAVE_MORE_CATEGORIES" xml:space="preserve">
     <value>Você pode salvar mais categorias do mesmo tipo se desejar :)</value>
+  </data>
+  <data name="TITLE_YOU_CAN_SAVE_MORE_SUBCATEGORIES" xml:space="preserve">
+    <value>Você pode salvar mais subcategorias do mesmo tipo se desejar :)</value>
   </data>
 </root>

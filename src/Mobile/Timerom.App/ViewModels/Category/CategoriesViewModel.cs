@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.App.Views.Modal.MenuOptions;
+using Timerom.App.Views.Views.Category;
 using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Category
@@ -20,17 +21,29 @@ namespace Timerom.App.ViewModels.Category
         public ObservableCollection<Model.Category> UnproductiveCategories { get; private set; }
 
         public IAsyncCommand FloatActionCommand { get; set; }
+        public IAsyncCommand<Model.Category> AddSubCategoryCommand { get; set; }
 
         public CategoriesViewModel(Lazy<IGetAllCategoriesUseCase> useCase, Lazy<INavigationService> navigationService) : base(navigationService)
         {
             this.useCase = useCase;
 
             FloatActionCommand = new AsyncCommand(FloatActionCommandExecute, allowsMultipleExecutions: false);
+            AddSubCategoryCommand = new AsyncCommand<Model.Category>(AddSubCategoryCommandExecute, allowsMultipleExecutions: false);
         }
 
         private async Task FloatActionCommandExecute()
         {
             await _navigationService.NavigateAsync(nameof(FloatActionCategoriesModal), useModalNavigation: true);
+        }
+        private async Task AddSubCategoryCommandExecute(Model.Category category)
+        {
+            var navParameters = new NavigationParameters
+            {
+                { "SubCategory", new Model.Category { Type = category.Type } },
+                { "Category", category.Name }
+            };
+
+            await _navigationService.NavigateAsync(nameof(AddUpdateSubcategoryPage), navParameters);
         }
 
         public async Task InitializeAsync(INavigationParameters parameters)

@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using Timerom.App.ValueObjects;
 using Timerom.App.ValueObjects.Enuns;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -48,6 +49,19 @@ namespace Timerom.App.Views.Templates.Information
                                                         defaultValue: null,
                                                         defaultBindingMode: BindingMode.TwoWay,
                                                         propertyChanged: CategoryListChanged);
+
+        public IAsyncCommand<Model.Category> AddSubCategoryCommand
+        {
+            get => (IAsyncCommand<Model.Category>)GetValue(AddSubCategoryCommandProperty);
+            set => SetValue(AddSubCategoryCommandProperty, value);
+        }
+        public static readonly BindableProperty AddSubCategoryCommandProperty = BindableProperty.Create(
+                                                        propertyName: "AddSubCategoryCommand",
+                                                        returnType: typeof(IAsyncCommand<Model.Category>),
+                                                        declaringType: typeof(CategoryExpanderComponent),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: null);
 
         private static void TitleChanged(BindableObject bindable, object oldValue, object newValue)
         {
@@ -106,6 +120,13 @@ namespace Timerom.App.Views.Templates.Information
         public CategoryExpanderComponent()
         {
             InitializeComponent();
+        }
+
+        private void AddSubcategory_Tapped(object sender, System.EventArgs e)
+        {
+            var category = (Model.Category)((TappedEventArgs)e).Parameter;
+
+            AddSubCategoryCommand?.Execute(category);
         }
     }
 }

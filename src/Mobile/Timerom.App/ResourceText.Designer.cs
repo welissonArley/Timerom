@@ -117,6 +117,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It belongs to the category:.
+        /// </summary>
+        public static string TITLE_BELONGS_CATEGORY_TWO_POINTS {
+            get {
+                return ResourceManager.GetString("TITLE_BELONGS_CATEGORY_TWO_POINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Books.
         /// </summary>
         public static string TITLE_BOOKS {
@@ -185,6 +194,15 @@ namespace Timerom.App {
         public static string TITLE_CREATE_CATEGORY {
             get {
                 return ResourceManager.GetString("TITLE_CREATE_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Subcategory.
+        /// </summary>
+        public static string TITLE_CREATE_SUBCATEGORY {
+            get {
+                return ResourceManager.GetString("TITLE_CREATE_SUBCATEGORY", resourceCulture);
             }
         }
         
@@ -432,6 +450,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Subcategory:.
+        /// </summary>
+        public static string TITLE_SUBCATEGORY_TITLE_TWO_POINTS {
+            get {
+                return ResourceManager.GetString("TITLE_SUBCATEGORY_TITLE_TWO_POINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Success.
         /// </summary>
         public static string TITLE_SUCCESS {
@@ -504,6 +531,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update Subcategory.
+        /// </summary>
+        public static string TITLE_UPDATE_SUBCATEGOY {
+            get {
+                return ResourceManager.GetString("TITLE_UPDATE_SUBCATEGOY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use the field above to Add new Subcategories.
         /// </summary>
         public static string TITLE_USE_FIELD_ABOVE_ADD_NEW_SUBCATEGORIES {
@@ -554,6 +590,15 @@ namespace Timerom.App {
         public static string TITLE_YOU_CAN_SAVE_MORE_CATEGORIES {
             get {
                 return ResourceManager.GetString("TITLE_YOU_CAN_SAVE_MORE_CATEGORIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can save more subcategories of the same type if you want :).
+        /// </summary>
+        public static string TITLE_YOU_CAN_SAVE_MORE_SUBCATEGORIES {
+            get {
+                return ResourceManager.GetString("TITLE_YOU_CAN_SAVE_MORE_SUBCATEGORIES", resourceCulture);
             }
         }
         
