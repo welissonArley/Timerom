@@ -11,10 +11,12 @@ namespace Timerom.App.ViewModels.Category
     public class AddUpdateSubcategoryViewModel : ViewModelBase, INavigationAware
     {
         #region UseCases
+        private readonly Lazy<IDeleteSubcategoryUseCase> deleteUseCase;
         private readonly Lazy<IUpdateSubcategoryUseCase> updateUseCase;
         private readonly Lazy<IInsertSubcategoryUseCase> createUseCase;
         private IInsertSubcategoryUseCase _createUseCase => createUseCase.Value;
         private IUpdateSubcategoryUseCase _updateUseCase => updateUseCase.Value;
+        private IDeleteSubcategoryUseCase _deleteUseCase => deleteUseCase.Value;
         #endregion
 
         #region Model
@@ -25,15 +27,19 @@ namespace Timerom.App.ViewModels.Category
 
         #region Commands
         public IAsyncCommand SaveCommand { get; private set; }
+        public IAsyncCommand DeleteCommand { get; private set; }
         #endregion
 
         public AddUpdateSubcategoryViewModel(Lazy<INavigationService> navigationService,
-            Lazy<IInsertSubcategoryUseCase> createUseCase, Lazy<IUpdateSubcategoryUseCase> updateUseCase) : base(navigationService)
+            Lazy<IInsertSubcategoryUseCase> createUseCase, Lazy<IUpdateSubcategoryUseCase> updateUseCase,
+            Lazy<IDeleteSubcategoryUseCase> deleteUseCase) : base(navigationService)
         {
             this.createUseCase = createUseCase;
             this.updateUseCase = updateUseCase;
+            this.deleteUseCase = deleteUseCase;
 
             SaveCommand = new AsyncCommand(SaveCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
+            DeleteCommand = new AsyncCommand(DeleteCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
         }
 
         private async Task SaveCommandExecuted()
@@ -68,6 +74,20 @@ namespace Timerom.App.ViewModels.Category
             subcategory.Name = SubCategory.Name;
 
             await SucessStatus();
+        }
+
+        private async Task DeleteCommandExecuted()
+        {
+            SavingStatus();
+            await _deleteUseCase.Execute(SubCategory);
+
+            var subcategory = Category.Childrens.First(c => c.Id == SubCategory.Id);
+            Category.Childrens.Remove(subcategory);
+
+            await SucessStatus();
+
+            _updated = true;
+            await _navigationService.GoBackAsync();
         }
 
         public void OnNavigatedTo(INavigationParameters parameters)

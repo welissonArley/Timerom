@@ -4,6 +4,7 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:local="clr-namespace:Timerom.App.Converter"
+             xmlns:customcontrol="clr-namespace:Timerom.App.CustomControl"
              xmlns:statusTemplate="clr-namespace:Timerom.App.Views.Templates.Status"
              xmlns:textwithlabel="clr-namespace:Timerom.App.Views.Templates.TextWithLabel"
              x:Name="AddUpdateSubcategoryContentPage"
@@ -56,7 +57,20 @@
 
             <textwithlabel:InputTextWithLabelComponent BindingEntry="{Binding SubCategory.Name}" Title="{x:Static resource:ResourceText.TITLE_SUBCATEGORY_TITLE_TWO_POINTS}" PlaceHolder="{x:Static resource:ResourceText.TITLE_STUDIES}"/>
 
-            <Button Text="{x:Static resource:ResourceText.TITLE_SAVE}" VerticalOptions="EndAndExpand" Command="{Binding SaveCommand}"/>
+            <customcontrol:ButtonTextAlignment VerticalOptions="EndAndExpand" Command="{Binding DeleteCommand}" Style="{StaticResource DeleteButton}" TextAlignment="Left" HorizontalOptions="Start" Text="{x:Static resource:ResourceText.TITLE_DELETE_CATEGORY}">
+                <customcontrol:ButtonTextAlignment.Triggers>
+                    <DataTrigger TargetType="customcontrol:ButtonTextAlignment" Binding="{Binding SubCategory.Id}" Value="0">
+                        <Setter Property="IsVisible" Value="False"/>
+                    </DataTrigger>
+                </customcontrol:ButtonTextAlignment.Triggers>
+            </customcontrol:ButtonTextAlignment>
+            <Button Text="{x:Static resource:ResourceText.TITLE_SAVE}" Command="{Binding SaveCommand}">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding SubCategory.Id}" Value="0">
+                        <Setter Property="VerticalOptions" Value="EndAndExpand"/>
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
