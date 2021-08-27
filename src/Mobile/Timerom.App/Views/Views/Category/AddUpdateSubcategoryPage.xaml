@@ -52,7 +52,7 @@
             </StackLayout>
 
             <Label Text="{x:Static resource:ResourceText.TITLE_BELONGS_CATEGORY_TWO_POINTS}" FontSize="12" Style="{StaticResource LabelLight}"/>
-            <Label Text="{Binding Category}" FontSize="18" Style="{StaticResource LabelExtraBold}" Margin="0,15,0,30"/>
+            <Label Text="{Binding Category.Name}" FontSize="18" Style="{StaticResource LabelExtraBold}" Margin="0,15,0,30"/>
 
             <textwithlabel:InputTextWithLabelComponent BindingEntry="{Binding SubCategory.Name}" Title="{x:Static resource:ResourceText.TITLE_SUBCATEGORY_TITLE_TWO_POINTS}" PlaceHolder="{x:Static resource:ResourceText.TITLE_STUDIES}"/>
 

@@ -51,6 +51,11 @@ namespace Timerom.App.Repository
             var count = await _database.Table<Category>().CountAsync(c => c.Name.ToUpper().Equals(name.ToUpper()) && c.ParentCategoryId == null);
             return count > 0;
         }
+        public async Task<bool> ExistChildrensCategoryWithNameAndParentId(string name, long parentId)
+        {
+            var count = await _database.Table<Category>().CountAsync(c => c.Name.ToUpper().Equals(name.ToUpper()) && c.ParentCategoryId == parentId);
+            return count > 0;
+        }
 
         public async Task<Category> GetById(long id)
         {

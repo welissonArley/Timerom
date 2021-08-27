@@ -40,7 +40,7 @@ namespace Timerom.App.ViewModels.Category
             var navParameters = new NavigationParameters
             {
                 { "SubCategory", new Model.Category { Type = category.Type } },
-                { "Category", category.Name }
+                { "Category", category }
             };
 
             await _navigationService.NavigateAsync(nameof(AddUpdateSubcategoryPage), navParameters);
