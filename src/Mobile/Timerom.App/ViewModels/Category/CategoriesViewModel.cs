@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.UseCase.Categories.Interfaces;
+using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.Views.Modal.MenuOptions;
 using Timerom.App.Views.Views.Category;
 using Xamarin.CommunityToolkit.ObjectModel;
@@ -85,6 +86,32 @@ namespace Timerom.App.ViewModels.Category
                 IList<Model.Category> categoriesDeleted = parameters.GetValue<IList<Model.Category>>("Deleted");
                 UpdateCategories(categoriesDeleted, true);
             }
+
+            if (parameters.ContainsKey("UpdateList"))
+            {
+                var type = parameters.GetValue<CategoryType>("UpdateList");
+                switch (type)
+                {
+                    case CategoryType.Productive:
+                        {
+                            ProductiveCategories = new ObservableCollection<Model.Category>(ProductiveCategories.ToList());
+                            RaisePropertyChanged("ProductiveCategories");
+                        }
+                        break;
+                    case CategoryType.Neutral:
+                        {
+                            NeutralCategories = new ObservableCollection<Model.Category>(NeutralCategories.ToList());
+                            RaisePropertyChanged("NeutralCategories");
+                        }
+                        break;
+                    case CategoryType.Unproductive:
+                        {
+                            UnproductiveCategories = new ObservableCollection<Model.Category>(UnproductiveCategories.ToList());
+                            RaisePropertyChanged("UnproductiveCategories");
+                        }
+                        break;
+                }
+            }
         }
 
         private void InsertNewCategoriesCreated(IList<Model.Category> categoriesCreated)
@@ -123,21 +150,21 @@ namespace Timerom.App.ViewModels.Category
             {
                 switch (category.Type)
                 {
-                    case ValueObjects.Enuns.CategoryType.Productive:
+                    case CategoryType.Productive:
                         {
                             var newList = NewListToUpdate(ProductiveCategories, category, delete);
 
                             ProductiveCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
                         }
                         break;
-                    case ValueObjects.Enuns.CategoryType.Neutral:
+                    case CategoryType.Neutral:
                         {
                             var newList = NewListToUpdate(NeutralCategories, category, delete);
 
                             NeutralCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
                         }
                         break;
-                    case ValueObjects.Enuns.CategoryType.Unproductive:
+                    case CategoryType.Unproductive:
                         {
                             var newList = NewListToUpdate(UnproductiveCategories, category, delete);
 

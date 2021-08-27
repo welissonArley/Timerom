@@ -13,6 +13,7 @@ namespace Timerom.App.ViewModels.Category
         private readonly Lazy<IInsertSubcategoryUseCase> createUseCase;
         private IInsertSubcategoryUseCase _createUseCase => createUseCase.Value;
 
+        private bool _updated { get; set; }
         public Model.Category Category { get; set; }
         public Model.Category SubCategory { get; set; }
 
@@ -37,6 +38,8 @@ namespace Timerom.App.ViewModels.Category
             
             RaisePropertyChanged("SubCategory");
 
+            _updated = true;
+
             await SucessStatus(2500);
         }
 
@@ -56,6 +59,10 @@ namespace Timerom.App.ViewModels.Category
             RaisePropertyChanged("SubCategory");
         }
 
-        public void OnNavigatedFrom(INavigationParameters parameters) { }
+        public void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            if (_updated)
+                parameters.Add("UpdateList", Category.Type);
+        }
     }
 }
