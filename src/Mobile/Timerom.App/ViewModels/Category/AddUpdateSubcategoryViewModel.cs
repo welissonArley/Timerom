@@ -46,15 +46,15 @@ namespace Timerom.App.ViewModels.Category
         {
             SavingStatus();
 
-            if (Category.Id == 0)
-                await CreateCategory();
+            if (SubCategory.Id == 0)
+                await CreateSubCategory();
             else
-                await UpdateCategory();
+                await UpdateSubCategory();
 
             _updated = true;
         }
 
-        private async Task CreateCategory()
+        private async Task CreateSubCategory()
         {
             var result = await _createUseCase.Execute(SubCategory, Category.Id);
             Category.Childrens.Add(result);
@@ -66,7 +66,7 @@ namespace Timerom.App.ViewModels.Category
 
             await SucessStatus(2500);
         }
-        private async Task UpdateCategory()
+        private async Task UpdateSubCategory()
         {
             await _updateUseCase.Execute(SubCategory, Category.Id);
 
