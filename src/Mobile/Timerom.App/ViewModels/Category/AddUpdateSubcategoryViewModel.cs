@@ -10,14 +10,20 @@ namespace Timerom.App.ViewModels.Category
 {
     public class AddUpdateSubcategoryViewModel : ViewModelBase, INavigationAware
     {
+        #region UseCases
         private readonly Lazy<IInsertSubcategoryUseCase> createUseCase;
         private IInsertSubcategoryUseCase _createUseCase => createUseCase.Value;
+        #endregion
 
+        #region Model
         private bool _updated { get; set; }
         public Model.Category Category { get; set; }
         public Model.Category SubCategory { get; set; }
+        #endregion
 
+        #region Commands
         public IAsyncCommand SaveCommand { get; private set; }
+        #endregion
 
         public AddUpdateSubcategoryViewModel(Lazy<INavigationService> navigationService, Lazy<IInsertSubcategoryUseCase> createUseCase) : base(navigationService)
         {

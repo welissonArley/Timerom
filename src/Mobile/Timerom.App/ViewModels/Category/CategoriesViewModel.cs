@@ -14,15 +14,21 @@ namespace Timerom.App.ViewModels.Category
 {
     public class CategoriesViewModel : ViewModelBase, IInitializeAsync, INavigationAware
     {
+        #region UseCases
         private readonly Lazy<IGetAllCategoriesUseCase> useCase;
         private IGetAllCategoriesUseCase _useCase => useCase.Value;
+        #endregion
 
+        #region Models
         public ObservableCollection<Model.Category> ProductiveCategories { get; private set; }
         public ObservableCollection<Model.Category> NeutralCategories { get; private set; }
         public ObservableCollection<Model.Category> UnproductiveCategories { get; private set; }
+        #endregion
 
+        #region Commands
         public IAsyncCommand FloatActionCommand { get; set; }
         public IAsyncCommand<Model.Category> AddSubCategoryCommand { get; set; }
+        #endregion
 
         public CategoriesViewModel(Lazy<IGetAllCategoriesUseCase> useCase, Lazy<INavigationService> navigationService) : base(navigationService)
         {
@@ -90,35 +96,39 @@ namespace Timerom.App.ViewModels.Category
             if (parameters.ContainsKey("UpdateList"))
             {
                 var type = parameters.GetValue<CategoryType>("UpdateList");
-                switch (type)
-                {
-                    case CategoryType.Productive:
-                        {
-                            ProductiveCategories = new ObservableCollection<Model.Category>(ProductiveCategories.ToList());
-                            RaisePropertyChanged("ProductiveCategories");
-                        }
-                        break;
-                    case CategoryType.Neutral:
-                        {
-                            NeutralCategories = new ObservableCollection<Model.Category>(NeutralCategories.ToList());
-                            RaisePropertyChanged("NeutralCategories");
-                        }
-                        break;
-                    case CategoryType.Unproductive:
-                        {
-                            UnproductiveCategories = new ObservableCollection<Model.Category>(UnproductiveCategories.ToList());
-                            RaisePropertyChanged("UnproductiveCategories");
-                        }
-                        break;
-                }
+                RaiseCategoryListCategories(type);
             }
         }
 
+        private void RaiseCategoryListCategories(CategoryType type)
+        {
+            switch (type)
+            {
+                case CategoryType.Productive:
+                    {
+                        ProductiveCategories = new ObservableCollection<Model.Category>(ProductiveCategories.ToList());
+                        RaisePropertyChanged("ProductiveCategories");
+                    }
+                    break;
+                case CategoryType.Neutral:
+                    {
+                        NeutralCategories = new ObservableCollection<Model.Category>(NeutralCategories.ToList());
+                        RaisePropertyChanged("NeutralCategories");
+                    }
+                    break;
+                case CategoryType.Unproductive:
+                    {
+                        UnproductiveCategories = new ObservableCollection<Model.Category>(UnproductiveCategories.ToList());
+                        RaisePropertyChanged("UnproductiveCategories");
+                    }
+                    break;
+            }
+        }
         private void InsertNewCategoriesCreated(IList<Model.Category> categoriesCreated)
         {
             switch (categoriesCreated.First().Type)
             {
-                case ValueObjects.Enuns.CategoryType.Productive:
+                case CategoryType.Productive:
                     {
                         var newList = NewListToInsert(ProductiveCategories, categoriesCreated);
 
@@ -126,7 +136,7 @@ namespace Timerom.App.ViewModels.Category
                         RaisePropertyChanged("ProductiveCategories");
                     }
                     break;
-                case ValueObjects.Enuns.CategoryType.Neutral:
+                case CategoryType.Neutral:
                     {
                         var newList = NewListToInsert(NeutralCategories, categoriesCreated);
 
@@ -134,7 +144,7 @@ namespace Timerom.App.ViewModels.Category
                         RaisePropertyChanged("NeutralCategories");
                     }
                     break;
-                case ValueObjects.Enuns.CategoryType.Unproductive:
+                case CategoryType.Unproductive:
                     {
                         var newList = NewListToInsert(UnproductiveCategories, categoriesCreated);
 
@@ -147,36 +157,39 @@ namespace Timerom.App.ViewModels.Category
         private void UpdateCategories(IList<Model.Category> categoriesUpdated, bool delete = false)
         {
             foreach(var category in categoriesUpdated)
-            {
-                switch (category.Type)
-                {
-                    case CategoryType.Productive:
-                        {
-                            var newList = NewListToUpdate(ProductiveCategories, category, delete);
-
-                            ProductiveCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
-                        }
-                        break;
-                    case CategoryType.Neutral:
-                        {
-                            var newList = NewListToUpdate(NeutralCategories, category, delete);
-
-                            NeutralCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
-                        }
-                        break;
-                    case CategoryType.Unproductive:
-                        {
-                            var newList = NewListToUpdate(UnproductiveCategories, category, delete);
-
-                            UnproductiveCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
-                        }
-                        break;
-                }
-            }
+                UpdateCategory(category, delete);
 
             RaisePropertyChanged("ProductiveCategories");
             RaisePropertyChanged("NeutralCategories");
             RaisePropertyChanged("UnproductiveCategories");
+        }
+
+        private void UpdateCategory(Model.Category category, bool delete = false)
+        {
+            switch (category.Type)
+            {
+                case CategoryType.Productive:
+                    {
+                        var newList = NewListToUpdate(ProductiveCategories, category, delete);
+
+                        ProductiveCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
+                    }
+                    break;
+                case CategoryType.Neutral:
+                    {
+                        var newList = NewListToUpdate(NeutralCategories, category, delete);
+
+                        NeutralCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
+                    }
+                    break;
+                case CategoryType.Unproductive:
+                    {
+                        var newList = NewListToUpdate(UnproductiveCategories, category, delete);
+
+                        UnproductiveCategories = new ObservableCollection<Model.Category>(newList.OrderBy(c => c.Name));
+                    }
+                    break;
+            }
         }
 
         private List<Model.Category> NewListToInsert(ObservableCollection<Model.Category> categories, IList<Model.Category> categoriesCreated)

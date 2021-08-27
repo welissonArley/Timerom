@@ -11,23 +11,29 @@ namespace Timerom.App.ViewModels.Category
 {
     public class AddUpdateCategoryViewModel : ViewModelBase, INavigationAware
     {
+        #region UseCases
         private readonly Lazy<IDeleteCategoryUseCase> deleteUseCase;
         private readonly Lazy<IUpdateCategoryUseCase> updateUseCase;
         private readonly Lazy<IInsertCategoryUseCase> createUseCase;
         protected IInsertCategoryUseCase _createUseCase => createUseCase.Value;
         protected IUpdateCategoryUseCase _updateUseCase => updateUseCase.Value;
         protected IDeleteCategoryUseCase _deleteUseCase => deleteUseCase.Value;
+        #endregion
 
+        #region Model
         private IList<Model.Category> _categoriesCreated { get; set; }
         private Model.Category _categoriesDeleted { get; set; }
         private Model.Category _updateCategory { get; set; }
         public Model.Category Category { get; set; }
         public string SubCategoryName { get; set; }
+        #endregion
 
+        #region Commands
         public IAsyncCommand DeleteCommand { get; private set; }
         public IAsyncCommand SaveCommand { get; private set; }
         public IAsyncCommand AddSubCategoryCommand { get; private set; }
         public IAsyncCommand<Model.Category> OptionCategoryCommand { get; private set; }
+        #endregion
 
         public AddUpdateCategoryViewModel(Lazy<INavigationService> navigationService,
             Lazy<IInsertCategoryUseCase> createUseCase, Lazy<IUpdateCategoryUseCase> updateUseCase,

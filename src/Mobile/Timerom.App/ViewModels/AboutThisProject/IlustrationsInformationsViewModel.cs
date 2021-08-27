@@ -1,20 +1,23 @@
-﻿using System;
-using System.Windows.Input;
+﻿using Prism.Mvvm;
+using System;
+using System.Threading.Tasks;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
-using Xamarin.Forms;
 
 namespace Timerom.App.ViewModels.AboutThisProject
 {
-    public class IlustrationsInformationsViewModel : ViewModelBase
+    public class IlustrationsInformationsViewModel : BindableBase
     {
-        public ICommand LinkCommand { get; private set; }
+        public IAsyncCommand<string> LinkCommand { get; private set; }
 
         public IlustrationsInformationsViewModel()
         {
-            LinkCommand = new Command((url) =>
-            {
-                Launcher.OpenAsync(new Uri(url.ToString()));
-            });
+            LinkCommand = new AsyncCommand<string>(LinkCommandExecuted, allowsMultipleExecutions: false);
+        }
+
+        private async Task LinkCommandExecuted(string url)
+        {
+            await Launcher.OpenAsync(new Uri(url));
         }
     }
 }

@@ -12,12 +12,17 @@ namespace Timerom.App.ViewModels.Category
 {
     public class SelectCategoryToUpdateViewModel : ViewModelBase, IInitializeAsync, INavigationAware
     {
+        #region UseCase
         private readonly Lazy<IGetAllCategoriesUseCase> useCase;
         private IGetAllCategoriesUseCase _useCase => useCase.Value;
+        #endregion
 
+        #region Commands
         public IAsyncCommand<string> SearchTextChangedCommand { get; private set; }
         public IAsyncCommand<Model.Category> ItemSelectedCommand { get; private set; }
+        #endregion
 
+        #region Models
         private IList<Model.Category> _categoriesUpdated { get; set; }
         private IList<Model.Category> _categoriesDeleted { get; set; }
 
@@ -27,6 +32,7 @@ namespace Timerom.App.ViewModels.Category
         public ObservableCollection<Model.Category> ProductiveCategories { get; private set; }
         public ObservableCollection<Model.Category> NeutralCategories { get; private set; }
         public ObservableCollection<Model.Category> UnproductiveCategories { get; private set; }
+        #endregion
 
         public SelectCategoryToUpdateViewModel(Lazy<IGetAllCategoriesUseCase> useCase, Lazy<INavigationService> navigationService) : base(navigationService)
         {

@@ -15,8 +15,6 @@ namespace Timerom.App.ViewModels
         private readonly Lazy<INavigationService> navigationService;
         protected INavigationService _navigationService => navigationService.Value;
 
-        public ViewModelBase() { }
-
         public ViewModelBase(Lazy<INavigationService> navigationService)
         {
             this.navigationService = navigationService;
