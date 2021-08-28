@@ -108,6 +108,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Task.
+        /// </summary>
+        public static string TITLE_ADD_TASK {
+            get {
+                return ResourceManager.GetString("TITLE_ADD_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Unproductive Category.
         /// </summary>
         public static string TITLE_ADD_UNPRODUCTIVE_CATEGORY {
@@ -167,6 +176,15 @@ namespace Timerom.App {
         public static string TITLE_CATEGORY_NAME_TWO_POINTS {
             get {
                 return ResourceManager.GetString("TITLE_CATEGORY_NAME_TWO_POINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose an option.
+        /// </summary>
+        public static string TITLE_CHOOSE_AN_OPTION {
+            get {
+                return ResourceManager.GetString("TITLE_CHOOSE_AN_OPTION", resourceCulture);
             }
         }
         
@@ -279,11 +297,29 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string TITLE_HOME {
+            get {
+                return ResourceManager.GetString("TITLE_HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Icons and Illustrations used.
         /// </summary>
         public static string TITLE_ICONS_ILLUSTRATIONS_USED {
             get {
                 return ResourceManager.GetString("TITLE_ICONS_ILLUSTRATIONS_USED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Improve your time.
+        /// </summary>
+        public static string TITLE_IMPROVE_YOUR_TIME {
+            get {
+                return ResourceManager.GetString("TITLE_IMPROVE_YOUR_TIME", resourceCulture);
             }
         }
         
@@ -333,6 +369,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Planner.
+        /// </summary>
+        public static string TITLE_PLANNER {
+            get {
+                return ResourceManager.GetString("TITLE_PLANNER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Podcasts.
         /// </summary>
         public static string TITLE_PODCASTS {
@@ -374,6 +419,15 @@ namespace Timerom.App {
         public static string TITLE_PURCHASES {
             get {
                 return ResourceManager.GetString("TITLE_PURCHASES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reports.
+        /// </summary>
+        public static string TITLE_REPORTS {
+            get {
+                return ResourceManager.GetString("TITLE_REPORTS", resourceCulture);
             }
         }
         
@@ -428,6 +482,15 @@ namespace Timerom.App {
         public static string TITLE_SPORT {
             get {
                 return ResourceManager.GetString("TITLE_SPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Task.
+        /// </summary>
+        public static string TITLE_START_TASK {
+            get {
+                return ResourceManager.GetString("TITLE_START_TASK", resourceCulture);
             }
         }
         

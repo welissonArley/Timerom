@@ -200,4 +200,112 @@
   <ItemGroup>
     <BundleResource Include="Resources\FloatActionButton_Lightmode%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationEllipses_lightmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationEllipses_lightmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationEllipses_lightmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardHome_darkmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardHome_darkmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardHome_darkmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardHome_lighmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardHome_lighmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardHome_lighmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardPlanner_darkmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardPlanner_darkmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardPlanner_darkmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardPlanner_lighmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardPlanner_lighmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardPlanner_lighmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardReports_darkmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardReports_darkmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardReports_darkmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardReports_lighmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardReports_lighmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardReports_lighmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationEllipses_darkmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationEllipses_darkmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationEllipses_darkmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardAddTask_darkmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardAddTask_darkmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardAddTask_darkmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardAddTask_lightmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardAddTask_lightmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardAddTask_lightmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardCronTask_darkmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardCronTask_darkmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardCronTask_darkmode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardCronTask_lighmode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardCronTask_lighmode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IllustrationDashboardCronTask_lighmode%403x.png" />
+  </ItemGroup>
 </Project>

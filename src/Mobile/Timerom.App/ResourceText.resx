@@ -134,6 +134,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_ADD_PRODUCTIVE_CATEGORY" xml:space="preserve">
     <value>Add Productive Category</value>
   </data>
+  <data name="TITLE_ADD_TASK" xml:space="preserve">
+    <value>Add Task</value>
+  </data>
   <data name="TITLE_ADD_UNPRODUCTIVE_CATEGORY" xml:space="preserve">
     <value>Add Unproductive Category</value>
   </data>
@@ -154,6 +157,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_CATEGORY_NAME_TWO_POINTS" xml:space="preserve">
     <value>Category name:</value>
+  </data>
+  <data name="TITLE_CHOOSE_AN_OPTION" xml:space="preserve">
+    <value>Choose an option</value>
   </data>
   <data name="TITLE_CONTACT_US" xml:space="preserve">
     <value>Contact Us</value>
@@ -191,8 +197,14 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_GYM" xml:space="preserve">
     <value>Gym</value>
   </data>
+  <data name="TITLE_HOME" xml:space="preserve">
+    <value>Home</value>
+  </data>
   <data name="TITLE_ICONS_ILLUSTRATIONS_USED" xml:space="preserve">
     <value>Icons and Illustrations used</value>
+  </data>
+  <data name="TITLE_IMPROVE_YOUR_TIME" xml:space="preserve">
+    <value>Improve your time</value>
   </data>
   <data name="TITLE_INSTAGRAM" xml:space="preserve">
     <value>Instagram</value>
@@ -209,6 +221,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_PERSONAL_PROJECTS" xml:space="preserve">
     <value>Personal projects</value>
   </data>
+  <data name="TITLE_PLANNER" xml:space="preserve">
+    <value>Planner</value>
+  </data>
   <data name="TITLE_PODCASTS" xml:space="preserve">
     <value>Podcasts</value>
   </data>
@@ -223,6 +238,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_PURCHASES" xml:space="preserve">
     <value>Purchases</value>
+  </data>
+  <data name="TITLE_REPORTS" xml:space="preserve">
+    <value>Reports</value>
   </data>
   <data name="TITLE_SAVE" xml:space="preserve">
     <value>Save</value>
@@ -241,6 +259,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_SPORT" xml:space="preserve">
     <value>Sport</value>
+  </data>
+  <data name="TITLE_START_TASK" xml:space="preserve">
+    <value>Start Task</value>
   </data>
   <data name="TITLE_STUDIES" xml:space="preserve">
     <value>Studies</value>

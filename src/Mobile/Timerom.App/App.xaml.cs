@@ -11,6 +11,7 @@ using Timerom.App.Views.Modal.MenuOptions;
 using Timerom.App.Views.Views.AboutThisProject;
 using Timerom.App.Views.Views.Category;
 using Timerom.App.Views.Views.Dashboard;
+using Timerom.App.Views.Views.Home;
 using Xamarin.Forms;
 
 namespace Timerom.App
@@ -26,7 +27,8 @@ namespace Timerom.App
             SetAppTheme();
 
             DashboardPageFlyoutViewModel.Initialize();
-            _ = await NavigationService.NavigateAsync("/DashboardPage/NavigationPage/DashboardPageDetail");
+            //_ = await NavigationService.NavigateAsync("/DashboardPage/NavigationPage/DashboardPageDetail");
+            _ = await NavigationService.NavigateAsync("/NavigationPage/HomePage");
         }
 
         private void SetAppTheme()
@@ -46,6 +48,7 @@ namespace Timerom.App
 
         private void RegisterPages(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<HomePage>();
             containerRegistry.RegisterForNavigation<DashboardPage>();
             containerRegistry.RegisterForNavigation<DashboardPageDetail>();
             containerRegistry.RegisterForNavigation<IlustrationsInformationsPage, IlustrationsInformationsViewModel>();
