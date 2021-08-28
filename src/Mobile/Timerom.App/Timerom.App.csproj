@@ -94,6 +94,15 @@
     <Compile Update="Views\Views\Category\SelectCategoryToUpdatePage.xaml.cs">
       <DependentUpon>SelectCategoryToUpdatePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Views\Dashboard\DashboardPage.xaml.cs">
+      <DependentUpon>DashboardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Views\Dashboard\DashboardPageDetail.xaml.cs">
+      <DependentUpon>DashboardPageDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Views\Dashboard\DashboardPageFlyout.xaml.cs">
+      <DependentUpon>DashboardPageFlyout.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -146,13 +155,13 @@
     <EmbeddedResource Update="Views\Views\Category\SelectCategoryToUpdatePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Views\Home\HomePage.xaml">
+    <EmbeddedResource Update="Views\Views\Dashboard\DashboardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Views\Home\HomePageDetail.xaml">
+    <EmbeddedResource Update="Views\Views\Dashboard\DashboardPageDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Views\Home\HomePageFlyout.xaml">
+    <EmbeddedResource Update="Views\Views\Dashboard\DashboardPageFlyout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

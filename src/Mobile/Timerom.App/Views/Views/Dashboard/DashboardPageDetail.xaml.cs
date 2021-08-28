@@ -1,12 +1,12 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Timerom.App.Views.Views.Home
+namespace Timerom.App.Views.Views.Dashboard
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomePageDetail : ContentPage
+    public partial class DashboardPageDetail : ContentPage
     {
-        public HomePageDetail()
+        public DashboardPageDetail()
         {
             InitializeComponent();
         }

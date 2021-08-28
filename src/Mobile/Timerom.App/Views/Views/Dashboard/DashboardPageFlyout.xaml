@@ -7,7 +7,7 @@
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
              xmlns:enuns="clr-namespace:Timerom.App.ValueObjects.Enuns"
-             x:Class="Timerom.App.Views.Views.Home.HomePageFlyout"
+             x:Class="Timerom.App.Views.Views.Dashboard.DashboardPageFlyout"
              prism:ViewModelLocator.AutowireViewModel="True"
              Title=" ">
     <StackLayout Margin="40,30,20,5">

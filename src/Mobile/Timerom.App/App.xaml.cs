@@ -3,14 +3,14 @@ using Prism.Plugin.Popups;
 using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.App.ViewModels.AboutThisProject;
 using Timerom.App.ViewModels.Category;
-using Timerom.App.ViewModels.Home;
+using Timerom.App.ViewModels.Dashboard;
 using Timerom.App.ViewModels.Modal;
 using Timerom.App.ViewModels.Modal.MenuOptions;
 using Timerom.App.Views.Modal;
 using Timerom.App.Views.Modal.MenuOptions;
 using Timerom.App.Views.Views.AboutThisProject;
 using Timerom.App.Views.Views.Category;
-using Timerom.App.Views.Views.Home;
+using Timerom.App.Views.Views.Dashboard;
 using Xamarin.Forms;
 
 namespace Timerom.App
@@ -25,8 +25,8 @@ namespace Timerom.App
 
             SetAppTheme();
 
-            HomePageFlyoutViewModel.Initialize();
-            _ = await NavigationService.NavigateAsync("/HomePage/NavigationPage/HomePageDetail");
+            DashboardPageFlyoutViewModel.Initialize();
+            _ = await NavigationService.NavigateAsync("/DashboardPage/NavigationPage/DashboardPageDetail");
         }
 
         private void SetAppTheme()
@@ -46,10 +46,10 @@ namespace Timerom.App
 
         private void RegisterPages(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<HomePage>();
-            containerRegistry.RegisterForNavigation<HomePageDetail>();
+            containerRegistry.RegisterForNavigation<DashboardPage>();
+            containerRegistry.RegisterForNavigation<DashboardPageDetail>();
             containerRegistry.RegisterForNavigation<IlustrationsInformationsPage, IlustrationsInformationsViewModel>();
-            containerRegistry.RegisterForNavigation<HomePageFlyout, HomePageFlyoutViewModel>();
+            containerRegistry.RegisterForNavigation<DashboardPageFlyout, DashboardPageFlyoutViewModel>();
             containerRegistry.RegisterForNavigation<CategoriesPage, CategoriesViewModel>();
             containerRegistry.RegisterForNavigation<AddUpdateCategoryPage, AddUpdateCategoryViewModel>();
             containerRegistry.RegisterForNavigation<SelectCategoryToUpdatePage, SelectCategoryToUpdateViewModel>();

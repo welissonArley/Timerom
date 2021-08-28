@@ -5,12 +5,12 @@ using Timerom.App.Services.AppVersion;
 using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.Views.Views.AboutThisProject;
 using Timerom.App.Views.Views.Category;
-using Timerom.App.Views.Views.Home;
+using Timerom.App.Views.Views.Dashboard;
 using Xamarin.CommunityToolkit.ObjectModel;
 
-namespace Timerom.App.ViewModels.Home
+namespace Timerom.App.ViewModels.Dashboard
 {
-    public class HomePageFlyoutViewModel : ViewModelBase
+    public class DashboardPageFlyoutViewModel : ViewModelBase
     {
         public IAsyncCommand<MenuItemOptions> MenuItemSelectedCommand { get; private set; }
 
@@ -22,7 +22,7 @@ namespace Timerom.App.ViewModels.Home
         
         public string VersionText { get; set; }
 
-        public HomePageFlyoutViewModel(Lazy<INavigationService> navigationService, IAppVersion appVersion) : base(navigationService)
+        public DashboardPageFlyoutViewModel(Lazy<INavigationService> navigationService, IAppVersion appVersion) : base(navigationService)
         {
             MenuItemSelectedCommand = new AsyncCommand<MenuItemOptions>(ItemMenuSelected, allowsMultipleExecutions: false);
 
@@ -37,17 +37,17 @@ namespace Timerom.App.ViewModels.Home
             {
                 case MenuItemOptions.IconsAndIllustrations:
                     {
-                        await _navigationService.NavigateAsync(new Uri($"/HomePage/NavigationPage/{nameof(IlustrationsInformationsPage)}", UriKind.Absolute));
+                        await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(IlustrationsInformationsPage)}", UriKind.Absolute));
                     }
                     break;
                 case MenuItemOptions.Dashboard:
                     {
-                        await _navigationService.NavigateAsync(new Uri($"/HomePage/NavigationPage/{nameof(HomePageDetail)}", UriKind.Absolute));
+                        await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(DashboardPageDetail)}", UriKind.Absolute));
                     }
                     break;
                 case MenuItemOptions.Categories:
                     {
-                        await _navigationService.NavigateAsync(new Uri($"/HomePage/NavigationPage/{nameof(CategoriesPage)}", UriKind.Absolute));
+                        await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(CategoriesPage)}", UriKind.Absolute));
                     }
                     break;
                 case MenuItemOptions.PrivacyPolicy:
