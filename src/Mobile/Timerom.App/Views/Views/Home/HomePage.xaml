@@ -17,6 +17,9 @@
 
                 <StackLayout Grid.Column="0" VerticalOptions="CenterAndExpand" Margin="90,-40,0,0">
                     <StackLayout Orientation="Horizontal">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding HomeCommand}"/>
+                        </StackLayout.GestureRecognizers>
                         <Image Source="{AppThemeBinding Light=IllustrationDashboardHome_lighmode.png, Dark=IllustrationDashboardHome_darkmode.png}" HeightRequest="56" WidthRequest="56" HorizontalOptions="Start" VerticalOptions="Start" />
                         <Label Text="{x:Static resource:ResourceText.TITLE_HOME}" BackgroundColor="{AppThemeBinding Light=#F2EBF4, Dark=#332B2E}" Padding="7" TextColor="{AppThemeBinding Light=#763589, Dark=#EB9FE8}" Style="{StaticResource LabelExtraBold}" FontSize="16" Margin="15,0,0,0" VerticalOptions="Center"/>
                     </StackLayout>
