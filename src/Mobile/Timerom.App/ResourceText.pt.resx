@@ -218,6 +218,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_NEUTRAL" xml:space="preserve">
     <value>Neutro</value>
   </data>
+  <data name="TITLE_NO_TASK_THIS_DATE" xml:space="preserve">
+    <value>Sem tarefas para esta data.</value>
+  </data>
   <data name="TITLE_PERSONAL_PROJECTS" xml:space="preserve">
     <value>Projetos pessoais</value>
   </data>
@@ -298,6 +301,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_UPDATE_SUBCATEGOY" xml:space="preserve">
     <value>Atualizar Subcategoria</value>
+  </data>
+  <data name="TITLE_USE_BUTTON_BELLOW_ADD_ONE" xml:space="preserve">
+    <value>Use o botam abaixo + para adiconar uma.</value>
   </data>
   <data name="TITLE_USE_FIELD_ABOVE_ADD_NEW_SUBCATEGORIES" xml:space="preserve">
     <value>Utilize o campo acima para Adicionar novas Subcategorias</value>

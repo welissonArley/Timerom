@@ -218,6 +218,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_NEUTRAL" xml:space="preserve">
     <value>Neutral</value>
   </data>
+  <data name="TITLE_NO_TASK_THIS_DATE" xml:space="preserve">
+    <value>No task for this date.</value>
+  </data>
   <data name="TITLE_PERSONAL_PROJECTS" xml:space="preserve">
     <value>Personal projects</value>
   </data>
@@ -298,6 +301,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_UPDATE_SUBCATEGOY" xml:space="preserve">
     <value>Update Subcategory</value>
+  </data>
+  <data name="TITLE_USE_BUTTON_BELLOW_ADD_ONE" xml:space="preserve">
+    <value>Use the button below + to add one.</value>
   </data>
   <data name="TITLE_USE_FIELD_ABOVE_ADD_NEW_SUBCATEGORIES" xml:space="preserve">
     <value>Use the field above to Add new Subcategories</value>

@@ -360,6 +360,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No task for this date..
+        /// </summary>
+        public static string TITLE_NO_TASK_THIS_DATE {
+            get {
+                return ResourceManager.GetString("TITLE_NO_TASK_THIS_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Personal projects.
         /// </summary>
         public static string TITLE_PERSONAL_PROJECTS {
@@ -599,6 +608,15 @@ namespace Timerom.App {
         public static string TITLE_UPDATE_SUBCATEGOY {
             get {
                 return ResourceManager.GetString("TITLE_UPDATE_SUBCATEGOY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the button below + to add one..
+        /// </summary>
+        public static string TITLE_USE_BUTTON_BELLOW_ADD_ONE {
+            get {
+                return ResourceManager.GetString("TITLE_USE_BUTTON_BELLOW_ADD_ONE", resourceCulture);
             }
         }
         
