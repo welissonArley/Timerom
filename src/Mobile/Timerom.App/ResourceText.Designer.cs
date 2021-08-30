@@ -315,6 +315,24 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hour.
+        /// </summary>
+        public static string TITLE_HOUR {
+            get {
+                return ResourceManager.GetString("TITLE_HOUR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hours.
+        /// </summary>
+        public static string TITLE_HOURS {
+            get {
+                return ResourceManager.GetString("TITLE_HOURS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Icons and Illustrations used.
         /// </summary>
         public static string TITLE_ICONS_ILLUSTRATIONS_USED {
@@ -576,6 +594,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This is {0}% of your day..
+        /// </summary>
+        public static string TITLE_THIS_IS_PERCENTAGE_YOUR_DAY {
+            get {
+                return ResourceManager.GetString("TITLE_THIS_IS_PERCENTAGE_YOUR_DAY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total of {0} tasks.
         /// </summary>
         public static string TITLE_TOTAL_OF_TASKS {
@@ -662,6 +689,15 @@ namespace Timerom.App {
         public static string TITLE_VERSION_NUMBER {
             get {
                 return ResourceManager.GetString("TITLE_VERSION_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View all.
+        /// </summary>
+        public static string TITLE_VIEW_ALL {
+            get {
+                return ResourceManager.GetString("TITLE_VIEW_ALL", resourceCulture);
             }
         }
         

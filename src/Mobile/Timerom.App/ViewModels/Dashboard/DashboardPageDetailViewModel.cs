@@ -21,10 +21,34 @@ namespace Timerom.App.ViewModels.Dashboard
                 Date = DateTime.Today,
                 Dashboard = new DashboardModel
                 {
-                    ProductivePercentage = 50,
-                    NeutralPercentage = 50,
-                    UnproductivePercentage = 0,
-                    TotalTasks = 15
+                    ProductivePercentage = 60,
+                    NeutralPercentage = 25,
+                    UnproductivePercentage = 15,
+                    TotalTasks = 15,
+                    Tasks = new System.Collections.ObjectModel.ObservableCollection<DashboardTaskModel>
+                    {
+                        new DashboardTaskModel
+                        {
+                            Title = "Sleep",
+                            Hours = 8.5,
+                            Percentage = 60,
+                            Category = ValueObjects.Enuns.CategoryType.Productive
+                        },
+                        new DashboardTaskModel
+                        {
+                            Title = "Social Media",
+                            Hours = 8.5,
+                            Percentage = 25,
+                            Category = ValueObjects.Enuns.CategoryType.Neutral
+                        },
+                        new DashboardTaskModel
+                        {
+                            Title = "Work",
+                            Hours = 8.5,
+                            Percentage = 15,
+                            Category = ValueObjects.Enuns.CategoryType.Unproductive
+                        }
+                    }
                 }
             };
 

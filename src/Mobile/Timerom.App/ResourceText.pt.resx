@@ -203,6 +203,12 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_HOME" xml:space="preserve">
     <value>Início</value>
   </data>
+  <data name="TITLE_HOUR" xml:space="preserve">
+    <value>Hora</value>
+  </data>
+  <data name="TITLE_HOURS" xml:space="preserve">
+    <value>Horas</value>
+  </data>
   <data name="TITLE_ICONS_ILLUSTRATIONS_USED" xml:space="preserve">
     <value>Icones e ilustrações utilizados</value>
   </data>
@@ -290,6 +296,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_TECHNOLOGY" xml:space="preserve">
     <value>Tecnologia</value>
   </data>
+  <data name="TITLE_THIS_IS_PERCENTAGE_YOUR_DAY" xml:space="preserve">
+    <value>Isto é {0}% do seu dia.</value>
+  </data>
   <data name="TITLE_TOTAL_OF_TASKS" xml:space="preserve">
     <value>Total de {0} tarefas</value>
   </data>
@@ -319,6 +328,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_VERSION_NUMBER" xml:space="preserve">
     <value>Versão: {0}</value>
+  </data>
+  <data name="TITLE_VIEW_ALL" xml:space="preserve">
+    <value>Ver todas</value>
   </data>
   <data name="TITLE_WALKING" xml:space="preserve">
     <value>Caminhada</value>
