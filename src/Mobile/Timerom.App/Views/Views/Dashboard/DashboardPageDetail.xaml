@@ -2,41 +2,69 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:prism="http://prismlibrary.com"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:templateButton="clr-namespace:Timerom.App.Views.Templates.Button"
              xmlns:date="clr-namespace:Timerom.App.Views.Templates.Date"
+             xmlns:information="clr-namespace:Timerom.App.Views.Templates.Information"
              x:Class="Timerom.App.Views.Views.Dashboard.DashboardPageDetail"
+             x:Name="DashboardPageDetailContentPage"
              prism:ViewModelLocator.AutowireViewModel="True"
              Title=" ">
     <ContentPage.Content>
         <Grid RowDefinitions="*">
-            <StackLayout Grid.Row="0">
+            <StackLayout Grid.Row="0" xct:StateLayout.CurrentState="{Binding CurrentState}">
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Empty" VerticalOptions="FillAndExpand">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <StackLayout VerticalOptions="FillAndExpand">
+                                    <Label Text="{x:Static resource:ResourceText.TITLE_DASHBOARD}" Style="{StaticResource LabelTitle}" Margin="20,0,0,0"/>
+
+                                    <date:CalendarOptionTemplate Date="{Binding Path=BindingContext.Model.Date, Source={x:Reference Name=DashboardPageDetailContentPage}}" Margin="0,30,20,0"/>
+
+                                    <Ellipse HeightRequest="10" WidthRequest="10" Margin="0,146,172,0" HorizontalOptions="End">
+                                        <Ellipse.Fill>
+                                            <SolidColorBrush Color="{AppThemeBinding Light={StaticResource LigthUnproductiveColor}, Dark={StaticResource DarkUnproductiveColor}}"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+
+                                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_NO_TASK_THIS_DATE}" Style="{StaticResource LabelBold}" FontSize="18"/>
+                                        <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_USE_BUTTON_BELLOW_ADD_ONE}"/>
+                                    </StackLayout>
+
+                                    <Ellipse HeightRequest="10" WidthRequest="10" HorizontalOptions="Start" Margin="113,0,0,0">
+                                        <Ellipse.Fill>
+                                            <SolidColorBrush Color="{AppThemeBinding Light={StaticResource LigthNeutralColor}, Dark={StaticResource DarkNeutralColor}}"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+
+                                    <Ellipse HeightRequest="153" WidthRequest="153" HorizontalOptions="Start" VerticalOptions="EndAndExpand" Margin="-78,0,0,-76">
+                                        <Ellipse.Fill>
+                                            <SolidColorBrush Color="{AppThemeBinding Light={StaticResource LigthProductiveColor}, Dark={StaticResource DarkProductiveColor}}"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </StackLayout>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
+
                 <Label Text="{x:Static resource:ResourceText.TITLE_DASHBOARD}" Style="{StaticResource LabelTitle}" Margin="20,0,0,0"/>
 
                 <date:CalendarOptionTemplate Date="{Binding Model.Date}" Margin="0,30,20,0"/>
 
-                <Ellipse HeightRequest="10" WidthRequest="10" Margin="0,146,172,0" HorizontalOptions="End">
-                    <Ellipse.Fill>
-                        <SolidColorBrush Color="{AppThemeBinding Light={StaticResource LigthUnproductiveColor}, Dark={StaticResource DarkUnproductiveColor}}"/>
-                    </Ellipse.Fill>
-                </Ellipse>
+                <StackLayout Style="{StaticResource MarginStyleDefault}">
+                    <Label Text="{x:Static resource:ResourceText.TITLE_ACTIVITY_PROGRESS}" Margin="0,30,0,30"/>
 
-                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_NO_TASK_THIS_DATE}" Style="{StaticResource LabelBold}" FontSize="18"/>
-                    <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_USE_BUTTON_BELLOW_ADD_ONE}"/>
+                    <information:ProgressLineTemplate Category="Productive" Percentage="{Binding Model.Dashboard.ProductivePercentage}"/>
+                    <information:ProgressLineTemplate Margin="0,15,0,0" Category="Neutral" Percentage="{Binding Model.Dashboard.NeutralPercentage}"/>
+                    <information:ProgressLineTemplate Margin="0,15,0,0" Category="Unproductive" Percentage="{Binding Model.Dashboard.UnproductivePercentage}"/>
+
+                    <Label Text="{Binding Model.Dashboard.TotalTasks, StringFormat={x:Static resource:ResourceText.TITLE_TOTAL_OF_TASKS}}" HorizontalOptions="End" Margin="0,15,0,30" Style="{StaticResource LabelExtraLight}"/>
                 </StackLayout>
 
-                <Ellipse HeightRequest="10" WidthRequest="10" HorizontalOptions="Start" Margin="113,0,0,0">
-                    <Ellipse.Fill>
-                        <SolidColorBrush Color="{AppThemeBinding Light={StaticResource LigthNeutralColor}, Dark={StaticResource DarkNeutralColor}}"/>
-                    </Ellipse.Fill>
-                </Ellipse>
-
-                <Ellipse HeightRequest="153" WidthRequest="153" HorizontalOptions="Start" VerticalOptions="EndAndExpand" Margin="-78,0,0,-76">
-                    <Ellipse.Fill>
-                        <SolidColorBrush Color="{AppThemeBinding Light={StaticResource LigthProductiveColor}, Dark={StaticResource DarkProductiveColor}}"/>
-                    </Ellipse.Fill>
-                </Ellipse>
             </StackLayout>
             <templateButton:FloatActionButton Margin="0,0,20,20" VerticalOptions="End" HorizontalOptions="End" Grid.Row="0" />
         </Grid>

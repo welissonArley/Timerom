@@ -1,9 +1,10 @@
-﻿using System;
-
-namespace Timerom.App.Model
+﻿namespace Timerom.App.Model
 {
     public class DashboardModel
     {
-        public DateTime Date { get; set; }
+        public int ProductivePercentage { get; set; }
+        public int NeutralPercentage { get; set; }
+        public int UnproductivePercentage { get; set; }
+        public int TotalTasks { get; set; }
     }
 }

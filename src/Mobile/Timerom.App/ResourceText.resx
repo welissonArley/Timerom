@@ -128,6 +128,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_ABOUT_THIS_PROJECT" xml:space="preserve">
     <value>About this project</value>
   </data>
+  <data name="TITLE_ACTIVITY_PROGRESS" xml:space="preserve">
+    <value>Activity progress</value>
+  </data>
   <data name="TITLE_ADD_NEUTRAL_CATEGORY" xml:space="preserve">
     <value>Add Neutral Category</value>
   </data>
@@ -286,6 +289,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_TECHNOLOGY" xml:space="preserve">
     <value>Technology</value>
+  </data>
+  <data name="TITLE_TOTAL_OF_TASKS" xml:space="preserve">
+    <value>Total of {0} tasks</value>
   </data>
   <data name="TITLE_TOUR" xml:space="preserve">
     <value>Tour</value>

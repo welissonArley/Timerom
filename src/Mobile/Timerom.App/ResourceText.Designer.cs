@@ -90,6 +90,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Activity progress.
+        /// </summary>
+        public static string TITLE_ACTIVITY_PROGRESS {
+            get {
+                return ResourceManager.GetString("TITLE_ACTIVITY_PROGRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Neutral Category.
         /// </summary>
         public static string TITLE_ADD_NEUTRAL_CATEGORY {
@@ -563,6 +572,15 @@ namespace Timerom.App {
         public static string TITLE_TECHNOLOGY {
             get {
                 return ResourceManager.GetString("TITLE_TECHNOLOGY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total of {0} tasks.
+        /// </summary>
+        public static string TITLE_TOTAL_OF_TASKS {
+            get {
+                return ResourceManager.GetString("TITLE_TOTAL_OF_TASKS", resourceCulture);
             }
         }
         
