@@ -182,6 +182,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_DELETE_CATEGORY" xml:space="preserve">
     <value>Deletar Categoria</value>
   </data>
+  <data name="TITLE_DETAILS" xml:space="preserve">
+    <value>Detalhes</value>
+  </data>
   <data name="TITLE_DINNER" xml:space="preserve">
     <value>Jantar</value>
   </data>
@@ -196,6 +199,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_FOOD" xml:space="preserve">
     <value>Alimentação</value>
+  </data>
+  <data name="TITLE_FROM_TO" xml:space="preserve">
+    <value>De {0} até {1}</value>
   </data>
   <data name="TITLE_GYM" xml:space="preserve">
     <value>Academia</value>
@@ -293,11 +299,14 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_TASKS" xml:space="preserve">
     <value>Tarefas</value>
   </data>
+  <data name="TITLE_TASK_DETAILS" xml:space="preserve">
+    <value>Detalhes das tarefas</value>
+  </data>
   <data name="TITLE_TECHNOLOGY" xml:space="preserve">
     <value>Tecnologia</value>
   </data>
   <data name="TITLE_THIS_IS_PERCENTAGE_YOUR_DAY" xml:space="preserve">
-    <value>Isto é {0}% do seu dia.</value>
+    <value>Isto representa {0}% do seu dia.</value>
   </data>
   <data name="TITLE_TOTAL_OF_TASKS" xml:space="preserve">
     <value>Total de {0} tarefas</value>

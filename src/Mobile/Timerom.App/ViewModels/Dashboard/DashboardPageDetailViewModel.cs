@@ -1,6 +1,9 @@
 ﻿using Prism.Navigation;
 using System;
+using System.Threading.Tasks;
 using Timerom.App.Model;
+using Timerom.App.Views.Views.Tasks;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 
 namespace Timerom.App.ViewModels.Dashboard
@@ -9,9 +12,16 @@ namespace Timerom.App.ViewModels.Dashboard
     {
         public DashboardDateModel Model { get; set; }
 
+        public IAsyncCommand ViewAllTasksCommand { get; private set; }
+
         public DashboardPageDetailViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
         {
-            
+            ViewAllTasksCommand = new AsyncCommand(ViewAllTasksCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
+        }
+
+        private async Task ViewAllTasksCommandExecuted()
+        {
+            await _navigationService.NavigateAsync(nameof(TaskDetailsPage));
         }
 
         public void Initialize(INavigationParameters parameters)

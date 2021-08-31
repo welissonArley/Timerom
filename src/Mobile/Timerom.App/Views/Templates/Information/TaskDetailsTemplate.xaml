@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="Timerom.App.Views.Templates.Information.TaskDetailsTemplate">
+  <ContentView.Content>
+      <StackLayout Margin="0,0,0,15">
+            <StackLayout Orientation="Horizontal">
+                <ffimageloadingsvg:SvgCachedImage x:Name="IconChecked" VerticalOptions="Start" WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconChecked.svg"/>
+                <StackLayout Margin="15,0,0,0">
+                    <Label x:Name="LabelTitle" FontSize="15" Style="{StaticResource LabelExtraBold}" />
+                    <Label x:Name="LabelDuration" Style="{StaticResource LabelSemiBold}" />
+                    <Label x:Name="LabelPercentageInfo" />
+                </StackLayout>
+            </StackLayout>
+            <Line/>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>
