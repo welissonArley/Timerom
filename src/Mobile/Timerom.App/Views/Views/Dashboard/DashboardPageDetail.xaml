@@ -74,7 +74,11 @@
 
                     <StackLayout Orientation="Horizontal" Margin="0,0,0,20">
                         <Label Text="{x:Static resource:ResourceText.TITLE_TASKS}" HorizontalOptions="StartAndExpand"/>
-                        <Label Text="{x:Static resource:ResourceText.TITLE_VIEW_ALL}" HorizontalOptions="End" TextDecorations="Underline" Style="{StaticResource LabelBold}"/>
+                        <Label Text="{x:Static resource:ResourceText.TITLE_VIEW_ALL}" HorizontalOptions="End" TextDecorations="Underline" Style="{StaticResource LabelBold}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ViewAllTasksCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
 
                     <CollectionView ItemsLayout="HorizontalList" ItemsSource="{Binding Model.Dashboard.Tasks}" HeightRequest="160">
