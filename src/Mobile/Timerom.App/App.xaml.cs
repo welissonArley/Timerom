@@ -7,12 +7,14 @@ using Timerom.App.ViewModels.Dashboard;
 using Timerom.App.ViewModels.Home;
 using Timerom.App.ViewModels.Modal;
 using Timerom.App.ViewModels.Modal.MenuOptions;
+using Timerom.App.ViewModels.Tasks;
 using Timerom.App.Views.Modal;
 using Timerom.App.Views.Modal.MenuOptions;
 using Timerom.App.Views.Views.AboutThisProject;
 using Timerom.App.Views.Views.Category;
 using Timerom.App.Views.Views.Dashboard;
 using Timerom.App.Views.Views.Home;
+using Timerom.App.Views.Views.Tasks;
 using Xamarin.Forms;
 
 namespace Timerom.App
@@ -52,12 +54,13 @@ namespace Timerom.App
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<DashboardPage>();
             containerRegistry.RegisterForNavigation<DashboardPageDetail, DashboardPageDetailViewModel>();
-            containerRegistry.RegisterForNavigation<IlustrationsInformationsPage, IlustrationsInformationsViewModel>();
             containerRegistry.RegisterForNavigation<DashboardPageFlyout, DashboardPageFlyoutViewModel>();
+            containerRegistry.RegisterForNavigation<IlustrationsInformationsPage, IlustrationsInformationsViewModel>();
             containerRegistry.RegisterForNavigation<CategoriesPage, CategoriesViewModel>();
             containerRegistry.RegisterForNavigation<AddUpdateCategoryPage, AddUpdateCategoryViewModel>();
             containerRegistry.RegisterForNavigation<SelectCategoryToUpdatePage, SelectCategoryToUpdateViewModel>();
             containerRegistry.RegisterForNavigation<AddUpdateSubcategoryPage, AddUpdateSubcategoryViewModel>();
+            containerRegistry.RegisterForNavigation<TaskDetailsPage, TaskDetailsViewModel>();
         }
         private void RegisterModals(IContainerRegistry containerRegistry)
         {

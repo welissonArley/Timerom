@@ -252,6 +252,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string TITLE_DETAILS {
+            get {
+                return ResourceManager.GetString("TITLE_DETAILS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dinner.
         /// </summary>
         public static string TITLE_DINNER {
@@ -293,6 +302,15 @@ namespace Timerom.App {
         public static string TITLE_FOOD {
             get {
                 return ResourceManager.GetString("TITLE_FOOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From {0} to {1}.
+        /// </summary>
+        public static string TITLE_FROM_TO {
+            get {
+                return ResourceManager.GetString("TITLE_FROM_TO", resourceCulture);
             }
         }
         
@@ -572,6 +590,15 @@ namespace Timerom.App {
         public static string TITLE_SUPERMARKET {
             get {
                 return ResourceManager.GetString("TITLE_SUPERMARKET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task details.
+        /// </summary>
+        public static string TITLE_TASK_DETAILS {
+            get {
+                return ResourceManager.GetString("TITLE_TASK_DETAILS", resourceCulture);
             }
         }
         

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:Timerom.App"
+             xmlns:date="clr-namespace:Timerom.App.Views.Templates.Date"
+             xmlns:information="clr-namespace:Timerom.App.Views.Templates.Information"
+             x:Class="Timerom.App.Views.Views.Tasks.TaskDetailsPage">
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MarginStyleDefault}">
+            <Label Text="{x:Static resource:ResourceText.TITLE_TASK_DETAILS}" Style="{StaticResource LabelTitle}" Margin="0,0,0,30"/>
+            <date:CalendarOptionTemplate Date="{Binding Model.Date}" Margin="0,0,0,30"/>
+
+            <CollectionView ItemsSource="{Binding Model.Tasks}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <information:TaskDetailsTemplate Task="{Binding .}"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_NO_TASK_THIS_DATE}" Style="{StaticResource LabelBold}" FontSize="18"/>
+                        </StackLayout>
+                    </ContentView>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
