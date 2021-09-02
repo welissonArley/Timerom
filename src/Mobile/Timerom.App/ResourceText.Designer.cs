@@ -522,6 +522,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select a category for your Task.
+        /// </summary>
+        public static string TITLE_SELECT_CATEGORY_FOR_YOUR_TASK {
+            get {
+                return ResourceManager.GetString("TITLE_SELECT_CATEGORY_FOR_YOUR_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Social media.
         /// </summary>
         public static string TITLE_SOCIAL_MEDIA {

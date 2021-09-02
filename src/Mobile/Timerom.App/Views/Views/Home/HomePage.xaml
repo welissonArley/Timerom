@@ -28,6 +28,9 @@
                         <Label Text="{x:Static resource:ResourceText.TITLE_START_TASK}" BackgroundColor="{AppThemeBinding Light=#EEEAF8, Dark=#232C2F}" Padding="7" TextColor="{AppThemeBinding Light=#5124B4, Dark=#4AABEF}" Style="{StaticResource LabelExtraBold}" FontSize="16" Margin="15,0,0,0" VerticalOptions="Center"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Margin="114,41,0,0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AddTaskCommand}"/>
+                        </StackLayout.GestureRecognizers>
                         <Image Source="{AppThemeBinding Light=IllustrationDashboardAddTask_lightmode.png, Dark=IllustrationDashboardAddTask_darkmode.png}" HeightRequest="56" WidthRequest="56" HorizontalOptions="Start" VerticalOptions="Start" />
                         <Label Text="{x:Static resource:ResourceText.TITLE_ADD_TASK}" BackgroundColor="{AppThemeBinding Light=#F4EEEE, Dark=#352A22}" Padding="7" TextColor="{AppThemeBinding Light=#8E4E54, Dark=#FF9770}" Style="{StaticResource LabelExtraBold}" FontSize="16" Margin="15,0,0,0" VerticalOptions="Center"/>
                     </StackLayout>

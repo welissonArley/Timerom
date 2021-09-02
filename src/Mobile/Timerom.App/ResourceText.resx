@@ -272,6 +272,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_SELECT_CATEGORY" xml:space="preserve">
     <value>Select a Category</value>
   </data>
+  <data name="TITLE_SELECT_CATEGORY_FOR_YOUR_TASK" xml:space="preserve">
+    <value>Select a category for your Task</value>
+  </data>
   <data name="TITLE_SOCIAL_MEDIA" xml:space="preserve">
     <value>Social media</value>
   </data>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:Timerom.App"
+             xmlns:enuns="clr-namespace:Timerom.App.ValueObjects.Enuns"
+             xmlns:information="clr-namespace:Timerom.App.Views.Templates.Information"
+             xmlns:search="clr-namespace:Timerom.App.Views.Templates.Search"
+             x:Name="SelectCategoryForTaskContentPage"
+             x:Class="Timerom.App.Views.Views.Tasks.SelectCategoryForTaskPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{x:Static resource:ResourceText.TITLE_SELECT_CATEGORY_FOR_YOUR_TASK}" Style="{StaticResource LabelTitle}" Margin="20,0,20,30"/>
+            <search:SearchBarComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=SelectCategoryForTaskContentPage}}" Margin="0,0,0,30"/>
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout Style="{StaticResource MarginStyleDefault}">
+                    <information:SelectCategoryExpanderComponent SelectedItem="{Binding Path=BindingContext.ItemSelectedCommand, Source={x:Reference Name=SelectCategoryForTaskContentPage}}" CategoryList="{Binding Path=BindingContext.ProductiveCategories, Source={x:Reference Name=SelectCategoryForTaskContentPage}}" Title="{x:Static resource:ResourceText.TITLE_PRODUCTIVE}" Category="{x:Static enuns:CategoryType.Productive}"/>
+                    <information:SelectCategoryExpanderComponent SelectedItem="{Binding Path=BindingContext.ItemSelectedCommand, Source={x:Reference Name=SelectCategoryForTaskContentPage}}" Margin="0,30,0,0" CategoryList="{Binding Path=BindingContext.NeutralCategories, Source={x:Reference Name=SelectCategoryForTaskContentPage}}" Title="{x:Static resource:ResourceText.TITLE_NEUTRAL}" Category="{x:Static enuns:CategoryType.Neutral}"/>
+                    <information:SelectCategoryExpanderComponent SelectedItem="{Binding Path=BindingContext.ItemSelectedCommand, Source={x:Reference Name=SelectCategoryForTaskContentPage}}" Margin="0,30,0,20" CategoryList="{Binding Path=BindingContext.UnproductiveCategories, Source={x:Reference Name=SelectCategoryForTaskContentPage}}" Title="{x:Static resource:ResourceText.TITLE_UNPRODUCTIVE}" Category="{x:Static enuns:CategoryType.Unproductive}"/>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

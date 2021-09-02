@@ -61,6 +61,7 @@ namespace Timerom.App
             containerRegistry.RegisterForNavigation<SelectCategoryToUpdatePage, SelectCategoryToUpdateViewModel>();
             containerRegistry.RegisterForNavigation<AddUpdateSubcategoryPage, AddUpdateSubcategoryViewModel>();
             containerRegistry.RegisterForNavigation<TaskDetailsPage, TaskDetailsViewModel>();
+            containerRegistry.RegisterForNavigation<SelectCategoryForTaskPage, SelectCategoryForTaskViewModel>();
         }
         private void RegisterModals(IContainerRegistry containerRegistry)
         {

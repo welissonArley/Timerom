@@ -272,6 +272,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_SELECT_CATEGORY" xml:space="preserve">
     <value>Selecione uma Categoria</value>
   </data>
+  <data name="TITLE_SELECT_CATEGORY_FOR_YOUR_TASK" xml:space="preserve">
+    <value>Selecione uma categoria para sua Tarefa</value>
+  </data>
   <data name="TITLE_SOCIAL_MEDIA" xml:space="preserve">
     <value>Midias sociais</value>
   </data>

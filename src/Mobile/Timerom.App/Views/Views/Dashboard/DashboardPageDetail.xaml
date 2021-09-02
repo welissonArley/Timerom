@@ -29,7 +29,7 @@
                                 <StackLayout VerticalOptions="FillAndExpand">
                                     <Label Text="{x:Static resource:ResourceText.TITLE_DASHBOARD}" Style="{StaticResource LabelTitle}" Margin="20,0,0,0"/>
 
-                                    <date:CalendarOptionTemplate Date="{Binding Path=BindingContext.Model.Date, Source={x:Reference Name=DashboardPageDetailContentPage}}" Margin="0,30,20,0"/>
+                                    <date:CalendarOptionTemplate Date="{Binding Path=BindingContext.Model.Date, Source={x:Reference Name=DashboardPageDetailContentPage}}" Margin="0,10,20,0"/>
 
                                     <Ellipse HeightRequest="10" WidthRequest="10" Margin="0,146,172,0" HorizontalOptions="End">
                                         <Ellipse.Fill>
@@ -61,10 +61,10 @@
 
                 <Label Text="{x:Static resource:ResourceText.TITLE_DASHBOARD}" Style="{StaticResource LabelTitle}" Margin="20,0,0,0"/>
 
-                <date:CalendarOptionTemplate Date="{Binding Model.Date}" Margin="0,30,20,0"/>
+                <date:CalendarOptionTemplate Date="{Binding Model.Date}" Margin="0,10,20,0"/>
 
                 <StackLayout Style="{StaticResource MarginStyleDefault}">
-                    <Label Text="{x:Static resource:ResourceText.TITLE_ACTIVITY_PROGRESS}" Margin="0,30,0,30"/>
+                    <Label Text="{x:Static resource:ResourceText.TITLE_ACTIVITY_PROGRESS}" Margin="0,20,0,30"/>
 
                     <information:ProgressLineTemplate Category="Productive" Percentage="{Binding Model.Dashboard.ProductivePercentage}"/>
                     <information:ProgressLineTemplate Margin="0,15,0,0" Category="Neutral" Percentage="{Binding Model.Dashboard.NeutralPercentage}"/>
