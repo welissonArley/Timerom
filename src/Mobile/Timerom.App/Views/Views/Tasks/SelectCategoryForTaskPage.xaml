@@ -18,6 +18,27 @@
                     <information:SelectCategoryExpanderComponent SelectedItem="{Binding Path=BindingContext.ItemSelectedCommand, Source={x:Reference Name=SelectCategoryForTaskContentPage}}" Margin="0,30,0,20" CategoryList="{Binding Path=BindingContext.UnproductiveCategories, Source={x:Reference Name=SelectCategoryForTaskContentPage}}" Title="{x:Static resource:ResourceText.TITLE_UNPRODUCTIVE}" Category="{x:Static enuns:CategoryType.Unproductive}"/>
                 </StackLayout>
             </ScrollView>
+
+            <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Margin="0,0,0,30">
+                <Ellipse HeightRequest="10" WidthRequest="10" StrokeThickness="2">
+                    <Ellipse.Fill>
+                        <SolidColorBrush Color="{AppThemeBinding Dark=White, Light=Black}"></SolidColorBrush>
+                    </Ellipse.Fill>
+                    <Ellipse.Stroke>
+                        <SolidColorBrush Color="{AppThemeBinding Dark=White, Light=Black}"></SolidColorBrush>
+                    </Ellipse.Stroke>
+                </Ellipse>
+                <Ellipse HeightRequest="10" WidthRequest="10" StrokeThickness="2">
+                    <Ellipse.Stroke>
+                        <SolidColorBrush Color="{AppThemeBinding Dark=White, Light=Black}"></SolidColorBrush>
+                    </Ellipse.Stroke>
+                </Ellipse>
+                <Ellipse HeightRequest="10" WidthRequest="10" StrokeThickness="2">
+                    <Ellipse.Stroke>
+                        <SolidColorBrush Color="{AppThemeBinding Dark=White, Light=Black}"></SolidColorBrush>
+                    </Ellipse.Stroke>
+                </Ellipse>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

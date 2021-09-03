@@ -8,7 +8,7 @@
             <Label Text="{x:Static resource:ResourceText.TITLE_CHOOSE_AN_OPTION}" Style="{StaticResource LabelTitle}" Margin="20,0,0,0"/>
             
             <Grid ColumnDefinitions="*" VerticalOptions="FillAndExpand">
-                <Image Grid.Column="0" Source="{AppThemeBinding Light=IllustrationEllipses_lightmode.png, Dark=IllustrationEllipses_darkmode.png}" VerticalOptions="CenterAndExpand" Opacity="0.7" Margin="-173,50,83,80"/>
+                <Image Grid.Column="0" Source="{AppThemeBinding Light=IllustrationEllipses_lightmode.png, Dark=IllustrationEllipses_darkmode.png}" VerticalOptions="CenterAndExpand" Opacity="{AppThemeBinding Light=0.7, Dark=1}" Margin="-173,50,83,80"/>
 
                 <Grid VerticalOptions="Center" Grid.Column="0" HorizontalOptions="Start" Margin="0,-30,0,0">
                     <Ellipse Margin="-80,0,0,0" Fill="{AppThemeBinding Light=#2D303F, Dark=#95B5D5}" HeightRequest="210" WidthRequest="210" HorizontalOptions="Start" VerticalOptions="Center"/>

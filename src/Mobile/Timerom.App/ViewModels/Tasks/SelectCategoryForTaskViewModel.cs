@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;   
 using Timerom.App.UseCase.Categories.Interfaces;
+using Timerom.App.Views.Views.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Tasks
@@ -57,7 +58,7 @@ namespace Timerom.App.ViewModels.Tasks
                 { "Category", category }
             };
 
-            //await _navigationService.NavigateAsync(nameof(AddUpdateCategoryPage), navParameters);
+            await _navigationService.NavigateAsync(nameof(SelectSubCategoryForTaskPage), navParameters);
         }
 
         public async Task InitializeAsync(INavigationParameters parameters)
