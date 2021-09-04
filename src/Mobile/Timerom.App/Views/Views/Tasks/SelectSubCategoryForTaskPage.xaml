@@ -11,7 +11,6 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:CategoryTypeColorConverter x:Key="ColorCategoryType" />
-            <local:CategoryTypeStringConverter x:Key="StringCategoryType" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -19,7 +18,7 @@
             <Label Text="{x:Static resource:ResourceText.TITLE_SELECT_SUBCATEGORY_YOUR_TASK}" Style="{StaticResource LabelTitle}" Margin="20,0,20,10"/>
             <StackLayout Margin="20,0,0,30" Orientation="Horizontal">
                 <Ellipse Fill="{Binding Category.Type, Converter={StaticResource ColorCategoryType}}" WidthRequest="10" VerticalOptions="CenterAndExpand" HeightRequest="10" HorizontalOptions="Start"/>
-                <Label Style="{StaticResource LabelSemiBold}" Text="{Binding Category.Type, Converter={StaticResource StringCategoryType}}" TextColor="{Binding Category.Type, Converter={StaticResource ColorCategoryType}}" Margin="0,-4,0,0" ></Label>
+                <Label Style="{StaticResource LabelSemiBold}" Text="{Binding Category.Name}" TextColor="{Binding Category.Type, Converter={StaticResource ColorCategoryType}}" Margin="0,-4,0,0" ></Label>
             </StackLayout>
             <search:SearchBarComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=SelectSubCategoryForTaskContentPage}}" Margin="0,0,0,30"/>
             <ScrollView VerticalOptions="FillAndExpand">
@@ -27,6 +26,9 @@
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Margin="0,20,0,0" Orientation="Horizontal">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.ItemSelectedCommand, Source={x:Reference Name=SelectSubCategoryForTaskContentPage}}" CommandParameter="{Binding .}"/>
+                                </StackLayout.GestureRecognizers>
                                 <Label Text="{Binding Name}" Style="{StaticResource LabelBold}" HorizontalOptions="StartAndExpand"/>
                                 <ffimageloadingsvg:SvgCachedImage Margin="0,3,0,0" VerticalOptions="CenterAndExpand" WidthRequest="15" HeightRequest="13" Source="resource://Timerom.App.Resources.Svgs.IconArrow.svg">
                                     <ffimageloadingsvg:SvgCachedImage.Transformations>
