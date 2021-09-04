@@ -25,6 +25,7 @@
     <None Remove="Resources\Svgs\IconCalendar.svg" />
     <None Remove="Resources\Svgs\IconCategories.svg" />
     <None Remove="Resources\Svgs\IconChecked.svg" />
+    <None Remove="Resources\Svgs\IconClock.svg" />
     <None Remove="Resources\Svgs\IconDashboard.svg" />
     <None Remove="Resources\Svgs\IconEdit.svg" />
     <None Remove="Resources\Svgs\IconIconsAndIllustrations.svg" />
@@ -49,6 +50,7 @@
     <EmbeddedResource Include="Resources\Svgs\IconCalendar.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconCategories.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconChecked.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconClock.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconDashboard.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconEdit.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconSearch.svg" />
@@ -144,6 +146,9 @@
     <EmbeddedResource Update="Views\Templates\Information\TaskDetailsTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Input\TextAreaTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\Search\SearchBarComponent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -178,6 +183,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Views\Home\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Tasks\AddUpdateTaskPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Views\Tasks\SelectCategoryForTaskPage.xaml">

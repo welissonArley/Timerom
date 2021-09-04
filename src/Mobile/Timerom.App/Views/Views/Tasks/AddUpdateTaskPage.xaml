@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:resource="clr-namespace:Timerom.App"
+             xmlns:local="clr-namespace:Timerom.App.Converter"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             xmlns:template="clr-namespace:Timerom.App.Views.Templates.Input"
+             xmlns:textwithlabel="clr-namespace:Timerom.App.Views.Templates.TextWithLabel"
+             x:Class="Timerom.App.Views.Views.Tasks.AddUpdateTaskPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:CategoryTypeColorConverter x:Key="ColorCategoryType" />
+            <local:ColorCategoryTypeWithTransparency x:Key="ColorCategoryTypeWithTransparency" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Style="{StaticResource MarginStyleDefault}">
+                <Label Text="{x:Static resource:ResourceText.TITLE_UPDATE_TASK}" Style="{StaticResource LabelTitle}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Task.Id}" Value="0">
+                            <Setter Property="Text" Value="{x:Static resource:ResourceText.TITLE_CREATE_TASK}"/>
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+
+                <textwithlabel:InputTextWithLabelComponent Margin="0,30,0,0" BindingEntry="{Binding Task.Title}" Title="{x:Static resource:ResourceText.TITLE_TASK_TITLE_TWO_POINTS}" PlaceHolder="{x:Static resource:ResourceText.TITLE_STUDING_ENGLISH}"/>
+
+                <Label Margin="0,20,0,0" Text="{x:Static resource:ResourceText.TITLE_CLASSIFICATION_TWO_POINTS}" FontSize="12" Style="{StaticResource LabelLight}"/>
+                <Frame CornerRadius="10" HeightRequest="40" HasShadow="False" Padding="0" WidthRequest="187" HorizontalOptions="Start" BackgroundColor="{Binding Task.Category.Type, Converter={StaticResource ColorCategoryTypeWithTransparency}}" Margin="0,10,0,0">
+                    <Label Text="{Binding Task.Category.Name}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource LabelBold}" TextColor="{Binding Task.Category.Type, Converter={StaticResource ColorCategoryType}}" FontSize="16"/>
+                </Frame>
+
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label Margin="0,20,0,10" Text="{x:Static resource:ResourceText.TITLE_STARTS_TWO_POINTS}" FontSize="12" Style="{StaticResource LabelLight}"/>
+                        <Frame HasShadow="False" BorderColor="#F1F1F1" BackgroundColor="Transparent" CornerRadius="9" HeightRequest="42" Padding="0">
+                            <StackLayout Orientation="Horizontal">
+                                <ffimageloadingsvg:SvgCachedImage HeightRequest="15" WidthRequest="17" Margin="15,0,0,0" Source="resource://Timerom.App.Resources.Svgs.IconCalendar.svg">
+                                    <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                        <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                    </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                </ffimageloadingsvg:SvgCachedImage>
+                                <Label Margin="0,0,7,0" Text="{Binding Task.StartAt, StringFormat='{}{0:dddd}, {0:m} {0:yyyy}'}" VerticalOptions="CenterAndExpand" FontSize="15"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <Frame Margin="0,0,1,0" HasShadow="False" BorderColor="#F1F1F1" BackgroundColor="Transparent" CornerRadius="9" HeightRequest="42" Padding="0" VerticalOptions="End" HorizontalOptions="End">
+                        <StackLayout Orientation="Horizontal">
+                            <ffimageloadingsvg:SvgCachedImage HeightRequest="15" WidthRequest="17" Margin="15,0,0,0" Source="resource://Timerom.App.Resources.Svgs.IconClock.svg">
+                                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                </ffimageloadingsvg:SvgCachedImage.Transformations>
+                            </ffimageloadingsvg:SvgCachedImage>
+                            <Label Margin="7,-3,15,0" Text="{Binding Path=Task.StartAt, StringFormat='{}{0:t}'}" VerticalOptions="CenterAndExpand" FontSize="15"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label Margin="0,10,0,10" Text="{x:Static resource:ResourceText.TITLE_ENDS_TWO_POINTS}" FontSize="12" Style="{StaticResource LabelLight}"/>
+                        <Frame HasShadow="False" BorderColor="#F1F1F1" BackgroundColor="Transparent" CornerRadius="9" HeightRequest="42" Padding="0">
+                            <StackLayout Orientation="Horizontal">
+                                <ffimageloadingsvg:SvgCachedImage HeightRequest="15" WidthRequest="17" Margin="15,0,0,0" Source="resource://Timerom.App.Resources.Svgs.IconCalendar.svg">
+                                    <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                        <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                    </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                </ffimageloadingsvg:SvgCachedImage>
+                                <Label Margin="0,0,7,0" Text="{Binding Task.EndAt, StringFormat='{}{0:dddd}, {0:m} {0:yyyy}'}" VerticalOptions="CenterAndExpand" FontSize="15"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <Frame Margin="0,0,1,0" HasShadow="False" BorderColor="#F1F1F1" BackgroundColor="Transparent" CornerRadius="9" HeightRequest="42" Padding="0" VerticalOptions="End" HorizontalOptions="End">
+                        <StackLayout Orientation="Horizontal">
+                            <ffimageloadingsvg:SvgCachedImage HeightRequest="15" WidthRequest="17" Margin="15,0,0,0" Source="resource://Timerom.App.Resources.Svgs.IconClock.svg">
+                                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                </ffimageloadingsvg:SvgCachedImage.Transformations>
+                            </ffimageloadingsvg:SvgCachedImage>
+                            <Label Margin="7,-3,15,0" Text="{Binding Path=Task.EndAt, StringFormat='{}{0:t}'}" VerticalOptions="CenterAndExpand" FontSize="15"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <Label Text="{Binding SubtractTime}" Margin="0,0,0,20" HorizontalOptions="EndAndExpand" FontSize="12" Style="{StaticResource LabelLight}"/>
+
+                <template:TextAreaTemplate BindingEntry="{Binding Task.Description}" PlaceHolderText="{x:Static resource:ResourceText.TITLE_YOUR_DESCRIPTION}"/>
+
+                <Button Text="{x:Static resource:ResourceText.TITLE_SAVE}" Command="{Binding SaveCommand}" VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

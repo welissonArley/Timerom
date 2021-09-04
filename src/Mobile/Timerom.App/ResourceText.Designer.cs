@@ -198,6 +198,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Classification:.
+        /// </summary>
+        public static string TITLE_CLASSIFICATION_TWO_POINTS {
+            get {
+                return ResourceManager.GetString("TITLE_CLASSIFICATION_TWO_POINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact Us.
         /// </summary>
         public static string TITLE_CONTACT_US {
@@ -234,6 +243,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create task.
+        /// </summary>
+        public static string TITLE_CREATE_TASK {
+            get {
+                return ResourceManager.GetString("TITLE_CREATE_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboard.
         /// </summary>
         public static string TITLE_DASHBOARD {
@@ -248,6 +266,15 @@ namespace Timerom.App {
         public static string TITLE_DELETE_CATEGORY {
             get {
                 return ResourceManager.GetString("TITLE_DELETE_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description:.
+        /// </summary>
+        public static string TITLE_DESCRIPTION_TWO_POINTS {
+            get {
+                return ResourceManager.GetString("TITLE_DESCRIPTION_TWO_POINTS", resourceCulture);
             }
         }
         
@@ -275,6 +302,15 @@ namespace Timerom.App {
         public static string TITLE_EMPTY_LIST {
             get {
                 return ResourceManager.GetString("TITLE_EMPTY_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ends:.
+        /// </summary>
+        public static string TITLE_ENDS_TWO_POINTS {
+            get {
+                return ResourceManager.GetString("TITLE_ENDS_TWO_POINTS", resourceCulture);
             }
         }
         
@@ -567,11 +603,29 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Starts:.
+        /// </summary>
+        public static string TITLE_STARTS_TWO_POINTS {
+            get {
+                return ResourceManager.GetString("TITLE_STARTS_TWO_POINTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Studies.
         /// </summary>
         public static string TITLE_STUDIES {
             get {
                 return ResourceManager.GetString("TITLE_STUDIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Studing English.
+        /// </summary>
+        public static string TITLE_STUDING_ENGLISH {
+            get {
+                return ResourceManager.GetString("TITLE_STUDING_ENGLISH", resourceCulture);
             }
         }
         
@@ -617,6 +671,15 @@ namespace Timerom.App {
         public static string TITLE_TASK_DETAILS {
             get {
                 return ResourceManager.GetString("TITLE_TASK_DETAILS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task title:.
+        /// </summary>
+        public static string TITLE_TASK_TITLE_TWO_POINTS {
+            get {
+                return ResourceManager.GetString("TITLE_TASK_TITLE_TWO_POINTS", resourceCulture);
             }
         }
         
@@ -702,6 +765,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update task.
+        /// </summary>
+        public static string TITLE_UPDATE_TASK {
+            get {
+                return ResourceManager.GetString("TITLE_UPDATE_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use the button below + to add one..
         /// </summary>
         public static string TITLE_USE_BUTTON_BELLOW_ADD_ONE {
@@ -779,6 +851,15 @@ namespace Timerom.App {
         public static string TITLE_YOU_CAN_SAVE_MORE_SUBCATEGORIES {
             get {
                 return ResourceManager.GetString("TITLE_YOU_CAN_SAVE_MORE_SUBCATEGORIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your description.
+        /// </summary>
+        public static string TITLE_YOUR_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("TITLE_YOUR_DESCRIPTION", resourceCulture);
             }
         }
         

@@ -164,6 +164,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_CHOOSE_AN_OPTION" xml:space="preserve">
     <value>Escolha uma opção</value>
   </data>
+  <data name="TITLE_CLASSIFICATION_TWO_POINTS" xml:space="preserve">
+    <value>Classificação:</value>
+  </data>
   <data name="TITLE_CONTACT_US" xml:space="preserve">
     <value>Contate-nos</value>
   </data>
@@ -176,11 +179,17 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_CREATE_SUBCATEGORY" xml:space="preserve">
     <value>Criar Subcategoria</value>
   </data>
+  <data name="TITLE_CREATE_TASK" xml:space="preserve">
+    <value>Criar tarefa</value>
+  </data>
   <data name="TITLE_DASHBOARD" xml:space="preserve">
     <value>Início</value>
   </data>
   <data name="TITLE_DELETE_CATEGORY" xml:space="preserve">
     <value>Deletar Categoria</value>
+  </data>
+  <data name="TITLE_DESCRIPTION_TWO_POINTS" xml:space="preserve">
+    <value>Descrição:</value>
   </data>
   <data name="TITLE_DETAILS" xml:space="preserve">
     <value>Detalhes</value>
@@ -190,6 +199,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_EMPTY_LIST" xml:space="preserve">
     <value>Lista vazia</value>
+  </data>
+  <data name="TITLE_ENDS_TWO_POINTS" xml:space="preserve">
+    <value>Fim:</value>
   </data>
   <data name="TITLE_FACEBOOK" xml:space="preserve">
     <value>Facebook</value>
@@ -284,11 +296,17 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_SPORT" xml:space="preserve">
     <value>Esporte</value>
   </data>
+  <data name="TITLE_STARTS_TWO_POINTS" xml:space="preserve">
+    <value>Início:</value>
+  </data>
   <data name="TITLE_START_TASK" xml:space="preserve">
     <value>Iniciar Tarefa</value>
   </data>
   <data name="TITLE_STUDIES" xml:space="preserve">
     <value>Estudos</value>
+  </data>
+  <data name="TITLE_STUDING_ENGLISH" xml:space="preserve">
+    <value>Estudando Inglês</value>
   </data>
   <data name="TITLE_SUBCATEGORIES_TITLE_TWO_POINTS" xml:space="preserve">
     <value>Sub categorias:</value>
@@ -307,6 +325,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_TASK_DETAILS" xml:space="preserve">
     <value>Detalhes das tarefas</value>
+  </data>
+  <data name="TITLE_TASK_TITLE_TWO_POINTS" xml:space="preserve">
+    <value>Título tarefa:</value>
   </data>
   <data name="TITLE_TECHNOLOGY" xml:space="preserve">
     <value>Tecnologia</value>
@@ -332,6 +353,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_UPDATE_SUBCATEGOY" xml:space="preserve">
     <value>Atualizar Subcategoria</value>
   </data>
+  <data name="TITLE_UPDATE_TASK" xml:space="preserve">
+    <value>Atualizar tarefa</value>
+  </data>
   <data name="TITLE_USE_BUTTON_BELLOW_ADD_ONE" xml:space="preserve">
     <value>Use o botam abaixo + para adiconar uma.</value>
   </data>
@@ -352,6 +376,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_WORK" xml:space="preserve">
     <value>Trabalho</value>
+  </data>
+  <data name="TITLE_YOUR_DESCRIPTION" xml:space="preserve">
+    <value>Sua descrição</value>
   </data>
   <data name="TITLE_YOUTUBE" xml:space="preserve">
     <value>YouTube</value>
