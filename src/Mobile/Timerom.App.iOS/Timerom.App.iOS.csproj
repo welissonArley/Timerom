@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="AppVersion\AppVersioniOS.cs" />
     <Compile Include="CustomControl\ButtonTextAlignmentRenderer.cs" />
+    <Compile Include="CustomControl\EditorRenderer.cs" />
     <Compile Include="CustomControl\EntryNoLineRenderer.cs" />
     <Compile Include="CustomControl\EntrySearchBarRenderer.cs" />
     <Compile Include="CustomControl\LabelJustifyTextRenderer.cs" />
