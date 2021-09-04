@@ -1,5 +1,4 @@
 ﻿using System;
-using Timerom.App.ValueObjects.Enuns;
 
 namespace Timerom.App.Model
 {
@@ -11,6 +10,6 @@ namespace Timerom.App.Model
         public DateTime StartAt { get; set; }
         public DateTime EndAt { get; set; }
         public double Percentage { get; set; }
-        public CategoryType Type { get; set; }
+        public Category Category { get; set; }
     }
 }

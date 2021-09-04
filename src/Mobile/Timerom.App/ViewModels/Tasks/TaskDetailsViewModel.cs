@@ -26,7 +26,7 @@ namespace Timerom.App.ViewModels.Tasks
                         StartAt = DateTime.Today.Date.AddHours(1),
                         EndAt = DateTime.Today.Date.AddHours(2),
                         Percentage = 3,
-                        Type = ValueObjects.Enuns.CategoryType.Neutral
+                        Category = new Model.Category { Type = ValueObjects.Enuns.CategoryType.Neutral}
                     },
                     new TaskModel
                     {
@@ -35,7 +35,7 @@ namespace Timerom.App.ViewModels.Tasks
                         StartAt = DateTime.Today.Date.AddHours(2),
                         EndAt = DateTime.Today.Date.AddHours(3),
                         Percentage = 3.5,
-                        Type = ValueObjects.Enuns.CategoryType.Unproductive
+                        Category = new Model.Category { Type = ValueObjects.Enuns.CategoryType.Unproductive}
                     },
                     new TaskModel
                     {
@@ -44,7 +44,7 @@ namespace Timerom.App.ViewModels.Tasks
                         StartAt = DateTime.Today.Date.AddHours(1),
                         EndAt = DateTime.Today.Date.AddHours(2),
                         Percentage = 37,
-                        Type = ValueObjects.Enuns.CategoryType.Productive
+                        Category = new Model.Category { Type = ValueObjects.Enuns.CategoryType.Productive}
                     }
                 }
             };

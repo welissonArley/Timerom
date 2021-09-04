@@ -1,6 +1,5 @@
 ﻿using FFImageLoading.Work;
 using System.Globalization;
-using Timerom.App.Converter;
 using Timerom.App.Model;
 using Timerom.App.ValueObjects;
 using Timerom.App.ValueObjects.Enuns;
@@ -34,9 +33,9 @@ namespace Timerom.App.Views.Templates.Information
                 var task = (TaskModel)newValue;
                 component.LabelTitle.Text = task.Title;
                 component.LabelDuration.Text = string.Format(ResourceText.TITLE_FROM_TO, task.StartAt.ToString("t", CultureInfo.CurrentCulture), task.EndAt.ToString("t", CultureInfo.CurrentCulture));
-                component.LabelDuration.TextColor = GetColor(task.Type);
+                component.LabelDuration.TextColor = GetColor(task.Category.Type);
                 component.LabelPercentageInfo.Text = string.Format(ResourceText.TITLE_THIS_IS_PERCENTAGE_YOUR_DAY, task.Percentage);
-                component.IconChecked.Transformations.Add(GetTransformation(task.Type));
+                component.IconChecked.Transformations.Add(GetTransformation(task.Category.Type));
             }
         }
 
