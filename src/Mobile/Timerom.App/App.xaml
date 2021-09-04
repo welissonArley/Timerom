@@ -68,6 +68,12 @@
                 <Setter Property="Margin" Value="0,10,0,0"></Setter>
             </Style>
 
+            <Style TargetType="Editor" ApplyToDerivedTypes="True">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontFamily" Value="RalewayRegular"/>
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light=#696969, Dark=#989898}"/>
+            </Style>
             <Style TargetType="Entry" ApplyToDerivedTypes="True">
                 <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
                 <Setter Property="FontSize" Value="15"/>

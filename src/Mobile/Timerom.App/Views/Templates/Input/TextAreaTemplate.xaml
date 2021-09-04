@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControl="clr-namespace:Timerom.App.CustomControl"
+             x:Class="Timerom.App.Views.Templates.Input.TextAreaTemplate">
+  <ContentView.Content>
+        <StackLayout>
+            <Frame Padding="0" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" HasShadow="False" BorderColor="#F1F1F1">
+                <customControl:AppEditor x:Name="Input" HeightRequest="110"/>
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
