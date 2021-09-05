@@ -242,6 +242,12 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_MEETINGS" xml:space="preserve">
     <value>Reuniões</value>
   </data>
+  <data name="TITLE_MINUTE" xml:space="preserve">
+    <value>Minuto</value>
+  </data>
+  <data name="TITLE_MINUTES" xml:space="preserve">
+    <value>Minutos</value>
+  </data>
   <data name="TITLE_NEUTRAL" xml:space="preserve">
     <value>Neutro</value>
   </data>

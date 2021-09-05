@@ -432,6 +432,24 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Minute.
+        /// </summary>
+        public static string TITLE_MINUTE {
+            get {
+                return ResourceManager.GetString("TITLE_MINUTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minutes.
+        /// </summary>
+        public static string TITLE_MINUTES {
+            get {
+                return ResourceManager.GetString("TITLE_MINUTES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Neutral.
         /// </summary>
         public static string TITLE_NEUTRAL {
