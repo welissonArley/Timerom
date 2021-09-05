@@ -1,11 +1,17 @@
 ﻿using Prism.Navigation;
 using System;
+using System.Threading.Tasks;
 using Timerom.App.Model;
+using Timerom.App.UseCase.UserTask.Interfaces;
+using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Tasks
 {
     public class AddUpdateTaskViewModel : ViewModelBase, IInitialize
     {
+        private readonly Lazy<IInsertTaskUseCase> insertTaskUseCase;
+        private IInsertTaskUseCase _insertTaskUseCase => insertTaskUseCase.Value;
+
         public TaskModel Task { get; set; }
         public TimeSpan TotalTime => Task == null ? new TimeSpan() : (Task.EndsAt - Task.StartsAt);
 
@@ -30,8 +36,29 @@ namespace Timerom.App.ViewModels.Tasks
             set { Task.EndsAt = value.Date + TimeEndsAt; RaisePropertyChanged("TotalTime"); RaisePropertyChanged("DateStartsAt"); RaisePropertyChanged("DateEndsAt"); }
         }
 
-        public AddUpdateTaskViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
+        public IAsyncCommand SaveCommand { get; private set; }
+
+        public AddUpdateTaskViewModel(Lazy<IInsertTaskUseCase> insertTaskUseCase, Lazy<INavigationService> navigationService) : base(navigationService)
         {
+            this.insertTaskUseCase = insertTaskUseCase;
+            SaveCommand = new AsyncCommand(SaveCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
+        }
+
+        private async Task SaveCommandExecuted()
+        {
+            SavingStatus();
+
+            if (Task.Id == 0)
+                await CreateTask();
+        }
+
+        private async Task CreateTask()
+        {
+            await _insertTaskUseCase.Execute(Task);
+
+            await SucessStatus();
+
+            await _navigationService.GoBackToRootAsync();
         }
 
         public void Initialize(INavigationParameters parameters)

@@ -7,6 +7,7 @@
              xmlns:local="clr-namespace:Timerom.App.Converter"
              xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
              xmlns:template="clr-namespace:Timerom.App.Views.Templates.Input"
+             xmlns:statusTemplate="clr-namespace:Timerom.App.Views.Templates.Status"
              xmlns:textwithlabel="clr-namespace:Timerom.App.Views.Templates.TextWithLabel"
              x:Class="Timerom.App.Views.Views.Tasks.AddUpdateTaskPage">
     <ContentPage.Resources>
@@ -18,7 +19,24 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Style="{StaticResource MarginStyleDefault}">
+            <StackLayout Style="{StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Saving" VerticalOptions="FillAndExpand">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <statusTemplate:LoadingTemplate Message="{x:Static resource:ResourceText.TITLE_SAVING}" VerticalOptions="FillAndExpand"/>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                    <xct:StateView StateKey="Success" VerticalOptions="FillAndExpand">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <statusTemplate:SuccessTemplate Title="{x:Static resource:ResourceText.TITLE_SUCCESS}" VerticalOptions="FillAndExpand"/>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
+                
                 <Label Text="{x:Static resource:ResourceText.TITLE_UPDATE_TASK}" Style="{StaticResource LabelTitle}">
                     <Label.Triggers>
                         <DataTrigger TargetType="Label" Binding="{Binding Task.Id}" Value="0">
