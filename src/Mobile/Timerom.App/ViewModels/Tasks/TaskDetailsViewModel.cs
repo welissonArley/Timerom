@@ -23,8 +23,8 @@ namespace Timerom.App.ViewModels.Tasks
                     {
                         Id = 1,
                         Title = "Breakfast",
-                        StartAt = DateTime.Today.Date.AddHours(1),
-                        EndAt = DateTime.Today.Date.AddHours(2),
+                        StartsAt = DateTime.Today.Date.AddHours(1),
+                        EndsAt = DateTime.Today.Date.AddHours(2),
                         Percentage = 3,
                         Category = new Model.Category { Type = ValueObjects.Enuns.CategoryType.Neutral}
                     },
@@ -32,8 +32,8 @@ namespace Timerom.App.ViewModels.Tasks
                     {
                         Id = 1,
                         Title = "Youtube",
-                        StartAt = DateTime.Today.Date.AddHours(2),
-                        EndAt = DateTime.Today.Date.AddHours(3),
+                        StartsAt = DateTime.Today.Date.AddHours(2),
+                        EndsAt = DateTime.Today.Date.AddHours(3),
                         Percentage = 3.5,
                         Category = new Model.Category { Type = ValueObjects.Enuns.CategoryType.Unproductive}
                     },
@@ -41,8 +41,8 @@ namespace Timerom.App.ViewModels.Tasks
                     {
                         Id = 1,
                         Title = "Reading book",
-                        StartAt = DateTime.Today.Date.AddHours(1),
-                        EndAt = DateTime.Today.Date.AddHours(2),
+                        StartsAt = DateTime.Today.Date.AddHours(1),
+                        EndsAt = DateTime.Today.Date.AddHours(2),
                         Percentage = 37,
                         Category = new Model.Category { Type = ValueObjects.Enuns.CategoryType.Productive}
                     }

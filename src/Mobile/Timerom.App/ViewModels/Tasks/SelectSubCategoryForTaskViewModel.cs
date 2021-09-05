@@ -36,7 +36,7 @@ namespace Timerom.App.ViewModels.Tasks
         {
             var navParameters = new NavigationParameters
             {
-                { "Task", new TaskModel { Category = category, StartAt = DateTime.Now, EndAt = DateTime.Now.AddHours(1) } }
+                { "Task", new TaskModel { Category = category, StartsAt = DateTime.Now, EndsAt = DateTime.Now.AddHours(1) } }
             };
 
             await _navigationService.NavigateAsync(nameof(AddUpdateTaskPage), navParameters);
