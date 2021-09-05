@@ -44,7 +44,7 @@
                                         <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
                                     </ffimageloadingsvg:SvgCachedImage.Transformations>
                                 </ffimageloadingsvg:SvgCachedImage>
-                                <Label Margin="0,0,7,0" Text="{Binding Task.StartsAt, StringFormat='{}{0:dddd}, {0:m} {0:yyyy}'}" VerticalOptions="CenterAndExpand" FontSize="15"/>
+                                <DatePicker HorizontalOptions="FillAndExpand" MaximumDate="{Binding DateEndsAt}" Date="{Binding DateStartsAt}" Format="dddd, d MMMM yyyy" VerticalOptions="CenterAndExpand"/>
                             </StackLayout>
                         </Frame>
                     </StackLayout>
@@ -56,7 +56,7 @@
                                     <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
                                 </ffimageloadingsvg:SvgCachedImage.Transformations>
                             </ffimageloadingsvg:SvgCachedImage>
-                            <TimePicker Margin="0,0,10,0" Time="{Binding StartsAt}" VerticalOptions="CenterAndExpand"/>
+                            <TimePicker Margin="0,0,10,0" Time="{Binding TimeStartsAt}" VerticalOptions="CenterAndExpand"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>
@@ -71,7 +71,7 @@
                                         <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
                                     </ffimageloadingsvg:SvgCachedImage.Transformations>
                                 </ffimageloadingsvg:SvgCachedImage>
-                                <Label Margin="0,0,7,0" Text="{Binding Task.EndsAt, StringFormat='{}{0:dddd}, {0:m} {0:yyyy}'}" VerticalOptions="CenterAndExpand" FontSize="15"/>
+                                <DatePicker HorizontalOptions="FillAndExpand" MinimumDate="{Binding DateStartsAt}" Date="{Binding DateEndsAt}" Format="dddd, d MMMM yyyy" VerticalOptions="CenterAndExpand"/>
                             </StackLayout>
                         </Frame>
                     </StackLayout>
@@ -83,7 +83,7 @@
                                     <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
                                 </ffimageloadingsvg:SvgCachedImage.Transformations>
                             </ffimageloadingsvg:SvgCachedImage>
-                            <TimePicker Margin="0,0,10,0" Time="{Binding EndsAt}"  VerticalOptions="CenterAndExpand"/>
+                            <TimePicker Margin="0,0,10,0" Time="{Binding TimeEndsAt}"  VerticalOptions="CenterAndExpand"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>

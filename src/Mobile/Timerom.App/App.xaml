@@ -103,6 +103,11 @@
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="FontFamily" Value="RalewayRegular"/>
             </Style>
+            <Style TargetType="DatePicker">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontFamily" Value="RalewayRegular"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>
