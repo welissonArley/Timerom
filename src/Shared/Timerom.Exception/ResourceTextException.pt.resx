@@ -123,6 +123,12 @@
   <data name="NAME_IS_REQUIRED" xml:space="preserve">
     <value>O Nome é obrigatório.</value>
   </data>
+  <data name="START_TIME_MUST_BE_LASS_END_TIME" xml:space="preserve">
+    <value>O horário e data de inicio devem ser inferior ao horário e data de término.</value>
+  </data>
+  <data name="TASK_TITLE_REQUIRED" xml:space="preserve">
+    <value>Título da Tarefa é obrigatório.</value>
+  </data>
   <data name="THERE_ARE_DUPLICATED_SUBCATEGORIES" xml:space="preserve">
     <value>Existem subcategorias duplicadas na lista.</value>
   </data>

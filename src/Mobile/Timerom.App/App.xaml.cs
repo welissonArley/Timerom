@@ -1,6 +1,7 @@
 ﻿using Prism.Ioc;
 using Prism.Plugin.Popups;
 using Timerom.App.UseCase.Categories.Interfaces;
+using Timerom.App.UseCase.UserTask.Interfaces;
 using Timerom.App.ViewModels.AboutThisProject;
 using Timerom.App.ViewModels.Category;
 using Timerom.App.ViewModels.Dashboard;
@@ -79,6 +80,7 @@ namespace Timerom.App
             containerRegistry.RegisterScoped<IInsertSubcategoryUseCase, UseCase.Categories.Local.Insert.InsertSubcategoryUseCase>();
             containerRegistry.RegisterScoped<IUpdateSubcategoryUseCase, UseCase.Categories.Local.Update.UpdateSubcategoryUseCase>();
             containerRegistry.RegisterScoped<IDeleteSubcategoryUseCase, UseCase.Categories.Local.Delete.DeleteSubcategoryUseCase>();
+            containerRegistry.RegisterScoped<IInsertTaskUseCase, UseCase.UserTask.Local.Insert.InsertTaskUseCase>();
         }
     }
 }

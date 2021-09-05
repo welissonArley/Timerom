@@ -79,6 +79,24 @@ namespace Timerom.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The start time and date must be less than the end time and date..
+        /// </summary>
+        public static string START_TIME_MUST_BE_LASS_END_TIME {
+            get {
+                return ResourceManager.GetString("START_TIME_MUST_BE_LASS_END_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task title is required..
+        /// </summary>
+        public static string TASK_TITLE_REQUIRED {
+            get {
+                return ResourceManager.GetString("TASK_TITLE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There are duplicated subcategories on the list..
         /// </summary>
         public static string THERE_ARE_DUPLICATED_SUBCATEGORIES {

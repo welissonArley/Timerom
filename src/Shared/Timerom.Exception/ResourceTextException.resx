@@ -123,6 +123,12 @@
   <data name="NAME_IS_REQUIRED" xml:space="preserve">
     <value>The Name is required.</value>
   </data>
+  <data name="START_TIME_MUST_BE_LASS_END_TIME" xml:space="preserve">
+    <value>The start time and date must be less than the end time and date.</value>
+  </data>
+  <data name="TASK_TITLE_REQUIRED" xml:space="preserve">
+    <value>Task title is required.</value>
+  </data>
   <data name="THERE_ARE_DUPLICATED_SUBCATEGORIES" xml:space="preserve">
     <value>There are duplicated subcategories on the list.</value>
   </data>
