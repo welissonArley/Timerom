@@ -6,7 +6,7 @@
              x:Class="Timerom.App.Views.Templates.Date.CalendarOptionTemplate">
   <ContentView.Content>
         <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-            <Label x:Name="LabelDate" Style="{StaticResource LabelBold}" FontSize="15"></Label>
+            <DatePicker x:Name="LabelDate" Format="dd MMMM, yyyy" FontFamily="RalewayBold" PropertyChanged="LabelDate_PropertyChanged"></DatePicker>
             <ffimageloadingsvg:SvgCachedImage HeightRequest="15" WidthRequest="17" Source="resource://Timerom.App.Resources.Svgs.IconCalendar.svg">
                 <ffimageloadingsvg:SvgCachedImage.Transformations>
                     <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
