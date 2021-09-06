@@ -3,6 +3,7 @@ using System.Globalization;
 using Timerom.App.Model;
 using Timerom.App.ValueObjects;
 using Timerom.App.ValueObjects.Enuns;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,6 +12,18 @@ namespace Timerom.App.Views.Templates.Information
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TaskDetailsTemplate : ContentView
     {
+        public IAsyncCommand<TaskModel> OnItemSelected
+        {
+            get => (IAsyncCommand<TaskModel>)GetValue(OnItemSelectedProperty);
+            set => SetValue(OnItemSelectedProperty, value);
+        }
+        public static readonly BindableProperty OnItemSelectedProperty = BindableProperty.Create(
+                                                        propertyName: "OnItemSelected",
+                                                        returnType: typeof(IAsyncCommand<TaskModel>),
+                                                        declaringType: typeof(TaskDetailsTemplate),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: null);
         public TaskModel Task
         {
             get => (TaskModel)GetValue(TaskProperty);
@@ -71,6 +84,11 @@ namespace Timerom.App.Views.Templates.Information
         public TaskDetailsTemplate()
         {
             InitializeComponent();
+        }
+
+        private void Item_Tapped(object sender, System.EventArgs e)
+        {
+            OnItemSelected?.Execute(Task);
         }
     }
 }

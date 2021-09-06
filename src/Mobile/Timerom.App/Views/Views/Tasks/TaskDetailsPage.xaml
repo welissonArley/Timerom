@@ -4,6 +4,7 @@
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:date="clr-namespace:Timerom.App.Views.Templates.Date"
              xmlns:information="clr-namespace:Timerom.App.Views.Templates.Information"
+             x:Name="TaskDetailsContentPage"
              x:Class="Timerom.App.Views.Views.Tasks.TaskDetailsPage">
     <ContentPage.Content>
         <StackLayout Style="{StaticResource MarginStyleDefault}">
@@ -13,7 +14,7 @@
             <CollectionView ItemsSource="{Binding Model.Tasks}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <information:TaskDetailsTemplate Task="{Binding .}"/>
+                        <information:TaskDetailsTemplate Task="{Binding .}" OnItemSelected="{Binding Path=BindingContext.SelectedItemCommand, Source={x:Reference Name=TaskDetailsContentPage}}"/>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
                 <CollectionView.EmptyView>
