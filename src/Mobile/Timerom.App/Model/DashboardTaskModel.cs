@@ -6,7 +6,7 @@ namespace Timerom.App.Model
     {
         public string Title { get; set; }
         public double Hours { get; set; }
-        public int Percentage { get; set; }
+        public double Percentage { get; set; }
         public CategoryType Category { get; set; }
     }
 }
