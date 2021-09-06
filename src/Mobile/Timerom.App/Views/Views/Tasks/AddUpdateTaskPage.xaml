@@ -19,8 +19,8 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Style="{StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
+        <ScrollView Margin="0,0,0,30">
+            <StackLayout Margin="20,0,20,0" xct:StateLayout.CurrentState="{Binding CurrentState}">
                 <xct:StateLayout.StateViews>
                     <xct:StateView StateKey="Saving" VerticalOptions="FillAndExpand">
                         <xct:StateView.Template>
