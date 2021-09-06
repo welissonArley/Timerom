@@ -39,5 +39,15 @@ namespace Timerom.App.Repository
 
             return list.Where(c => c.StartsAt.Date == date.Date || c.EndsAt.Date == date.Date).ToList();
         }
+
+        public async Task<UserTask> GetById(long id)
+        {
+            return await _database.Table<UserTask>().FirstAsync(c => c.Id == id);
+        }
+
+        public async Task Delete(UserTask task)
+        {
+            _ = await _database.DeleteAsync(task);
+        }
     }
 }
