@@ -8,7 +8,7 @@ using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Tasks
 {
-    public class TaskDetailsViewModel : ViewModelBase, IInitializeAsync, INavigatedAware
+    public class TaskDetailsViewModel : ViewModelBase, IInitializeAsync, INavigationAware
     {
         private readonly Lazy<IGetAllUserTaskUseCase> useCase;
         private IGetAllUserTaskUseCase _useCase => useCase.Value;
@@ -57,8 +57,9 @@ namespace Timerom.App.ViewModels.Tasks
 
         public async void OnNavigatedTo(INavigationParameters parameters)
         {
-            if(parameters.ContainsKey("Refresh"))
+            if (parameters.ContainsKey("Refresh"))
                 await GetUserTasks(Model.Date);
         }
+
     }
 }

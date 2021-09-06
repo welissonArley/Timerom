@@ -9,7 +9,7 @@ using Xamarin.CommunityToolkit.UI.Views;
 
 namespace Timerom.App.ViewModels.Dashboard
 {
-    public class DashboardPageDetailViewModel : ViewModelBase, IInitializeAsync, INavigatedAware
+    public class DashboardPageDetailViewModel : ViewModelBase, IInitializeAsync, INavigationAware
     {
         private readonly Lazy<IDashboardUseCase> useCase;
         private IDashboardUseCase _useCase => useCase.Value;
