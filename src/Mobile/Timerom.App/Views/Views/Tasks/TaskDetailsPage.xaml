@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <StackLayout Style="{StaticResource MarginStyleDefault}">
             <Label Text="{x:Static resource:ResourceText.TITLE_TASK_DETAILS}" Style="{StaticResource LabelTitle}" Margin="0,0,0,30"/>
-            <date:CalendarOptionTemplate Date="{Binding Model.Date}" Margin="0,0,0,30"/>
+            <date:CalendarOptionTemplate OnDateChanged="{Binding DateChangedCommand}" Date="{Binding Model.Date}" Margin="0,0,0,30"/>
 
             <CollectionView ItemsSource="{Binding Model.Tasks}">
                 <CollectionView.ItemTemplate>
