@@ -49,5 +49,10 @@ namespace Timerom.App.Repository
         {
             _ = await _database.DeleteAsync(task);
         }
+
+        public async Task Update(UserTask task)
+        {
+            _ = await _database.UpdateAsync(task);
+        }
     }
 }
