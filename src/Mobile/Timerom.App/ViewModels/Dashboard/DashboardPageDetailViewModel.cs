@@ -2,20 +2,26 @@
 using System;
 using System.Threading.Tasks;
 using Timerom.App.Model;
+using Timerom.App.UseCase.Dashboard.Interfaces;
 using Timerom.App.Views.Views.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 
 namespace Timerom.App.ViewModels.Dashboard
 {
-    public class DashboardPageDetailViewModel : ViewModelBase, IInitialize
+    public class DashboardPageDetailViewModel : ViewModelBase, IInitializeAsync
     {
+        private readonly Lazy<IDashboardUseCase> useCase;
+        private IDashboardUseCase _useCase => useCase.Value;
+
         public DashboardDateModel Model { get; set; }
 
         public IAsyncCommand ViewAllTasksCommand { get; private set; }
 
-        public DashboardPageDetailViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
+        public DashboardPageDetailViewModel(Lazy<IDashboardUseCase> useCase, Lazy<INavigationService> navigationService) : base(navigationService)
         {
+            this.useCase = useCase;
+
             ViewAllTasksCommand = new AsyncCommand(ViewAllTasksCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
         }
 
@@ -24,48 +30,23 @@ namespace Timerom.App.ViewModels.Dashboard
             await _navigationService.NavigateAsync(nameof(TaskDetailsPage));
         }
 
-        public void Initialize(INavigationParameters parameters)
+        private async Task GetUserTasks(DateTime date)
         {
             Model = new DashboardDateModel
             {
-                Date = DateTime.Today,
-                Dashboard = new DashboardModel
-                {
-                    ProductivePercentage = 60,
-                    NeutralPercentage = 25,
-                    UnproductivePercentage = 15,
-                    TotalTasks = 15,
-                    Tasks = new System.Collections.ObjectModel.ObservableCollection<DashboardTaskModel>
-                    {
-                        new DashboardTaskModel
-                        {
-                            Title = "Sleep",
-                            Hours = 8.5,
-                            Percentage = 60,
-                            Category = ValueObjects.Enuns.CategoryType.Productive
-                        },
-                        new DashboardTaskModel
-                        {
-                            Title = "Social Media",
-                            Hours = 8.5,
-                            Percentage = 25,
-                            Category = ValueObjects.Enuns.CategoryType.Neutral
-                        },
-                        new DashboardTaskModel
-                        {
-                            Title = "Work",
-                            Hours = 8.5,
-                            Percentage = 15,
-                            Category = ValueObjects.Enuns.CategoryType.Unproductive
-                        }
-                    }
-                }
+                Date = date,
+                Dashboard = await _useCase.Execute(date)
             };
 
             CurrentState = Model.Dashboard == null ? LayoutState.Empty : LayoutState.None;
 
             RaisePropertyChanged("Model");
             RaisePropertyChanged("CurrentState");
+        }
+
+        public async Task InitializeAsync(INavigationParameters parameters)
+        {
+            await GetUserTasks(DateTime.Now);
         }
     }
 }
