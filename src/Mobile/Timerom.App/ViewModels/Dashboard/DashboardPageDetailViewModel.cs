@@ -9,7 +9,7 @@ using Xamarin.CommunityToolkit.UI.Views;
 
 namespace Timerom.App.ViewModels.Dashboard
 {
-    public class DashboardPageDetailViewModel : ViewModelBase, IInitializeAsync
+    public class DashboardPageDetailViewModel : ViewModelBase, IInitializeAsync, INavigatedAware
     {
         private readonly Lazy<IDashboardUseCase> useCase;
         private IDashboardUseCase _useCase => useCase.Value;
@@ -18,6 +18,7 @@ namespace Timerom.App.ViewModels.Dashboard
 
         public IAsyncCommand<DateTime> DateChangedCommand { get; private set; }
         public IAsyncCommand ViewAllTasksCommand { get; private set; }
+        public IAsyncCommand FloatActionCommand { get; private set; }
 
         public DashboardPageDetailViewModel(Lazy<IDashboardUseCase> useCase, Lazy<INavigationService> navigationService) : base(navigationService)
         {
@@ -25,11 +26,17 @@ namespace Timerom.App.ViewModels.Dashboard
 
             DateChangedCommand = new AsyncCommand<DateTime>(GetDashboard, onException: HandleException, allowsMultipleExecutions: false);
             ViewAllTasksCommand = new AsyncCommand(ViewAllTasksCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
+            FloatActionCommand = new AsyncCommand(FloatActionCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
         }
 
         private async Task ViewAllTasksCommandExecuted()
         {
             await _navigationService.NavigateAsync(nameof(TaskDetailsPage));
+        }
+
+        private async Task FloatActionCommandExecuted()
+        {
+            _ = await _navigationService.NavigateAsync(nameof(SelectCategoryForTaskPage));
         }
 
         private async Task GetDashboard(DateTime date)
@@ -49,6 +56,14 @@ namespace Timerom.App.ViewModels.Dashboard
         public async Task InitializeAsync(INavigationParameters parameters)
         {
             await GetDashboard(DateTime.Now);
+        }
+
+        public void OnNavigatedFrom(INavigationParameters parameters) { }
+
+        public async void OnNavigatedTo(INavigationParameters parameters)
+        {
+            if (parameters.ContainsKey("Refresh"))
+                await GetDashboard(Model.Date);
         }
     }
 }

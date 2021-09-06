@@ -65,7 +65,12 @@ namespace Timerom.App.ViewModels.Tasks
 
             await SucessStatus();
 
-            await _navigationService.GoBackToRootAsync();
+            var navParameters = new NavigationParameters
+            {
+                { "Refresh", 1 }
+            };
+
+            await _navigationService.GoBackToRootAsync(navParameters);
         }
 
         private async Task DeleteCommandExecuted()
