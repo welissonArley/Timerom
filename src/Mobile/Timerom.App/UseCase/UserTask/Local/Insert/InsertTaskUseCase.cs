@@ -34,7 +34,7 @@ namespace Timerom.App.UseCase.UserTask.Local.Insert
 
         private void Validate(TaskModel task)
         {
-            var validation = new InsertUserTaskValidation().Validate(task);
+            var validation = new UserTaskValidation().Validate(task);
 
             if (!validation.IsValid)
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
