@@ -20,7 +20,7 @@ namespace Timerom.App.UseCase.Dashboard.Local
             var models = await database.GetAll(date);
 
             if (!models.Any())
-                return null;
+                return new DashboardModel { TotalTasks = 0 };
 
             CategoryDatabase categoryDatabase = await CategoryDatabase.Instance();
             var categories = await categoryDatabase.GetAll();

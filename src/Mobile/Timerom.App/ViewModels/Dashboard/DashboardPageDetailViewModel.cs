@@ -16,12 +16,14 @@ namespace Timerom.App.ViewModels.Dashboard
 
         public DashboardDateModel Model { get; set; }
 
+        public IAsyncCommand<DateTime> DateChangedCommand { get; private set; }
         public IAsyncCommand ViewAllTasksCommand { get; private set; }
 
         public DashboardPageDetailViewModel(Lazy<IDashboardUseCase> useCase, Lazy<INavigationService> navigationService) : base(navigationService)
         {
             this.useCase = useCase;
 
+            DateChangedCommand = new AsyncCommand<DateTime>(GetDashboard, onException: HandleException, allowsMultipleExecutions: false);
             ViewAllTasksCommand = new AsyncCommand(ViewAllTasksCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
         }
 
@@ -30,7 +32,7 @@ namespace Timerom.App.ViewModels.Dashboard
             await _navigationService.NavigateAsync(nameof(TaskDetailsPage));
         }
 
-        private async Task GetUserTasks(DateTime date)
+        private async Task GetDashboard(DateTime date)
         {
             Model = new DashboardDateModel
             {
@@ -38,7 +40,7 @@ namespace Timerom.App.ViewModels.Dashboard
                 Dashboard = await _useCase.Execute(date)
             };
 
-            CurrentState = Model.Dashboard == null ? LayoutState.Empty : LayoutState.None;
+            CurrentState = Model.Dashboard.TotalTasks == 0 ? LayoutState.Empty : LayoutState.None;
 
             RaisePropertyChanged("Model");
             RaisePropertyChanged("CurrentState");
@@ -46,7 +48,7 @@ namespace Timerom.App.ViewModels.Dashboard
 
         public async Task InitializeAsync(INavigationParameters parameters)
         {
-            await GetUserTasks(DateTime.Now);
+            await GetDashboard(DateTime.Now);
         }
     }
 }
