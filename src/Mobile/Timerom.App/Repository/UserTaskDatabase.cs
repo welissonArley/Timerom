@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.ValueObjects.Entity;
 
@@ -30,6 +31,13 @@ namespace Timerom.App.Repository
         public async Task Save(UserTask task)
         {
             _ = await _database.InsertAsync(task);
+        }
+
+        public async Task<System.Collections.Generic.List<UserTask>> GetAll(DateTime date)
+        {
+            var list = await _database.Table<UserTask>().ToListAsync();
+
+            return list.Where(c => c.StartsAt.Date == date.Date || c.EndsAt.Date == date.Date).ToList();
         }
     }
 }

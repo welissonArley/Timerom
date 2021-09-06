@@ -1,52 +1,31 @@
 ﻿using Prism.Navigation;
 using System;
+using System.Threading.Tasks;
 using Timerom.App.Model;
+using Timerom.App.UseCase.UserTask.Interfaces;
 
 namespace Timerom.App.ViewModels.Tasks
 {
-    public class TaskDetailsViewModel : ViewModelBase, IInitialize
+    public class TaskDetailsViewModel : ViewModelBase, IInitializeAsync
     {
+        private readonly Lazy<IGetAllUserTaskUseCase> useCase;
+        private IGetAllUserTaskUseCase _useCase => useCase.Value;
+
         public TasksDetailsModel Model { get; set; }
 
-        public TaskDetailsViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
+        public TaskDetailsViewModel(Lazy<INavigationService> navigationService, Lazy<IGetAllUserTaskUseCase> useCase) : base(navigationService)
         {
+            this.useCase = useCase;
         }
 
-        public void Initialize(INavigationParameters parameters)
+        public async Task InitializeAsync(INavigationParameters parameters)
         {
+            var models = await _useCase.Execute(DateTime.Today);
+
             Model = new TasksDetailsModel
             {
                 Date = DateTime.Today,
-                Tasks = new System.Collections.ObjectModel.ObservableCollection<TaskModel>
-                {
-                    new TaskModel
-                    {
-                        Id = 1,
-                        Title = "Breakfast",
-                        StartsAt = DateTime.Today.Date.AddHours(1),
-                        EndsAt = DateTime.Today.Date.AddHours(2),
-                        Percentage = 3,
-                        Category = new Model.Category { Type = ValueObjects.Enuns.CategoryType.Neutral}
-                    },
-                    new TaskModel
-                    {
-                        Id = 1,
-                        Title = "Youtube",
-                        StartsAt = DateTime.Today.Date.AddHours(2),
-                        EndsAt = DateTime.Today.Date.AddHours(3),
-                        Percentage = 3.5,
-                        Category = new Model.Category { Type = ValueObjects.Enuns.CategoryType.Unproductive}
-                    },
-                    new TaskModel
-                    {
-                        Id = 1,
-                        Title = "Reading book",
-                        StartsAt = DateTime.Today.Date.AddHours(1),
-                        EndsAt = DateTime.Today.Date.AddHours(2),
-                        Percentage = 37,
-                        Category = new Model.Category { Type = ValueObjects.Enuns.CategoryType.Productive}
-                    }
-                }
+                Tasks = new System.Collections.ObjectModel.ObservableCollection<TaskModel>(models)
             };
 
             RaisePropertyChanged("Model");
