@@ -11,7 +11,7 @@ namespace Timerom.App.ValueObjects.Formater
             if(time.Days == 1)
                 response = $"1 {ResourceText.TITLE_DAY}";
             else if (time.Days > 1)
-                response = $"{time.Hours} {ResourceText.TITLE_DAYS}";
+                response = $"{time.Days} {ResourceText.TITLE_DAYS}";
 
             if (time.Hours == 1)
                 response = $"{response} 1 {ResourceText.TITLE_HOUR}";
