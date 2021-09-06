@@ -10,7 +10,9 @@ namespace Timerom.App.ViewModels.Tasks
     public class AddUpdateTaskViewModel : ViewModelBase, IInitialize
     {
         private readonly Lazy<IInsertTaskUseCase> insertTaskUseCase;
+        private readonly Lazy<IDeleteUserTaskUseCase> deleteUseCase;
         private IInsertTaskUseCase _insertTaskUseCase => insertTaskUseCase.Value;
+        private IDeleteUserTaskUseCase _deleteUseCase => deleteUseCase.Value;
 
         public TaskModel Task { get; set; }
         public TimeSpan TotalTime => Task == null ? new TimeSpan() : (Task.EndsAt - Task.StartsAt);
@@ -37,11 +39,16 @@ namespace Timerom.App.ViewModels.Tasks
         }
 
         public IAsyncCommand SaveCommand { get; private set; }
+        public IAsyncCommand DeleteCommand { get; private set; }
 
-        public AddUpdateTaskViewModel(Lazy<IInsertTaskUseCase> insertTaskUseCase, Lazy<INavigationService> navigationService) : base(navigationService)
+        public AddUpdateTaskViewModel(Lazy<IInsertTaskUseCase> insertTaskUseCase, Lazy<IDeleteUserTaskUseCase> deleteUseCase,
+            Lazy<INavigationService> navigationService) : base(navigationService)
         {
             this.insertTaskUseCase = insertTaskUseCase;
+            this.deleteUseCase = deleteUseCase;
+
             SaveCommand = new AsyncCommand(SaveCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
+            DeleteCommand = new AsyncCommand(DeleteCommandExecuted, allowsMultipleExecutions: false, onException: HandleException);
         }
 
         private async Task SaveCommandExecuted()
@@ -59,6 +66,20 @@ namespace Timerom.App.ViewModels.Tasks
             await SucessStatus();
 
             await _navigationService.GoBackToRootAsync();
+        }
+
+        private async Task DeleteCommandExecuted()
+        {
+            SavingStatus();
+            await _deleteUseCase.Execute(Task);
+            await SucessStatus();
+
+            var navParameters = new NavigationParameters
+            {
+                { "Refresh", 1 }
+            };
+
+            await _navigationService.GoBackAsync(navParameters);
         }
 
         public void Initialize(INavigationParameters parameters)
