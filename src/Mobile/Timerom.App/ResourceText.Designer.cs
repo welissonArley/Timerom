@@ -261,6 +261,24 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Day.
+        /// </summary>
+        public static string TITLE_DAY {
+            get {
+                return ResourceManager.GetString("TITLE_DAY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Days.
+        /// </summary>
+        public static string TITLE_DAYS {
+            get {
+                return ResourceManager.GetString("TITLE_DAYS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Category.
         /// </summary>
         public static string TITLE_DELETE_CATEGORY {

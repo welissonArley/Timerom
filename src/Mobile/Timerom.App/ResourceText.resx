@@ -185,6 +185,12 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_DASHBOARD" xml:space="preserve">
     <value>Dashboard</value>
   </data>
+  <data name="TITLE_DAY" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="TITLE_DAYS" xml:space="preserve">
+    <value>Days</value>
+  </data>
   <data name="TITLE_DELETE_CATEGORY" xml:space="preserve">
     <value>Delete Category</value>
   </data>

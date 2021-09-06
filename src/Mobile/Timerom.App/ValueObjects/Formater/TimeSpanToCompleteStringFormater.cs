@@ -8,10 +8,15 @@ namespace Timerom.App.ValueObjects.Formater
         {
             var response = "";
 
+            if(time.Days == 1)
+                response = $"1 {ResourceText.TITLE_DAY}";
+            else if (time.Days > 1)
+                response = $"{time.Hours} {ResourceText.TITLE_DAYS}";
+
             if (time.Hours == 1)
-                response = $"1 {ResourceText.TITLE_HOUR}";
+                response = $"{response} 1 {ResourceText.TITLE_HOUR}";
             else if (time.Hours > 1)
-                response = $"{time.Hours} {ResourceText.TITLE_HOURS}";
+                response = $"{response} {time.Hours} {ResourceText.TITLE_HOURS}";
 
             if (time.Minutes == 1)
                 response = $"{response} 1 {ResourceText.TITLE_MINUTE}";

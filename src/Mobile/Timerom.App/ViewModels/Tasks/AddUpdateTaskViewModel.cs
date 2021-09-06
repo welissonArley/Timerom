@@ -28,12 +28,12 @@ namespace Timerom.App.ViewModels.Tasks
         public DateTime DateStartsAt
         {
             get => Task == null ? DateTime.Now : new DateTime(Task.StartsAt.Year, Task.StartsAt.Month, Task.StartsAt.Day);
-            set { Task.StartsAt = value.Date + TimeStartsAt; RaisePropertyChanged("TotalTime"); RaisePropertyChanged("DateStartsAt"); RaisePropertyChanged("DateEndsAt"); }
+            set { Task.StartsAt = value.Date + TimeStartsAt; RaisePropertyChanged("DateStartsAt"); RaisePropertyChanged("DateEndsAt"); RaisePropertyChanged("TotalTime"); }
         }
         public DateTime DateEndsAt
         {
             get => Task == null ? DateTime.Now : new DateTime(Task.EndsAt.Year, Task.EndsAt.Month, Task.EndsAt.Day);
-            set { Task.EndsAt = value.Date + TimeEndsAt; RaisePropertyChanged("TotalTime"); RaisePropertyChanged("DateStartsAt"); RaisePropertyChanged("DateEndsAt"); }
+            set { Task.EndsAt = value.Date + TimeEndsAt; RaisePropertyChanged("DateStartsAt"); RaisePropertyChanged("DateEndsAt"); RaisePropertyChanged("TotalTime"); }
         }
 
         public IAsyncCommand SaveCommand { get; private set; }
