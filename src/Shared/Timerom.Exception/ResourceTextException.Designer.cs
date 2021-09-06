@@ -61,6 +61,15 @@ namespace Timerom.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The break must be a maximum of one day..
+        /// </summary>
+        public static string BREAK_MAXIMUM_ONE_DAY {
+            get {
+                return ResourceManager.GetString("BREAK_MAXIMUM_ONE_DAY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This category already exists.
         /// </summary>
         public static string CATEGORY_ALREADY_EXIST {
