@@ -85,6 +85,7 @@ namespace Timerom.App
             containerRegistry.RegisterScoped<IGetAllUserTaskUseCase, UseCase.UserTask.Local.GetAll.GetAllUserTaskUseCase>();
             containerRegistry.RegisterScoped<IDeleteUserTaskUseCase, UseCase.UserTask.Local.Delete.DeleteUserTaskUseCase>();
             containerRegistry.RegisterScoped<IDashboardUseCase, UseCase.Dashboard.Local.DashboardUseCase>();
+            containerRegistry.RegisterScoped<IUpdateUserTaskUseCase, UseCase.UserTask.Local.Update.UpdateUserTaskUseCase>();
         }
     }
 }
