@@ -29,9 +29,19 @@ namespace Timerom.App.ViewModels.Dashboard
             FloatActionCommand = new AsyncCommand(FloatActionCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
         }
 
+        /// <summary>
+        /// This function need to send as parameter a Command to TaskDetailsPage use as a callback
+        /// For some reason when update a task, Prism dont call OnNavigatedTo
+        /// </summary>
+        /// <returns></returns>
         private async Task ViewAllTasksCommandExecuted()
         {
-            await _navigationService.NavigateAsync(nameof(TaskDetailsPage));
+            var navParameters = new NavigationParameters
+            {
+                { "CallbackUpdateUserTask", new AsyncCommand(() => GetDashboard(Model.Date)) }
+            };
+
+            await _navigationService.NavigateAsync(nameof(TaskDetailsPage), navParameters);
         }
 
         private async Task FloatActionCommandExecuted()
