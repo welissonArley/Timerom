@@ -23,7 +23,7 @@
                         <Image Source="{AppThemeBinding Light=IllustrationDashboardHome_lighmode.png, Dark=IllustrationDashboardHome_darkmode.png}" HeightRequest="56" WidthRequest="56" HorizontalOptions="Start" VerticalOptions="Start" />
                         <Label Text="{x:Static resource:ResourceText.TITLE_HOME}" BackgroundColor="{AppThemeBinding Light=#F2EBF4, Dark=#332B2E}" Padding="7" TextColor="{AppThemeBinding Light=#763589, Dark=#EB9FE8}" Style="{StaticResource LabelExtraBold}" FontSize="16" Margin="15,0,0,0" VerticalOptions="Center"/>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" Margin="80,20,0,0">
+                    <StackLayout Orientation="Horizontal" Margin="80,20,0,0" Opacity="0.2">
                         <Image Source="{AppThemeBinding Light=IllustrationDashboardCronTask_lighmode.png, Dark=IllustrationDashboardCronTask_darkmode.png}" HeightRequest="56" WidthRequest="56" HorizontalOptions="Start" VerticalOptions="Start" />
                         <Label Text="{x:Static resource:ResourceText.TITLE_START_TASK}" BackgroundColor="{AppThemeBinding Light=#EEEAF8, Dark=#232C2F}" Padding="7" TextColor="{AppThemeBinding Light=#5124B4, Dark=#4AABEF}" Style="{StaticResource LabelExtraBold}" FontSize="16" Margin="15,0,0,0" VerticalOptions="Center"/>
                     </StackLayout>
@@ -34,11 +34,11 @@
                         <Image Source="{AppThemeBinding Light=IllustrationDashboardAddTask_lightmode.png, Dark=IllustrationDashboardAddTask_darkmode.png}" HeightRequest="56" WidthRequest="56" HorizontalOptions="Start" VerticalOptions="Start" />
                         <Label Text="{x:Static resource:ResourceText.TITLE_ADD_TASK}" BackgroundColor="{AppThemeBinding Light=#F4EEEE, Dark=#352A22}" Padding="7" TextColor="{AppThemeBinding Light=#8E4E54, Dark=#FF9770}" Style="{StaticResource LabelExtraBold}" FontSize="16" Margin="15,0,0,0" VerticalOptions="Center"/>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" Margin="80,49,0,0">
+                    <StackLayout Orientation="Horizontal" Margin="80,49,0,0" Opacity="0.2">
                         <Image Source="{AppThemeBinding Light=IllustrationDashboardReports_lighmode.png, Dark=IllustrationDashboardReports_darkmode.png}" HeightRequest="56" WidthRequest="56" HorizontalOptions="Start" VerticalOptions="Start" />
                         <Label Text="{x:Static resource:ResourceText.TITLE_REPORTS}" BackgroundColor="{AppThemeBinding Light=#E7EEED, Dark=#263126}" Padding="7" TextColor="{AppThemeBinding Light=#0E4D45, Dark=#62E09B}" Style="{StaticResource LabelExtraBold}" FontSize="16" Margin="15,0,0,0" VerticalOptions="Center"/>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" Margin="2,20,0,0">
+                    <StackLayout Orientation="Horizontal" Margin="2,20,0,0" Opacity="0.2">
                         <Image Source="{AppThemeBinding Light=IllustrationDashboardPlanner_lighmode.png, Dark=IllustrationDashboardPlanner_darkmode.png}" HeightRequest="56" WidthRequest="56" HorizontalOptions="Start" VerticalOptions="Start" />
                         <Label Text="{x:Static resource:ResourceText.TITLE_PLANNER}" BackgroundColor="{AppThemeBinding Light=#FFEEEC, Dark=#353022}" Padding="7" TextColor="{AppThemeBinding Light=#F74F3E, Dark=#FDCE6A}" Style="{StaticResource LabelExtraBold}" FontSize="16" Margin="15,0,0,0" VerticalOptions="Center"/>
                     </StackLayout>
