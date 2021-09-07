@@ -40,6 +40,13 @@ namespace Timerom.App.Repository
             return list.Where(c => c.StartsAt.Date == date.Date || c.EndsAt.Date == date.Date).ToList();
         }
 
+        public async Task<UserTask> GetLast(DateTime date)
+        {
+            var list = await _database.Table<UserTask>().ToListAsync();
+
+            return list.Where(c => c.EndsAt.Date == date.Date).OrderBy(c => c.EndsAt).LastOrDefault();
+        }
+
         public async Task<UserTask> GetById(long id)
         {
             return await _database.Table<UserTask>().FirstAsync(c => c.Id == id);
