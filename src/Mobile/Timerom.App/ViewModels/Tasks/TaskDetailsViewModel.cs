@@ -17,6 +17,7 @@ namespace Timerom.App.ViewModels.Tasks
 
         public IAsyncCommand<DateTime> DateChangedCommand { get; private set; }
         public IAsyncCommand<TaskModel> SelectedItemCommand { get; private set; }
+        private IAsyncCommand _callbackUpdateUserTask { get; set; }
 
         public TaskDetailsViewModel(Lazy<INavigationService> navigationService, Lazy<IGetAllUserTaskUseCase> useCase) : base(navigationService)
         {
@@ -50,6 +51,8 @@ namespace Timerom.App.ViewModels.Tasks
 
         public async Task InitializeAsync(INavigationParameters parameters)
         {
+            _callbackUpdateUserTask = parameters.GetValue<AsyncCommand>("CallbackUpdateUserTask");
+
             await GetUserTasks(DateTime.Now);
         }
 
@@ -58,7 +61,10 @@ namespace Timerom.App.ViewModels.Tasks
         public async void OnNavigatedTo(INavigationParameters parameters)
         {
             if (parameters.ContainsKey("Refresh"))
+            {
                 await GetUserTasks(Model.Date);
+                _callbackUpdateUserTask?.Execute(null);
+            }
         }
 
     }
