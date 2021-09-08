@@ -52,8 +52,9 @@ namespace Timerom.App.ViewModels.Tasks
         public async Task InitializeAsync(INavigationParameters parameters)
         {
             _callbackUpdateUserTask = parameters.GetValue<AsyncCommand>("CallbackUpdateUserTask");
+            var date = parameters.GetValue<DateTime>("Date");
 
-            await GetUserTasks(DateTime.Now);
+            await GetUserTasks(date);
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters) { }

@@ -38,7 +38,8 @@ namespace Timerom.App.ViewModels.Dashboard
         {
             var navParameters = new NavigationParameters
             {
-                { "CallbackUpdateUserTask", new AsyncCommand(() => GetDashboard(Model.Date)) }
+                { "CallbackUpdateUserTask", new AsyncCommand(() => GetDashboard(Model.Date)) },
+                { "Date", Model.Date }
             };
 
             await _navigationService.NavigateAsync(nameof(TaskDetailsPage), navParameters);
