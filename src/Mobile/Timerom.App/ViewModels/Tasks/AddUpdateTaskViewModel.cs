@@ -94,16 +94,19 @@ namespace Timerom.App.ViewModels.Tasks
 
         private async Task DeleteCommandExecuted()
         {
-            SavingStatus();
-            await _deleteUseCase.Execute(Task);
-            await SucessStatus();
-
-            var navParameters = new NavigationParameters
+            if (Task.Id > 0)
             {
-                { "Refresh", 1 }
-            };
+                SavingStatus();
+                await _deleteUseCase.Execute(Task);
+                await SucessStatus();
 
-            await _navigationService.GoBackAsync(navParameters);
+                var navParameters = new NavigationParameters
+                {
+                    { "Refresh", 1 }
+                };
+
+                await _navigationService.GoBackAsync(navParameters);
+            } 
         }
 
         public void Initialize(INavigationParameters parameters)

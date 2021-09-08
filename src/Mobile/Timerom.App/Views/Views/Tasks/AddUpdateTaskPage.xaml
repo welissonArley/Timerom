@@ -46,12 +46,12 @@
                     </Label.Triggers>
                 </Label>
 
-                <textwithlabel:InputTextWithLabelComponent Margin="0,30,0,0" BindingEntry="{Binding Task.Title}" Title="{x:Static resource:ResourceText.TITLE_TASK_TITLE_TWO_POINTS}" PlaceHolder="{x:Static resource:ResourceText.TITLE_STUDING_ENGLISH}"/>
-
-                <Label Margin="0,20,0,0" Text="{x:Static resource:ResourceText.TITLE_CLASSIFICATION_TWO_POINTS}" FontSize="12" Style="{StaticResource LabelLight}"/>
-                <Frame CornerRadius="10" HeightRequest="40" HasShadow="False" Padding="0" WidthRequest="187" HorizontalOptions="Start" BackgroundColor="{Binding Task.Category.Type, Converter={StaticResource ColorCategoryTypeWithTransparency}}" Margin="0,10,0,0">
-                    <Label Text="{Binding Task.Category.Name}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource LabelBold}" TextColor="{Binding Task.Category.Type, Converter={StaticResource ColorCategoryType}}" FontSize="16"/>
-                </Frame>
+                <textwithlabel:InputTextWithLabelComponent BindingEntry="{Binding Task.Title}" Title="{x:Static resource:ResourceText.TITLE_TASK_TITLE_TWO_POINTS}" PlaceHolder="{x:Static resource:ResourceText.TITLE_STUDING_ENGLISH}"/>
+                
+                <StackLayout Margin="0,10,0,20" Orientation="Horizontal">
+                    <Ellipse Fill="{Binding Task.Category.Type, Converter={StaticResource ColorCategoryType}}" WidthRequest="10" VerticalOptions="CenterAndExpand" HeightRequest="10" HorizontalOptions="Start"/>
+                    <Label Style="{StaticResource LabelSemiBold}" Text="{Binding Task.Category.Name}" TextColor="{Binding Task.Category.Type, Converter={StaticResource ColorCategoryType}}" Margin="0,-4,0,0" ></Label>
+                </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
                     <StackLayout HorizontalOptions="FillAndExpand">
