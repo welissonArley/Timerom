@@ -42,12 +42,18 @@ namespace Timerom.App.UseCase.UserTask.Local.GetAll
         private async Task<Category> GetCategory(CategoryDatabase categoryDatabase, long categoryId)
         {
             var model = await categoryDatabase.GetById(categoryId);
+            var parentCategory = await categoryDatabase.GetById(model.ParentCategoryId.Value);
 
             return new Category
             {
                 Id = model.Id,
                 Name = model.Name,
-                Type = model.Type
+                Type = model.Type,
+                Parent = new Category
+                {
+                    Id = parentCategory.Id,
+                    Name = parentCategory.Name
+                }
             };
         }
     }

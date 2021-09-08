@@ -14,5 +14,6 @@ namespace Timerom.App.Model
         public string Name { get; set; }
         public CategoryType Type { get; set; }
         public ObservableCollection<Category> Childrens { get; set; }
+        public Category Parent { get; set; }
     }
 }
