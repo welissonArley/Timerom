@@ -6,7 +6,7 @@
   <ContentView.Content>
         <StackLayout>
             <Frame Padding="0" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" HasShadow="False" BorderColor="#F1F1F1">
-                <customControl:AppEditor x:Name="Input" HeightRequest="110"/>
+                <customControl:AppEditor x:Name="Input" HeightRequest="85"/>
             </Frame>
         </StackLayout>
     </ContentView.Content>

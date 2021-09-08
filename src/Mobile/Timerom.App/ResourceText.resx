@@ -164,9 +164,6 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_CHOOSE_AN_OPTION" xml:space="preserve">
     <value>Choose an option</value>
   </data>
-  <data name="TITLE_CLASSIFICATION_TWO_POINTS" xml:space="preserve">
-    <value>Classification:</value>
-  </data>
   <data name="TITLE_CONTACT_US" xml:space="preserve">
     <value>Contact Us</value>
   </data>

@@ -198,15 +198,6 @@ namespace Timerom.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Classification:.
-        /// </summary>
-        public static string TITLE_CLASSIFICATION_TWO_POINTS {
-            get {
-                return ResourceManager.GetString("TITLE_CLASSIFICATION_TWO_POINTS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Contact Us.
         /// </summary>
         public static string TITLE_CONTACT_US {
