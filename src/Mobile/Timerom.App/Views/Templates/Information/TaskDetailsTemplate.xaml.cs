@@ -1,7 +1,5 @@
-﻿using FFImageLoading.Work;
-using System.Globalization;
+﻿using System.Globalization;
 using Timerom.App.Model;
-using Timerom.App.ValueObjects;
 using Timerom.App.ValueObjects.Enuns;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Forms;
@@ -45,10 +43,19 @@ namespace Timerom.App.Views.Templates.Information
             {
                 var task = (TaskModel)newValue;
                 component.LabelTitle.Text = task.Title;
-                component.LabelDuration.Text = string.Format(ResourceText.TITLE_FROM_TO, task.StartsAt.ToString("t", CultureInfo.CurrentCulture), task.EndsAt.ToString("t", CultureInfo.CurrentCulture));
-                component.LabelDuration.TextColor = GetColor(task.Category.Type);
-                component.LabelPercentageInfo.Text = string.Format(ResourceText.TITLE_THIS_IS_PERCENTAGE_YOUR_DAY, task.Percentage);
-                component.IconChecked.Transformations.Add(GetTransformation(task.Category.Type));
+
+                var categoryColor = GetColor(task.Category.Type);
+
+                component.LabelCategory.BackgroundColor = categoryColor;
+                component.LabelSubcategory.BackgroundColor = categoryColor.MultiplyAlpha(0.1);
+                component.LabelSubcategory.TextColor = categoryColor;
+
+                component.LabelSubcategory.Text = task.Category.Name;
+                component.LabelCategory.Text = task.Category.Parent.Name;
+
+                component.LabelDuration.Text = $"{task.StartsAt.ToString("t", CultureInfo.CurrentCulture)} - {task.EndsAt.ToString("t", CultureInfo.CurrentCulture)}";
+
+                component.BindingContext = new { HasDescription = !string.IsNullOrWhiteSpace(task.Description), Description = task.Description };
             }
         }
 
@@ -64,20 +71,6 @@ namespace Timerom.App.Views.Templates.Information
                     return Application.Current.RequestedTheme == OSAppTheme.Dark ? (Color)Application.Current.Resources["DarkUnproductiveColor"] : (Color)Application.Current.Resources["LigthUnproductiveColor"];
                 default:
                     return Color.Black;
-            }
-        }
-        private static ITransformation GetTransformation(CategoryType categoryType)
-        {
-            switch (categoryType)
-            {
-                case CategoryType.Productive:
-                    return new SvgColorTransformationLightModeDarkModeProductive();
-                case CategoryType.Neutral:
-                    return new SvgColorTransformationLightModeDarkModeNeutral();
-                case CategoryType.Unproductive:
-                    return new SvgColorTransformationLightModeDarkModeUnproductive();
-                default:
-                    return new SvgColorTransformationLightModeDarkModeDefault();
             }
         }
 

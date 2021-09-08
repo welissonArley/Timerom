@@ -24,7 +24,7 @@
     <None Remove="Resources\Svgs\IconArrow.svg" />
     <None Remove="Resources\Svgs\IconCalendar.svg" />
     <None Remove="Resources\Svgs\IconCategories.svg" />
-    <None Remove="Resources\Svgs\IconChecked.svg" />
+    <None Remove="Resources\Svgs\IconChat.svg" />
     <None Remove="Resources\Svgs\IconClock.svg" />
     <None Remove="Resources\Svgs\IconDashboard.svg" />
     <None Remove="Resources\Svgs\IconEdit.svg" />
@@ -49,7 +49,7 @@
     <EmbeddedResource Include="Resources\Svgs\IconArrow.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconCalendar.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconCategories.svg" />
-    <EmbeddedResource Include="Resources\Svgs\IconChecked.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconChat.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconClock.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconDashboard.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconEdit.svg" />

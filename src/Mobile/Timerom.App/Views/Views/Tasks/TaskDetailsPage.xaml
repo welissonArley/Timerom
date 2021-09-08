@@ -12,6 +12,11 @@
             <date:CalendarOptionTemplate OnDateChanged="{Binding DateChangedCommand}" Date="{Binding Model.Date}" Margin="0,0,0,30"/>
 
             <CollectionView ItemsSource="{Binding Model.Tasks}">
+                <CollectionView.Header>
+                    <StackLayout HeightRequest="2" VerticalOptions="EndAndExpand" Margin="0,0,0,10">
+                        <Line Margin="0"/>
+                    </StackLayout>
+                </CollectionView.Header>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <information:TaskDetailsTemplate Task="{Binding .}" OnItemSelected="{Binding Path=BindingContext.SelectedItemCommand, Source={x:Reference Name=TaskDetailsContentPage}}"/>
