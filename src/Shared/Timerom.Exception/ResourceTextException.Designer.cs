@@ -79,11 +79,29 @@ namespace Timerom.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This Category contains Subcategories with associated tasks..
+        /// </summary>
+        public static string CATEGORY_CONTAIS_SUBCATEGORIES_ASSOCIATED_TASKS {
+            get {
+                return ResourceManager.GetString("CATEGORY_CONTAIS_SUBCATEGORIES_ASSOCIATED_TASKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Name is required..
         /// </summary>
         public static string NAME_IS_REQUIRED {
             get {
                 return ResourceManager.GetString("NAME_IS_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Some Subcategories cannot be removed because they are associated with tasks..
+        /// </summary>
+        public static string SOME_SUBCATEGORIES_CANNOT_REMOVED_ASSOCIATED_TASKS {
+            get {
+                return ResourceManager.GetString("SOME_SUBCATEGORIES_CANNOT_REMOVED_ASSOCIATED_TASKS", resourceCulture);
             }
         }
         
@@ -111,6 +129,24 @@ namespace Timerom.Exception {
         public static string THERE_ARE_DUPLICATED_SUBCATEGORIES {
             get {
                 return ResourceManager.GetString("THERE_ARE_DUPLICATED_SUBCATEGORIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are tasks associated with this Subcategory..
+        /// </summary>
+        public static string THERE_IS_TASK_ASSOCIATED_SUBCATEGORY {
+            get {
+                return ResourceManager.GetString("THERE_IS_TASK_ASSOCIATED_SUBCATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You cannot delete this Subcategory as it is associated with tasks..
+        /// </summary>
+        public static string YOU_CANNOT_DELETE_THIS_SUBCATEGORY_ASSOCIATED_TASKS {
+            get {
+                return ResourceManager.GetString("YOU_CANNOT_DELETE_THIS_SUBCATEGORY_ASSOCIATED_TASKS", resourceCulture);
             }
         }
         

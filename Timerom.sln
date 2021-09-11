@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timerom.App", "src\Mobile\T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{38E9A055-49CE-4126-A97C-8FB5CE6DE420}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timerom.Exception", "src\Shared\Timerom.Exception\Timerom.Exception.csproj", "{EE5E15C0-40BE-41F6-921F-0883C2002D81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timerom.Exception", "src\Shared\Timerom.Exception\Timerom.Exception.csproj", "{EE5E15C0-40BE-41F6-921F-0883C2002D81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

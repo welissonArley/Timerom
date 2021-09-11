@@ -123,8 +123,14 @@
   <data name="CATEGORY_ALREADY_EXIST" xml:space="preserve">
     <value>Esta categoría já existe</value>
   </data>
+  <data name="CATEGORY_CONTAIS_SUBCATEGORIES_ASSOCIATED_TASKS" xml:space="preserve">
+    <value>Esta Categoria contém Subcategorias com tarefas associadas.</value>
+  </data>
   <data name="NAME_IS_REQUIRED" xml:space="preserve">
     <value>O Nome é obrigatório.</value>
+  </data>
+  <data name="SOME_SUBCATEGORIES_CANNOT_REMOVED_ASSOCIATED_TASKS" xml:space="preserve">
+    <value>Algumas Subcategorias não podem ser removidas porque estão associadas a tarefas.</value>
   </data>
   <data name="START_TIME_MUST_BE_LASS_END_TIME" xml:space="preserve">
     <value>O horário e data de inicio devem ser inferior ao horário e data de término.</value>
@@ -134,6 +140,12 @@
   </data>
   <data name="THERE_ARE_DUPLICATED_SUBCATEGORIES" xml:space="preserve">
     <value>Existem subcategorias duplicadas na lista.</value>
+  </data>
+  <data name="THERE_IS_TASK_ASSOCIATED_SUBCATEGORY" xml:space="preserve">
+    <value>Existe tarefas associadas a esta Subcategoria.</value>
+  </data>
+  <data name="YOU_CANNOT_DELETE_THIS_SUBCATEGORY_ASSOCIATED_TASKS" xml:space="preserve">
+    <value>Você não pode deletar esta Subcategoria, pois ela está associada a tarefas.</value>
   </data>
   <data name="YOU_NEED_ADD_ONE_OR_MORE_SUBCATEGORIES" xml:space="preserve">
     <value>Você precisa adicionar uma ou mais subcategorias.</value>

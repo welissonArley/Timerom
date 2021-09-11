@@ -15,9 +15,11 @@ namespace Timerom.App.ViewModels.Category
         private readonly Lazy<IDeleteCategoryUseCase> deleteUseCase;
         private readonly Lazy<IUpdateCategoryUseCase> updateUseCase;
         private readonly Lazy<IInsertCategoryUseCase> createUseCase;
+        private readonly Lazy<ICanDeleteSubcategoryUseCase> canDeleteSubcategoryUse;
         protected IInsertCategoryUseCase _createUseCase => createUseCase.Value;
         protected IUpdateCategoryUseCase _updateUseCase => updateUseCase.Value;
         protected IDeleteCategoryUseCase _deleteUseCase => deleteUseCase.Value;
+        protected ICanDeleteSubcategoryUseCase _canDeleteSubcategoryUse => canDeleteSubcategoryUse.Value;
         #endregion
 
         #region Model
@@ -37,11 +39,12 @@ namespace Timerom.App.ViewModels.Category
 
         public AddUpdateCategoryViewModel(Lazy<INavigationService> navigationService,
             Lazy<IInsertCategoryUseCase> createUseCase, Lazy<IUpdateCategoryUseCase> updateUseCase,
-            Lazy<IDeleteCategoryUseCase> deleteUseCase) : base(navigationService)
+            Lazy<IDeleteCategoryUseCase> deleteUseCase, Lazy<ICanDeleteSubcategoryUseCase> canDeleteSubcategoryUse) : base(navigationService)
         {
             this.createUseCase = createUseCase;
             this.updateUseCase = updateUseCase;
             this.deleteUseCase = deleteUseCase;
+            this.canDeleteSubcategoryUse = canDeleteSubcategoryUse;
 
             _categoriesCreated = new List<Model.Category>();
 
@@ -109,12 +112,12 @@ namespace Timerom.App.ViewModels.Category
 
             return Task.CompletedTask;
         }
-        private Task OptionCategoryCommandExecuted(Model.Category category)
+        private async Task OptionCategoryCommandExecuted(Model.Category category)
         {
+            await _canDeleteSubcategoryUse.Execute(category);
+
             Category.Childrens.Remove(category);
             RaisePropertyChanged("Category.Childrens");
-
-            return Task.CompletedTask;
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)

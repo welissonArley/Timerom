@@ -123,8 +123,14 @@
   <data name="CATEGORY_ALREADY_EXIST" xml:space="preserve">
     <value>This category already exists</value>
   </data>
+  <data name="CATEGORY_CONTAIS_SUBCATEGORIES_ASSOCIATED_TASKS" xml:space="preserve">
+    <value>This Category contains Subcategories with associated tasks.</value>
+  </data>
   <data name="NAME_IS_REQUIRED" xml:space="preserve">
     <value>The Name is required.</value>
+  </data>
+  <data name="SOME_SUBCATEGORIES_CANNOT_REMOVED_ASSOCIATED_TASKS" xml:space="preserve">
+    <value>Some Subcategories cannot be removed because they are associated with tasks.</value>
   </data>
   <data name="START_TIME_MUST_BE_LASS_END_TIME" xml:space="preserve">
     <value>The start time and date must be less than the end time and date.</value>
@@ -134,6 +140,12 @@
   </data>
   <data name="THERE_ARE_DUPLICATED_SUBCATEGORIES" xml:space="preserve">
     <value>There are duplicated subcategories on the list.</value>
+  </data>
+  <data name="THERE_IS_TASK_ASSOCIATED_SUBCATEGORY" xml:space="preserve">
+    <value>There are tasks associated with this Subcategory.</value>
+  </data>
+  <data name="YOU_CANNOT_DELETE_THIS_SUBCATEGORY_ASSOCIATED_TASKS" xml:space="preserve">
+    <value>You cannot delete this Subcategory as it is associated with tasks.</value>
   </data>
   <data name="YOU_NEED_ADD_ONE_OR_MORE_SUBCATEGORIES" xml:space="preserve">
     <value>You need add one or more subcategories.</value>

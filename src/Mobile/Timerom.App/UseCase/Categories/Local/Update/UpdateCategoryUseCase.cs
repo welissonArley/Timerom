@@ -1,9 +1,11 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.Repository;
 using Timerom.App.UseCase.Categories.Interfaces;
+using Timerom.Exception;
 using Timerom.Exception.ExceptionBase;
 
 namespace Timerom.App.UseCase.Categories.Local.Update
@@ -22,12 +24,12 @@ namespace Timerom.App.UseCase.Categories.Local.Update
         private async Task<Category> Save(CategoryDatabase database, Category category)
         {
             ValueObjects.Entity.Category categoryModel = await database.GetById(category.Id);
-            categoryModel.Name = category.Name;
-
-            await database.Update(categoryModel);
-
+            
             await RemoveCategoriesChildrens(database, category, categoryModel);
             await InsertNewCategoriesChildrens(database, category);
+
+            categoryModel.Name = category.Name;
+            await database.Update(categoryModel);
 
             var childrensList = await database.GetChildrensByParentId(categoryModel.Id);
 
@@ -62,6 +64,8 @@ namespace Timerom.App.UseCase.Categories.Local.Update
 
             var deletList = childrensList.Where(c => category.Childrens.All(k => k.Id != c.Id)).ToList();
 
+            await ValidateIfCanDeleteSubcategories(deletList);
+
             var tasks = deletList.Select(c => Task.Run(async() =>
             {
                 await database.Delete(c);
@@ -76,6 +80,21 @@ namespace Timerom.App.UseCase.Categories.Local.Update
 
             if (!validation.IsValid)
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
+        }
+
+        private async Task ValidateIfCanDeleteSubcategories(List<ValueObjects.Entity.Category> deletList)
+        {
+            UserTaskDatabase database = await UserTaskDatabase.Instance();
+
+            var tasks = deletList.Select(c => Task.Run(async () =>
+            {
+                return await database.ExistTaskForSubcategory(c.Id);
+            })).ToList();
+
+            await Task.WhenAll(tasks);
+
+            if (tasks.Any(c => c.Result))
+                throw new ErrorOnValidationException(new List<string> { ResourceTextException.SOME_SUBCATEGORIES_CANNOT_REMOVED_ASSOCIATED_TASKS });
         }
     }
 }

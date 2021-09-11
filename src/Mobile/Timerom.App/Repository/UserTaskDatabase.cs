@@ -37,7 +37,7 @@ namespace Timerom.App.Repository
         {
             var list = await _database.Table<UserTask>().ToListAsync();
 
-            return list.Where(c => c.StartsAt.Date == date.Date || c.EndsAt.Date == date.Date).ToList();
+            return list.Where(c => c.StartsAt.Date == date.Date || c.EndsAt.Date == date.Date).OrderBy(c => c.StartsAt).ToList();
         }
 
         public async Task<UserTask> GetLast(DateTime date)
@@ -60,6 +60,13 @@ namespace Timerom.App.Repository
         public async Task Update(UserTask task)
         {
             _ = await _database.UpdateAsync(task);
+        }
+
+        public async Task<bool> ExistTaskForSubcategory(long subCategoryId)
+        {
+            var count = await _database.Table<UserTask>().CountAsync(c => c.CategoryId == subCategoryId);
+
+            return count > 0;
         }
     }
 }
