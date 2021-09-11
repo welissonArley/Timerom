@@ -69,13 +69,13 @@ namespace Timerom.App.UseCase.Dashboard.Local
                 var category = categories.First(c => c.Id == categoryId);
                 var subCategories = subCategoriesList.Where(k => k.ParentCategoryId == categoryId);
 
-                var totalTime = Math.Round(tasks.Where(c => subCategories.Any(k => k.Id == c.CategoryId))
-                    .Sum(c => (CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes), 2);
+                var totalTime = tasks.Where(c => subCategories.Any(k => k.Id == c.CategoryId))
+                    .Sum(c => (CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
 
                 result.Add(new DashboardTaskModel
                 {
                     Title = category.Name,
-                    Hours = Math.Round(totalTime/60.0, 2),
+                    Hours = new TimeSpan(hours: 0, minutes: (int)totalTime, seconds: 0),
                     Percentage = funcPercentageOfDay.Execute(DateTime.Today.Date, DateTime.Today.Date.AddMinutes(totalTime)),
                     Category = category.Type
                 });

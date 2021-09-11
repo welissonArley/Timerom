@@ -8,9 +8,9 @@ namespace Timerom.App.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var hour = (double)value;
+            var time = (TimeSpan)value;
 
-            return $"{hour} {(hour <= 1.0 ? ResourceText.TITLE_HOUR : ResourceText.TITLE_HOURS)}";
+            return $"{(time.Hours <= 9 ? $"0{time.Hours}" : $"{time.Hours}")}h {(time.Minutes <= 9 ? $"0{time.Minutes}" : $"{time.Minutes}")}m";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
