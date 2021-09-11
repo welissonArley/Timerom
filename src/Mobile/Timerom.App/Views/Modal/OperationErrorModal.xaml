@@ -15,7 +15,7 @@
                 <StackLayout BindableLayout.ItemsSource="{Binding Messages}" Margin="15,0,0,0">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout Margin="0,15,0,0">
+                            <StackLayout Margin="0,15,20,0">
                                 <Label Text="{Binding .}" Style="{StaticResource LabelExtraBold}" TextColor="Black"/>
                             </StackLayout>
                         </DataTemplate>
