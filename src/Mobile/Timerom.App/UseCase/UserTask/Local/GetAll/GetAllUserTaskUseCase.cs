@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.Repository;
 using Timerom.App.UseCase.UserTask.Interfaces;
-using Timerom.App.ValueObjects.Functions;
 
 namespace Timerom.App.UseCase.UserTask.Local.GetAll
 {
@@ -18,8 +17,6 @@ namespace Timerom.App.UseCase.UserTask.Local.GetAll
 
             var models = await database.GetAll(date);
 
-            var percentageFunction = new FuncPercentageOfDay();
-
             var tasks = models.Select(c => Task.Run(async () =>
             {
                 return new TaskModel
@@ -29,7 +26,6 @@ namespace Timerom.App.UseCase.UserTask.Local.GetAll
                     Title = c.Title,
                     EndsAt = c.EndsAt,
                     StartsAt = c.StartsAt,
-                    Percentage = percentageFunction.Execute(c.StartsAt, c.EndsAt),
                     Category = await GetCategory(categoryDatabase, c.CategoryId)
                 };
             })).ToList();

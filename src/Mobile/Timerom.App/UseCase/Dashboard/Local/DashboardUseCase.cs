@@ -25,9 +25,9 @@ namespace Timerom.App.UseCase.Dashboard.Local
             CategoryDatabase categoryDatabase = await CategoryDatabase.Instance();
             var categories = await categoryDatabase.GetAll();
 
-            var totalProductive = CalculateTotalTimeMinutesPerCategory(categories, models, CategoryType.Productive);
-            var totalNeutral = CalculateTotalTimeMinutesPerCategory(categories, models, CategoryType.Neutral);
-            var totalUnproductive = CalculateTotalTimeMinutesPerCategory(categories, models, CategoryType.Unproductive);
+            var totalProductive = CalculateTotalTimeMinutesPerCategory(categories, models, CategoryType.Productive, date);
+            var totalNeutral = CalculateTotalTimeMinutesPerCategory(categories, models, CategoryType.Neutral, date);
+            var totalUnproductive = CalculateTotalTimeMinutesPerCategory(categories, models, CategoryType.Unproductive, date);
 
             var sumMinutesProductiveNeutralUnproductive = totalProductive + totalNeutral + totalUnproductive;
 
@@ -37,22 +37,22 @@ namespace Timerom.App.UseCase.Dashboard.Local
                 ProductivePercentage = Convert.ToInt32(100 * totalProductive / sumMinutesProductiveNeutralUnproductive),
                 NeutralPercentage = Convert.ToInt32(100 * totalNeutral / sumMinutesProductiveNeutralUnproductive),
                 UnproductivePercentage = Convert.ToInt32(100 * totalUnproductive / sumMinutesProductiveNeutralUnproductive),
-                Tasks = new ObservableCollection<DashboardTaskModel>(TasksPerCategory(categories, models))
+                Tasks = new ObservableCollection<DashboardTaskModel>(TasksPerCategory(categories, models, date))
             };
         }
 
         private double CalculateTotalTimeMinutesPerCategory(List<ValueObjects.Entity.Category> categories,
-            List<ValueObjects.Entity.UserTask> tasks, CategoryType type)
+            List<ValueObjects.Entity.UserTask> tasks, CategoryType type, DateTime searchDate)
         {
             var list = categories.Where(c => c.Type == type && c.ParentCategoryId.HasValue);
 
             var taskList = tasks.Where(c => list.Any(k => k.Id == c.CategoryId));
 
-            return taskList.Sum(c => (c.EndsAt - c.StartsAt).TotalMinutes);
+            return taskList.Sum(c => (CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
         }
 
         private List<DashboardTaskModel> TasksPerCategory(List<ValueObjects.Entity.Category> categories,
-            List<ValueObjects.Entity.UserTask> tasks)
+            List<ValueObjects.Entity.UserTask> tasks, DateTime searchDate)
         {
             var funcPercentageOfDay = new FuncPercentageOfDay();
 
@@ -70,7 +70,7 @@ namespace Timerom.App.UseCase.Dashboard.Local
                 var subCategories = subCategoriesList.Where(k => k.ParentCategoryId == categoryId);
 
                 var totalTime = Math.Round(tasks.Where(c => subCategories.Any(k => k.Id == c.CategoryId))
-                    .Sum(c => (c.EndsAt - c.StartsAt).TotalMinutes), 2);
+                    .Sum(c => (CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes), 2);
 
                 result.Add(new DashboardTaskModel
                 {
@@ -82,6 +82,17 @@ namespace Timerom.App.UseCase.Dashboard.Local
             }
 
             return result.OrderByDescending(c => c.Hours).ThenBy(c => c.Category).ThenBy(c => c.Title).ToList();
+        }
+
+        private (DateTime Starts, DateTime Ends) CorrectDate(DateTime starts, DateTime ends, DateTime actual)
+        {
+            if (starts.Date == ends.Date)
+                return (starts, ends);
+
+            if(ends.Date == actual.Date)
+                return (ends.Date, ends);
+
+            return (starts, starts.Date.AddMinutes(-1).AddDays(1));
         }
     }
 }
