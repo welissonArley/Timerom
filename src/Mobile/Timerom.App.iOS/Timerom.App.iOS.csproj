@@ -309,4 +309,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\IllustrationDashboardCronTask_lighmode%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IcontrashToolbar_LightMode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IcontrashToolbar_DarkMode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IcontrashToolbar_DarkMode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IcontrashToolbar_LightMode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IcontrashToolbar_LightMode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IcontrashToolbar_DarkMode.png" />
+  </ItemGroup>
 </Project>
