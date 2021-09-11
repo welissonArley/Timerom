@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using Timerom.App.Model;
 using Timerom.App.ValueObjects.Enuns;
 using Xamarin.CommunityToolkit.ObjectModel;
@@ -53,7 +54,7 @@ namespace Timerom.App.Views.Templates.Information
                 component.LabelSubcategory.Text = task.Category.Name;
                 component.LabelCategory.Text = task.Category.Parent.Name;
 
-                component.LabelDuration.Text = $"{task.StartsAt.ToString("t", CultureInfo.CurrentCulture)} - {task.EndsAt.ToString("t", CultureInfo.CurrentCulture)}";
+                component.LabelDuration.Text = GetDuration(task.StartsAt, task.EndsAt);
 
                 component.BindingContext = new { HasDescription = !string.IsNullOrWhiteSpace(task.Description), Description = task.Description };
             }
@@ -72,6 +73,13 @@ namespace Timerom.App.Views.Templates.Information
                 default:
                     return Color.Black;
             }
+        }
+        private static string GetDuration(DateTime startsAt, DateTime endsAt)
+        {
+            if (startsAt.Date == endsAt.Date)
+                return $"{startsAt.ToShortDateString()}  {startsAt.ToString("t", CultureInfo.CurrentCulture)} - {endsAt.ToString("t", CultureInfo.CurrentCulture)}";
+
+            return $"{startsAt.ToShortDateString()} {startsAt.ToString("t", CultureInfo.CurrentCulture)} - {endsAt.ToShortDateString()} {endsAt.ToString("t", CultureInfo.CurrentCulture)}";
         }
 
         public TaskDetailsTemplate()
