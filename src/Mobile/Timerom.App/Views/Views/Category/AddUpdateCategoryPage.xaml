@@ -1,15 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             xmlns:resource="clr-namespace:Timerom.App"
-             xmlns:local="clr-namespace:Timerom.App.Converter"
-             xmlns:customcontrol="clr-namespace:Timerom.App.CustomControl"
-             xmlns:information="clr-namespace:Timerom.App.Views.Templates.Information"
-             xmlns:statusTemplate="clr-namespace:Timerom.App.Views.Templates.Status"
-             xmlns:textwithlabel="clr-namespace:Timerom.App.Views.Templates.TextWithLabel"
-             x:Name="AddUpdateCategoryContentPage"
-             x:Class="Timerom.App.Views.Views.Category.AddUpdateCategoryPage">
+<customcontrol:AppContentPageCustomToolbar xmlns="http://xamarin.com/schemas/2014/forms"
+                                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                                           xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                                           xmlns:resource="clr-namespace:Timerom.App"
+                                           xmlns:local="clr-namespace:Timerom.App.Converter"
+                                           xmlns:customcontrol="clr-namespace:Timerom.App.CustomControl"
+                                           xmlns:information="clr-namespace:Timerom.App.Views.Templates.Information"
+                                           xmlns:statusTemplate="clr-namespace:Timerom.App.Views.Templates.Status"
+                                           xmlns:textwithlabel="clr-namespace:Timerom.App.Views.Templates.TextWithLabel"
+                                           x:Name="AddUpdateCategoryContentPage"
+                                           x:Class="Timerom.App.Views.Views.Category.AddUpdateCategoryPage">
+    <customcontrol:AppContentPageCustomToolbar.CustomToolbar>
+        <customcontrol:AppToolbarItem IsVisible="{Binding Path=BindingContext.Category.Id, Source={x:Reference Name=AddUpdateCategoryContentPage}}" Text="" IconImageSource="{AppThemeBinding Light=IcontrashToolbar_LightMode.png, Dark=IcontrashToolbar_DarkMode.png}" Command="{Binding DeleteCommand}" />
+    </customcontrol:AppContentPageCustomToolbar.CustomToolbar>
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:CategoryTypeColorConverter x:Key="ColorCategoryType" />
@@ -82,15 +85,7 @@
                 </CollectionView.EmptyView>
             </CollectionView>
 
-            <customcontrol:ButtonTextAlignment Command="{Binding DeleteCommand}" Style="{StaticResource DeleteButton}" TextAlignment="Left" HorizontalOptions="Start" Text="{x:Static resource:ResourceText.TITLE_DELETE_CATEGORY}">
-                <customcontrol:ButtonTextAlignment.Triggers>
-                    <DataTrigger TargetType="customcontrol:ButtonTextAlignment" Binding="{Binding Category.Id}" Value="0">
-                        <Setter Property="IsVisible" Value="False"/>
-                    </DataTrigger>
-                </customcontrol:ButtonTextAlignment.Triggers>
-            </customcontrol:ButtonTextAlignment>
-
             <Button Text="{x:Static resource:ResourceText.TITLE_SAVE}" Command="{Binding SaveCommand}"/>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</customcontrol:AppContentPageCustomToolbar>
