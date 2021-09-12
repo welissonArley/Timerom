@@ -115,14 +115,6 @@
 
                 <template:TextAreaTemplate BindingEntry="{Binding Task.Description}" PlaceHolderText="{x:Static resource:ResourceText.TITLE_YOUR_DESCRIPTION}"/>
 
-                <customcontrol:ButtonTextAlignment VerticalOptions="EndAndExpand" Command="{Binding DeleteCommand}" Style="{StaticResource DeleteButton}" TextAlignment="Left" HorizontalOptions="Start" Text="{x:Static resource:ResourceText.TITLE_DELETE_CATEGORY}">
-                    <customcontrol:ButtonTextAlignment.Triggers>
-                        <DataTrigger TargetType="customcontrol:ButtonTextAlignment" Binding="{Binding Task.Id}" Value="0">
-                            <Setter Property="IsVisible" Value="False"/>
-                        </DataTrigger>
-                    </customcontrol:ButtonTextAlignment.Triggers>
-                </customcontrol:ButtonTextAlignment>
-
                 <Button VerticalOptions="EndAndExpand" Text="{x:Static resource:ResourceText.TITLE_SAVE}" Command="{Binding SaveCommand}"/>
             </StackLayout>
         </ScrollView>
