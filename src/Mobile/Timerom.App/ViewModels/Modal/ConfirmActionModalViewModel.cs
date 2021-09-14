@@ -27,8 +27,8 @@ namespace Timerom.App.ViewModels.Modal
 
         private async Task IamSureCommandExecuted()
         {
-            Action?.Execute(null);
             await CloseModalCommandExecuted();
+            Action?.Execute(null);
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters){}

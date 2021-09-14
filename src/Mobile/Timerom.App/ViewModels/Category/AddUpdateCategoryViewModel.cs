@@ -66,6 +66,18 @@ namespace Timerom.App.ViewModels.Category
 
         private async Task DeleteCommandExecuted()
         {
+            NavigationParameters navParameters = new NavigationParameters
+            {
+                { "Title", ResourceText.TITLE_DELETE_CATEGORY },
+                { "Description", string.Format(ResourceText.DESCRIPTION_DELETE_CATEGORY, Category.Name) },
+                { "Action", new AsyncCommand(DeleteCategory, allowsMultipleExecutions: false, onException: HandleException) }
+            };
+
+            await _navigationService.NavigateAsync(nameof(Views.Modal.ConfirmActionModal), navParameters, useModalNavigation: true);
+        }
+
+        private async Task DeleteCategory()
+        {
             SavingStatus();
             await _deleteUseCase.Execute(Category);
             await SucessStatus();

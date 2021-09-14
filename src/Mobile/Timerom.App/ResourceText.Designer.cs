@@ -61,6 +61,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete the Category “{0}”? You can’t undo this action..
+        /// </summary>
+        public static string DESCRIPTION_DELETE_CATEGORY {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_DELETE_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to delete the task “{0}”? You can’t undo this action..
         /// </summary>
         public static string DESCRIPTION_DELETE_TASK {
