@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
@@ -10,7 +11,7 @@ namespace Timerom.App.UseCase.UserTask.Local.GetAll
 {
     public class GetAllUserTaskUseCase : IGetAllUserTaskUseCase
     {
-        public async Task<IList<TaskModel>> Execute(DateTime date)
+        public async Task<TasksDetailsModel> Execute(DateTime date, IList<long> categoriesToFilterIds)
         {
             UserTaskDatabase database = await UserTaskDatabase.Instance();
             CategoryDatabase categoryDatabase = await CategoryDatabase.Instance();
@@ -32,7 +33,29 @@ namespace Timerom.App.UseCase.UserTask.Local.GetAll
 
             await Task.WhenAll(tasks);
 
-            return tasks.Select(c => c.Result).OrderBy(c => c.StartsAt).ThenBy(c => c.Title).ToList();
+            var userTasks = tasks.Select(c => c.Result);
+
+            return new TasksDetailsModel
+            {
+                Date = date,
+                Tasks = new ObservableCollection<TaskModel>(FilterList(userTasks, categoriesToFilterIds)),
+                Filters = new ObservableCollection<FilterModel>(userTasks.Select(c => c.Category.Parent.Id).Distinct().Select(c => new FilterModel
+                {
+                    Id = userTasks.First(w => w.Category.Parent.Id == c).Category.Parent.Id,
+                    Name = userTasks.First(w => w.Category.Parent.Id == c).Category.Parent.Name,
+                    Checked = categoriesToFilterIds.Any(k => k == userTasks.First(w => w.Category.Parent.Id == c).Category.Parent.Id)
+                }).OrderBy(c => c.Name))
+            };
+        }
+
+        private IList<TaskModel> FilterList(IEnumerable<TaskModel> userTasks, IList<long> categoriesToFilterIds)
+        {
+            var result = userTasks;
+
+            if (categoriesToFilterIds.Any())
+                result = userTasks.Where(c => categoriesToFilterIds.Any(k => c.Category.Parent.Id == k));
+
+            return result.OrderBy(c => c.StartsAt).ThenBy(c => c.Title).ToList();
         }
 
         private async Task<Category> GetCategory(CategoryDatabase categoryDatabase, long categoryId)

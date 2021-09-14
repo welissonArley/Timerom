@@ -7,5 +7,6 @@ namespace Timerom.App.Model
     {
         public DateTime Date { get; set; }
         public ObservableCollection<TaskModel> Tasks { get; set; }
+        public ObservableCollection<FilterModel> Filters { get; set; }
     }
 }

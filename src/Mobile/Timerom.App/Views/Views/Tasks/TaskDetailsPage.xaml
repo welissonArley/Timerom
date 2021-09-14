@@ -1,15 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:resource="clr-namespace:Timerom.App"
+             xmlns:customcontrol="clr-namespace:Timerom.App.CustomControl"
              xmlns:date="clr-namespace:Timerom.App.Views.Templates.Date"
              xmlns:information="clr-namespace:Timerom.App.Views.Templates.Information"
+             xmlns:search="clr-namespace:Timerom.App.Views.Templates.Search"
              x:Name="TaskDetailsContentPage"
              x:Class="Timerom.App.Views.Views.Tasks.TaskDetailsPage">
     <ContentPage.Content>
         <StackLayout Style="{StaticResource MarginStyleDefault}">
             <Label Text="{x:Static resource:ResourceText.TITLE_TASK_DETAILS}" Style="{StaticResource LabelTitle}" Margin="0,0,0,30"/>
-            <date:CalendarOptionTemplate OnDateChanged="{Binding DateChangedCommand}" Date="{Binding Model.Date}" Margin="0,0,0,30"/>
+            
+            <xct:Expander IsExpanded="False">
+                <xct:Expander.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <search:SearchBarComponent HorizontalOptions="FillAndExpand" EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=TaskDetailsContentPage}}"/>
+                        <search:FilterOptionComponent HorizontalOptions="End" Margin="5,0,0,0"/>
+                    </StackLayout>
+                </xct:Expander.Header>
+                <xct:Expander.ContentTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="0,20,0,0" BindableLayout.ItemsSource="{Binding Model.Filters}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal">
+                                        <customcontrol:AppCheckbox CheckChangedCommand="{Binding Path=BindingContext.FilterListCommand, Source={x:Reference Name=TaskDetailsContentPage}}" IsChecked="{Binding Checked}"/>
+                                        <Label VerticalOptions="Center" Margin="0,-4,0,0" Text="{Binding Name}"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </DataTemplate>
+                </xct:Expander.ContentTemplate>
+            </xct:Expander>
+
+            <date:CalendarOptionTemplate OnDateChanged="{Binding DateChangedCommand}" Date="{Binding Model.Date}" Margin="0,20,0,30"/>
 
             <CollectionView ItemsSource="{Binding Model.Tasks}">
                 <CollectionView.Header>
