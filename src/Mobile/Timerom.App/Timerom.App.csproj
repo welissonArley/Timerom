@@ -87,6 +87,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceText.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\Modal\ConfirmActionModal.xaml.cs">
+      <DependentUpon>ConfirmActionModal.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Templates\Information\SelectCategoryExpanderComponent.xaml.cs">
       <DependentUpon>SelectCategoryExpanderComponent.xaml</DependentUpon>
     </Compile>

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DESCRIPTION_DELETE_TASK" xml:space="preserve">
+    <value>Você tem certeza que deseja deletar a tarefa “{0}”? Esta ação não poderá ser desfeita.</value>
+  </data>
   <data name="DESCRIPTION_ILUSTRATIONS_INFORMATIONS" xml:space="preserve">
     <value>Um dos objetivos deste App é ser desenhado de forma criativa. E para isso nada melhor que fazer uso de imagens para ilustrar e divertir o usuário, certo? 
 
@@ -155,6 +158,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_CALL" xml:space="preserve">
     <value>Chamada</value>
   </data>
+  <data name="TITLE_CANCEL" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
   <data name="TITLE_CATEGORIES" xml:space="preserve">
     <value>Categorias</value>
   </data>
@@ -190,6 +196,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_DELETE_CATEGORY" xml:space="preserve">
     <value>Deletar Categoria</value>
+  </data>
+  <data name="TITLE_DELETE_TASK" xml:space="preserve">
+    <value>Deletar Tarefa?</value>
   </data>
   <data name="TITLE_DESCRIPTION_TWO_POINTS" xml:space="preserve">
     <value>Descrição:</value>
@@ -385,6 +394,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_WORK" xml:space="preserve">
     <value>Trabalho</value>
+  </data>
+  <data name="TITLE_YES_IAM_SURE" xml:space="preserve">
+    <value>Sim, certeza</value>
   </data>
   <data name="TITLE_YOUR_DESCRIPTION" xml:space="preserve">
     <value>Sua descrição</value>

@@ -61,6 +61,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete the task “{0}”? You can’t undo this action..
+        /// </summary>
+        public static string DESCRIPTION_DELETE_TASK {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_DELETE_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to One of the goals of this App is to have a creative design. And for that, nothing better than using images to illustrate and amuse the user, right?
         ///
         ///All images used have a free license for use, and as a thank you, we leave below the links to the sites that our team used :).
@@ -171,6 +180,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string TITLE_CANCEL {
+            get {
+                return ResourceManager.GetString("TITLE_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Categories.
         /// </summary>
         public static string TITLE_CATEGORIES {
@@ -275,6 +293,15 @@ namespace Timerom.App {
         public static string TITLE_DELETE_CATEGORY {
             get {
                 return ResourceManager.GetString("TITLE_DELETE_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Task?.
+        /// </summary>
+        public static string TITLE_DELETE_TASK {
+            get {
+                return ResourceManager.GetString("TITLE_DELETE_TASK", resourceCulture);
             }
         }
         
@@ -860,6 +887,15 @@ namespace Timerom.App {
         public static string TITLE_WORK {
             get {
                 return ResourceManager.GetString("TITLE_WORK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes, I&apos;m sure.
+        /// </summary>
+        public static string TITLE_YES_IAM_SURE {
+            get {
+                return ResourceManager.GetString("TITLE_YES_IAM_SURE", resourceCulture);
             }
         }
         
