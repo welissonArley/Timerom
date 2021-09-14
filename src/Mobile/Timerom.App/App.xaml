@@ -108,6 +108,9 @@
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="FontFamily" Value="RalewayRegular"/>
             </Style>
+            <Style TargetType="CheckBox" ApplyToDerivedTypes="True">
+                <Setter Property="Color" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>
