@@ -77,7 +77,8 @@ namespace Timerom.App.UseCase.Dashboard.Local
                     Title = category.Name,
                     Hours = new TimeSpan(hours: 0, minutes: (int)totalTime, seconds: 0),
                     Percentage = funcPercentageOfDay.Execute(DateTime.Today.Date, DateTime.Today.Date.AddMinutes(totalTime)),
-                    Category = category.Type
+                    Category = category.Type,
+                    CategoryId = categoryId.Value
                 });
             }
 

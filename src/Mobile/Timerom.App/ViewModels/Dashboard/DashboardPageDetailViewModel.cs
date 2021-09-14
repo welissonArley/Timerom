@@ -1,5 +1,6 @@
 ﻿using Prism.Navigation;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.UseCase.Dashboard.Interfaces;
@@ -19,14 +20,16 @@ namespace Timerom.App.ViewModels.Dashboard
         public IAsyncCommand<DateTime> DateChangedCommand { get; private set; }
         public IAsyncCommand ViewAllTasksCommand { get; private set; }
         public IAsyncCommand FloatActionCommand { get; private set; }
+        public IAsyncCommand<DashboardTaskModel> SelectedCategoryToShowDetailsCommand { get; private set; }
 
         public DashboardPageDetailViewModel(Lazy<IDashboardUseCase> useCase, Lazy<INavigationService> navigationService) : base(navigationService)
         {
             this.useCase = useCase;
 
             DateChangedCommand = new AsyncCommand<DateTime>(GetDashboard, onException: HandleException, allowsMultipleExecutions: false);
-            ViewAllTasksCommand = new AsyncCommand(ViewAllTasksCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
+            ViewAllTasksCommand = new AsyncCommand(async () => await ViewAllTasksCommandExecuted(), onException: HandleException, allowsMultipleExecutions: false);
             FloatActionCommand = new AsyncCommand(FloatActionCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
+            SelectedCategoryToShowDetailsCommand = new AsyncCommand<DashboardTaskModel>(ViewAllTasksCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
         }
 
         /// <summary>
@@ -34,7 +37,7 @@ namespace Timerom.App.ViewModels.Dashboard
         /// For some reason when update a task, Prism dont call OnNavigatedTo
         /// </summary>
         /// <returns></returns>
-        private async Task ViewAllTasksCommandExecuted()
+        private async Task ViewAllTasksCommandExecuted(DashboardTaskModel taskModel = null)
         {
             var navParameters = new NavigationParameters
             {
@@ -42,7 +45,14 @@ namespace Timerom.App.ViewModels.Dashboard
                 { "Date", Model.Date }
             };
 
+            if (taskModel != null)
+                navParameters.Add("CategoriesFilter", new List<long> { taskModel.CategoryId });
+
             await _navigationService.NavigateAsync(nameof(TaskDetailsPage), navParameters);
+        }
+        private async Task SelectedCategoryToShowDetailsCommandExecuted(DashboardTaskModel taskModel)
+        {
+            await ViewAllTasksCommandExecuted(taskModel);
         }
 
         private async Task FloatActionCommandExecuted()

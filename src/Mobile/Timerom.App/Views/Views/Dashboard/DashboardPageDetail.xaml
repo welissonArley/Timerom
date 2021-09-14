@@ -87,6 +87,9 @@
                             <DataTemplate>
                                 <StackLayout WidthRequest="165" BackgroundColor="Transparent">
                                     <Frame HorizontalOptions="Start" Padding="0" CornerRadius="12" HeightRequest="165" WidthRequest="150" HasShadow="True" BackgroundColor="{Binding Category, Converter={StaticResource ColorCategoryTypeWithTransparency}}">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.SelectedCategoryToShowDetailsCommand, Source={x:Reference Name=DashboardPageDetailContentPage}}" CommandParameter="{Binding .}"/>
+                                        </Frame.GestureRecognizers>
                                         <StackLayout Margin="20,20,0,15">
                                             <Label Text="{Binding Title}" Style="{StaticResource LabelExtraBold}" FontSize="17" TextColor="{Binding Category, Converter={StaticResource ColorCategoryType}}"/>
                                             <Label Text="{Binding Hours, Converter={StaticResource HourConverter}}" Style="{StaticResource LabelExtraBold}" FontSize="21"/>
