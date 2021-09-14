@@ -94,19 +94,28 @@ namespace Timerom.App.ViewModels.Tasks
 
         private async Task DeleteCommandExecuted()
         {
-            if (Task.Id > 0)
+            NavigationParameters navParameters = new NavigationParameters
             {
-                SavingStatus();
-                await _deleteUseCase.Execute(Task);
-                await SucessStatus();
+                { "Title", ResourceText.TITLE_DELETE_TASK },
+                { "Description", string.Format(ResourceText.DESCRIPTION_DELETE_TASK, Task.Title) },
+                { "Action", new AsyncCommand(DeleteTask, allowsMultipleExecutions: false, onException: HandleException) }
+            };
 
-                var navParameters = new NavigationParameters
+            await _navigationService.NavigateAsync(nameof(Views.Modal.ConfirmActionModal), navParameters, useModalNavigation: true);
+        }
+
+        private async Task DeleteTask()
+        {
+            SavingStatus();
+            await _deleteUseCase.Execute(Task);
+            await SucessStatus();
+
+            var navParameters = new NavigationParameters
                 {
                     { "Refresh", 1 }
                 };
 
-                await _navigationService.GoBackAsync(navParameters);
-            } 
+            await _navigationService.GoBackAsync(navParameters);
         }
 
         public void Initialize(INavigationParameters parameters)
