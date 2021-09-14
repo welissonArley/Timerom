@@ -28,6 +28,7 @@
     <None Remove="Resources\Svgs\IconClock.svg" />
     <None Remove="Resources\Svgs\IconDashboard.svg" />
     <None Remove="Resources\Svgs\IconEdit.svg" />
+    <None Remove="Resources\Svgs\IconFunnel.svg" />
     <None Remove="Resources\Svgs\IconIconsAndIllustrations.svg" />
     <None Remove="Resources\Svgs\IconPrivacyPolicy.svg" />
     <None Remove="Resources\Svgs\IconSearch.svg" />
@@ -53,6 +54,7 @@
     <EmbeddedResource Include="Resources\Svgs\IconClock.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconDashboard.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconEdit.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconFunnel.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconSearch.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconIconsAndIllustrations.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconPrivacyPolicy.svg" />
@@ -147,6 +149,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\Input\TextAreaTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Search\FilterOptionComponent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\Search\SearchBarComponent.xaml">
