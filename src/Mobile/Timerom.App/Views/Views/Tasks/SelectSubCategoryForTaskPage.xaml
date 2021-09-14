@@ -20,7 +20,7 @@
                 <Ellipse Fill="{Binding Category.Type, Converter={StaticResource ColorCategoryType}}" WidthRequest="10" VerticalOptions="CenterAndExpand" HeightRequest="10" HorizontalOptions="Start"/>
                 <Label Style="{StaticResource LabelSemiBold}" Text="{Binding Category.Name}" TextColor="{Binding Category.Type, Converter={StaticResource ColorCategoryType}}" Margin="0,-4,0,0" ></Label>
             </StackLayout>
-            <search:SearchBarComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=SelectSubCategoryForTaskContentPage}}" Margin="0,0,0,30"/>
+            <search:SearchBarComponent EntryTextChanged="{Binding Path=BindingContext.SearchTextChangedCommand, Source={x:Reference Name=SelectSubCategoryForTaskContentPage}}" Margin="20,0,20,30"/>
             <ScrollView VerticalOptions="FillAndExpand">
                 <StackLayout Style="{StaticResource MarginStyleDefault}" BindableLayout.ItemsSource="{Binding Category.Childrens}">
                     <BindableLayout.ItemTemplate>
