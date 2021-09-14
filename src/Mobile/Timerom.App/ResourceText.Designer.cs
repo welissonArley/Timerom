@@ -61,11 +61,20 @@ namespace Timerom.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to delete the Category “{0}”? You can’t undo this action..
+        ///   Looks up a localized string similar to Are you sure you want to delete the Category “{0}” and all its subcategories? You can’t undo this action..
         /// </summary>
         public static string DESCRIPTION_DELETE_CATEGORY {
             get {
                 return ResourceManager.GetString("DESCRIPTION_DELETE_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete the Subcategory “{0}”? You can’t undo this action..
+        /// </summary>
+        public static string DESCRIPTION_DELETE_SUBCATEGORY {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_DELETE_SUBCATEGORY", resourceCulture);
             }
         }
         
@@ -306,7 +315,16 @@ namespace Timerom.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Task?.
+        ///   Looks up a localized string similar to Delete Subcategory.
+        /// </summary>
+        public static string TITLE_DELETE_SUBCATEGORY {
+            get {
+                return ResourceManager.GetString("TITLE_DELETE_SUBCATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Task.
         /// </summary>
         public static string TITLE_DELETE_TASK {
             get {

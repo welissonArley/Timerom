@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Timerom.App.CustomControl;
 using Xamarin.Forms.Xaml;
 
 namespace Timerom.App.Views.Views.Category
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddUpdateSubcategoryPage : ContentPage
+    public partial class AddUpdateSubcategoryPage : AppContentPageCustomToolbar
     {
         public AddUpdateSubcategoryPage()
         {

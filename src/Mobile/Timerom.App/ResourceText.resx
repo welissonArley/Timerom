@@ -118,7 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DESCRIPTION_DELETE_CATEGORY" xml:space="preserve">
-    <value>Are you sure you want to delete the Category “{0}”? You can’t undo this action.</value>
+    <value>Are you sure you want to delete the Category “{0}” and all its subcategories? You can’t undo this action.</value>
+  </data>
+  <data name="DESCRIPTION_DELETE_SUBCATEGORY" xml:space="preserve">
+    <value>Are you sure you want to delete the Subcategory “{0}”? You can’t undo this action.</value>
   </data>
   <data name="DESCRIPTION_DELETE_TASK" xml:space="preserve">
     <value>Are you sure you want to delete the task “{0}”? You can’t undo this action.</value>
@@ -200,8 +203,11 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_DELETE_CATEGORY" xml:space="preserve">
     <value>Delete Category</value>
   </data>
+  <data name="TITLE_DELETE_SUBCATEGORY" xml:space="preserve">
+    <value>Delete Subcategory</value>
+  </data>
   <data name="TITLE_DELETE_TASK" xml:space="preserve">
-    <value>Delete Task?</value>
+    <value>Delete Task</value>
   </data>
   <data name="TITLE_DESCRIPTION_TWO_POINTS" xml:space="preserve">
     <value>Description:</value>
