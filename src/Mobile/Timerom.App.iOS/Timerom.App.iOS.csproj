@@ -131,6 +131,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Matcha.BackgroundService">
+      <Version>1.0.5478</Version>
+    </PackageReference>
     <PackageReference Include="Prism.DryIoc.Forms">
       <Version>8.1.97</Version>
     </PackageReference>
@@ -326,5 +329,41 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\IcontrashToolbar_DarkMode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButtonStart_DarkMode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButtonStart_DarkMode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButtonStart_DarkMode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButtonStart_LightMode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButtonStart_LightMode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButtonStart_LightMode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButtonStop_DarkMode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButtonStop_DarkMode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButtonStop_DarkMode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButtonStop_LightMode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButtonStop_LightMode%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButtonStop_LightMode%403x.png" />
   </ItemGroup>
 </Project>
