@@ -16,6 +16,7 @@ namespace Timerom.App.ViewModels.Tasks
         public DateTime Time { get; set; }
         private int _totalSeconds { get; set; }
         public Model.Category Subcategory { get; set; }
+        public string Title { get; set; }
 
         public IAsyncCommand StartTimerCommand { get; private set; }
         public IAsyncCommand StopTimerCommand { get; private set; }
@@ -25,6 +26,7 @@ namespace Timerom.App.ViewModels.Tasks
         {
             StartTimerCommand = new AsyncCommand(StartTimeCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
             StopTimerCommand = new AsyncCommand(StopTimeCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
+            AddTaskTitleCommand = new AsyncCommand(AddTaskTitleCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
         }
 
         private Task StartTimeCommandExecuted()
@@ -60,12 +62,32 @@ namespace Timerom.App.ViewModels.Tasks
 
             var navParameters = new NavigationParameters
             {
-                { "Task", new TaskModel { Category = Subcategory, StartsAt = timerStartsAt, EndsAt = timerStartsAt.AddSeconds(_totalSeconds) } }
+                { "Task", new TaskModel { Title = Title.Equals(ResourceText.TITLE_CLICK_HERE_FILL_TASK_TITLE) ? "" : Title, Category = Subcategory, StartsAt = timerStartsAt, EndsAt = timerStartsAt.AddSeconds(_totalSeconds) } }
             };
 
             await _navigationService.NavigateAsync(nameof(AddUpdateTaskPage), navParameters);
 
             Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[1]);
+        }
+
+        private async Task AddTaskTitleCommandExecuted()
+        {
+            var navParameters = new NavigationParameters
+            {
+                { "Title", Title.Equals(ResourceText.TITLE_CLICK_HERE_FILL_TASK_TITLE) ? "" : Title },
+                { "Callback", new AsyncCommand<string>(UpdateTaskTitle)}
+            };
+
+            await _navigationService.NavigateAsync(nameof(TitleTaskPage), navParameters);
+        }
+
+        private Task UpdateTaskTitle(string title)
+        {
+            Title = string.IsNullOrWhiteSpace(title) ? ResourceText.TITLE_CLICK_HERE_FILL_TASK_TITLE : title;
+
+            RaisePropertyChanged("Title");
+
+            return Task.CompletedTask;
         }
 
         private void Subscribe()
@@ -86,11 +108,17 @@ namespace Timerom.App.ViewModels.Tasks
             if (TimerUserTaskService.IsRunning())
             {
                 Subcategory = TimerUserTaskService.Subcategory();
+                Title = TimerUserTaskService.GetTitle();
+                Title = string.IsNullOrWhiteSpace(Title) ? ResourceText.TITLE_CLICK_HERE_FILL_TASK_TITLE : Title;
                 StartBackgroundService_Properties();
             }
             else
+            {
+                Title = ResourceText.TITLE_CLICK_HERE_FILL_TASK_TITLE;
                 Subcategory = parameters.GetValue<Model.Category>("Subcategory");
+            }
 
+            RaisePropertyChanged("Title");
             RaisePropertyChanged("Subcategory");
         }
     }

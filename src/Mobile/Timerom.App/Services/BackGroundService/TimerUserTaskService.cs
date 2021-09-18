@@ -11,7 +11,7 @@ namespace Timerom.App.Services.BackGroundService
     {
         private static bool IsRun { get; set; }
         private static Model.Category SubcategoryModel { get; set; }
-
+        private static string TaskTitle { get; set; }
         private static DateTime StartsAt { get; set; }
         private static int Time { get; set; }
         private static IList<ICommand> _enrolled;
@@ -61,6 +61,14 @@ namespace Timerom.App.Services.BackGroundService
         public static DateTime TimerStartsAt()
         {
             return StartsAt;
+        }
+        public static string GetTitle()
+        {
+            return TaskTitle;
+        }
+        public static void SetTitle(string title)
+        {
+            TaskTitle = title;
         }
     }
 }

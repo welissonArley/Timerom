@@ -13,7 +13,11 @@
         <StackLayout Style="{StaticResource MarginStyleDefault}">
             <Label HorizontalOptions="CenterAndExpand" Text="{Binding Time, StringFormat='{}{0:HH:mm:ss}'}" FontSize="42" Style="{StaticResource LabelBold}" />
 
-            <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_CLICK_HERE_FILL_TASK_TITLE}" FontSize="18" Margin="0,15,0,25"/>
+            <Label HorizontalOptions="CenterAndExpand" Text="{Binding Title}" FontSize="18" Margin="0,15,0,25">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddTaskTitleCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
 
             <StackLayout Spacing="-3">
                 <StackLayout Orientation="Horizontal" Padding="1">
