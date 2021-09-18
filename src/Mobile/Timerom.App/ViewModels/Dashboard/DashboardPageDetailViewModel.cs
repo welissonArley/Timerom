@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.UseCase.Dashboard.Interfaces;
+using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.Views.Views.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
@@ -57,7 +58,12 @@ namespace Timerom.App.ViewModels.Dashboard
 
         private async Task FloatActionCommandExecuted()
         {
-            _ = await _navigationService.NavigateAsync(nameof(SelectCategoryForTaskPage));
+            var navParameters = new NavigationParameters
+            {
+                { "Option", OnSelectCategoryOptions.AddTask }
+            };
+
+            _ = await _navigationService.NavigateAsync(nameof(SelectCategoryForTaskPage), navParameters);
         }
 
         private async Task GetDashboard(DateTime date)

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:Timerom.App"
+             xmlns:local="clr-namespace:Timerom.App.Converter"
+             x:Class="Timerom.App.Views.Views.Tasks.TimerTaskPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:CategoryTypeColorConverter x:Key="ColorCategoryType" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MarginStyleDefault}">
+            <Label HorizontalOptions="CenterAndExpand" Text="{Binding Time, StringFormat='{}{0:HH:mm:ss}'}" FontSize="42" Style="{StaticResource LabelBold}" />
+
+            <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_CLICK_HERE_FILL_TASK_TITLE}" FontSize="18" Margin="0,15,0,25"/>
+
+            <StackLayout Spacing="-3">
+                <StackLayout Orientation="Horizontal" Padding="1">
+                    <Frame Padding="0" CornerRadius="2" WidthRequest="4" HeightRequest="7" BackgroundColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" HorizontalOptions="Start" VerticalOptions="Start" Rotation="47.28"/>
+                    <Frame Padding="0" CornerRadius="2" WidthRequest="4" HeightRequest="7" BackgroundColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" HorizontalOptions="EndAndExpand" VerticalOptions="Start" Rotation="-47.28"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="0" Margin="45,30,45,0">
+                    <Frame Padding="0" CornerRadius="2" WidthRequest="4" HeightRequest="7" BackgroundColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" HorizontalOptions="Start" VerticalOptions="Start" Rotation="47.28"/>
+                    <Frame Padding="0" CornerRadius="2" WidthRequest="4" HeightRequest="7" BackgroundColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" HorizontalOptions="EndAndExpand" VerticalOptions="Start" Rotation="-47.28"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="0" Margin="121,30,100,0">
+                    <Frame Padding="0" CornerRadius="2" WidthRequest="4" HeightRequest="7" BackgroundColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" HorizontalOptions="Start" VerticalOptions="Start" Rotation="16.18"/>
+                    <Ellipse WidthRequest="11" HeightRequest="11" Fill="{Binding Subcategory.Type, Converter={StaticResource ColorCategoryType}}" HorizontalOptions="EndAndExpand" VerticalOptions="Start"/>
+                </StackLayout>
+                <Frame Margin="0,5,0,0" Padding="0" CornerRadius="2" WidthRequest="4" HeightRequest="7" BackgroundColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+            </StackLayout>
+
+            <StackLayout Margin="0,-30,0,0" Spacing="-3">
+                <StackLayout Orientation="Horizontal" Padding="2">
+                    <Frame Padding="0" CornerRadius="3" WidthRequest="7" HeightRequest="11" BackgroundColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" HorizontalOptions="Start" VerticalOptions="Start" Rotation="47.28"/>
+                    <Frame Padding="0" CornerRadius="3" WidthRequest="7" HeightRequest="11" BackgroundColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" HorizontalOptions="EndAndExpand" VerticalOptions="Start" Rotation="-47.28"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="0" Margin="40,40,41,0">
+                    <Ellipse WidthRequest="20" HeightRequest="20" Fill="{Binding Subcategory.Type, Converter={StaticResource ColorCategoryType}}" HorizontalOptions="Start" VerticalOptions="Start"/>
+                    <Frame Padding="0" CornerRadius="3" WidthRequest="6" HeightRequest="11" BackgroundColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" HorizontalOptions="EndAndExpand" VerticalOptions="Start" Rotation="-16.18"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="0" Margin="0,30,0,0" HorizontalOptions="CenterAndExpand">
+                    <Frame Margin="0,0,56,0" Padding="0" CornerRadius="3" WidthRequest="6" HeightRequest="11" BackgroundColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" VerticalOptions="Start" Rotation="16.18"/>
+                    <Frame Margin="0,0,56,0" Padding="0" CornerRadius="3" WidthRequest="6" HeightRequest="11" BackgroundColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" VerticalOptions="Start"/>
+                    <Frame Padding="0" CornerRadius="3" WidthRequest="6" HeightRequest="11" BackgroundColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" VerticalOptions="Start" Rotation="-16.18"/>
+                </StackLayout>
+            </StackLayout>
+
+            <ImageButton IsVisible="False" Command="{Binding StartTimerCommand}" Margin="0,100,0,0" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent" Source="{AppThemeBinding Light=ButtonStart_LightMode.png, Dark=ButtonStart_DarkMode.png}" WidthRequest="108" HeightRequest="108">
+                <ImageButton.Triggers>
+                    <DataTrigger TargetType="ImageButton" Binding="{Binding IsRunning}" Value="False">
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                </ImageButton.Triggers>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Opacity" Value="1"></Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Opacity" Value="0.7"></Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </ImageButton>
+
+            <ImageButton IsVisible="False" Command="{Binding StopTimerCommand}" Margin="0,100,0,0" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent" Source="{AppThemeBinding Light=ButtonStop_LightMode.png, Dark=ButtonStop_DarkMode.png}" WidthRequest="108" HeightRequest="108">
+                <ImageButton.Triggers>
+                    <DataTrigger TargetType="ImageButton" Binding="{Binding IsRunning}" Value="True">
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                </ImageButton.Triggers>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Opacity" Value="1"></Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Opacity" Value="0.7"></Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </ImageButton>
+
+            <StackLayout IsVisible="False" VerticalOptions="EndAndExpand">
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsRunning}" Value="True">
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                </StackLayout.Triggers>
+                <Label Text="{x:Static resource:ResourceText.TITLE_THIS_IS_RESULTING_IN}" Style="{StaticResource LabelSemiBold}"/>
+                <Grid ColumnDefinitions="*,*,*">
+                    <StackLayout Orientation="Horizontal" Grid.Column="0">
+                        <Label FontSize="12" Text="{Binding Source={x:Static resource:ResourceText.TITLE_PRODUCTIVE}, StringFormat='{}{0}:'}" VerticalOptions="End"/>
+                        <Label FontSize="15" Text="60%" TextColor="{AppThemeBinding Light={StaticResource LigthProductiveColor}, Dark={StaticResource DarkProductiveColor}}" Style="{StaticResource LabelExtraBold}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Column="1">
+                        <Label FontSize="12" Text="{Binding Source={x:Static resource:ResourceText.TITLE_NEUTRAL}, StringFormat='{}{0}:'}" VerticalOptions="End"/>
+                        <Label FontSize="15" Text="60%" TextColor="{AppThemeBinding Light={StaticResource LigthNeutralColor}, Dark={StaticResource DarkNeutralColor}}" Style="{StaticResource LabelExtraBold}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Column="2">
+                        <Label FontSize="12" Text="{Binding Source={x:Static resource:ResourceText.TITLE_UNPRODUCTIVE}, StringFormat='{}{0}:'}" VerticalOptions="End"/>
+                        <Label FontSize="15" Text="60%" TextColor="{AppThemeBinding Light={StaticResource LigthUnproductiveColor}, Dark={StaticResource DarkUnproductiveColor}}" Style="{StaticResource LabelExtraBold}"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

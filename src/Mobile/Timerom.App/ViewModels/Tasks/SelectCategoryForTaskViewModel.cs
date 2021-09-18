@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;   
 using Timerom.App.UseCase.Categories.Interfaces;
+using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.Views.Views.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
 
@@ -28,6 +29,8 @@ namespace Timerom.App.ViewModels.Tasks
         public ObservableCollection<Model.Category> ProductiveCategories { get; private set; }
         public ObservableCollection<Model.Category> NeutralCategories { get; private set; }
         public ObservableCollection<Model.Category> UnproductiveCategories { get; private set; }
+
+        private OnSelectCategoryOptions _option { get; set; }
         #endregion
 
         public SelectCategoryForTaskViewModel(Lazy<IGetAllCategoriesUseCase> useCase, Lazy<INavigationService> navigationService) : base(navigationService)
@@ -55,7 +58,8 @@ namespace Timerom.App.ViewModels.Tasks
         {
             var navParameters = new NavigationParameters
             {
-                { "Category", category }
+                { "Category", category },
+                { "Option", _option }
             };
 
             await _navigationService.NavigateAsync(nameof(SelectSubCategoryForTaskPage), navParameters);
@@ -65,6 +69,8 @@ namespace Timerom.App.ViewModels.Tasks
         {
             try
             {
+                _option = parameters.GetValue<OnSelectCategoryOptions>("Option");
+
                 var response = await _useCase.Execute();
 
                 _productiveCategories = new ObservableCollection<Model.Category>(response.Productive);

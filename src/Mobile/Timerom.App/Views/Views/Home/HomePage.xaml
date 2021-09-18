@@ -23,9 +23,18 @@
                         <Image Source="{AppThemeBinding Light=IllustrationDashboardHome_lighmode.png, Dark=IllustrationDashboardHome_darkmode.png}" HeightRequest="56" WidthRequest="56" HorizontalOptions="Start" VerticalOptions="Start" />
                         <Label Text="{x:Static resource:ResourceText.TITLE_HOME}" BackgroundColor="{AppThemeBinding Light=#F2EBF4, Dark=#332B2E}" Padding="7" TextColor="{AppThemeBinding Light=#763589, Dark=#EB9FE8}" Style="{StaticResource LabelExtraBold}" FontSize="16" Margin="15,0,0,0" VerticalOptions="Center"/>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" Margin="80,20,0,0" Opacity="0.2">
+                    <StackLayout Orientation="Horizontal" Margin="80,20,0,0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding StartTaskCommand}"/>
+                        </StackLayout.GestureRecognizers>
                         <Image Source="{AppThemeBinding Light=IllustrationDashboardCronTask_lighmode.png, Dark=IllustrationDashboardCronTask_darkmode.png}" HeightRequest="56" WidthRequest="56" HorizontalOptions="Start" VerticalOptions="Start" />
-                        <Label Text="{x:Static resource:ResourceText.TITLE_START_TASK}" BackgroundColor="{AppThemeBinding Light=#EEEAF8, Dark=#232C2F}" Padding="7" TextColor="{AppThemeBinding Light=#5124B4, Dark=#4AABEF}" Style="{StaticResource LabelExtraBold}" FontSize="16" Margin="15,0,0,0" VerticalOptions="Center"/>
+                        <Label Text="{x:Static resource:ResourceText.TITLE_START_TASK}" BackgroundColor="{AppThemeBinding Light=#EEEAF8, Dark=#232C2F}" Padding="7" TextColor="{AppThemeBinding Light=#5124B4, Dark=#4AABEF}" Style="{StaticResource LabelExtraBold}" FontSize="16" Margin="15,0,0,0" VerticalOptions="Center">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding ThereIsTimer}" Value="True">
+                                    <Setter Property="Text" Value="{x:Static resource:ResourceText.TITLE_SEE_TIMER}"/>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Margin="114,41,0,0">
                         <StackLayout.GestureRecognizers>

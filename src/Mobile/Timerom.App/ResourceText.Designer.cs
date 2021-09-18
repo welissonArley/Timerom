@@ -234,6 +234,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click here to fill the task title.
+        /// </summary>
+        public static string TITLE_CLICK_HERE_FILL_TASK_TITLE {
+            get {
+                return ResourceManager.GetString("TITLE_CLICK_HERE_FILL_TASK_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact Us.
         /// </summary>
         public static string TITLE_CONTACT_US {
@@ -630,6 +639,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to See Timer.
+        /// </summary>
+        public static string TITLE_SEE_TIMER {
+            get {
+                return ResourceManager.GetString("TITLE_SEE_TIMER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select a Category.
         /// </summary>
         public static string TITLE_SELECT_CATEGORY {
@@ -788,6 +806,15 @@ namespace Timerom.App {
         public static string TITLE_THIS_IS_PERCENTAGE_YOUR_DAY {
             get {
                 return ResourceManager.GetString("TITLE_THIS_IS_PERCENTAGE_YOUR_DAY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is resulting in:.
+        /// </summary>
+        public static string TITLE_THIS_IS_RESULTING_IN {
+            get {
+                return ResourceManager.GetString("TITLE_THIS_IS_RESULTING_IN", resourceCulture);
             }
         }
         

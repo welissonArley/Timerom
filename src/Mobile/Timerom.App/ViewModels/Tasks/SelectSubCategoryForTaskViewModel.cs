@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.UseCase.UserTask.Interfaces;
+using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.Views.Views.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
 
@@ -20,6 +21,8 @@ namespace Timerom.App.ViewModels.Tasks
 
         private ObservableCollection<Model.Category> _subCategories { get; set; }
         public Model.Category Category { get; private set; }
+
+        private OnSelectCategoryOptions _option { get; set; }
 
         public SelectSubCategoryForTaskViewModel(Lazy<ILastTaskTimeForTodayUseCase> useCase,
             Lazy<INavigationService> navigationService) : base(navigationService)
@@ -41,16 +44,30 @@ namespace Timerom.App.ViewModels.Tasks
 
         private async Task ItemSelectedCommandExecuted(Model.Category category)
         {
-            var navParameters = new NavigationParameters
+            if(_option == OnSelectCategoryOptions.AddTask)
             {
-                { "Task", new TaskModel { Category = category, StartsAt = await _useCase.Execute(), EndsAt = DateTime.Now } }
-            };
+                var navParameters = new NavigationParameters
+                {
+                    { "Task", new TaskModel { Category = category, StartsAt = await _useCase.Execute(), EndsAt = DateTime.Now } }
+                };
 
-            await _navigationService.NavigateAsync(nameof(AddUpdateTaskPage), navParameters);
+                await _navigationService.NavigateAsync(nameof(AddUpdateTaskPage), navParameters);
+            }
+            else
+            {
+                var navParameters = new NavigationParameters
+                {
+                    { "Subcategory", category }
+                };
+
+                await _navigationService.NavigateAsync(nameof(TimerTaskPage), navParameters);
+            }
         }
 
         public Task InitializeAsync(INavigationParameters parameters)
         {
+            _option = parameters.GetValue<OnSelectCategoryOptions>("Option");
+
             Category = parameters.GetValue<Model.Category>("Category");
 
             _subCategories = new ObservableCollection<Model.Category>(Category.Childrens);

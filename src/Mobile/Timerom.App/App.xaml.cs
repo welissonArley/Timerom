@@ -32,7 +32,6 @@ namespace Timerom.App
             SetAppTheme();
 
             DashboardPageFlyoutViewModel.Initialize();
-            //_ = await NavigationService.NavigateAsync("/DashboardPage/NavigationPage/DashboardPageDetail");
             _ = await NavigationService.NavigateAsync("/NavigationPage/HomePage");
         }
 
@@ -66,6 +65,7 @@ namespace Timerom.App
             containerRegistry.RegisterForNavigation<SelectCategoryForTaskPage, SelectCategoryForTaskViewModel>();
             containerRegistry.RegisterForNavigation<SelectSubCategoryForTaskPage, SelectSubCategoryForTaskViewModel>();
             containerRegistry.RegisterForNavigation<AddUpdateTaskPage, AddUpdateTaskViewModel>();
+            containerRegistry.RegisterForNavigation<TimerTaskPage, TimerTaskViewModel>();
         }
         private void RegisterModals(IContainerRegistry containerRegistry)
         {
