@@ -58,5 +58,9 @@ namespace Timerom.App.Services.BackGroundService
         {
             return SubcategoryModel;
         }
+        public static DateTime TimerStartsAt()
+        {
+            return StartsAt;
+        }
     }
 }
