@@ -7,11 +7,17 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:CategoryTypeColorConverter x:Key="ColorCategoryType" />
+            <local:ColorCategoryTypeWithTransparency x:Key="ColorCategoryTypeTransparency" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Style="{StaticResource MarginStyleDefault}">
-            <Label HorizontalOptions="CenterAndExpand" Text="{Binding Time, StringFormat='{}{0:HH:mm:ss}'}" FontSize="42" Style="{StaticResource LabelBold}" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding Subcategory.Parent.Name}" Padding="5,3,5,3" BackgroundColor="{Binding Subcategory.Type, Converter={StaticResource ColorCategoryType}}" TextColor="{AppThemeBinding Dark=Black, Light=White}" FontSize="10" Style="{StaticResource LabelBold}"/>
+                <Label Text="{Binding Subcategory.Name}" BackgroundColor="{Binding Subcategory.Type, Converter={StaticResource ColorCategoryTypeTransparency}}" TextColor="{Binding Subcategory.Type, Converter={StaticResource ColorCategoryType}}" Padding="5,3,5,3" FontSize="10" Style="{StaticResource LabelBold}"/>
+            </StackLayout>
+            
+            <Label Margin="0,30,0,0" HorizontalOptions="CenterAndExpand" Text="{Binding Time, StringFormat='{}{0:HH:mm:ss}'}" FontSize="42" Style="{StaticResource LabelBold}" />
 
             <Label HorizontalOptions="CenterAndExpand" Text="{Binding Title}" FontSize="18" Margin="0,15,0,25">
                 <Label.GestureRecognizers>

@@ -44,7 +44,9 @@ namespace Timerom.App.ViewModels.Tasks
 
         private async Task ItemSelectedCommandExecuted(Model.Category category)
         {
-            if(_option == OnSelectCategoryOptions.AddTask)
+            category.Parent = Category;
+
+            if (_option == OnSelectCategoryOptions.AddTask)
             {
                 var navParameters = new NavigationParameters
                 {
