@@ -82,5 +82,11 @@ namespace Timerom.App.Services.BackGroundService
         {
             Preferences.Set(TaskTitleKey, title);
         }
+        public int GetTime()
+        {
+            var startsAt = TimerStartsAt();
+
+            return (int)(DateTime.Now - startsAt).TotalSeconds;
+        }
     }
 }

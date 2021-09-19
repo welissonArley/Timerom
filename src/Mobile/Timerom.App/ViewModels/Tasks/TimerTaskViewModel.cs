@@ -113,6 +113,10 @@ namespace Timerom.App.ViewModels.Tasks
         {
             if (TimerUserTaskService.IsRunning())
             {
+                _totalSeconds = _timerUserTaskService.GetTime();
+                Time = DateTime.Now.Date.AddSeconds(_totalSeconds);
+                RaisePropertyChanged("Time");
+                
                 Subcategory = await _useCase.Execute(_timerUserTaskService.SubcategoryId());
                 Title = _timerUserTaskService.GetTitle();
                 Title = string.IsNullOrWhiteSpace(Title) ? ResourceText.TITLE_CLICK_HERE_FILL_TASK_TITLE : Title;
