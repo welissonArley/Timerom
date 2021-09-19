@@ -774,11 +774,11 @@ namespace Timerom.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Task title:.
+        ///   Looks up a localized string similar to Task title.
         /// </summary>
-        public static string TITLE_TASK_TITLE_TWO_POINTS {
+        public static string TITLE_TASK_TITLE {
             get {
-                return ResourceManager.GetString("TITLE_TASK_TITLE_TWO_POINTS", resourceCulture);
+                return ResourceManager.GetString("TITLE_TASK_TITLE", resourceCulture);
             }
         }
         

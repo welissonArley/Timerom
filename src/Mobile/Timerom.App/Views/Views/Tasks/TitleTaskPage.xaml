@@ -6,6 +6,8 @@
              x:Class="Timerom.App.Views.Views.Tasks.TitleTaskPage">
     <ContentPage.Content>
         <StackLayout Style="{StaticResource MarginStyleDefault}">
+            <Label Text="{x:Static resource:ResourceText.TITLE_TASK_TITLE}" Style="{StaticResource LabelTitle}"/>
+
             <customcontrol:EntryNoLine Text="{Binding TitleTask}" Placeholder="{x:Static resource:ResourceText.TITLE_STUDING_ENGLISH}" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
 
             <Button Text="{x:Static resource:ResourceText.TITLE_SAVE}" Command="{Binding SaveCommand}"/>

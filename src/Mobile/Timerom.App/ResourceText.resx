@@ -359,8 +359,8 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_TASK_DETAILS" xml:space="preserve">
     <value>Task details</value>
   </data>
-  <data name="TITLE_TASK_TITLE_TWO_POINTS" xml:space="preserve">
-    <value>Task title:</value>
+  <data name="TITLE_TASK_TITLE" xml:space="preserve">
+    <value>Task title</value>
   </data>
   <data name="TITLE_TECHNOLOGY" xml:space="preserve">
     <value>Technology</value>

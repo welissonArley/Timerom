@@ -55,7 +55,7 @@
                     <Label Text="{Binding Task.Category.Name}" BackgroundColor="{Binding Task.Category.Type, Converter={StaticResource ColorCategoryTypeWithTransparency}}" TextColor="{Binding Task.Category.Type, Converter={StaticResource ColorCategoryType}}" Padding="5,3,5,3" FontSize="10" Style="{StaticResource LabelBold}"/>
                 </StackLayout>
 
-                <textwithlabel:InputTextWithLabelComponent BindingEntry="{Binding Task.Title}" Title="{x:Static resource:ResourceText.TITLE_TASK_TITLE_TWO_POINTS}" PlaceHolder="{x:Static resource:ResourceText.TITLE_STUDING_ENGLISH}"/>
+                <textwithlabel:InputTextWithLabelComponent BindingEntry="{Binding Task.Title}" Title="{Binding Source={x:Static resource:ResourceText.TITLE_TASK_TITLE}, StringFormat='{}{0}:'}" PlaceHolder="{x:Static resource:ResourceText.TITLE_STUDING_ENGLISH}"/>
 
                 <StackLayout Orientation="Horizontal">
                     <StackLayout HorizontalOptions="FillAndExpand">
