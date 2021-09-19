@@ -85,6 +85,8 @@ namespace Timerom.App.ViewModels.Tasks
         {
             Title = string.IsNullOrWhiteSpace(title) ? ResourceText.TITLE_CLICK_HERE_FILL_TASK_TITLE : title;
 
+            TimerUserTaskService.SetTitle(Title);
+
             RaisePropertyChanged("Title");
 
             return Task.CompletedTask;
