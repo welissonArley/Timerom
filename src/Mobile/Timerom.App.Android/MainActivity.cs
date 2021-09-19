@@ -19,7 +19,6 @@ namespace Timerom.App.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            Matcha.BackgroundService.Droid.BackgroundAggregator.Init(this);
 
             CachedImageRenderer.Init(true);
             var ignore = typeof(SvgCachedImage);

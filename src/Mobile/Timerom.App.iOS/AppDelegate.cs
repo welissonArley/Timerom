@@ -14,7 +14,6 @@ namespace Timerom.App.iOS
             Rg.Plugins.Popup.Popup.Init();
 
             global::Xamarin.Forms.Forms.Init();
-            Matcha.BackgroundService.iOS.BackgroundAggregator.Init(this);
 
             CachedImageRenderer.Init();
             var ignore = typeof(SvgCachedImage);

@@ -90,6 +90,7 @@ namespace Timerom.App
             containerRegistry.RegisterScoped<IDashboardUseCase, UseCase.Dashboard.Local.DashboardUseCase>();
             containerRegistry.RegisterScoped<IUpdateUserTaskUseCase, UseCase.UserTask.Local.Update.UpdateUserTaskUseCase>();
             containerRegistry.RegisterScoped<ILastTaskTimeForTodayUseCase, UseCase.UserTask.Local.Insert.LastTaskTimeForTodayUseCase>();
+            containerRegistry.RegisterScoped<IGetByIdCategoryUseCase, UseCase.Categories.Local.GetById.GetByIdCategoryUseCase>();
         }
     }
 }

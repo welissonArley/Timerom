@@ -1,74 +1,86 @@
-﻿using Matcha.BackgroundService;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Input;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Timerom.App.Services.BackGroundService
 {
-    public class TimerUserTaskService : IPeriodicTask
+    public class TimerUserTaskService
     {
-        private static bool IsRun { get; set; }
-        private static Model.Category SubcategoryModel { get; set; }
-        private static string TaskTitle { get; set; }
-        private static DateTime StartsAt { get; set; }
-        private static int Time { get; set; }
-        private static IList<ICommand> _enrolled;
+        private const string IsRunKey = "IsRun";
+        private const string TaskTitleKey = "TaskTitle";
+        private const string StartsAtKey = "StartsAt";
+        private const string SubcategoryIdKey = "SubcategoryId";
 
-        public TimeSpan Interval { get; set; }
+        private int Time { get; set; }
+        private ICommand _callback;
+        private bool _continue { get; set; }
 
-        public TimerUserTaskService(int seconds, Model.Category subcategory)
+        public void Subscribe(ICommand command)
         {
-            IsRun = true;
-            Interval = TimeSpan.FromSeconds(seconds);
-            StartsAt = DateTime.Now;
-            _enrolled = new List<ICommand>();
-            SubcategoryModel = subcategory;
+            _callback = command;
+        }
+        public void Unsubscribe()
+        {
+            _continue = false;
+            _callback = null;
         }
 
-        public static void Subscribe(ICommand command)
+        public void StartJob(Model.Category subcategory)
         {
-            if (!_enrolled.Any())
-                Time = (int)(DateTime.Now - StartsAt).TotalSeconds;
+            Preferences.Set(IsRunKey, true);
 
-            _enrolled.Add(command);
+            if (!Preferences.ContainsKey(StartsAtKey))
+                Preferences.Set(StartsAtKey, DateTime.Now);
+
+            var startsAt = TimerStartsAt();
+
+            Preferences.Set(SubcategoryIdKey, subcategory.Id);
+
+            Time = (int)(DateTime.Now - startsAt).TotalSeconds;
+
+            _continue = true;
+
+            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+            {
+                Time++;
+
+                _callback?.Execute(Time);
+
+                return _continue;
+            });
         }
-
-        public async Task<bool> StartJob()
+        public void StopJob()
         {
-            Time++;
+            _continue = false;
 
-            foreach(var command in _enrolled)
-                command.Execute(Time);
+            Preferences.Remove(SubcategoryIdKey);
+            Preferences.Remove(StartsAtKey);
+            Preferences.Remove(TaskTitleKey);
+            Preferences.Remove(IsRunKey);
 
-            return true;
+            _callback = null;
         }
 
         public static bool IsRunning()
         {
-            return IsRun;
+            return Preferences.Get(IsRunKey, false);
         }
-        public static void StopJob()
+        public long SubcategoryId()
         {
-            IsRun = false;
-            _enrolled.Clear();
+            return Preferences.Get(SubcategoryIdKey, 0L);
         }
-        public static Model.Category Subcategory()
+        public DateTime TimerStartsAt()
         {
-            return SubcategoryModel;
+            return Preferences.Get(StartsAtKey, DateTime.Now);
         }
-        public static DateTime TimerStartsAt()
+        public string GetTitle()
         {
-            return StartsAt;
+            return Preferences.Get(TaskTitleKey, "");
         }
-        public static string GetTitle()
+        public void SetTitle(string title)
         {
-            return TaskTitle;
-        }
-        public static void SetTitle(string title)
-        {
-            TaskTitle = title;
+            Preferences.Set(TaskTitleKey, title);
         }
     }
 }
