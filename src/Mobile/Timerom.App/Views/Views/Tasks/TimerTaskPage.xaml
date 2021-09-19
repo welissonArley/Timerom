@@ -102,29 +102,6 @@
                     </VisualStateGroup>
                 </VisualStateManager.VisualStateGroups>
             </ImageButton>
-
-            <StackLayout IsVisible="False" VerticalOptions="EndAndExpand">
-                <StackLayout.Triggers>
-                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsRunning}" Value="True">
-                        <Setter Property="IsVisible" Value="True"/>
-                    </DataTrigger>
-                </StackLayout.Triggers>
-                <Label Text="{x:Static resource:ResourceText.TITLE_THIS_IS_RESULTING_IN}" Style="{StaticResource LabelSemiBold}"/>
-                <Grid ColumnDefinitions="*,*,*">
-                    <StackLayout Orientation="Horizontal" Grid.Column="0">
-                        <Label FontSize="12" Text="{Binding Source={x:Static resource:ResourceText.TITLE_PRODUCTIVE}, StringFormat='{}{0}:'}" VerticalOptions="End"/>
-                        <Label FontSize="15" Text="60%" TextColor="{AppThemeBinding Light={StaticResource LigthProductiveColor}, Dark={StaticResource DarkProductiveColor}}" Style="{StaticResource LabelExtraBold}"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" Grid.Column="1">
-                        <Label FontSize="12" Text="{Binding Source={x:Static resource:ResourceText.TITLE_NEUTRAL}, StringFormat='{}{0}:'}" VerticalOptions="End"/>
-                        <Label FontSize="15" Text="60%" TextColor="{AppThemeBinding Light={StaticResource LigthNeutralColor}, Dark={StaticResource DarkNeutralColor}}" Style="{StaticResource LabelExtraBold}"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" Grid.Column="2">
-                        <Label FontSize="12" Text="{Binding Source={x:Static resource:ResourceText.TITLE_UNPRODUCTIVE}, StringFormat='{}{0}:'}" VerticalOptions="End"/>
-                        <Label FontSize="15" Text="60%" TextColor="{AppThemeBinding Light={StaticResource LigthUnproductiveColor}, Dark={StaticResource DarkUnproductiveColor}}" Style="{StaticResource LabelExtraBold}"/>
-                    </StackLayout>
-                </Grid>
-            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
