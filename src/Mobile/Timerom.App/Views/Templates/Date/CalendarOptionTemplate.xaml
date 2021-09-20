@@ -2,11 +2,12 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
              x:Class="Timerom.App.Views.Templates.Date.CalendarOptionTemplate">
   <ContentView.Content>
         <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-            <DatePicker x:Name="LabelDate" Format="dd MMMM, yyyy" FontFamily="RalewayBold" PropertyChanged="LabelDate_PropertyChanged"></DatePicker>
+            <DatePicker x:Name="LabelDate" Format="dd MMMM, yyyy" MaximumDate="{x:Static sys:DateTime.Today}" FontFamily="RalewayBold" PropertyChanged="LabelDate_PropertyChanged"/>
             <ffimageloadingsvg:SvgCachedImage HeightRequest="15" WidthRequest="17" Source="resource://Timerom.App.Resources.Svgs.IconCalendar.svg">
                 <ffimageloadingsvg:SvgCachedImage.Transformations>
                     <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>

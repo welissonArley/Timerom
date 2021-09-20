@@ -3,6 +3,7 @@
                                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                                            xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
                                            xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+                                           xmlns:sys="clr-namespace:System;assembly=mscorlib"
                                            xmlns:resource="clr-namespace:Timerom.App"
                                            xmlns:local="clr-namespace:Timerom.App.Converter"
                                            xmlns:customcontrol="clr-namespace:Timerom.App.CustomControl"
@@ -94,7 +95,7 @@
                                         <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
                                     </ffimageloadingsvg:SvgCachedImage.Transformations>
                                 </ffimageloadingsvg:SvgCachedImage>
-                                <DatePicker HorizontalOptions="FillAndExpand" MinimumDate="{Binding DateStartsAt}" Date="{Binding DateEndsAt}" Format="dddd, d MMMM yyyy" VerticalOptions="CenterAndExpand"/>
+                                <DatePicker HorizontalOptions="FillAndExpand" MinimumDate="{Binding DateStartsAt}" MaximumDate="{x:Static sys:DateTime.Today}" Date="{Binding DateEndsAt}" Format="dddd, d MMMM yyyy" VerticalOptions="CenterAndExpand"/>
                             </StackLayout>
                         </Frame>
                     </StackLayout>
