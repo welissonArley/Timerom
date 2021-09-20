@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:resource="clr-namespace:Timerom.App"
+                 xmlns:template="clr-namespace:Timerom.App.Views.Templates.Information"
+                 BackgroundColor="Transparent"
+                 x:Class="Timerom.App.Views.Modal.MenuOptions.FloatActionUserTaskModal">
+    <Frame BackgroundColor="Transparent" VerticalOptions="End" HorizontalOptions="End" HasShadow="True" WidthRequest="160" HeightRequest="110" Padding="0" Margin="0,0,20,95">
+      <StackLayout VerticalOptions="End" HorizontalOptions="End">
+            <template:ItemFloatButtonTemplate Icon="resource://Timerom.App.Resources.Svgs.IconTimer.svg" ItemName="{x:Static resource:ResourceText.TITLE_START_TASK}" TextColor="{AppThemeBinding Dark=Black, Light=White}">
+                <template:ItemFloatButtonTemplate.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCategoryCommand}"/>
+                </template:ItemFloatButtonTemplate.GestureRecognizers>
+            </template:ItemFloatButtonTemplate>
+            <template:ItemFloatButtonTemplate Icon="resource://Timerom.App.Resources.Svgs.IconAdd.svg" ItemName="{x:Static resource:ResourceText.TITLE_ADD_TASK}" TextColor="{AppThemeBinding Dark=Black, Light=White}" Margin="0,15,0,0">
+                <template:ItemFloatButtonTemplate.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCategoryCommand}"/>
+                </template:ItemFloatButtonTemplate.GestureRecognizers>
+            </template:ItemFloatButtonTemplate>
+        </StackLayout>
+  </Frame>
+</pages:PopupPage>

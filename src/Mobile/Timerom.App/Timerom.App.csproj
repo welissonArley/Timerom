@@ -33,6 +33,7 @@
     <None Remove="Resources\Svgs\IconPrivacyPolicy.svg" />
     <None Remove="Resources\Svgs\IconSearch.svg" />
     <None Remove="Resources\Svgs\IconSuccess.svg" />
+    <None Remove="Resources\Svgs\IconTimer.svg" />
     <None Remove="Resources\Svgs\IconUseTerms.svg" />
   </ItemGroup>
 
@@ -59,6 +60,7 @@
     <EmbeddedResource Include="Resources\Svgs\IconIconsAndIllustrations.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconPrivacyPolicy.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconSuccess.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconTimer.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconUseTerms.svg" />
   </ItemGroup>
 
@@ -89,6 +91,9 @@
     </Compile>
     <Compile Update="Views\Modal\ConfirmActionModal.xaml.cs">
       <DependentUpon>ConfirmActionModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Modal\MenuOptions\FloatActionUserTaskModal.xaml.cs">
+      <DependentUpon>FloatActionUserTaskModal.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Templates\Information\SelectCategoryExpanderComponent.xaml.cs">
       <DependentUpon>SelectCategoryExpanderComponent.xaml</DependentUpon>

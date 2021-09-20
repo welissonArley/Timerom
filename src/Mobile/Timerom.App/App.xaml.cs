@@ -73,6 +73,7 @@ namespace Timerom.App
             containerRegistry.RegisterForNavigation<FloatActionCategoriesModal, FloatActionCategoriesViewModel>();
             containerRegistry.RegisterForNavigation<OperationErrorModal, OperationErrorModalViewModel>();
             containerRegistry.RegisterForNavigation<ConfirmActionModal, ConfirmActionModalViewModel>();
+            containerRegistry.RegisterForNavigation<FloatActionUserTaskModal, FloatActionUserTaskViewModel>();
         }
         private void RegisterUseCases(IContainerRegistry containerRegistry)
         {
