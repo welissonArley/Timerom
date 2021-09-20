@@ -14,8 +14,8 @@ namespace Timerom.App.ViewModels.Modal.MenuOptions
 
         public FloatActionCategoriesViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
         {
-            AddCategoryCommand = new AsyncCommand<CategoryType>(AddCategoryCommandExecuted);
-            UpdateCategoryCommand = new AsyncCommand(UpdateCategoryCommandExecuted);
+            AddCategoryCommand = new AsyncCommand<CategoryType>(AddCategoryCommandExecuted, allowsMultipleExecutions: false);
+            UpdateCategoryCommand = new AsyncCommand(UpdateCategoryCommandExecuted, allowsMultipleExecutions: false);
         }
 
         private async Task AddCategoryCommandExecuted(CategoryType categoryType)

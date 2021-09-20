@@ -42,8 +42,10 @@ namespace Timerom.App.ViewModels.Tasks
         {
             StartBackgroundService_Properties();
 
-            Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[1]);
-            Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[1]);
+            var navigation = GetNavigation();
+
+            navigation.RemovePage(navigation.NavigationStack[1]);
+            navigation.RemovePage(navigation.NavigationStack[1]);
 
             return Task.CompletedTask;
         }
@@ -71,7 +73,8 @@ namespace Timerom.App.ViewModels.Tasks
 
             await _navigationService.NavigateAsync(nameof(AddUpdateTaskPage), navParameters);
 
-            Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[1]);
+            var navigation = GetNavigation();
+            navigation.RemovePage(navigation.NavigationStack[1]);
         }
 
         private async Task AddTaskTitleCommandExecuted()

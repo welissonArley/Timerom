@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Timerom.Exception.ExceptionBase;
 using Xamarin.CommunityToolkit.UI.Views;
+using Xamarin.Forms;
 
 namespace Timerom.App.ViewModels
 {
@@ -52,6 +53,14 @@ namespace Timerom.App.ViewModels
             _navigationService.NavigateAsync(nameof(Views.Modal.OperationErrorModal), navParameters, useModalNavigation: true);
 
             NoneStatus();
+        }
+
+        protected INavigation GetNavigation()
+        {
+            if (Application.Current.MainPage is Views.Views.Dashboard.DashboardPage)
+                return (Application.Current.MainPage as Views.Views.Dashboard.DashboardPage).Detail.Navigation;
+
+            return Application.Current.MainPage.Navigation;
         }
 
         private List<string> ShowException(System.Exception exception)
