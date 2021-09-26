@@ -41,7 +41,8 @@ namespace Timerom.App.Droid.CustomControl
 
         private Android.Graphics.Color GetLineColor()
         {
-            return Android.Graphics.Color.Transparent;
+            return Application.Current.RequestedTheme == OSAppTheme.Dark ?
+                ((Xamarin.Forms.Color)Application.Current.Resources["DarkModePrimaryColor"]).ToAndroid() : Android.Graphics.Color.White;
         }
 
         private int GetCursor()

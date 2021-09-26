@@ -23,31 +23,30 @@ namespace Timerom.App.ViewModels.Modal.MenuOptions
 
         private async Task AddUserTaskCommandExecuted()
         {
+            await _navigationService.ClearPopupStackAsync();
+
             var navParameters = new NavigationParameters
             {
                 { "Option", OnSelectCategoryOptions.AddTask }
             };
 
-            await Navigate(navParameters);
+            _ = await _navigationService.NavigateAsync(nameof(SelectCategoryForTaskPage), navParameters);
         }
         private async Task StartUserTaskCommandExecuted()
         {
             await _navigationService.ClearPopupStackAsync();
 
-            var navParameters = new NavigationParameters
-            {
-                { "Option", OnSelectCategoryOptions.Timer }
-            };
-
-            await Navigate(navParameters);
-        }
-
-        private async Task Navigate(NavigationParameters navParameters)
-        {
             if (ThereIsTimer)
                 _ = await _navigationService.NavigateAsync(nameof(TimerTaskPage));
             else
+            {
+                var navParameters = new NavigationParameters
+                {
+                    { "Option", OnSelectCategoryOptions.Timer }
+                };
+
                 _ = await _navigationService.NavigateAsync(nameof(SelectCategoryForTaskPage), navParameters);
+            }
         }
 
         public void Initialize(INavigationParameters parameters)
