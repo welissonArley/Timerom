@@ -1,12 +1,12 @@
 ﻿using Prism.Navigation;
 using System;
 using System.Threading.Tasks;
-using Timerom.App.Services.AppVersion;
 using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.Views.Views.AboutThisProject;
 using Timerom.App.Views.Views.Category;
 using Timerom.App.Views.Views.Dashboard;
 using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.Essentials;
 
 namespace Timerom.App.ViewModels.Dashboard
 {
@@ -22,11 +22,11 @@ namespace Timerom.App.ViewModels.Dashboard
         
         public string VersionText { get; set; }
 
-        public DashboardPageFlyoutViewModel(Lazy<INavigationService> navigationService, IAppVersion appVersion) : base(navigationService)
+        public DashboardPageFlyoutViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
         {
             MenuItemSelectedCommand = new AsyncCommand<MenuItemOptions>(ItemMenuSelected, allowsMultipleExecutions: false);
 
-            VersionText = string.Format(ResourceText.TITLE_VERSION_NUMBER, appVersion.GetVersionNumber());
+            VersionText = string.Format(ResourceText.TITLE_VERSION_NUMBER, VersionTracking.CurrentVersion);
         }
 
         private async Task ItemMenuSelected(MenuItemOptions option)

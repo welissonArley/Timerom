@@ -23,11 +23,13 @@ namespace Timerom.App
 {
     public partial class App
     {
-        public App(Prism.IPlatformInitializer initializer) : base(initializer) { }
+        public App() : base(null) { }
 
         protected override async void OnInitialized()
         {
             InitializeComponent();
+
+            Xamarin.Essentials.VersionTracking.Track();
 
             SetAppTheme();
 

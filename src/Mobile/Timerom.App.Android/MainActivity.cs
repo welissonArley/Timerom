@@ -4,7 +4,6 @@ using Android.OS;
 using Android.Runtime;
 using FFImageLoading.Forms.Platform;
 using FFImageLoading.Svg.Forms;
-using Timerom.App.Droid.Settings;
 
 namespace Timerom.App.Droid
 {
@@ -23,7 +22,7 @@ namespace Timerom.App.Droid
             CachedImageRenderer.Init(true);
             var ignore = typeof(SvgCachedImage);
 
-            LoadApplication(new App(new AndroidPlatformInitializer()));
+            LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
