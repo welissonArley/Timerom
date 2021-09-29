@@ -137,6 +137,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_ABOUT_THIS_PROJECT" xml:space="preserve">
     <value>About this project</value>
   </data>
+  <data name="TITLE_ACTIVITY_ANALYTIC" xml:space="preserve">
+    <value>Activity Analytic</value>
+  </data>
   <data name="TITLE_ACTIVITY_PROGRESS" xml:space="preserve">
     <value>Activity progress</value>
   </data>
@@ -151,6 +154,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_ADD_UNPRODUCTIVE_CATEGORY" xml:space="preserve">
     <value>Add Unproductive Category</value>
+  </data>
+  <data name="TITLE_ANALYTIC" xml:space="preserve">
+    <value>Analytic</value>
   </data>
   <data name="TITLE_BELONGS_CATEGORY_TWO_POINTS" xml:space="preserve">
     <value>It belongs to the category:</value>
@@ -277,6 +283,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_NO_TASK_THIS_DATE" xml:space="preserve">
     <value>No task for this date.</value>
+  </data>
+  <data name="TITLE_PARETO_PRINCIPLE" xml:space="preserve">
+    <value>Pareto Principle</value>
   </data>
   <data name="TITLE_PERSONAL_PROJECTS" xml:space="preserve">
     <value>Personal projects</value>

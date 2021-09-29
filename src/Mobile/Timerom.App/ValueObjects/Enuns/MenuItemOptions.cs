@@ -7,6 +7,8 @@
         PrivacyPolicy = 2,
         UseTerms = 3,
         IconsAndIllustrations = 4,
-        ContactUs = 5
+        ContactUs = 5,
+        ActivityAnalytic = 6,
+        ParetoPrinciple = 7
     }
 }

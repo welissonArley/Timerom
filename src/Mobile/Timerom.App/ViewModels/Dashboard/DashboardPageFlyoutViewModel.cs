@@ -5,6 +5,7 @@ using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.Views.Views.AboutThisProject;
 using Timerom.App.Views.Views.Category;
 using Timerom.App.Views.Views.Dashboard;
+using Timerom.App.Views.Views.Reports.ActivityAnalytic;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 
@@ -48,6 +49,11 @@ namespace Timerom.App.ViewModels.Dashboard
                 case MenuItemOptions.Categories:
                     {
                         await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(CategoriesPage)}", UriKind.Absolute));
+                    }
+                    break;
+                case MenuItemOptions.ActivityAnalytic:
+                    {
+                        await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(ActivityAnalyticPage)}", UriKind.Absolute));
                     }
                     break;
                 case MenuItemOptions.PrivacyPolicy:

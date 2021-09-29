@@ -117,6 +117,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Activity Analytic.
+        /// </summary>
+        public static string TITLE_ACTIVITY_ANALYTIC {
+            get {
+                return ResourceManager.GetString("TITLE_ACTIVITY_ANALYTIC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Activity progress.
         /// </summary>
         public static string TITLE_ACTIVITY_PROGRESS {
@@ -158,6 +167,15 @@ namespace Timerom.App {
         public static string TITLE_ADD_UNPRODUCTIVE_CATEGORY {
             get {
                 return ResourceManager.GetString("TITLE_ADD_UNPRODUCTIVE_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Analytic.
+        /// </summary>
+        public static string TITLE_ANALYTIC {
+            get {
+                return ResourceManager.GetString("TITLE_ANALYTIC", resourceCulture);
             }
         }
         
@@ -536,6 +554,15 @@ namespace Timerom.App {
         public static string TITLE_NO_TASK_THIS_DATE {
             get {
                 return ResourceManager.GetString("TITLE_NO_TASK_THIS_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pareto Principle.
+        /// </summary>
+        public static string TITLE_PARETO_PRINCIPLE {
+            get {
+                return ResourceManager.GetString("TITLE_PARETO_PRINCIPLE", resourceCulture);
             }
         }
         

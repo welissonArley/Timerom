@@ -23,7 +23,7 @@
         <Line></Line>
 
         <StackLayout Margin="0,30,0,0" VerticalOptions="FillAndExpand">
-            <StackLayout Orientation="Horizontal" Opacity="0.3">
+            <StackLayout Orientation="Horizontal" Opacity="0.5">
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.Dashboard}">
                         <Setter Property="Opacity" Value="1" />
@@ -40,7 +40,7 @@
                 <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_DASHBOARD}" Margin="12,-1,0,0"/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal" Margin="0,25,0,0" Opacity="0.3">
+            <StackLayout Orientation="Horizontal" Margin="0,25,0,0" Opacity="0.5">
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.Categories}">
                         <Setter Property="Opacity" Value="1" />
@@ -57,16 +57,32 @@
                 <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_CATEGORIES}" Margin="12,-1,0,0"/>
             </StackLayout>
 
-            <StackLayout VerticalOptions="EndAndExpand">
-                <xct:Expander IsExpanded="False">
+            <StackLayout Orientation="Horizontal" Margin="0,25,0,0">
+                <xct:Expander IsExpanded="False" HorizontalOptions="FillAndExpand">
                     <xct:Expander.Triggers>
-                        <DataTrigger TargetType="xct:Expander" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}">
+                        <DataTrigger TargetType="xct:Expander" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.ActivityAnalytic}">
+                            <Setter Property="IsExpanded" Value="True" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="xct:Expander" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.ParetoPrinciple}">
                             <Setter Property="IsExpanded" Value="True" />
                         </DataTrigger>
                     </xct:Expander.Triggers>
                     <xct:Expander.Header>
-                        <Grid>
-                            <Label Text="{x:Static resource:ResourceText.TITLE_ABOUT_THIS_PROJECT}" TextTransform="Uppercase" Style="{StaticResource LabelSemiBold}" />
+                        <Grid Opacity="0.5">
+                            <Grid.Triggers>
+                                <DataTrigger TargetType="Grid" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.ParetoPrinciple}">
+                                    <Setter Property="Opacity" Value="1" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Grid" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.ActivityAnalytic}">
+                                    <Setter Property="Opacity" Value="1" />
+                                </DataTrigger>
+                            </Grid.Triggers>
+                            <ffimageloadingsvg:SvgCachedImage HorizontalOptions="Start" WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconPieChart.svg">
+                                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                </ffimageloadingsvg:SvgCachedImage.Transformations>
+                            </ffimageloadingsvg:SvgCachedImage>
+                            <Label Margin="32,0,0,0" Text="{x:Static resource:ResourceText.TITLE_ANALYTIC}" TextTransform="Uppercase" Style="{StaticResource LabelSemiBold}" />
                             <ffimageloadingsvg:SvgCachedImage Rotation="90" HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest="12" HeightRequest="12" Source="resource://Timerom.App.Resources.Svgs.ExpansionIndicator.svg">
                                 <ffimageloadingsvg:SvgCachedImage.Transformations>
                                     <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
@@ -82,49 +98,59 @@
                     <xct:Expander.ContentTemplate>
                         <DataTemplate>
                             <StackLayout Margin="0,20,0,0">
-                                <StackLayout Orientation="Horizontal" Opacity="0.3">
-                                    <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconPrivacyPolicy.svg">
-                                        <ffimageloadingsvg:SvgCachedImage.Transformations>
-                                            <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
-                                        </ffimageloadingsvg:SvgCachedImage.Transformations>
-                                    </ffimageloadingsvg:SvgCachedImage>
-                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_PRIVACY_POLICY}" Margin="12,-1,0,0"/>
-                                </StackLayout>
-
-                                <StackLayout Orientation="Horizontal" Margin="0,25,0,0" Opacity="0.3">
-                                    <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconUseTerms.svg">
-                                        <ffimageloadingsvg:SvgCachedImage.Transformations>
-                                            <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
-                                        </ffimageloadingsvg:SvgCachedImage.Transformations>
-                                    </ffimageloadingsvg:SvgCachedImage>
-                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_USE_TERMS}" Margin="12,-1,0,0"/>
-                                </StackLayout>
-
-                                <StackLayout Orientation="Horizontal" Margin="0,25,0,0" Opacity="0.3">
+                                <StackLayout Orientation="Horizontal" Opacity="0.5" Margin="32,-1,0,0">
                                     <StackLayout.Triggers>
-                                        <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}">
+                                        <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.ActivityAnalytic}">
                                             <Setter Property="Opacity" Value="1" />
                                         </DataTrigger>
                                     </StackLayout.Triggers>
                                     <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding MenuItemSelectedCommand}" CommandParameter="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}"></TapGestureRecognizer>
+                                        <TapGestureRecognizer Command="{Binding MenuItemSelectedCommand}" CommandParameter="{x:Static enuns:MenuItemOptions.ActivityAnalytic}"></TapGestureRecognizer>
                                     </StackLayout.GestureRecognizers>
-                                    <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconIconsAndIllustrations.svg">
-                                        <ffimageloadingsvg:SvgCachedImage.Transformations>
-                                            <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
-                                        </ffimageloadingsvg:SvgCachedImage.Transformations>
-                                    </ffimageloadingsvg:SvgCachedImage>
-                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_ICONS_ILLUSTRATIONS_USED}" Margin="12,-1,0,0"/>
+                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_ACTIVITY_ANALYTIC}" Margin="0,-1,0,0"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Margin="32,25,0,0" Opacity="0.5">
+                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_PARETO_PRINCIPLE}" Margin="0,-1,0,0"/>
                                 </StackLayout>
                             </StackLayout>
                         </DataTemplate>
                     </xct:Expander.ContentTemplate>
                 </xct:Expander>
+            </StackLayout>
 
-                <xct:Expander Margin="0,30,0,0" IsExpanded="False" IsVisible="False">
+            <StackLayout VerticalOptions="EndAndExpand">
+                <xct:Expander IsExpanded="False">
+                    <xct:Expander.Triggers>
+                        <DataTrigger TargetType="xct:Expander" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}">
+                            <Setter Property="IsExpanded" Value="True" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="xct:Expander" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.PrivacyPolicy}">
+                            <Setter Property="IsExpanded" Value="True" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="xct:Expander" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.UseTerms}">
+                            <Setter Property="IsExpanded" Value="True" />
+                        </DataTrigger>
+                    </xct:Expander.Triggers>
                     <xct:Expander.Header>
-                        <Grid>
-                            <Label Text="{x:Static resource:ResourceText.TITLE_CONTACT_US}" TextTransform="Uppercase" Style="{StaticResource LabelSemiBold}" />
+                        <Grid Opacity="0.5">
+                            <Grid.Triggers>
+                                <DataTrigger TargetType="Grid" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}">
+                                    <Setter Property="Opacity" Value="1" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Grid" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.PrivacyPolicy}">
+                                    <Setter Property="Opacity" Value="1" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Grid" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.UseTerms}">
+                                    <Setter Property="Opacity" Value="1" />
+                                </DataTrigger>
+                            </Grid.Triggers>
+                            <ffimageloadingsvg:SvgCachedImage HorizontalOptions="Start" WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconInformation.svg">
+                                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                </ffimageloadingsvg:SvgCachedImage.Transformations>
+                            </ffimageloadingsvg:SvgCachedImage>
+                            <Label Margin="32,0,0,0" Text="{x:Static resource:ResourceText.TITLE_ABOUT_THIS_PROJECT}" TextTransform="Uppercase" Style="{StaticResource LabelSemiBold}" />
                             <ffimageloadingsvg:SvgCachedImage Rotation="90" HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest="12" HeightRequest="12" Source="resource://Timerom.App.Resources.Svgs.ExpansionIndicator.svg">
                                 <ffimageloadingsvg:SvgCachedImage.Transformations>
                                     <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
@@ -139,14 +165,57 @@
                     </xct:Expander.Header>
                     <xct:Expander.ContentTemplate>
                         <DataTemplate>
-                            <StackLayout Margin="0,20,0,0" Opacity="0.3">
+                            <StackLayout Margin="0,20,0,0">
+                                <StackLayout Orientation="Horizontal" Opacity="0.5" Margin="32,-1,0,0">
+                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_PRIVACY_POLICY}" Margin="0,-1,0,0"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Margin="32,25,0,0" Opacity="0.5">
+                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_USE_TERMS}" Margin="0,-1,0,0"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Margin="32,25,0,0" Opacity="0.5">
+                                    <StackLayout.Triggers>
+                                        <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}">
+                                            <Setter Property="Opacity" Value="1" />
+                                        </DataTrigger>
+                                    </StackLayout.Triggers>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding MenuItemSelectedCommand}" CommandParameter="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_ICONS_ILLUSTRATIONS_USED}" Margin="0,-1,0,0"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </DataTemplate>
+                    </xct:Expander.ContentTemplate>
+                </xct:Expander>
+
+                <xct:Expander Margin="0,30,0,0" IsExpanded="False" IsVisible="False">
+                    <xct:Expander.Header>
+                        <Grid>
+                            <ffimageloadingsvg:SvgCachedImage HorizontalOptions="Start" WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconActionSupport.svg">
+                                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                </ffimageloadingsvg:SvgCachedImage.Transformations>
+                            </ffimageloadingsvg:SvgCachedImage>
+                            <Label Margin="32,0,0,0" Text="{x:Static resource:ResourceText.TITLE_CONTACT_US}" TextTransform="Uppercase" Style="{StaticResource LabelSemiBold}" />
+                            <ffimageloadingsvg:SvgCachedImage Rotation="90" HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest="12" HeightRequest="12" Source="resource://Timerom.App.Resources.Svgs.ExpansionIndicator.svg">
+                                <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                    <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                                </ffimageloadingsvg:SvgCachedImage.Transformations>
+                                <ffimageloadingsvg:SvgCachedImage.Triggers>
+                                    <DataTrigger TargetType="ffimageloadingsvg:SvgCachedImage" Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" Value="True">
+                                        <Setter Property="Rotation" Value="0"></Setter>
+                                    </DataTrigger>
+                                </ffimageloadingsvg:SvgCachedImage.Triggers>
+                            </ffimageloadingsvg:SvgCachedImage>
+                        </Grid>
+                    </xct:Expander.Header>
+                    <xct:Expander.ContentTemplate>
+                        <DataTemplate>
+                            <StackLayout Margin="0,20,0,0" Opacity="0.5">
                                 <StackLayout Orientation="Horizontal">
-                                    <ffimageloadingsvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Source="resource://Timerom.App.Resources.Svgs.IconActionSupport.svg">
-                                        <ffimageloadingsvg:SvgCachedImage.Transformations>
-                                            <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
-                                        </ffimageloadingsvg:SvgCachedImage.Transformations>
-                                    </ffimageloadingsvg:SvgCachedImage>
-                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_CONTACT_US}" Margin="12,-1,0,0"/>
+                                    <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_CONTACT_US}" Margin="32,-1,0,0"/>
                                 </StackLayout>
                             </StackLayout>
                         </DataTemplate>

@@ -137,6 +137,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_ABOUT_THIS_PROJECT" xml:space="preserve">
     <value>Sobre este projeto</value>
   </data>
+  <data name="TITLE_ACTIVITY_ANALYTIC" xml:space="preserve">
+    <value>Análise de Atividades</value>
+  </data>
   <data name="TITLE_ACTIVITY_PROGRESS" xml:space="preserve">
     <value>Progresso das atividades</value>
   </data>
@@ -151,6 +154,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_ADD_UNPRODUCTIVE_CATEGORY" xml:space="preserve">
     <value>Inserir Categoria Improdutiva</value>
+  </data>
+  <data name="TITLE_ANALYTIC" xml:space="preserve">
+    <value>Análise</value>
   </data>
   <data name="TITLE_BELONGS_CATEGORY_TWO_POINTS" xml:space="preserve">
     <value>Pertence a Categoria:</value>
@@ -277,6 +283,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_NO_TASK_THIS_DATE" xml:space="preserve">
     <value>Sem tarefas para esta data.</value>
+  </data>
+  <data name="TITLE_PARETO_PRINCIPLE" xml:space="preserve">
+    <value>Princípio de Pareto</value>
   </data>
   <data name="TITLE_PERSONAL_PROJECTS" xml:space="preserve">
     <value>Projetos pessoais</value>
