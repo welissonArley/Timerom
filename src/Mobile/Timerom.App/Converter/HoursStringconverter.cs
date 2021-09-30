@@ -10,7 +10,9 @@ namespace Timerom.App.Converter
         {
             var time = (TimeSpan)value;
 
-            return $"{(time.Hours <= 9 ? $"0{time.Hours}" : $"{time.Hours}")}h {(time.Minutes <= 9 ? $"0{time.Minutes}" : $"{time.Minutes}")}m";
+            var hours = time.Hours + ((int)time.TotalDays) * 24;
+
+            return $"{(hours <= 9 ? $"0{hours}" : $"{hours}")}h {(time.Minutes <= 9 ? $"0{time.Minutes}" : $"{time.Minutes}")}m";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
