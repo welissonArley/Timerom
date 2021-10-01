@@ -99,6 +99,7 @@ namespace Timerom.App
             containerRegistry.RegisterScoped<ILastTaskTimeForTodayUseCase, UseCase.UserTask.Local.Insert.LastTaskTimeForTodayUseCase>();
             containerRegistry.RegisterScoped<IGetByIdCategoryUseCase, UseCase.Categories.Local.GetById.GetByIdCategoryUseCase>();
             containerRegistry.RegisterScoped<IGetActivityAnalyticTotalUseCase, UseCase.Reports.ActivityAnalytic.Local.GetActivityAnalyticTotalUseCase>();
+            containerRegistry.RegisterScoped<IGetChartActivityAnalyticUseCase, UseCase.Reports.ActivityAnalytic.Local.GetChartActivityAnalyticUseCase>();
         }
     }
 }
