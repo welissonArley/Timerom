@@ -73,6 +73,7 @@ namespace Timerom.App
             containerRegistry.RegisterForNavigation<TimerTaskPage, TimerTaskViewModel>();
             containerRegistry.RegisterForNavigation<TitleTaskPage, TitleTaskViewModel>();
             containerRegistry.RegisterForNavigation<ActivityAnalyticPage, ActivityAnalyticViewModel>();
+            containerRegistry.RegisterForNavigation<PrivacyPolicyPage>();
         }
         private void RegisterModals(IContainerRegistry containerRegistry)
         {

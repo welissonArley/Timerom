@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:Timerom.App"
+             xmlns:customControl="clr-namespace:Timerom.App.CustomControl"
+             x:Class="Timerom.App.Views.Views.AboutThisProject.PrivacyPolicyPage">
+    <ContentPage.Content>
+        <ScrollView Margin="0,0,0,30">
+            <StackLayout Style="{StaticResource MarginStyleDefault}">
+                <Label Text="{x:Static resource:ResourceText.TITLE_PRIVACY_POLICY}" Style="{StaticResource LabelBold}" FontSize="18"></Label>
+
+                <customControl:LabelJustifyText Margin="0,30,0,0" Text="Tempo é o bem mais valioso que temos, pois ele não volta. Nosso objetivo não é dizer se o que você faz está certo ou errado, mas sim te ajudar a organizar sua rotina. Nós estamos te oferencendo uma oportunidade para você conhecer sua própria rotina e descobrir onde gasta a maior parte do seu tempo." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="Como coletamos seus dados?" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Não coletamos. Todos os dados são salvos no seu próprio Smartphone." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="E se eu decidir encerrar minha conta?" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Se você resolver nos deixar, vamos respeitar sua decisão. Para isso basta deletar o App e todos os seus dados serão deletados. ATENÇÃO: este processo é irreversível." FontSize="12"></customControl:LabelJustifyText>
+                
+                <Label Margin="0,20,0,0" Text="Meus dados podem ser compartilhados?" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Seus dados e informações são salvos localmente em seu Smartphone. Nossa equipe ou empresas parceiras não terão acesso aos seus dados." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="Comunicação" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Nós não entraremos em contato com você, seja por telefone e/ou e-mail. Se receber emails ou telefonemas de pessoas se passando pela gente, entre em contato para que possamos tomar as devidas providências." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="Como mantemos seus dados?" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Todos os dados referentes a suas tarefas são salvos no seu proprio Smartphone, nós NÃO utilizamos qualquer canal para armazenar e/ou verificar seus dados." FontSize="12"></customControl:LabelJustifyText>
+
+                <Label Margin="0,20,0,0" Text="Atualização" Style="{StaticResource LabelBold}" FontSize="16"></Label>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="Podemos alterar informações disponibilizadas aqui, então pedimos que visite esta página periodicamente." FontSize="12"></customControl:LabelJustifyText>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

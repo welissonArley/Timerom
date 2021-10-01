@@ -57,6 +57,9 @@ namespace Timerom.App.ViewModels.Dashboard
                     }
                     break;
                 case MenuItemOptions.PrivacyPolicy:
+                    {
+                        await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(PrivacyPolicyPage)}", UriKind.Absolute));
+                    }
                     break;
                 case MenuItemOptions.UseTerms:
                     break;

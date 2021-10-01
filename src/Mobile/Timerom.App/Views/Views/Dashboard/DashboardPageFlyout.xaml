@@ -167,6 +167,14 @@
                         <DataTemplate>
                             <StackLayout Margin="0,20,0,0">
                                 <StackLayout Orientation="Horizontal" Opacity="0.5" Margin="32,-1,0,0">
+                                    <StackLayout.Triggers>
+                                        <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.PrivacyPolicy}">
+                                            <Setter Property="Opacity" Value="1" />
+                                        </DataTrigger>
+                                    </StackLayout.Triggers>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding MenuItemSelectedCommand}" CommandParameter="{x:Static enuns:MenuItemOptions.PrivacyPolicy}"/>
+                                    </StackLayout.GestureRecognizers>
                                     <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_PRIVACY_POLICY}" Margin="0,-1,0,0"/>
                                 </StackLayout>
 
@@ -181,7 +189,7 @@
                                         </DataTrigger>
                                     </StackLayout.Triggers>
                                     <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding MenuItemSelectedCommand}" CommandParameter="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}"></TapGestureRecognizer>
+                                        <TapGestureRecognizer Command="{Binding MenuItemSelectedCommand}" CommandParameter="{x:Static enuns:MenuItemOptions.IconsAndIllustrations}"/>
                                     </StackLayout.GestureRecognizers>
                                     <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_ICONS_ILLUSTRATIONS_USED}" Margin="0,-1,0,0"/>
                                 </StackLayout>
