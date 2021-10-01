@@ -13,6 +13,13 @@ namespace Timerom.App.UseCase.Dashboard.Local
 {
     public class DashboardUseCase : IDashboardUseCase
     {
+        private readonly FuncCorrectDate _funcCorrectDate;
+
+        public DashboardUseCase()
+        {
+            _funcCorrectDate = new FuncCorrectDate();
+        }
+
         public async Task<DashboardModel> Execute(DateTime date)
         {
             UserTaskDatabase database = await UserTaskDatabase.Instance();
@@ -48,7 +55,7 @@ namespace Timerom.App.UseCase.Dashboard.Local
 
             var taskList = tasks.Where(c => list.Any(k => k.Id == c.CategoryId));
 
-            return taskList.Sum(c => (CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
+            return taskList.Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
         }
 
         private List<DashboardTaskModel> TasksPerCategory(List<ValueObjects.Entity.Category> categories,
@@ -70,7 +77,7 @@ namespace Timerom.App.UseCase.Dashboard.Local
                 var subCategories = subCategoriesList.Where(k => k.ParentCategoryId == categoryId);
 
                 var totalTime = tasks.Where(c => subCategories.Any(k => k.Id == c.CategoryId))
-                    .Sum(c => (CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
+                    .Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
 
                 result.Add(new DashboardTaskModel
                 {
@@ -83,17 +90,6 @@ namespace Timerom.App.UseCase.Dashboard.Local
             }
 
             return result.OrderByDescending(c => c.Hours).ThenBy(c => c.Category).ThenBy(c => c.Title).ToList();
-        }
-
-        private (DateTime Starts, DateTime Ends) CorrectDate(DateTime starts, DateTime ends, DateTime actual)
-        {
-            if (starts.Date == ends.Date)
-                return (starts, ends);
-
-            if(ends.Date == actual.Date)
-                return (ends.Date, ends);
-
-            return (starts, starts.Date.AddMinutes(-1).AddDays(1));
         }
     }
 }
