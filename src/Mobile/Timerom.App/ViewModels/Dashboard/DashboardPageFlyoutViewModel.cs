@@ -62,6 +62,9 @@ namespace Timerom.App.ViewModels.Dashboard
                     }
                     break;
                 case MenuItemOptions.UseTerms:
+                    {
+                        await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(TermsOfUsePage)}", UriKind.Absolute));
+                    }
                     break;
                 case MenuItemOptions.ContactUs:
                     break;

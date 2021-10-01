@@ -179,6 +179,14 @@
                                 </StackLayout>
 
                                 <StackLayout Orientation="Horizontal" Margin="32,25,0,0" Opacity="0.5">
+                                    <StackLayout.Triggers>
+                                        <DataTrigger TargetType="StackLayout" Binding="{Binding MenuItemSelected}" Value="{x:Static enuns:MenuItemOptions.UseTerms}">
+                                            <Setter Property="Opacity" Value="1" />
+                                        </DataTrigger>
+                                    </StackLayout.Triggers>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding MenuItemSelectedCommand}" CommandParameter="{x:Static enuns:MenuItemOptions.UseTerms}"/>
+                                    </StackLayout.GestureRecognizers>
                                     <Label Style="{StaticResource LabelBold}" Text="{x:Static resource:ResourceText.TITLE_USE_TERMS}" Margin="0,-1,0,0"/>
                                 </StackLayout>
 
