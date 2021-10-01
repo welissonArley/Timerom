@@ -96,6 +96,9 @@
     <Compile Update="Views\Modal\MenuOptions\FloatActionUserTaskModal.xaml.cs">
       <DependentUpon>FloatActionUserTaskModal.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Templates\Information\ChartActivityAnalyticTemplate.xaml.cs">
+      <DependentUpon>ChartActivityAnalyticTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Templates\Information\SelectCategoryExpanderComponent.xaml.cs">
       <DependentUpon>SelectCategoryExpanderComponent.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\Information\CategoryExpanderComponent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Information\ChartActivityAnalyticTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\Information\ItemFloatButtonTemplate.xaml">

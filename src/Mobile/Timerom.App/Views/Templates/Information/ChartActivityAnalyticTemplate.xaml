@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Timerom.App.Views.Templates.Information.ChartActivityAnalyticTemplate">
+  <ContentView.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <Grid x:Name="GridContent" VerticalOptions="EndAndExpand" RowSpacing="0" ColumnDefinitions="*,*,*,*,*,*,*" RowDefinitions="100, 14, 14">
+                
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
