@@ -2,6 +2,7 @@
 using Prism.Plugin.Popups;
 using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.App.UseCase.Dashboard.Interfaces;
+using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
 using Timerom.App.UseCase.UserTask.Interfaces;
 using Timerom.App.ViewModels.AboutThisProject;
 using Timerom.App.ViewModels.Category;
@@ -97,6 +98,7 @@ namespace Timerom.App
             containerRegistry.RegisterScoped<IUpdateUserTaskUseCase, UseCase.UserTask.Local.Update.UpdateUserTaskUseCase>();
             containerRegistry.RegisterScoped<ILastTaskTimeForTodayUseCase, UseCase.UserTask.Local.Insert.LastTaskTimeForTodayUseCase>();
             containerRegistry.RegisterScoped<IGetByIdCategoryUseCase, UseCase.Categories.Local.GetById.GetByIdCategoryUseCase>();
+            containerRegistry.RegisterScoped<IGetActivityAnalyticTotalUseCase, UseCase.Reports.ActivityAnalytic.Local.GetActivityAnalyticTotalUseCase>();
         }
     }
 }
