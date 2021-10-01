@@ -1,12 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:Timerom.App"
+             xmlns:local="clr-namespace:Timerom.App.Converter"
+             xmlns:enum="clr-namespace:Timerom.App.ValueObjects.Enuns"
+             xmlns:chart="clr-namespace:Timerom.App.Views.Templates.Information"
              x:Class="Timerom.App.Views.Views.Reports.ActivityAnalytic.ActivityAnalyticPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:HoursStringconverter x:Key="HourConverter" />
+            <local:CategoryTypeStringConverter x:Key="CategoryTypeStringConverter" />
+            <local:ColorCategoryTypeWithTransparency x:Key="ColorCategoryTypeWithTransparency" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Style="{StaticResource MarginStyleDefault}">
+            <Label Text="{x:Static resource:ResourceText.TITLE_ACTIVITY_ANALYTIC}" Style="{StaticResource LabelTitle}"/>
+
+            <Frame CornerRadius="0" Margin="0,20,0,0" HasShadow="False" BorderColor="{AppThemeBinding Light=#1A000000, Dark=#1AFFFFFF}" Padding="20,15,20,10" HeightRequest="180">
+                <StackLayout>
+                    <Label Text="{x:Static resource:ResourceText.TITLE_WINNING_CATEGORIES}" FontSize="12" HorizontalOptions="EndAndExpand" VerticalOptions="Start"/>
+                    <chart:ChartActivityAnalyticTemplate Values="{Binding ChartModel}"/>
+                </StackLayout>
+            </Frame>
+
+            <Grid ColumnDefinitions="*,*" RowDefinitions="*,*" Margin="0,20,0,10">
+                <Frame HasShadow="False" Padding="20" Grid.Column="0" Grid.Row="0" BackgroundColor="{AppThemeBinding Light=#1A000000, Dark=#1AFFFFFF}" HeightRequest="122">
+                    <StackLayout>
+                        <Label Text="🎯"/>
+                        <Label Text="{Binding AnalyticModel.Total.Time, Converter={StaticResource HourConverter}}" FontSize="16" Style="{StaticResource LabelBold}"/>
+                        <Label Margin="0,-5,0,0" Text="{Binding AnalyticModel.Total.AmountOfTasks, StringFormat={x:Static resource:ResourceText.TITLE_TOTAL_OF_TASKS}}" FontSize="10" Style="{StaticResource LabelLight}"/>
+                        <Label VerticalOptions="EndAndExpand" Text="{x:Static resource:ResourceText.TITLE_TOTAL}" FontSize="12" Style="{StaticResource LabelLight}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="False" Padding="20" Grid.Column="1" Grid.Row="0" BackgroundColor="{Binding Source={x:Static enum:CategoryType.Productive}, Converter={StaticResource ColorCategoryTypeWithTransparency}}" HeightRequest="122">
+                    <StackLayout>
+                        <Label Text="😎"/>
+                        <Label Text="{Binding AnalyticModel.Productive.Time, Converter={StaticResource HourConverter}}" FontSize="16" Style="{StaticResource LabelBold}"/>
+                        <Label Margin="0,-5,0,0" Text="{Binding AnalyticModel.Productive.AmountOfTasks, StringFormat={x:Static resource:ResourceText.TITLE_TOTAL_OF_TASKS}}" FontSize="10" Style="{StaticResource LabelLight}"/>
+                        <Label VerticalOptions="EndAndExpand" Text="{Binding Source={x:Static enum:CategoryType.Productive}, Converter={StaticResource CategoryTypeStringConverter}}" FontSize="12" Style="{StaticResource LabelLight}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="False" Padding="20" Grid.Column="0" Grid.Row="1" BackgroundColor="{Binding Source={x:Static enum:CategoryType.Neutral}, Converter={StaticResource ColorCategoryTypeWithTransparency}}" HeightRequest="122">
+                    <StackLayout>
+                        <Label Text="😶"/>
+                        <Label Text="{Binding AnalyticModel.Neutral.Time, Converter={StaticResource HourConverter}}" FontSize="16" Style="{StaticResource LabelBold}"/>
+                        <Label Margin="0,-5,0,0" Text="{Binding AnalyticModel.Neutral.AmountOfTasks, StringFormat={x:Static resource:ResourceText.TITLE_TOTAL_OF_TASKS}}" FontSize="10" Style="{StaticResource LabelLight}"/>
+                        <Label VerticalOptions="EndAndExpand" Text="{Binding Source={x:Static enum:CategoryType.Neutral}, Converter={StaticResource CategoryTypeStringConverter}}" FontSize="12" Style="{StaticResource LabelLight}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="False" Padding="20" Grid.Column="1" Grid.Row="1" BackgroundColor="{Binding Source={x:Static enum:CategoryType.Unproductive}, Converter={StaticResource ColorCategoryTypeWithTransparency}}" HeightRequest="122">
+                    <StackLayout>
+                        <Label Text="😭"/>
+                        <Label Text="{Binding AnalyticModel.Unproductive.Time, Converter={StaticResource HourConverter}}" FontSize="16" Style="{StaticResource LabelBold}"/>
+                        <Label Margin="0,-5,0,0" Text="{Binding AnalyticModel.Unproductive.AmountOfTasks, StringFormat={x:Static resource:ResourceText.TITLE_TOTAL_OF_TASKS}}" FontSize="10" Style="{StaticResource LabelLight}"/>
+                        <Label VerticalOptions="EndAndExpand" Text="{Binding Source={x:Static enum:CategoryType.Unproductive}, Converter={StaticResource CategoryTypeStringConverter}}" FontSize="12" Style="{StaticResource LabelLight}"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            
+            <StackLayout VerticalOptions="End">
+                <Line/>
+
+                <Label Text="{x:Static resource:ResourceText.TITLE_ABOUT}" Margin="0,10,0,10"/>
+
+                <Label Text="{Binding Source={x:Static resource:ResourceText.TITLE_FOR_THE_LAST_SEVEN_DAYS}, StringFormat={x:Static resource:ResourceText.TITLE_YOU_ARE_SEEING_GRAPHIC_FOR}}" FontSize="16"/>
+
+                <Label Text="{x:Static resource:ResourceText.TITLE_CLICK_IN_THE_BARS}" Style="{StaticResource LabelBold}" FontSize="16"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
