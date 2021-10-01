@@ -134,6 +134,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="PHRASE_MENU_FLYOUT_1" xml:space="preserve">
     <value>No need to accelerate, just don't stop.</value>
   </data>
+  <data name="TITLE_ABOUT" xml:space="preserve">
+    <value>About</value>
+  </data>
   <data name="TITLE_ABOUT_THIS_PROJECT" xml:space="preserve">
     <value>About this project</value>
   </data>
@@ -184,6 +187,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_CLICK_HERE_FILL_TASK_TITLE" xml:space="preserve">
     <value>Click here to fill the task title</value>
+  </data>
+  <data name="TITLE_CLICK_IN_THE_BARS" xml:space="preserve">
+    <value>Click in the bars to see more details.</value>
   </data>
   <data name="TITLE_CONTACT_US" xml:space="preserve">
     <value>Contact Us</value>
@@ -241,6 +247,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_FOOD" xml:space="preserve">
     <value>Food</value>
+  </data>
+  <data name="TITLE_FOR_THE_LAST_SEVEN_DAYS" xml:space="preserve">
+    <value>for the last 7 days</value>
   </data>
   <data name="TITLE_FROM_TO" xml:space="preserve">
     <value>From {0} to {1}</value>
@@ -380,6 +389,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_THIS_IS_RESULTING_IN" xml:space="preserve">
     <value>This is resulting in:</value>
   </data>
+  <data name="TITLE_TOTAL" xml:space="preserve">
+    <value>Total</value>
+  </data>
   <data name="TITLE_TOTAL_OF_TASKS" xml:space="preserve">
     <value>Total of {0} tasks</value>
   </data>
@@ -419,6 +431,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_WALKING" xml:space="preserve">
     <value>Walking</value>
   </data>
+  <data name="TITLE_WINNING_CATEGORIES" xml:space="preserve">
+    <value>Winning categories</value>
+  </data>
   <data name="TITLE_WORK" xml:space="preserve">
     <value>Work</value>
   </data>
@@ -430,6 +445,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_YOUTUBE" xml:space="preserve">
     <value>YouTube</value>
+  </data>
+  <data name="TITLE_YOU_ARE_SEEING_GRAPHIC_FOR" xml:space="preserve">
+    <value>You are seeing the graphic {0}.</value>
   </data>
   <data name="TITLE_YOU_CAN_SAVE_MORE_CATEGORIES" xml:space="preserve">
     <value>You can save more categories of the same type if you want :)</value>

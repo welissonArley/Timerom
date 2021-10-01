@@ -108,6 +108,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string TITLE_ABOUT {
+            get {
+                return ResourceManager.GetString("TITLE_ABOUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About this project.
         /// </summary>
         public static string TITLE_ABOUT_THIS_PROJECT {
@@ -257,6 +266,15 @@ namespace Timerom.App {
         public static string TITLE_CLICK_HERE_FILL_TASK_TITLE {
             get {
                 return ResourceManager.GetString("TITLE_CLICK_HERE_FILL_TASK_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click in the bars to see more details..
+        /// </summary>
+        public static string TITLE_CLICK_IN_THE_BARS {
+            get {
+                return ResourceManager.GetString("TITLE_CLICK_IN_THE_BARS", resourceCulture);
             }
         }
         
@@ -428,6 +446,15 @@ namespace Timerom.App {
         public static string TITLE_FOOD {
             get {
                 return ResourceManager.GetString("TITLE_FOOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to for the last 7 days.
+        /// </summary>
+        public static string TITLE_FOR_THE_LAST_SEVEN_DAYS {
+            get {
+                return ResourceManager.GetString("TITLE_FOR_THE_LAST_SEVEN_DAYS", resourceCulture);
             }
         }
         
@@ -846,6 +873,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        public static string TITLE_TOTAL {
+            get {
+                return ResourceManager.GetString("TITLE_TOTAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total of {0} tasks.
         /// </summary>
         public static string TITLE_TOTAL_OF_TASKS {
@@ -963,6 +999,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Winning categories.
+        /// </summary>
+        public static string TITLE_WINNING_CATEGORIES {
+            get {
+                return ResourceManager.GetString("TITLE_WINNING_CATEGORIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Work.
         /// </summary>
         public static string TITLE_WORK {
@@ -977,6 +1022,15 @@ namespace Timerom.App {
         public static string TITLE_YES_IAM_SURE {
             get {
                 return ResourceManager.GetString("TITLE_YES_IAM_SURE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are seeing the graphic {0}..
+        /// </summary>
+        public static string TITLE_YOU_ARE_SEEING_GRAPHIC_FOR {
+            get {
+                return ResourceManager.GetString("TITLE_YOU_ARE_SEEING_GRAPHIC_FOR", resourceCulture);
             }
         }
         
