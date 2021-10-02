@@ -23,21 +23,25 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             var activityAnalyticBase = new GetActivityAnalyticBase();
             var userTasks = await activityAnalyticBase.GetUserTasks(DateTime.Now.Date.AddDays(-7), DateTime.Now.Date);
 
-            var groupUserTasks = userTasks.GroupBy(c => c.StartsAt.Date);
+            var dates = userTasks.Select(c => c.StartsAt.Date).Distinct();
 
             var response = new List<ChartActivityAnalyticModel>();
 
-            foreach (var tasksDay in groupUserTasks)
-                response.Add(CalculateModel(tasksDay.Key, tasksDay));
+            foreach (var date in dates)
+            {
+                var tasksDay = userTasks.Where(c => c.StartsAt.Date == date.Date || c.EndsAt.Date == date.Date);
+
+                response.Add(CalculateModel(date, tasksDay));
+            }
 
             return response.OrderBy(c => c.Date.Date).ToList();
         }
 
         private ChartActivityAnalyticModel CalculateModel(DateTime date, IEnumerable<TaskModel> userTasks)
         {
-            var productiveTotalTime = TotalTime(userTasks.Where(c => c.Category.Type == ValueObjects.Enuns.CategoryType.Productive));
-            var neutralTotalTime = TotalTime(userTasks.Where(c => c.Category.Type == ValueObjects.Enuns.CategoryType.Neutral));
-            var unproductiveTotalTime = TotalTime(userTasks.Where(c => c.Category.Type == ValueObjects.Enuns.CategoryType.Unproductive));
+            var productiveTotalTime = TotalTime(userTasks.Where(c => c.Category.Type == CategoryType.Productive));
+            var neutralTotalTime = TotalTime(userTasks.Where(c => c.Category.Type == CategoryType.Neutral));
+            var unproductiveTotalTime = TotalTime(userTasks.Where(c => c.Category.Type == CategoryType.Unproductive));
 
             var maxValues = Max(productiveTotalTime, neutralTotalTime, unproductiveTotalTime);
 
@@ -49,25 +53,21 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             };
         }
 
-        private (CategoryType Type, int TotalMinutes) Max(int productiveTotalTime, int neutralTotalTime, int unproductiveTotalTime)
+        private (CategoryType Type, int TotalMinutes) Max(double productiveTotalTime, double neutralTotalTime, double unproductiveTotalTime)
         {
             var value = Math.Max(Math.Max(productiveTotalTime, neutralTotalTime), unproductiveTotalTime);
 
             var category = value == productiveTotalTime ?
                 CategoryType.Productive : value == neutralTotalTime ? CategoryType.Neutral : CategoryType.Unproductive;
 
-            return (category, value);
+            return (category, (int)value);
         }
 
-        private int TotalTime(IEnumerable<TaskModel> userTasks)
+        private double TotalTime(IEnumerable<TaskModel> userTasks)
         {
             var searchDate = DateTime.Today;
 
-            return (int)userTasks.Sum(c =>
-                (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends
-                -
-                _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts)
-                .TotalMinutes);
+            return userTasks.Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
         }
     }
 }

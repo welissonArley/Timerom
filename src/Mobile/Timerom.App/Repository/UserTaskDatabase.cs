@@ -44,7 +44,7 @@ namespace Timerom.App.Repository
         {
             var list = await _database.Table<UserTask>().ToListAsync();
 
-            return list.Where(c => c.StartsAt.Date >= firstDate.Date && c.EndsAt.Date <= secondDate.Date).ToList();
+            return list.Where(c => c.EndsAt.Date >= firstDate.Date && c.EndsAt.Date <= secondDate.Date).ToList();
         }
 
         public async Task<UserTask> GetLast(DateTime date)
