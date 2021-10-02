@@ -13,7 +13,7 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             UserTaskDatabase database = await UserTaskDatabase.Instance();
             CategoryDatabase categoryDatabase = await CategoryDatabase.Instance();
 
-            var models = await database.GetBeetwenDates(date1, date2);
+            var models = await database.GetBetweenDates(date1, date2);
 
             var tasks = models.Select(c => Task.Run(async () =>
             {

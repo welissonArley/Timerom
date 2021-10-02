@@ -40,7 +40,7 @@ namespace Timerom.App.Repository
             return list.Where(c => c.StartsAt.Date == date.Date || c.EndsAt.Date == date.Date).OrderBy(c => c.StartsAt).ToList();
         }
 
-        public async Task<System.Collections.Generic.List<UserTask>> GetBeetwenDates(DateTime firstDate, DateTime secondDate)
+        public async Task<System.Collections.Generic.List<UserTask>> GetBetweenDates(DateTime firstDate, DateTime secondDate)
         {
             var list = await _database.Table<UserTask>().ToListAsync();
 
