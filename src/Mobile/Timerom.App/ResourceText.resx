@@ -158,6 +158,12 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_ABOUT_THIS_PROJECT" xml:space="preserve">
     <value>About this project</value>
   </data>
+  <data name="TITLE_ABSTRACT" xml:space="preserve">
+    <value>Abstract</value>
+  </data>
+  <data name="TITLE_ACTIVITIES" xml:space="preserve">
+    <value>Activities</value>
+  </data>
   <data name="TITLE_ACTIVITY_ANALYTIC" xml:space="preserve">
     <value>Activity Analytic</value>
   </data>
@@ -470,8 +476,14 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_YES_IAM_SURE" xml:space="preserve">
     <value>Yes, I'm sure</value>
   </data>
+  <data name="TITLE_YOUR_ARE_SEEING_WHICH_CATEGORIES_MAKE_UP_THE_RESULT" xml:space="preserve">
+    <value>You are seeing which categories make up the result for the: {0}.</value>
+  </data>
   <data name="TITLE_YOUR_DESCRIPTION" xml:space="preserve">
     <value>Your description</value>
+  </data>
+  <data name="TITLE_YOUR_STATISTICS" xml:space="preserve">
+    <value>Your statistics</value>
   </data>
   <data name="TITLE_YOUTUBE" xml:space="preserve">
     <value>YouTube</value>

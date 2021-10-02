@@ -77,6 +77,7 @@ namespace Timerom.App
             containerRegistry.RegisterForNavigation<PrivacyPolicyPage>();
             containerRegistry.RegisterForNavigation<TermsOfUsePage>();
             containerRegistry.RegisterForNavigation<WhatIsParetoPrinciplePage>();
+            containerRegistry.RegisterForNavigation<ActivityAnalyticBarSeletedPage, ActivityAnalyticBarSeletedViewModel>();
         }
         private void RegisterModals(IContainerRegistry containerRegistry)
         {

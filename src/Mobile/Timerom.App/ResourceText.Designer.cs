@@ -180,6 +180,24 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Abstract.
+        /// </summary>
+        public static string TITLE_ABSTRACT {
+            get {
+                return ResourceManager.GetString("TITLE_ABSTRACT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activities.
+        /// </summary>
+        public static string TITLE_ACTIVITIES {
+            get {
+                return ResourceManager.GetString("TITLE_ACTIVITIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Activity Analytic.
         /// </summary>
         public static string TITLE_ACTIVITY_ANALYTIC {
@@ -1143,11 +1161,29 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You are seeing which categories make up the result for the: {0}..
+        /// </summary>
+        public static string TITLE_YOUR_ARE_SEEING_WHICH_CATEGORIES_MAKE_UP_THE_RESULT {
+            get {
+                return ResourceManager.GetString("TITLE_YOUR_ARE_SEEING_WHICH_CATEGORIES_MAKE_UP_THE_RESULT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your description.
         /// </summary>
         public static string TITLE_YOUR_DESCRIPTION {
             get {
                 return ResourceManager.GetString("TITLE_YOUR_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your statistics.
+        /// </summary>
+        public static string TITLE_YOUR_STATISTICS {
+            get {
+                return ResourceManager.GetString("TITLE_YOUR_STATISTICS", resourceCulture);
             }
         }
         
