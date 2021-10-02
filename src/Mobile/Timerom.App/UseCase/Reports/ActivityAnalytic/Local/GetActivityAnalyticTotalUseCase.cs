@@ -65,7 +65,7 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             response.Total.Time = new TimeSpan(hours: 0, minutes: totalTime, seconds: 0);
             response.Productive.Time = new TimeSpan(hours: 0, minutes: productiveTotalTime, seconds: 0);
             response.Neutral.Time = new TimeSpan(hours: 0, minutes: neutralTotalTime, seconds: 0);
-            response.Productive.Time = new TimeSpan(hours: 0, minutes: unproductiveTotalTime, seconds: 0);
+            response.Unproductive.Time = new TimeSpan(hours: 0, minutes: unproductiveTotalTime, seconds: 0);
 
             return response;
         }
