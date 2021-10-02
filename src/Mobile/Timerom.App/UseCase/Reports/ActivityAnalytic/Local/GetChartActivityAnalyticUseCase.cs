@@ -21,17 +21,20 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
         public async Task<IList<ChartActivityAnalyticModel>> Execute()
         {
             var activityAnalyticBase = new GetActivityAnalyticBase();
-            var userTasks = await activityAnalyticBase.GetUserTasks(DateTime.Now.Date.AddDays(-7), DateTime.Now.Date);
 
-            var dates = userTasks.Select(c => c.StartsAt.Date).Distinct();
+            var startsAt = DateTime.Now.Date.AddDays(-7);
+            var endsAt = DateTime.Now.Date;
+
+            var userTasks = await activityAnalyticBase.GetUserTasks(startsAt, endsAt);
 
             var response = new List<ChartActivityAnalyticModel>();
 
-            foreach (var date in dates)
+            for (var date = startsAt; date <= endsAt; date = date.AddDays(1))
             {
                 var tasksDay = userTasks.Where(c => c.StartsAt.Date == date.Date || c.EndsAt.Date == date.Date);
 
-                response.Add(CalculateModel(date, tasksDay));
+                if(tasksDay.Any())
+                    response.Add(CalculateModel(date, tasksDay));
             }
 
             return response.OrderBy(c => c.Date.Date).ToList();
@@ -39,9 +42,9 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
 
         private ChartActivityAnalyticModel CalculateModel(DateTime date, IEnumerable<TaskModel> userTasks)
         {
-            var productiveTotalTime = TotalTime(userTasks.Where(c => c.Category.Type == CategoryType.Productive));
-            var neutralTotalTime = TotalTime(userTasks.Where(c => c.Category.Type == CategoryType.Neutral));
-            var unproductiveTotalTime = TotalTime(userTasks.Where(c => c.Category.Type == CategoryType.Unproductive));
+            var productiveTotalTime = TotalTime(userTasks.Where(c => c.Category.Type == CategoryType.Productive), date);
+            var neutralTotalTime = TotalTime(userTasks.Where(c => c.Category.Type == CategoryType.Neutral), date);
+            var unproductiveTotalTime = TotalTime(userTasks.Where(c => c.Category.Type == CategoryType.Unproductive), date);
 
             var maxValues = Max(productiveTotalTime, neutralTotalTime, unproductiveTotalTime);
 
@@ -63,10 +66,8 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             return (category, (int)value);
         }
 
-        private double TotalTime(IEnumerable<TaskModel> userTasks)
+        private double TotalTime(IEnumerable<TaskModel> userTasks, DateTime searchDate)
         {
-            var searchDate = DateTime.Today;
-
             return userTasks.Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
         }
     }

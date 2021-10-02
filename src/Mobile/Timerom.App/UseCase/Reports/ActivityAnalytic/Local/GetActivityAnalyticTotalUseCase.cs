@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
+using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.ValueObjects.Functions;
 
 namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
@@ -21,32 +22,65 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
         {
             var activityAnalyticBase = new GetActivityAnalyticBase();
 
-            var userTasks = await activityAnalyticBase.GetUserTasks(DateTime.Now.Date.AddDays(-7), DateTime.Now.Date);
+            var startsAt = DateTime.Now.Date.AddDays(-7);
+            var endsAt = DateTime.Now.Date;
 
-            return new ActivityAnalyticModel
+            var userTasks = await activityAnalyticBase.GetUserTasks(startsAt, endsAt);
+
+            var response = new ActivityAnalyticModel
             {
-                Total = CalculateModel(userTasks),
-                Productive = CalculateModel(userTasks.Where(c => c.Category.Type == ValueObjects.Enuns.CategoryType.Productive)),
-                Neutral = CalculateModel(userTasks.Where(c => c.Category.Type == ValueObjects.Enuns.CategoryType.Neutral)),
-                Unproductive = CalculateModel(userTasks.Where(c => c.Category.Type == ValueObjects.Enuns.CategoryType.Unproductive))
+                Total = CreateModel(),
+                Neutral = CreateModel(),
+                Productive = CreateModel(),
+                Unproductive = CreateModel()
+            };
+
+            var totalTime = 0;
+            var productiveTotalTime = 0;
+            var neutralTotalTime = 0;
+            var unproductiveTotalTime = 0;
+
+            for (var date = startsAt; date <= endsAt; date = date.AddDays(1))
+            {
+                var tasksDay = userTasks.Where(c => c.StartsAt.Date == date.Date || c.EndsAt.Date == date.Date);
+
+                if (tasksDay.Any())
+                {
+                    var productiveTasks = userTasks.Where(c => c.Category.Type == CategoryType.Productive);
+                    var neutralTasks = userTasks.Where(c => c.Category.Type == CategoryType.Neutral);
+                    var unproductiveTasks = userTasks.Where(c => c.Category.Type == CategoryType.Unproductive);
+
+                    response.Total.AmountOfTasks += tasksDay.Count();
+                    response.Productive.AmountOfTasks += productiveTasks.Count();
+                    response.Neutral.AmountOfTasks += neutralTasks.Count();
+                    response.Unproductive.AmountOfTasks += unproductiveTasks.Count();
+
+                    totalTime += TotalTime(tasksDay, date);
+                    productiveTotalTime += TotalTime(productiveTasks, date);
+                    neutralTotalTime += TotalTime(neutralTasks, date);
+                    unproductiveTotalTime += TotalTime(unproductiveTasks, date);
+                }
+            }
+
+            response.Total.Time = new TimeSpan(hours: 0, minutes: totalTime, seconds: 0);
+            response.Productive.Time = new TimeSpan(hours: 0, minutes: productiveTotalTime, seconds: 0);
+            response.Neutral.Time = new TimeSpan(hours: 0, minutes: neutralTotalTime, seconds: 0);
+            response.Productive.Time = new TimeSpan(hours: 0, minutes: unproductiveTotalTime, seconds: 0);
+
+            return response;
+        }
+
+        private TaskAnalyticModel CreateModel()
+        {
+            return new TaskAnalyticModel
+            {
+                AmountOfTasks = 0
             };
         }
 
-        private TaskAnalyticModel CalculateModel(IEnumerable<TaskModel> userTasks)
+        private int TotalTime(IEnumerable<TaskModel> userTasks, DateTime searchDate)
         {
-            var searchDate = DateTime.Today;
-
-            var timeTotal = userTasks.Sum(c =>
-                (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends
-                - 
-                _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts)
-                .TotalMinutes);
-
-            return new TaskAnalyticModel
-            {
-                AmountOfTasks = userTasks.Count(),
-                Time = new TimeSpan(hours: 0, seconds: 0, minutes: (int)timeTotal)
-            };
+            return (int)userTasks.Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
         }
     }
 }
