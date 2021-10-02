@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,18 +34,27 @@ namespace Timerom.App.Repository
             _ = await _database.InsertAsync(task);
         }
 
-        public async Task<System.Collections.Generic.List<UserTask>> GetAll(DateTime date)
+        public async Task<List<UserTask>> GetAll(DateTime date)
         {
             var list = await _database.Table<UserTask>().ToListAsync();
 
             return list.Where(c => c.StartsAt.Date == date.Date || c.EndsAt.Date == date.Date).OrderBy(c => c.StartsAt).ToList();
         }
 
-        public async Task<System.Collections.Generic.List<UserTask>> GetBetweenDates(DateTime firstDate, DateTime secondDate)
+        public async Task<List<UserTask>> GetBetweenDates(DateTime firstDate, DateTime secondDate)
         {
             var list = await _database.Table<UserTask>().ToListAsync();
 
-            return list.Where(c => c.EndsAt.Date >= firstDate.Date && c.EndsAt.Date <= secondDate.Date).ToList();
+            var response = new List<UserTask>();
+
+            for (var date = firstDate; date <= secondDate; date = date.AddDays(1))
+            {
+                var taskOfTheDate = list.Where(c => c.StartsAt.Date == date.Date || c.EndsAt.Date == date.Date);
+
+                response.AddRange(taskOfTheDate.Where(c => response.All(w => w.Id != c.Id)));
+            }
+
+            return response;
         }
 
         public async Task<UserTask> GetLast(DateTime date)
