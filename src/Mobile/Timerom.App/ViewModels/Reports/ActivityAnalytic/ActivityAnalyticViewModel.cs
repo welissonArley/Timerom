@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
+using Timerom.App.Views.Views.Reports.ActivityAnalytic;
+using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Reports.ActivityAnalytic
 {
@@ -14,6 +16,8 @@ namespace Timerom.App.ViewModels.Reports.ActivityAnalytic
         private IGetActivityAnalyticTotalUseCase _totalUseCase => totalUseCase.Value;
         private IGetChartActivityAnalyticUseCase _chartUseCase => chartUseCase.Value;
 
+        public IAsyncCommand<DateTime> DaySelectedCommand { get; private set; }
+
         public ActivityAnalyticModel AnalyticModel { get; set; }
         public ObservableCollection<ChartActivityAnalyticModel> ChartModel { get; set; }
 
@@ -23,6 +27,18 @@ namespace Timerom.App.ViewModels.Reports.ActivityAnalytic
         {
             this.totalUseCase = totalUseCase;
             this.chartUseCase = chartUseCase;
+
+            DaySelectedCommand = new AsyncCommand<DateTime>(DaySelectedCommandExecuted, allowsMultipleExecutions: false);
+        }
+
+        private async Task DaySelectedCommandExecuted(DateTime date)
+        {
+            var navParameters = new NavigationParameters
+            {
+                { "Date", date }
+            };
+
+            await _navigationService.NavigateAsync(nameof(ActivityAnalyticBarSeletedPage), navParameters);
         }
 
         public async Task InitializeAsync(INavigationParameters parameters)

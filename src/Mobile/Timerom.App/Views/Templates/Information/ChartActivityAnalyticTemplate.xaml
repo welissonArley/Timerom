@@ -3,10 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Timerom.App.Views.Templates.Information.ChartActivityAnalyticTemplate">
   <ContentView.Content>
-        <StackLayout VerticalOptions="FillAndExpand">
-            <Grid x:Name="GridContent" VerticalOptions="EndAndExpand" RowSpacing="0" ColumnDefinitions="*,*,*,*,*,*,*" RowDefinitions="100, 14, 14">
-                
-            </Grid>
-        </StackLayout>
+        <Grid x:Name="GridContent" RowSpacing="0" ColumnDefinitions="*,*,*,*,*,*,*" RowDefinitions="120, 14, 14">
+
+        </Grid>
     </ContentView.Content>
 </ContentView>

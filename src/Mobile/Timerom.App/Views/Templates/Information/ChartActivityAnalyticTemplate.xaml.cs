@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using Timerom.App.Converter;
 using Timerom.App.Model;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Shapes;
 using Xamarin.Forms.Xaml;
@@ -13,6 +14,26 @@ namespace Timerom.App.Views.Templates.Information
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChartActivityAnalyticTemplate : ContentView
     {
+        private static IAsyncCommand<DateTime> _daySelectedCommand;
+
+        public IAsyncCommand<DateTime> DaySelectedCommand
+        {
+            get => (IAsyncCommand<DateTime>)GetValue(DaySelectedCommandProperty);
+            set => SetValue(DaySelectedCommandProperty, value);
+        }
+        public static readonly BindableProperty DaySelectedCommandProperty = BindableProperty.Create(
+                                                        propertyName: "DaySelectedCommand",
+                                                        returnType: typeof(IAsyncCommand<DateTime>),
+                                                        declaringType: typeof(ChartActivityAnalyticTemplate),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: DaySelectedCommandChanged);
+
+        private static void DaySelectedCommandChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            _daySelectedCommand = (IAsyncCommand<DateTime>)(newValue ?? oldValue);
+        }
+
         public ObservableCollection<ChartActivityAnalyticModel> Values
         {
             get => (ObservableCollection<ChartActivityAnalyticModel>)GetValue(ValuesProperty);
@@ -44,13 +65,27 @@ namespace Timerom.App.Views.Templates.Information
 
             foreach (var activity in chartActivities)
             {
-                component.GridContent.Children.Add(new Line
+                var stackLayout = new StackLayout
                 {
-                    BackgroundColor = (Color)new CategoryTypeColorConverter().Convert(activity.Type, typeof(Line), null, CultureInfo.CurrentCulture),
-                    Opacity = 1,
-                    HeightRequest = activity.Time.TotalMinutes == 0 ? .2 : activity.Time.TotalMinutes * 100 / maxValue,
-                    VerticalOptions = LayoutOptions.End
-                }, index, 0);
+                    Padding = 0,
+                    Spacing = 0,
+                    Children =
+                    {
+                        new Line
+                        {
+                            BackgroundColor = (Color)new CategoryTypeColorConverter().Convert(activity.Type, typeof(Line), null, CultureInfo.CurrentCulture),
+                            Opacity = 1,
+                            HeightRequest = activity.Time.TotalMinutes * 111 / maxValue,
+                            VerticalOptions = LayoutOptions.EndAndExpand
+                        }
+                    }
+                };
+                stackLayout.GestureRecognizers.Add(new TapGestureRecognizer
+                {
+                    Command = new AsyncCommand(async() => { await _daySelectedCommand?.ExecuteAsync(activity.Date); }, allowsMultipleExecutions: false)
+                });
+
+                component.GridContent.Children.Add(stackLayout, index, 0);
                 component.GridContent.Children.Add(new Label
                 {
                     FontSize = 11,

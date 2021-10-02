@@ -17,10 +17,10 @@
         <StackLayout Style="{StaticResource MarginStyleDefault}">
             <Label Text="{x:Static resource:ResourceText.TITLE_ACTIVITY_ANALYTIC}" Style="{StaticResource LabelTitle}"/>
 
-            <Frame BackgroundColor="Transparent" CornerRadius="0" Margin="0,20,0,0" HasShadow="False" BorderColor="{AppThemeBinding Light=#1A000000, Dark=#1AFFFFFF}" Padding="20,15,20,10" HeightRequest="180">
-                <StackLayout>
+            <Frame BackgroundColor="Transparent" CornerRadius="0" Margin="0,20,0,0" HasShadow="False" BorderColor="{AppThemeBinding Light=#1A000000, Dark=#1AFFFFFF}" Padding="20,15,20,0" HeightRequest="180">
+                <StackLayout Padding="0" BackgroundColor="Transparent">
                     <Label Text="{x:Static resource:ResourceText.TITLE_WINNING_CATEGORIES}" FontSize="12" HorizontalOptions="EndAndExpand" VerticalOptions="Start"/>
-                    <chart:ChartActivityAnalyticTemplate Values="{Binding ChartModel}"/>
+                    <chart:ChartActivityAnalyticTemplate DaySelectedCommand="{Binding DaySelectedCommand}" Values="{Binding ChartModel}"/>
                 </StackLayout>
             </Frame>
 
