@@ -56,19 +56,19 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             };
         }
 
-        private (CategoryType Type, int TotalMinutes) Max(double productiveTotalTime, double neutralTotalTime, double unproductiveTotalTime)
+        private (CategoryType Type, int TotalMinutes) Max(int productiveTotalTime, int neutralTotalTime, int unproductiveTotalTime)
         {
             var value = Math.Max(Math.Max(productiveTotalTime, neutralTotalTime), unproductiveTotalTime);
 
             var category = value == productiveTotalTime ?
                 CategoryType.Productive : value == neutralTotalTime ? CategoryType.Neutral : CategoryType.Unproductive;
 
-            return (category, (int)value);
+            return (category, value);
         }
 
-        private double TotalTime(IEnumerable<TaskModel> userTasks, DateTime searchDate)
+        private int TotalTime(IEnumerable<TaskModel> userTasks, DateTime searchDate)
         {
-            return userTasks.Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
+            return (int)userTasks.Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
         }
     }
 }
