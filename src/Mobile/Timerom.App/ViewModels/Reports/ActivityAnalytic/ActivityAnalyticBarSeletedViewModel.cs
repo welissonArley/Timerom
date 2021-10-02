@@ -2,48 +2,35 @@
 using System;
 using System.Threading.Tasks;
 using Timerom.App.Model;
+using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
 
 namespace Timerom.App.ViewModels.Reports.ActivityAnalytic
 {
     public class ActivityAnalyticBarSeletedViewModel : ViewModelBase, IInitializeAsync
     {
+        private readonly Lazy<IActivityAnalyticDetailsUseCase> useCase;
+        private IActivityAnalyticDetailsUseCase _useCase => useCase.Value;
+
         public string Description { get; private set; }
 
         public ActivityAnalyticStatisticsModel AnalyticModel { get; private set; }
 
-        public ActivityAnalyticBarSeletedViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
+        public ActivityAnalyticBarSeletedViewModel(Lazy<INavigationService> navigationService,
+            Lazy<IActivityAnalyticDetailsUseCase> useCase) : base(navigationService)
         {
+            this.useCase = useCase;
         }
 
-        public Task InitializeAsync(INavigationParameters parameters)
+        public async Task InitializeAsync(INavigationParameters parameters)
         {
             var date = parameters.GetValue<DateTime>("Date");
 
             Description = string.Format(ResourceText.TITLE_YOUR_ARE_SEEING_WHICH_CATEGORIES_MAKE_UP_THE_RESULT, date.ToString("D"));
 
-            AnalyticModel = new ActivityAnalyticStatisticsModel
-            {
-                Productive = new TaskAnalyticModel
-                {
-                    AmountOfTasks = 5,
-                    Time = new TimeSpan(0, 689, 0)
-                },
-                Neutral = new TaskAnalyticModel
-                {
-                    AmountOfTasks = 5,
-                    Time = new TimeSpan(0, 123, 0)
-                },
-                Unproductive = new TaskAnalyticModel
-                {
-                    AmountOfTasks = 5,
-                    Time = new TimeSpan(0, 78, 0)
-                }
-            };
+            AnalyticModel = await _useCase.Execute(date);
 
             RaisePropertyChanged("Description");
             RaisePropertyChanged("AnalyticModel");
-
-            return Task.CompletedTask;
         }
     }
 }
