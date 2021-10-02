@@ -46,9 +46,9 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
 
                 if (tasksDay.Any())
                 {
-                    var productiveTasks = userTasks.Where(c => c.Category.Type == CategoryType.Productive);
-                    var neutralTasks = userTasks.Where(c => c.Category.Type == CategoryType.Neutral);
-                    var unproductiveTasks = userTasks.Where(c => c.Category.Type == CategoryType.Unproductive);
+                    var productiveTasks = tasksDay.Where(c => c.Category.Type == CategoryType.Productive);
+                    var neutralTasks = tasksDay.Where(c => c.Category.Type == CategoryType.Neutral);
+                    var unproductiveTasks = tasksDay.Where(c => c.Category.Type == CategoryType.Unproductive);
 
                     response.Total.AmountOfTasks += tasksDay.Count();
                     response.Productive.AmountOfTasks += productiveTasks.Count();
