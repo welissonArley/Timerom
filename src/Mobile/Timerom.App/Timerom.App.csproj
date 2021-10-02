@@ -30,6 +30,7 @@
     <None Remove="Resources\Svgs\IconEdit.svg" />
     <None Remove="Resources\Svgs\IconFunnel.svg" />
     <None Remove="Resources\Svgs\IconIconsAndIllustrations.svg" />
+    <None Remove="Resources\Svgs\IconIllustrationParetoPrinciple.svg" />
     <None Remove="Resources\Svgs\IconInformation.svg" />
     <None Remove="Resources\Svgs\IconPieChart.svg" />
     <None Remove="Resources\Svgs\IconPrivacyPolicy.svg" />
@@ -58,6 +59,7 @@
     <EmbeddedResource Include="Resources\Svgs\IconDashboard.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconEdit.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconFunnel.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconIllustrationParetoPrinciple.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconInformation.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconPieChart.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconSearch.svg" />
@@ -212,6 +214,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Views\Reports\ActivityAnalytic\ActivityAnalyticPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Reports\ParetoPrinciple\WhatIsParetoPrinciplePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Views\Tasks\AddUpdateTaskPage.xaml">

@@ -19,6 +19,7 @@ using Timerom.App.Views.Views.Category;
 using Timerom.App.Views.Views.Dashboard;
 using Timerom.App.Views.Views.Home;
 using Timerom.App.Views.Views.Reports.ActivityAnalytic;
+using Timerom.App.Views.Views.Reports.ParetoPrinciple;
 using Timerom.App.Views.Views.Tasks;
 using Xamarin.Forms;
 
@@ -75,6 +76,7 @@ namespace Timerom.App
             containerRegistry.RegisterForNavigation<ActivityAnalyticPage, ActivityAnalyticViewModel>();
             containerRegistry.RegisterForNavigation<PrivacyPolicyPage>();
             containerRegistry.RegisterForNavigation<TermsOfUsePage>();
+            containerRegistry.RegisterForNavigation<WhatIsParetoPrinciplePage>();
         }
         private void RegisterModals(IContainerRegistry containerRegistry)
         {

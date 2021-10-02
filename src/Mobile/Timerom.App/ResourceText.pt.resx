@@ -131,6 +131,24 @@
 
 Todas as images utilizadas possuem licença gratuitas para o uso, e como agradecimento, deixamos abaixo os links para os sites que nossa equipe utilizou :)</value>
   </data>
+  <data name="DESCRIPTION_OFTEN_MISINTERPRETED" xml:space="preserve">
+    <value>Você pode imaginar que sempre a somatória das causas e dos resultados resulta em 100%, mas isso não é verdade, é apenas uma coincidência que 80% e 20% são iguais a 100%. Os resultados e as causas podem representar diferentes valores, ou seja, a somatória não necessariamente precisa resultar em 100%.</value>
+  </data>
+  <data name="DESCRIPTION_PARETO_PRINCIPLE_BENEFITS" xml:space="preserve">
+    <value>Utilize esta regra para focar nos 20% que estão gerando os 80% dos seus resultados ou até mesmo evitar os 20% que geram 80% dos seus problemas. Tudo depende de onde você aplica esta regra.</value>
+  </data>
+  <data name="DESCRIPTION_PARETO_PRINCIPLE_EXEMPLE_1" xml:space="preserve">
+    <value>• 80% das receitas de uma empresa é gerada por apenas 20% dos seus clientes.</value>
+  </data>
+  <data name="DESCRIPTION_PARETO_PRINCIPLE_EXEMPLE_2" xml:space="preserve">
+    <value>• 80% dos problemas em uma equipe de trabalho é gerado por apenas 20% dos integrantes da equipe.</value>
+  </data>
+  <data name="DESCRIPTION_PARETO_PRINCIPLE_EXEMPLE_3" xml:space="preserve">
+    <value>• 20% de todos os sites que você utiliza são responsáveis por 80% do tempo que você gasta na internet.</value>
+  </data>
+  <data name="DESCRIPTION_PARETO_PRINCIPLE_WHAT_IS" xml:space="preserve">
+    <value>O Princípio de Pareto ou Regra dos 80-20, é uma máxima o qual afirma que 80% dos resultados (outputs) é gerado por apenas 20% das causas (inputs) para qualquer evento dado. O conceito se aplica tanto à vida pessoal quanto a grandes acontecimentos e negócios.</value>
+  </data>
   <data name="PHRASE_MENU_FLYOUT_1" xml:space="preserve">
     <value>Não precisa acelerar, basta não parar.</value>
   </data>
@@ -274,6 +292,18 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_INSTAGRAM" xml:space="preserve">
     <value>Instagram</value>
+  </data>
+  <data name="TITLE_ITEM_1_WHAT_IS" xml:space="preserve">
+    <value>1. O que é?</value>
+  </data>
+  <data name="TITLE_ITEM_2_EXAMPLES" xml:space="preserve">
+    <value>2. Exemplos</value>
+  </data>
+  <data name="TITLE_ITEM_3_OFTEN_MISINTERPRETED" xml:space="preserve">
+    <value>3. Frequentemente mal interpretado</value>
+  </data>
+  <data name="TITLE_ITEM_4_BENEFITS" xml:space="preserve">
+    <value>4. Benefícios</value>
   </data>
   <data name="TITLE_LUNCH" xml:space="preserve">
     <value>Almoço</value>

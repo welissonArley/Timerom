@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:resource="clr-namespace:Timerom.App"
+             xmlns:customControl="clr-namespace:Timerom.App.CustomControl"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             x:Class="Timerom.App.Views.Views.Reports.ParetoPrinciple.WhatIsParetoPrinciplePage">
+    <ContentPage.Content>
+        <ScrollView Margin="0,0,0,30">
+            <StackLayout Style="{StaticResource MarginStyleDefault}" VerticalOptions="Start">
+                <Label Text="{x:Static resource:ResourceText.TITLE_PARETO_PRINCIPLE}" Style="{StaticResource LabelTitle}"/>
+
+                <Label Margin="0,30,0,0" Text="{x:Static resource:ResourceText.TITLE_ITEM_1_WHAT_IS}" Style="{StaticResource LabelBold}" FontSize="12"/>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="{x:Static resource:ResourceText.DESCRIPTION_PARETO_PRINCIPLE_WHAT_IS}"/>
+
+                <ffimageloadingsvg:SvgCachedImage x:Name="Illustration" Source="resource://Timerom.App.Resources.Svgs.IconIllustrationParetoPrinciple.svg">
+                    <ffimageloadingsvg:SvgCachedImage.Transformations>
+                        <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                    </ffimageloadingsvg:SvgCachedImage.Transformations>
+                </ffimageloadingsvg:SvgCachedImage>
+
+                <Label Text="{x:Static resource:ResourceText.TITLE_ITEM_2_EXAMPLES}" Style="{StaticResource LabelBold}" FontSize="12"/>
+                <customControl:LabelJustifyText Margin="20,10,0,0" Text="{x:Static resource:ResourceText.DESCRIPTION_PARETO_PRINCIPLE_EXEMPLE_1}"/>
+                <customControl:LabelJustifyText Margin="20,10,0,0" Text="{x:Static resource:ResourceText.DESCRIPTION_PARETO_PRINCIPLE_EXEMPLE_2}"/>
+                <customControl:LabelJustifyText Margin="20,10,0,0" Text="{x:Static resource:ResourceText.DESCRIPTION_PARETO_PRINCIPLE_EXEMPLE_3}"/>
+
+                <Label Margin="0,25,0,0" Text="{x:Static resource:ResourceText.TITLE_ITEM_3_OFTEN_MISINTERPRETED}" Style="{StaticResource LabelBold}" FontSize="12"/>
+                <customControl:LabelJustifyText Margin="0,10,0,0" Text="{x:Static resource:ResourceText.DESCRIPTION_OFTEN_MISINTERPRETED}"/>
+
+                <Label Margin="0,25,0,0" Text="{x:Static resource:ResourceText.TITLE_ITEM_4_BENEFITS}" Style="{StaticResource LabelBold}" FontSize="12"/>
+                <customControl:LabelJustifyText Margin="0,10,0,20" Text="{x:Static resource:ResourceText.DESCRIPTION_PARETO_PRINCIPLE_BENEFITS}"/>
+
+                <Label x:Name="LabelSource" Text="https://www.investopedia.com/terms/1/80-20-rule.asp" Style="{StaticResource LabelUrlLink}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
