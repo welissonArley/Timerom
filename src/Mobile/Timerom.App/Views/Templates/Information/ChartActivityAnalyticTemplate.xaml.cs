@@ -104,7 +104,7 @@ namespace Timerom.App.Views.Templates.Information
                 index++;
             }
 
-            for(var secondIndex = index; secondIndex < 7; secondIndex++)
+            for(var secondIndex = index; secondIndex < 8; secondIndex++)
             {
                 component.GridContent.Children.Add(new Line
                 {
