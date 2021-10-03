@@ -5,6 +5,7 @@
              xmlns:local="clr-namespace:Timerom.App.Converter"
              xmlns:enum="clr-namespace:Timerom.App.ValueObjects.Enuns"
              xmlns:template="clr-namespace:Timerom.App.Views.Templates.Information"
+             x:Name="ActivityAnalyticBarSeletedContentPage"
              x:Class="Timerom.App.Views.Views.Reports.ActivityAnalytic.ActivityAnalyticBarSeletedPage">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -53,7 +54,7 @@
                 <StackLayout BindableLayout.ItemsSource="{Binding AnalyticModel.Activities}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <template:ActivitiesStatisticsTemplate Activity="{Binding .}" Margin="0,20,0,0"/>
+                            <template:ActivitiesStatisticsTemplate Activity="{Binding .}" ItemSelectedCommand="{Binding Path=BindingContext.ActivitySelectedCommand, Source={x:Reference Name=ActivityAnalyticBarSeletedContentPage}}" Margin="0,20,0,0"/>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </StackLayout>
