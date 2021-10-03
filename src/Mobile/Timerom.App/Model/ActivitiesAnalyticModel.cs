@@ -9,5 +9,6 @@ namespace Timerom.App.Model
         public string Name { get; set; }
         public TimeSpan Time { get; set; }
         public CategoryType Type { get; set; }
+        public double Percentage { get; set; }
     }
 }
