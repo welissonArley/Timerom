@@ -4,6 +4,7 @@
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:local="clr-namespace:Timerom.App.Converter"
              xmlns:enum="clr-namespace:Timerom.App.ValueObjects.Enuns"
+             xmlns:template="clr-namespace:Timerom.App.Views.Templates.Information"
              x:Class="Timerom.App.Views.Views.Reports.ActivityAnalytic.ActivityAnalyticBarSeletedPage">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -13,40 +14,50 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource MarginStyleDefault}">
-            <Label Text="{x:Static resource:ResourceText.TITLE_YOUR_STATISTICS}" Style="{StaticResource LabelTitle}"/>
-            
-            <Label Text="{Binding Description}" FontSize="16" Margin="0,20,0,30"/>
+        <ScrollView Margin="0,0,0,30">
+            <StackLayout Style="{StaticResource MarginStyleDefault}">
+                <Label Text="{x:Static resource:ResourceText.TITLE_YOUR_STATISTICS}" Style="{StaticResource LabelTitle}"/>
 
-            <Label Text="{x:Static resource:ResourceText.TITLE_ABSTRACT}" Style="{StaticResource LabelBold}" FontSize="18" Margin="0,0,0,20"/>
-            
-            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10" Margin="0,0,0,20">
-                <Frame HasShadow="False" Padding="10, 15, 10, 10" Grid.Column="0" BackgroundColor="{Binding Source={x:Static enum:CategoryType.Productive}, Converter={StaticResource ColorCategoryTypeWithTransparency}}">
-                    <StackLayout>
-                        <Label Text="{Binding AnalyticModel.Productive.Time, Converter={StaticResource HourConverter}}" FontSize="18" Style="{StaticResource LabelExtraBold}"/>
-                        <Label Margin="0,-5,0,0" Text="{Binding AnalyticModel.Productive.AmountOfTasks, StringFormat={x:Static resource:ResourceText.TITLE_TOTAL_OF_TASKS}}" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
-                        <Label VerticalOptions="EndAndExpand" Text="{Binding Source={x:Static enum:CategoryType.Productive}, Converter={StaticResource CategoryTypeStringConverter}}" FontSize="12" Style="{StaticResource LabelSemiBold}"/>
-                    </StackLayout>
-                </Frame>
-                <Frame HasShadow="False" Padding="10, 15, 10, 10" Grid.Column="1" BackgroundColor="{Binding Source={x:Static enum:CategoryType.Neutral}, Converter={StaticResource ColorCategoryTypeWithTransparency}}">
-                    <StackLayout>
-                        <Label Text="{Binding AnalyticModel.Neutral.Time, Converter={StaticResource HourConverter}}" FontSize="18" Style="{StaticResource LabelExtraBold}"/>
-                        <Label Margin="0,-5,0,0" Text="{Binding AnalyticModel.Neutral.AmountOfTasks, StringFormat={x:Static resource:ResourceText.TITLE_TOTAL_OF_TASKS}}" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
-                        <Label VerticalOptions="EndAndExpand" Text="{Binding Source={x:Static enum:CategoryType.Neutral}, Converter={StaticResource CategoryTypeStringConverter}}" FontSize="12" Style="{StaticResource LabelSemiBold}"/>
-                    </StackLayout>
-                </Frame>
-                <Frame HasShadow="False" Padding="10, 15, 10, 10" Grid.Column="2" BackgroundColor="{Binding Source={x:Static enum:CategoryType.Unproductive}, Converter={StaticResource ColorCategoryTypeWithTransparency}}">
-                    <StackLayout>
-                        <Label Text="{Binding AnalyticModel.Unproductive.Time, Converter={StaticResource HourConverter}}" FontSize="18" Style="{StaticResource LabelExtraBold}"/>
-                        <Label Margin="0,-5,0,0" Text="{Binding AnalyticModel.Unproductive.AmountOfTasks, StringFormat={x:Static resource:ResourceText.TITLE_TOTAL_OF_TASKS}}" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
-                        <Label VerticalOptions="EndAndExpand" Text="{Binding Source={x:Static enum:CategoryType.Unproductive}, Converter={StaticResource CategoryTypeStringConverter}}" FontSize="12" Style="{StaticResource LabelSemiBold}"/>
-                    </StackLayout>
-                </Frame>
-            </Grid>
-            
-            <Line/>
+                <Label Text="{Binding Description}" FontSize="16" Margin="0,20,0,30"/>
 
-            <Label Text="{x:Static resource:ResourceText.TITLE_ACTIVITIES}" Style="{StaticResource LabelBold}" FontSize="18" Margin="0,30,0,20"/>
-        </StackLayout>
+                <Label Text="{x:Static resource:ResourceText.TITLE_ABSTRACT}" Style="{StaticResource LabelBold}" FontSize="18" Margin="0,0,0,20"/>
+
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10" Margin="0,0,0,20">
+                    <Frame HasShadow="False" Padding="10, 15, 10, 10" Grid.Column="0" BackgroundColor="{Binding Source={x:Static enum:CategoryType.Productive}, Converter={StaticResource ColorCategoryTypeWithTransparency}}">
+                        <StackLayout>
+                            <Label Text="{Binding AnalyticModel.Productive.Time, Converter={StaticResource HourConverter}}" FontSize="18" Style="{StaticResource LabelExtraBold}"/>
+                            <Label Margin="0,-5,0,0" Text="{Binding AnalyticModel.Productive.AmountOfTasks, StringFormat={x:Static resource:ResourceText.TITLE_TOTAL_OF_TASKS}}" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
+                            <Label VerticalOptions="EndAndExpand" Text="{Binding Source={x:Static enum:CategoryType.Productive}, Converter={StaticResource CategoryTypeStringConverter}}" FontSize="12" Style="{StaticResource LabelSemiBold}"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame HasShadow="False" Padding="10, 15, 10, 10" Grid.Column="1" BackgroundColor="{Binding Source={x:Static enum:CategoryType.Neutral}, Converter={StaticResource ColorCategoryTypeWithTransparency}}">
+                        <StackLayout>
+                            <Label Text="{Binding AnalyticModel.Neutral.Time, Converter={StaticResource HourConverter}}" FontSize="18" Style="{StaticResource LabelExtraBold}"/>
+                            <Label Margin="0,-5,0,0" Text="{Binding AnalyticModel.Neutral.AmountOfTasks, StringFormat={x:Static resource:ResourceText.TITLE_TOTAL_OF_TASKS}}" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
+                            <Label VerticalOptions="EndAndExpand" Text="{Binding Source={x:Static enum:CategoryType.Neutral}, Converter={StaticResource CategoryTypeStringConverter}}" FontSize="12" Style="{StaticResource LabelSemiBold}"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame HasShadow="False" Padding="10, 15, 10, 10" Grid.Column="2" BackgroundColor="{Binding Source={x:Static enum:CategoryType.Unproductive}, Converter={StaticResource ColorCategoryTypeWithTransparency}}">
+                        <StackLayout>
+                            <Label Text="{Binding AnalyticModel.Unproductive.Time, Converter={StaticResource HourConverter}}" FontSize="18" Style="{StaticResource LabelExtraBold}"/>
+                            <Label Margin="0,-5,0,0" Text="{Binding AnalyticModel.Unproductive.AmountOfTasks, StringFormat={x:Static resource:ResourceText.TITLE_TOTAL_OF_TASKS}}" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
+                            <Label VerticalOptions="EndAndExpand" Text="{Binding Source={x:Static enum:CategoryType.Unproductive}, Converter={StaticResource CategoryTypeStringConverter}}" FontSize="12" Style="{StaticResource LabelSemiBold}"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+
+                <Line Margin="0,20,0,30"/>
+
+                <Label Text="{x:Static resource:ResourceText.TITLE_ACTIVITIES}" Style="{StaticResource LabelBold}" FontSize="18"/>
+
+                <StackLayout BindableLayout.ItemsSource="{Binding AnalyticModel.Activities}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <template:ActivitiesStatisticsTemplate Activity="{Binding .}" Margin="0,20,0,0"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

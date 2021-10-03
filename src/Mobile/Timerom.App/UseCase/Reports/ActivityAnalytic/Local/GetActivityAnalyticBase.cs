@@ -37,6 +37,7 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
 
             return new Category
             {
+                Id = model.Id,
                 Name = model.Name,
                 Type = model.Type
             };
