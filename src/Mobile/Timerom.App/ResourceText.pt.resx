@@ -479,6 +479,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_YOUR_ARE_SEEING_WHICH_CATEGORIES_MAKE_UP_THE_RESULT" xml:space="preserve">
     <value>Você está vendo quais categorias compõem o resultado para o dia: {0}.</value>
   </data>
+  <data name="TITLE_YOUR_ARE_SEEING_WHICH_SUBCATEGORIES_MAKE_UP_THE_RESULT" xml:space="preserve">
+    <value>Você está vendo quais subcategorias de {0} compõem o resultado para o dia: {1}.</value>
+  </data>
   <data name="TITLE_YOUR_DESCRIPTION" xml:space="preserve">
     <value>Sua descrição</value>
   </data>

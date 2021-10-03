@@ -33,13 +33,20 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
 
         private async Task<Category> GetCategory(CategoryDatabase categoryDatabase, long categoryId)
         {
-            var model = await categoryDatabase.GetById(categoryId);
+            var subcategoryModel = await categoryDatabase.GetById(categoryId);
+            var categoryModel = await categoryDatabase.GetById(subcategoryModel.ParentCategoryId.Value);
 
             return new Category
             {
-                Id = model.Id,
-                Name = model.Name,
-                Type = model.Type
+                Id = subcategoryModel.Id,
+                Name = subcategoryModel.Name,
+                Type = subcategoryModel.Type,
+                Parent = new Category
+                {
+                    Id = categoryModel.Id,
+                    Name = categoryModel.Name,
+                    Type = categoryModel.Type
+                }
             };
         }
     }

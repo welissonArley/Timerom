@@ -107,6 +107,7 @@ namespace Timerom.App
             containerRegistry.RegisterScoped<IGetActivityAnalyticTotalUseCase, UseCase.Reports.ActivityAnalytic.Local.GetActivityAnalyticTotalUseCase>();
             containerRegistry.RegisterScoped<IGetChartActivityAnalyticUseCase, UseCase.Reports.ActivityAnalytic.Local.GetChartActivityAnalyticUseCase>();
             containerRegistry.RegisterScoped<IActivityAnalyticDetailsUseCase, UseCase.Reports.ActivityAnalytic.Local.ActivityAnalyticDetailsUseCase>();
+            containerRegistry.RegisterScoped<IActivityAnalyticDetailsSubCategoryUseCase, UseCase.Reports.ActivityAnalytic.Local.ActivityAnalyticDetailsSubCategoryUseCase>();
         }
     }
 }

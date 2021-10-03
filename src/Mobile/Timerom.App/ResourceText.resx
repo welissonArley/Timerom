@@ -479,6 +479,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_YOUR_ARE_SEEING_WHICH_CATEGORIES_MAKE_UP_THE_RESULT" xml:space="preserve">
     <value>You are seeing which categories make up the result for the: {0}.</value>
   </data>
+  <data name="TITLE_YOUR_ARE_SEEING_WHICH_SUBCATEGORIES_MAKE_UP_THE_RESULT" xml:space="preserve">
+    <value>You are seeing which subcategories from {0} make up the result for the {1}.</value>
+  </data>
   <data name="TITLE_YOUR_DESCRIPTION" xml:space="preserve">
     <value>Your description</value>
   </data>

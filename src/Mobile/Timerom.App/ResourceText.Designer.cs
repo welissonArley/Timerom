@@ -1170,6 +1170,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You are seeing which subcategories from {0} make up the result for the {1}..
+        /// </summary>
+        public static string TITLE_YOUR_ARE_SEEING_WHICH_SUBCATEGORIES_MAKE_UP_THE_RESULT {
+            get {
+                return ResourceManager.GetString("TITLE_YOUR_ARE_SEEING_WHICH_SUBCATEGORIES_MAKE_UP_THE_RESULT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your description.
         /// </summary>
         public static string TITLE_YOUR_DESCRIPTION {

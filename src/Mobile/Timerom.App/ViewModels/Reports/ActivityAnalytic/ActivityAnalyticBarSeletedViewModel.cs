@@ -1,5 +1,6 @@
 ﻿using Prism.Navigation;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
@@ -34,7 +35,7 @@ namespace Timerom.App.ViewModels.Reports.ActivityAnalytic
             var navParameters = new NavigationParameters
             {
                 { "Date", _date },
-                { "CategoryId", categoryId }
+                { "ActivitiesAnalytic", AnalyticModel.Activities.First(c => c.Id == categoryId) }
             };
 
             await _navigationService.NavigateAsync(nameof(ActivityAnalyticBarSeletedCategoryPage), navParameters);
