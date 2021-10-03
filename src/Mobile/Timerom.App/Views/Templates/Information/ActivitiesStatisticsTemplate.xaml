@@ -13,7 +13,7 @@
                 <Ellipse x:Name="Ellipse" Grid.Column="0" Grid.Row="0" StrokeThickness="2" HeightRequest="40" WidthRequest="40"/>
                 <Label x:Name="LabelIndex" FontSize="9" Style="{StaticResource LabelBold}" Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
             </Grid>
-            <StackLayout Margin="10,0,0,0" Spacing="-4">
+            <StackLayout Margin="10,0,0,0" Spacing="-4" VerticalOptions="CenterAndExpand">
                 <Label x:Name="LabelName" FontSize="20" Style="{StaticResource LabelBold}"/>
                 <Label x:Name="LabelTime" FontSize="16" Style="{StaticResource LabelLight}"/>
             </StackLayout>

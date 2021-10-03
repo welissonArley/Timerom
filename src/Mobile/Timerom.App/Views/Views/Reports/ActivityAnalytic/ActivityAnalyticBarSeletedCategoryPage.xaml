@@ -17,7 +17,7 @@
             <CollectionView ItemsSource="{Binding Activities}" Margin="0,20,0,0">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <template:ActivitiesStatisticsTemplate Activity="{Binding .}"/>
+                        <template:ActivitiesStatisticsTemplate Activity="{Binding .}" Margin="0,20,0,0"/>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
