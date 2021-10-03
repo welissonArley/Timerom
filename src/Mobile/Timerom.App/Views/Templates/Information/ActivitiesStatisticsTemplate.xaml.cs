@@ -1,6 +1,8 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using Timerom.App.Converter;
 using Timerom.App.Model;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,6 +24,30 @@ namespace Timerom.App.Views.Templates.Information
                                                         defaultBindingMode: BindingMode.TwoWay,
                                                         propertyChanged: ActivityChanged);
 
+        public IAsyncCommand<long> ItemSelectedCommand
+        {
+            get => (IAsyncCommand<long>)GetValue(ItemSelectedCommandProperty);
+            set => SetValue(ItemSelectedCommandProperty, value);
+        }
+        public static readonly BindableProperty ItemSelectedCommandProperty = BindableProperty.Create(
+                                                        propertyName: "ItemSelectedCommand",
+                                                        returnType: typeof(IAsyncCommand<long>),
+                                                        declaringType: typeof(ActivitiesStatisticsTemplate),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: ItemSelectedCommandChanged);
+
+        private static void ItemSelectedCommandChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var command = (IAsyncCommand<long>)(newValue ?? oldValue);
+
+            if (command == null)
+                return;
+
+            var component = (ActivitiesStatisticsTemplate)bindable;
+            component.IconArrow.IsVisible = true;
+        }
+
         private static void ActivityChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var activity = (ActivitiesAnalyticModel)(newValue ?? oldValue);
@@ -41,6 +67,11 @@ namespace Timerom.App.Views.Templates.Information
         public ActivitiesStatisticsTemplate()
         {
             InitializeComponent();
+        }
+
+        private void Item_Tapped(object sender, EventArgs e)
+        {
+            ItemSelectedCommand?.Execute(Activity.Id);
         }
     }
 }

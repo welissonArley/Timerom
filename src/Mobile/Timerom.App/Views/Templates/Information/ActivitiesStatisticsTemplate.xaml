@@ -6,6 +6,9 @@
              x:Class="Timerom.App.Views.Templates.Information.ActivitiesStatisticsTemplate">
     <ContentView.Content>
         <StackLayout Orientation="Horizontal">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Item_Tapped"/>
+            </StackLayout.GestureRecognizers>
             <Grid ColumnDefinitions="41" RowDefinitions="41" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
                 <Ellipse x:Name="Ellipse" Grid.Column="0" Grid.Row="0" StrokeThickness="2" HeightRequest="40" WidthRequest="40"/>
                 <Label x:Name="LabelIndex" FontSize="9" Style="{StaticResource LabelBold}" Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
