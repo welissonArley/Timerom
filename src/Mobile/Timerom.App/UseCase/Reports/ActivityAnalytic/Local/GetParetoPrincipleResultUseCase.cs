@@ -28,7 +28,7 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
 
             var tasksPerCategory = await TasksPerCategory(totalTime, userTasks);
 
-            ApplyParetoPrinciple(totalTime, tasksPerCategory);
+            ApplyParetoPrinciple(tasksPerCategory);
 
             return new ParetoPrincipleModel
             {
@@ -76,7 +76,7 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             return result.OrderByDescending(c => c.Time).ToList();
         }
 
-        private void ApplyParetoPrinciple(int totalTimeForAllTasks, List<RankingParetoPrincipleModel> tasks)
+        private void ApplyParetoPrinciple(List<RankingParetoPrincipleModel> tasks)
         {
             var index = 1;
             double accumulatedPercentage = 0.0;
@@ -89,12 +89,19 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
                 task.AccumulatedPercentage = accumulatedPercentage;
             }
 
-            var firstTaskGet80Percent = tasks.First(c => c.Percentage >= 80.0);
+            var firstTaskGet80Percent = tasks.First(c => c.AccumulatedPercentage >= 80.0);
             for(index = 0; index <= tasks.IndexOf(firstTaskGet80Percent); index++)
             {
                 var task = tasks.ElementAt(index);
                 task.IsPartOf80Percent = true;
             }
+
+            /*
+             This is used just to make the sum of Percentage and the accumulated percentage equals to 100%
+             */
+            var lastTask = tasks.Last();
+            lastTask.Percentage += 100.0 - accumulatedPercentage;
+            lastTask.AccumulatedPercentage = 100.0;
         }
     }
 }
