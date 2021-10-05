@@ -18,6 +18,7 @@ namespace Timerom.App.ViewModels.Reports.ParetoPrinciple
 
         public IAsyncCommand<SelectDateParetoPrincipleOptions> OptionCommand { get; private set; }
         public IAsyncCommand ExecuteCommand { get; private set; }
+        public IAsyncCommand WhatIsParetoPrincipleCommand { get; private set; }
 
         public ChooseDatesParetoPrincipleViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
         {
@@ -27,6 +28,7 @@ namespace Timerom.App.ViewModels.Reports.ParetoPrinciple
 
             OptionCommand = new AsyncCommand<SelectDateParetoPrincipleOptions>(OptionCommandExecuted, allowsMultipleExecutions: false);
             ExecuteCommand = new AsyncCommand(ExecuteCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
+            WhatIsParetoPrincipleCommand = new AsyncCommand(WhatIsParetoPrincipleCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
         }
 
         private Task OptionCommandExecuted(SelectDateParetoPrincipleOptions option)
@@ -45,6 +47,10 @@ namespace Timerom.App.ViewModels.Reports.ParetoPrinciple
             return Task.CompletedTask;
         }
 
+        private async Task WhatIsParetoPrincipleCommandExecuted()
+        {
+            await _navigationService.NavigateAsync(nameof(WhatIsParetoPrinciplePage));
+        }
         private async Task ExecuteCommandExecuted()
         {
             var navParameters = new NavigationParameters

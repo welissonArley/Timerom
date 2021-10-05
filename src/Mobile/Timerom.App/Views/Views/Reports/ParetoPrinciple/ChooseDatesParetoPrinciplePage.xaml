@@ -208,6 +208,9 @@
             </Frame>
 
             <StackLayout HeightRequest="25" VerticalOptions="EndAndExpand">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding WhatIsParetoPrincipleCommand}"/>
+                </StackLayout.GestureRecognizers>
                 <Label Text="{x:Static resource:ResourceText.TITLE_WHAT_IS_PARETO_PRINCIPLE}" TextDecorations="Underline" Style="{StaticResource LabelBold}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
             </StackLayout>
 
