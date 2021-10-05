@@ -81,6 +81,7 @@ namespace Timerom.App
             containerRegistry.RegisterForNavigation<ActivityAnalyticBarSeletedPage, ActivityAnalyticBarSeletedViewModel>();
             containerRegistry.RegisterForNavigation<ActivityAnalyticBarSeletedCategoryPage, ActivityAnalyticBarSeletedCategoryViewModel>();
             containerRegistry.RegisterForNavigation<ParetoPrincipleResultPage, ParetoPrincipleResultViewModel>();
+            containerRegistry.RegisterForNavigation<ChooseDatesParetoPrinciplePage, ChooseDatesParetoPrincipleViewModel>();
         }
         private void RegisterModals(IContainerRegistry containerRegistry)
         {

@@ -59,7 +59,7 @@ namespace Timerom.App.ViewModels.Dashboard
                     break;
                 case MenuItemOptions.ParetoPrinciple:
                     {
-                        await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(ParetoPrincipleResultPage)}", UriKind.Absolute));
+                        await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(ChooseDatesParetoPrinciplePage)}", UriKind.Absolute));
                     }
                     break;
                 case MenuItemOptions.PrivacyPolicy:
