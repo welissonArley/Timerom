@@ -32,15 +32,15 @@
                     </StackLayout>
                 </Grid>
 
-                <Grid ColumnDefinitions="60" RowDefinitions="28, *" HorizontalOptions="EndAndExpand">
-                    <BoxView Grid.Column="0" Grid.Row="0" CornerRadius="0,10,10,0" Color="{AppThemeBinding Light=#D43900, Dark=#FF6347}" HeightRequest="28" WidthRequest="60"/>
+                <Grid ColumnDefinitions="70" RowDefinitions="28, *" HorizontalOptions="EndAndExpand">
+                    <BoxView Grid.Column="0" Grid.Row="0" CornerRadius="0,10,10,0" Color="{AppThemeBinding Light=#D43900, Dark=#FF6347}" HeightRequest="28" WidthRequest="70"/>
                     <StackLayout Spacing="2" Grid.Row="0" Orientation="Horizontal" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                         <ffimageloadingsvg:SvgCachedImage x:Name="IllustrationPartOf80Percent" VerticalOptions="CenterAndExpand" WidthRequest="16" HeightRequest="16" Source="resource://Timerom.App.Resources.Svgs.IconFire.svg">
                             <ffimageloadingsvg:SvgCachedImage.Transformations>
                                 <appTransformation:SvgColorTransformationLightModeDarkModeDefaultInverted/>
                             </ffimageloadingsvg:SvgCachedImage.Transformations>
                         </ffimageloadingsvg:SvgCachedImage>
-                        <Label x:Name="LabelAccumulatedPercentage" Style="{StaticResource LabelBold}" FontSize="12" TextColor="{AppThemeBinding Light=White, Dark=Black}"/>
+                        <Label x:Name="LabelAccumulatedPercentage" Style="{StaticResource LabelBold}" FontSize="11" TextColor="{AppThemeBinding Light=White, Dark=Black}"/>
                     </StackLayout>
 
                     <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Grid.Row="1" HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest="18" HeightRequest="18" Source="resource://Timerom.App.Resources.Svgs.IconArrow.svg">
