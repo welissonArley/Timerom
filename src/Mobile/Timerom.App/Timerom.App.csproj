@@ -225,6 +225,9 @@
     <EmbeddedResource Update="Views\Views\Reports\ActivityAnalytic\ActivityAnalyticPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Reports\ParetoPrinciple\ParetoPrincipleResultPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Views\Reports\ParetoPrinciple\WhatIsParetoPrinciplePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

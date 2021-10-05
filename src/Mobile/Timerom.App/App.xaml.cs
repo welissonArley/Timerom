@@ -11,6 +11,7 @@ using Timerom.App.ViewModels.Home;
 using Timerom.App.ViewModels.Modal;
 using Timerom.App.ViewModels.Modal.MenuOptions;
 using Timerom.App.ViewModels.Reports.ActivityAnalytic;
+using Timerom.App.ViewModels.Reports.ParetoPrinciple;
 using Timerom.App.ViewModels.Tasks;
 using Timerom.App.Views.Modal;
 using Timerom.App.Views.Modal.MenuOptions;
@@ -79,6 +80,7 @@ namespace Timerom.App
             containerRegistry.RegisterForNavigation<WhatIsParetoPrinciplePage>();
             containerRegistry.RegisterForNavigation<ActivityAnalyticBarSeletedPage, ActivityAnalyticBarSeletedViewModel>();
             containerRegistry.RegisterForNavigation<ActivityAnalyticBarSeletedCategoryPage, ActivityAnalyticBarSeletedCategoryViewModel>();
+            containerRegistry.RegisterForNavigation<ParetoPrincipleResultPage, ParetoPrincipleResultViewModel>();
         }
         private void RegisterModals(IContainerRegistry containerRegistry)
         {
