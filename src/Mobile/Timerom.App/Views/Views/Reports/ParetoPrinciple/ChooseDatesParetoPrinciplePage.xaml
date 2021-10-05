@@ -211,7 +211,7 @@
                 <Label Text="{x:Static resource:ResourceText.TITLE_WHAT_IS_PARETO_PRINCIPLE}" TextDecorations="Underline" Style="{StaticResource LabelBold}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
             </StackLayout>
 
-            <Button Text="{x:Static resource:ResourceText.TITLE_CONTINUE}"/>
+            <Button Text="{x:Static resource:ResourceText.TITLE_CONTINUE}" Command="{Binding ExecuteCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,7 +1,9 @@
 ﻿using Prism.Navigation;
 using System;
 using System.Threading.Tasks;
+using Timerom.App.ValueObjects.Dto;
 using Timerom.App.ValueObjects.Enuns;
+using Timerom.App.Views.Views.Reports.ParetoPrinciple;
 using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Reports.ParetoPrinciple
@@ -15,6 +17,7 @@ namespace Timerom.App.ViewModels.Reports.ParetoPrinciple
         public SelectDateParetoPrincipleOptions Option { get; set; }
 
         public IAsyncCommand<SelectDateParetoPrincipleOptions> OptionCommand { get; private set; }
+        public IAsyncCommand ExecuteCommand { get; private set; }
 
         public ChooseDatesParetoPrincipleViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
         {
@@ -23,6 +26,7 @@ namespace Timerom.App.ViewModels.Reports.ParetoPrinciple
             EndsAt = DateTime.Today;
 
             OptionCommand = new AsyncCommand<SelectDateParetoPrincipleOptions>(OptionCommandExecuted, allowsMultipleExecutions: false);
+            ExecuteCommand = new AsyncCommand(ExecuteCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
         }
 
         private Task OptionCommandExecuted(SelectDateParetoPrincipleOptions option)
@@ -39,6 +43,17 @@ namespace Timerom.App.ViewModels.Reports.ParetoPrinciple
             RaisePropertyChanged("Option");
             
             return Task.CompletedTask;
+        }
+
+        private async Task ExecuteCommandExecuted()
+        {
+            var navParameters = new NavigationParameters
+            {
+                { "Period", $"{StartsAt.ToShortDateString()} - {EndsAt.ToShortDateString()}" },
+                { "Filter", new ParetoPrincipleFilter { StartsAt = StartsAt, EndsAt = EndsAt } }
+            };
+
+            await _navigationService.NavigateAsync(nameof(ParetoPrincipleResultPage), navParameters);
         }
 
         private void UpdateDates()
