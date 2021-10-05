@@ -342,6 +342,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose your option.
+        /// </summary>
+        public static string TITLE_CHOOSE_YOUR_OPTION {
+            get {
+                return ResourceManager.GetString("TITLE_CHOOSE_YOUR_OPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Click here to fill the task title.
         /// </summary>
         public static string TITLE_CLICK_HERE_FILL_TASK_TITLE {
@@ -365,6 +374,15 @@ namespace Timerom.App {
         public static string TITLE_CONTACT_US {
             get {
                 return ResourceManager.GetString("TITLE_CONTACT_US", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue.
+        /// </summary>
+        public static string TITLE_CONTINUE {
+            get {
+                return ResourceManager.GetString("TITLE_CONTINUE", resourceCulture);
             }
         }
         
@@ -401,6 +419,15 @@ namespace Timerom.App {
         public static string TITLE_CREATE_TASK {
             get {
                 return ResourceManager.GetString("TITLE_CREATE_TASK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom dates.
+        /// </summary>
+        public static string TITLE_CUSTOM_DATES {
+            get {
+                return ResourceManager.GetString("TITLE_CUSTOM_DATES", resourceCulture);
             }
         }
         
@@ -653,6 +680,24 @@ namespace Timerom.App {
         public static string TITLE_ITEM_4_BENEFITS {
             get {
                 return ResourceManager.GetString("TITLE_ITEM_4_BENEFITS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to last days.
+        /// </summary>
+        public static string TITLE_LAST_DAYS {
+            get {
+                return ResourceManager.GetString("TITLE_LAST_DAYS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last month.
+        /// </summary>
+        public static string TITLE_LAST_MONTH {
+            get {
+                return ResourceManager.GetString("TITLE_LAST_MONTH", resourceCulture);
             }
         }
         
@@ -1026,6 +1071,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This month.
+        /// </summary>
+        public static string TITLE_THIS_MONTH {
+            get {
+                return ResourceManager.GetString("TITLE_THIS_MONTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total.
         /// </summary>
         public static string TITLE_TOTAL {
@@ -1148,6 +1202,15 @@ namespace Timerom.App {
         public static string TITLE_WALKING {
             get {
                 return ResourceManager.GetString("TITLE_WALKING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is Pareto Principle?.
+        /// </summary>
+        public static string TITLE_WHAT_IS_PARETO_PRINCIPLE {
+            get {
+                return ResourceManager.GetString("TITLE_WHAT_IS_PARETO_PRINCIPLE", resourceCulture);
             }
         }
         

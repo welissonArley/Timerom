@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Timerom.App.Views.Views.Reports.ParetoPrinciple
@@ -9,6 +10,8 @@ namespace Timerom.App.Views.Views.Reports.ParetoPrinciple
         public ChooseDatesParetoPrinciplePage()
         {
             InitializeComponent();
+
+            LabelLastMonth.Text = DateTime.Today.AddMonths(-1).ToString("MMMM");
         }
     }
 }

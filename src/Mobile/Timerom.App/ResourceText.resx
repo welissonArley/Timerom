@@ -212,6 +212,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_CHOOSE_AN_OPTION" xml:space="preserve">
     <value>Choose an option</value>
   </data>
+  <data name="TITLE_CHOOSE_YOUR_OPTION" xml:space="preserve">
+    <value>Choose your option</value>
+  </data>
   <data name="TITLE_CLICK_HERE_FILL_TASK_TITLE" xml:space="preserve">
     <value>Click here to fill the task title</value>
   </data>
@@ -220,6 +223,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_CONTACT_US" xml:space="preserve">
     <value>Contact Us</value>
+  </data>
+  <data name="TITLE_CONTINUE" xml:space="preserve">
+    <value>Continue</value>
   </data>
   <data name="TITLE_COURSES" xml:space="preserve">
     <value>Courses</value>
@@ -232,6 +238,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_CREATE_TASK" xml:space="preserve">
     <value>Create task</value>
+  </data>
+  <data name="TITLE_CUSTOM_DATES" xml:space="preserve">
+    <value>Custom dates</value>
   </data>
   <data name="TITLE_DASHBOARD" xml:space="preserve">
     <value>Dashboard</value>
@@ -316,6 +325,12 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_IT_IS_PART_80_PERCENT" xml:space="preserve">
     <value>It is part of the 80%</value>
+  </data>
+  <data name="TITLE_LAST_DAYS" xml:space="preserve">
+    <value>last days</value>
+  </data>
+  <data name="TITLE_LAST_MONTH" xml:space="preserve">
+    <value>Last month</value>
   </data>
   <data name="TITLE_LUNCH" xml:space="preserve">
     <value>Lunch</value>
@@ -440,6 +455,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_THIS_IS_RESULTING_IN" xml:space="preserve">
     <value>This is resulting in:</value>
   </data>
+  <data name="TITLE_THIS_MONTH" xml:space="preserve">
+    <value>This month</value>
+  </data>
   <data name="TITLE_TOTAL" xml:space="preserve">
     <value>Total</value>
   </data>
@@ -481,6 +499,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_WALKING" xml:space="preserve">
     <value>Walking</value>
+  </data>
+  <data name="TITLE_WHAT_IS_PARETO_PRINCIPLE" xml:space="preserve">
+    <value>What is Pareto Principle?</value>
   </data>
   <data name="TITLE_WINNING_CATEGORIES" xml:space="preserve">
     <value>Winning categories</value>
