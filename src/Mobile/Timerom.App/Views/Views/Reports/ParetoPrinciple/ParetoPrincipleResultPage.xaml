@@ -50,10 +50,10 @@
 
             <Label Text="{x:Static resource:ResourceText.TITLE_RANKING}" Style="{StaticResource LabelBold}" FontSize="18" Margin="0,30,0,30"/>
 
-            <CollectionView>
+            <CollectionView ItemsSource="{Binding Model.Ranking}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <template:ItemParetoPrincipleResultTemplate Margin="0,20,0,0"/>
+                        <template:ItemParetoPrincipleResultTemplate Ranking="{Binding .}" Margin="0,20,0,0"/>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
