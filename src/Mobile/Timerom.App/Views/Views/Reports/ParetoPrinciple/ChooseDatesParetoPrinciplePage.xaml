@@ -6,41 +6,161 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             xmlns:enum="clr-namespace:Timerom.App.ValueObjects.Enuns"
              x:Class="Timerom.App.Views.Views.Reports.ParetoPrinciple.ChooseDatesParetoPrinciplePage">
     <ContentPage.Content>
         <StackLayout Style="{StaticResource MarginStyleDefault}">
             <Label Text="{x:Static resource:ResourceText.TITLE_CHOOSE_YOUR_OPTION}" Style="{StaticResource LabelTitle}"/>
 
             <Grid ColumnDefinitions="*,*" RowDefinitions="115,115" Margin="0,30,0,20" RowSpacing="10" ColumnSpacing="15">
-                <Rectangle Grid.Row="0" Grid.Column="0" Stroke="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}" StrokeThickness="2" VerticalOptions="FillAndExpand"/>
-                <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_LAST_MONTH}" Style="{StaticResource LabelExtraBold}" FontSize="20"/>
-                    <Label x:Name="LabelLastMonth" HorizontalOptions="CenterAndExpand" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
+                <Rectangle Grid.Row="0" Grid.Column="0" StrokeThickness="2" VerticalOptions="FillAndExpand">
+                    <Rectangle.Triggers>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.LastMonth}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                            <Setter Property="StrokeThickness" Value="5"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.ThisMonth}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.Last7Days}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.Last7Days}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.Last15Days}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.CustomDates}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                    </Rectangle.Triggers>
+                </Rectangle>
+                <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OptionCommand}" CommandParameter="{x:Static enum:SelectDateParetoPrincipleOptions.LastMonth}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_LAST_MONTH}" Style="{StaticResource LabelExtraBold}" FontSize="20"/>
+                        <Label x:Name="LabelLastMonth" HorizontalOptions="CenterAndExpand" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
+                    </StackLayout>
                 </StackLayout>
 
-                <Rectangle Grid.Row="0" Grid.Column="1" Stroke="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}" StrokeThickness="2" VerticalOptions="FillAndExpand"/>
-                <StackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_THIS_MONTH}" Style="{StaticResource LabelExtraBold}" FontSize="20"/>
-                    <Label HorizontalOptions="CenterAndExpand" Text="{Binding Source={x:Static sys:DateTime.Today}, StringFormat='{0:MMMM}'}" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
+                <Rectangle Grid.Row="0" Grid.Column="1" Stroke="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}" StrokeThickness="2" VerticalOptions="FillAndExpand">
+                    <Rectangle.Triggers>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.ThisMonth}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                            <Setter Property="StrokeThickness" Value="5"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.Last7Days}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.LastMonth}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.Last15Days}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.CustomDates}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                    </Rectangle.Triggers>
+                </Rectangle>
+                <StackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OptionCommand}" CommandParameter="{x:Static enum:SelectDateParetoPrincipleOptions.ThisMonth}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_THIS_MONTH}" Style="{StaticResource LabelExtraBold}" FontSize="20"/>
+                        <Label HorizontalOptions="CenterAndExpand" Text="{Binding Source={x:Static sys:DateTime.Today}, StringFormat='{0:MMMM}'}" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
+                    </StackLayout>
                 </StackLayout>
 
-                <Rectangle Grid.Row="1" Grid.Column="0" Stroke="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}" StrokeThickness="2" VerticalOptions="FillAndExpand"/>
-                <StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <Label HorizontalOptions="CenterAndExpand" Text="7" Style="{StaticResource LabelExtraBold}" FontSize="20"/>
-                    <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_LAST_DAYS}" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
+                <Rectangle Grid.Row="1" Grid.Column="0" Stroke="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}" StrokeThickness="2" VerticalOptions="FillAndExpand">
+                    <Rectangle.Triggers>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.Last7Days}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                            <Setter Property="StrokeThickness" Value="5"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.LastMonth}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.ThisMonth}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.Last15Days}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.CustomDates}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                    </Rectangle.Triggers>
+                </Rectangle>
+                <StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OptionCommand}" CommandParameter="{x:Static enum:SelectDateParetoPrincipleOptions.Last7Days}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label HorizontalOptions="CenterAndExpand" Text="7" Style="{StaticResource LabelExtraBold}" FontSize="20"/>
+                        <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_LAST_DAYS}" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
+                    </StackLayout>
                 </StackLayout>
 
-                <Rectangle Grid.Row="1" Grid.Column="1" Stroke="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}" StrokeThickness="2" VerticalOptions="FillAndExpand"/>
-                <StackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <Label HorizontalOptions="CenterAndExpand" Text="15" Style="{StaticResource LabelExtraBold}" FontSize="20"/>
-                    <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_LAST_DAYS}" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
+                <Rectangle Grid.Row="1" Grid.Column="1" Stroke="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}" StrokeThickness="2" VerticalOptions="FillAndExpand">
+                    <Rectangle.Triggers>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.Last15Days}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                            <Setter Property="StrokeThickness" Value="5"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.LastMonth}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.ThisMonth}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.Last7Days}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Rectangle" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.CustomDates}">
+                            <Setter Property="Stroke" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                        </DataTrigger>
+                    </Rectangle.Triggers>
+                </Rectangle>
+                <StackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OptionCommand}" CommandParameter="{x:Static enum:SelectDateParetoPrincipleOptions.Last15Days}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label HorizontalOptions="CenterAndExpand" Text="15" Style="{StaticResource LabelExtraBold}" FontSize="20"/>
+                        <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_LAST_DAYS}" FontSize="12" Style="{StaticResource LabelExtraLight}"/>
+                    </StackLayout>
                 </StackLayout>
             </Grid>
 
             <Frame CornerRadius="0" HasShadow="False" Padding="15" BorderColor="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}">
-                <xct:Expander IsExpanded="False">
+                <Frame.Triggers>
+                    <DataTrigger TargetType="Frame" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.CustomDates}">
+                        <Setter Property="BorderColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Frame" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.LastMonth}">
+                        <Setter Property="BorderColor" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Frame" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.ThisMonth}">
+                        <Setter Property="BorderColor" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Frame" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.Last15Days}">
+                        <Setter Property="BorderColor" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Frame" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.Last7Days}">
+                        <Setter Property="BorderColor" Value="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}"/>
+                    </DataTrigger>
+                </Frame.Triggers>
+                <xct:Expander IsExpanded="{Binding CustomDateIsExpanded}">
                     <xct:Expander.Header>
                         <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OptionCommand}" CommandParameter="{x:Static enum:SelectDateParetoPrincipleOptions.CustomDates}"/>
+                            </StackLayout.GestureRecognizers>
                             <ffimageloadingsvg:SvgCachedImage WidthRequest="25" HeightRequest="25" Source="resource://Timerom.App.Resources.Svgs.IconCalendar.svg">
                                 <ffimageloadingsvg:SvgCachedImage.Transformations>
                                     <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
@@ -69,7 +189,7 @@
                                             <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
                                         </ffimageloadingsvg:SvgCachedImage.Transformations>
                                     </ffimageloadingsvg:SvgCachedImage>
-                                    <DatePicker HorizontalOptions="FillAndExpand" MaximumDate="{Binding Source={x:Static sys:DateTime.Today}}" Date="{Binding Source={x:Static sys:DateTime.Today}}" Format="dddd, d MMMM yyyy"/>
+                                    <DatePicker HorizontalOptions="FillAndExpand" MaximumDate="{Binding EndsAt}" Date="{Binding StartsAt}" Format="dddd, d MMMM yyyy"/>
                                 </StackLayout>
 
                                 <Label Margin="0,10,0,0" Text="{x:Static resource:ResourceText.TITLE_ENDS_TWO_POINTS}" FontSize="12" Style="{StaticResource LabelLight}"/>
@@ -79,7 +199,7 @@
                                             <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
                                         </ffimageloadingsvg:SvgCachedImage.Transformations>
                                     </ffimageloadingsvg:SvgCachedImage>
-                                    <DatePicker HorizontalOptions="FillAndExpand" MaximumDate="{Binding Source={x:Static sys:DateTime.Today}}" Date="{Binding Source={x:Static sys:DateTime.Today}}" Format="dddd, d MMMM yyyy"/>
+                                    <DatePicker HorizontalOptions="FillAndExpand" MaximumDate="{Binding Source={x:Static sys:DateTime.Today}}" Date="{Binding EndsAt}" Format="dddd, d MMMM yyyy"/>
                                 </StackLayout>
                             </StackLayout>
                         </DataTemplate>
