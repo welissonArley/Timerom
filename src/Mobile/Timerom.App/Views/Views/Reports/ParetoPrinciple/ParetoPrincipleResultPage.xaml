@@ -9,17 +9,17 @@
     <ContentPage.Content>
         <StackLayout Style="{StaticResource MarginStyleDefault}">
             <Label Text="{x:Static resource:ResourceText.TITLE_PARETO_PRINCIPLE}" Style="{StaticResource LabelTitle}"/>
-            <Label Text="09/01/21 - 09/30/21" FontSize="16" Margin="0,0,0,30" Style="{StaticResource LabelLight}"/>
+            <Label Text="{Binding Period}" FontSize="16" Margin="0,0,0,30" Style="{StaticResource LabelLight}"/>
 
             <StackLayout Orientation="Horizontal">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
                     <Grid ColumnDefinitions="*" RowDefinitions="93" Margin="0,0,0,20">
                         <Ellipse Grid.Column="0" HeightRequest="93" WidthRequest="93" Fill="{AppThemeBinding Light=Black, Dark=White}" VerticalOptions="End"/>
-                        <Label Text="82%" Grid.Column="0" Style="{StaticResource LabelBold}" FontSize="12" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="{AppThemeBinding Light=White, Dark=Black}"/>
+                        <Label Text="{Binding Model.PercentageResult, StringFormat='{}{0}%'}" Grid.Column="0" Style="{StaticResource LabelBold}" FontSize="12" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="{AppThemeBinding Light=White, Dark=Black}"/>
                     </Grid>
                     <Grid ColumnDefinitions="*" RowDefinitions="66" Margin="-30,0,0,0" VerticalOptions="End">
                         <Ellipse Grid.Column="0" HeightRequest="66" WidthRequest="66" Fill="{AppThemeBinding Light=#913D88, Dark=#BF55EC}" VerticalOptions="End"/>
-                        <Label Text="34%" Grid.Column="0" Style="{StaticResource LabelBold}" FontSize="12" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="{AppThemeBinding Light=White, Dark=Black}"/>
+                        <Label Text="{Binding Model.PercentageCause, StringFormat='{}{0}%'}" Grid.Column="0" Style="{StaticResource LabelBold}" FontSize="12" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="{AppThemeBinding Light=White, Dark=Black}"/>
                     </Grid>
                     <Ellipse Margin="-35,22,0,0" HeightRequest="10" WidthRequest="10" Fill="{AppThemeBinding Light=#913D88, Dark=#BF55EC}" HorizontalOptions="End" VerticalOptions="Start"/>
                     <Ellipse Margin="-70,0,0,0" HeightRequest="10" WidthRequest="10" Fill="{AppThemeBinding Light=Black, Dark=White}" HorizontalOptions="End" VerticalOptions="End"/>
