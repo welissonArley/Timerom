@@ -28,6 +28,7 @@
     <None Remove="Resources\Svgs\IconClock.svg" />
     <None Remove="Resources\Svgs\IconDashboard.svg" />
     <None Remove="Resources\Svgs\IconEdit.svg" />
+    <None Remove="Resources\Svgs\IconFire.svg" />
     <None Remove="Resources\Svgs\IconFunnel.svg" />
     <None Remove="Resources\Svgs\IconIconsAndIllustrations.svg" />
     <None Remove="Resources\Svgs\IconIllustrationParetoPrinciple.svg" />
@@ -58,6 +59,7 @@
     <EmbeddedResource Include="Resources\Svgs\IconClock.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconDashboard.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconEdit.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconFire.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconFunnel.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconIllustrationParetoPrinciple.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconInformation.svg" />

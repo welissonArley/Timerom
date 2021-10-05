@@ -161,6 +161,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_ABSTRACT" xml:space="preserve">
     <value>Resumo</value>
   </data>
+  <data name="TITLE_ACCUMULATED_PERCENTAGE" xml:space="preserve">
+    <value>Porcentagem acumulada</value>
+  </data>
   <data name="TITLE_ACTIVITIES" xml:space="preserve">
     <value>Atividades</value>
   </data>
@@ -311,6 +314,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_ITEM_4_BENEFITS" xml:space="preserve">
     <value>4. Benefícios</value>
   </data>
+  <data name="TITLE_IT_IS_PART_80_PERCENT" xml:space="preserve">
+    <value>Faz parte dos 80%</value>
+  </data>
   <data name="TITLE_LUNCH" xml:space="preserve">
     <value>Almoço</value>
   </data>
@@ -331,6 +337,12 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   </data>
   <data name="TITLE_PARETO_PRINCIPLE" xml:space="preserve">
     <value>Princípio de Pareto</value>
+  </data>
+  <data name="TITLE_PERCENTAGE_CAUSE" xml:space="preserve">
+    <value>% da causa</value>
+  </data>
+  <data name="TITLE_PERCENTAGE_RESULT" xml:space="preserve">
+    <value>% do resultado</value>
   </data>
   <data name="TITLE_PERSONAL_PROJECTS" xml:space="preserve">
     <value>Projetos pessoais</value>

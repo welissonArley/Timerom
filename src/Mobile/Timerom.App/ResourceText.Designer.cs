@@ -189,6 +189,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accumulated percentage.
+        /// </summary>
+        public static string TITLE_ACCUMULATED_PERCENTAGE {
+            get {
+                return ResourceManager.GetString("TITLE_ACCUMULATED_PERCENTAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Activities.
         /// </summary>
         public static string TITLE_ACTIVITIES {
@@ -603,6 +612,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It is part of the 80%.
+        /// </summary>
+        public static string TITLE_IT_IS_PART_80_PERCENT {
+            get {
+                return ResourceManager.GetString("TITLE_IT_IS_PART_80_PERCENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 1. What is?.
         /// </summary>
         public static string TITLE_ITEM_1_WHAT_IS {
@@ -698,6 +716,24 @@ namespace Timerom.App {
         public static string TITLE_PARETO_PRINCIPLE {
             get {
                 return ResourceManager.GetString("TITLE_PARETO_PRINCIPLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to % of cause.
+        /// </summary>
+        public static string TITLE_PERCENTAGE_CAUSE {
+            get {
+                return ResourceManager.GetString("TITLE_PERCENTAGE_CAUSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to % of the result.
+        /// </summary>
+        public static string TITLE_PERCENTAGE_RESULT {
+            get {
+                return ResourceManager.GetString("TITLE_PERCENTAGE_RESULT", resourceCulture);
             }
         }
         

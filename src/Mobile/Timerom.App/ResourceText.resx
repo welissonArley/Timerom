@@ -161,6 +161,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_ABSTRACT" xml:space="preserve">
     <value>Abstract</value>
   </data>
+  <data name="TITLE_ACCUMULATED_PERCENTAGE" xml:space="preserve">
+    <value>Accumulated percentage</value>
+  </data>
   <data name="TITLE_ACTIVITIES" xml:space="preserve">
     <value>Activities</value>
   </data>
@@ -311,6 +314,9 @@ All images used have a free license for use, and as a thank you, we leave below 
   <data name="TITLE_ITEM_4_BENEFITS" xml:space="preserve">
     <value>4. Benefits</value>
   </data>
+  <data name="TITLE_IT_IS_PART_80_PERCENT" xml:space="preserve">
+    <value>It is part of the 80%</value>
+  </data>
   <data name="TITLE_LUNCH" xml:space="preserve">
     <value>Lunch</value>
   </data>
@@ -331,6 +337,12 @@ All images used have a free license for use, and as a thank you, we leave below 
   </data>
   <data name="TITLE_PARETO_PRINCIPLE" xml:space="preserve">
     <value>Pareto Principle</value>
+  </data>
+  <data name="TITLE_PERCENTAGE_CAUSE" xml:space="preserve">
+    <value>% of cause</value>
+  </data>
+  <data name="TITLE_PERCENTAGE_RESULT" xml:space="preserve">
+    <value>% of the result</value>
   </data>
   <data name="TITLE_PERSONAL_PROJECTS" xml:space="preserve">
     <value>Personal projects</value>
