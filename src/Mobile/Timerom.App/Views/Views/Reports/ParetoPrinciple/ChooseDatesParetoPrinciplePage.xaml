@@ -137,7 +137,7 @@
                 </StackLayout>
             </Grid>
 
-            <Frame CornerRadius="0" HasShadow="False" Padding="15" BorderColor="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}">
+            <Frame CornerRadius="0" BackgroundColor="Transparent" HasShadow="False" Padding="15" BorderColor="{AppThemeBinding Light=#33000000, Dark=#33FFFFFF}">
                 <Frame.Triggers>
                     <DataTrigger TargetType="Frame" Binding="{Binding Option}" Value="{x:Static enum:SelectDateParetoPrincipleOptions.CustomDates}">
                         <Setter Property="BorderColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
