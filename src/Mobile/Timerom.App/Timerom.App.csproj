@@ -33,6 +33,7 @@
     <None Remove="Resources\Svgs\IconIconsAndIllustrations.svg" />
     <None Remove="Resources\Svgs\IconIllustrationParetoPrinciple.svg" />
     <None Remove="Resources\Svgs\IconInformation.svg" />
+    <None Remove="Resources\Svgs\IconPercentage.svg" />
     <None Remove="Resources\Svgs\IconPieChart.svg" />
     <None Remove="Resources\Svgs\IconPrivacyPolicy.svg" />
     <None Remove="Resources\Svgs\IconSearch.svg" />
@@ -63,6 +64,7 @@
     <EmbeddedResource Include="Resources\Svgs\IconFunnel.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconIllustrationParetoPrinciple.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconInformation.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconPercentage.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconPieChart.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconSearch.svg" />
     <EmbeddedResource Include="Resources\Svgs\IconSuccess.svg" />
@@ -159,6 +161,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\Information\ItemFloatButtonTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Information\ItemParetoPrincipleResultTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\Information\ItemSubCategoryComponent.xaml">

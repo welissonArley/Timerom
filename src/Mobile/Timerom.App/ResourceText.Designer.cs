@@ -801,6 +801,15 @@ namespace Timerom.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ranking.
+        /// </summary>
+        public static string TITLE_RANKING {
+            get {
+                return ResourceManager.GetString("TITLE_RANKING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reports.
         /// </summary>
         public static string TITLE_REPORTS {

@@ -365,6 +365,9 @@ Todas as images utilizadas possuem licença gratuitas para o uso, e como agradec
   <data name="TITLE_PURCHASES" xml:space="preserve">
     <value>Compras</value>
   </data>
+  <data name="TITLE_RANKING" xml:space="preserve">
+    <value>Ranking</value>
+  </data>
   <data name="TITLE_REPORTS" xml:space="preserve">
     <value>Relatórios</value>
   </data>

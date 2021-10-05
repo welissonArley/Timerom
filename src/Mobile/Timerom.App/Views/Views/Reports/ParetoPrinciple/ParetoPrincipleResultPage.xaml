@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:resource="clr-namespace:Timerom.App"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             xmlns:template="clr-namespace:Timerom.App.Views.Templates.Information"
              x:Class="Timerom.App.Views.Views.Reports.ParetoPrinciple.ParetoPrincipleResultPage">
     <ContentPage.Content>
         <StackLayout Style="{StaticResource MarginStyleDefault}">
@@ -44,6 +47,16 @@
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
+
+            <Label Text="{x:Static resource:ResourceText.TITLE_RANKING}" Style="{StaticResource LabelBold}" FontSize="18" Margin="0,30,0,30"/>
+
+            <CollectionView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <template:ItemParetoPrincipleResultTemplate Margin="0,20,0,0"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
