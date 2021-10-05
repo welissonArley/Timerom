@@ -17,6 +17,10 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             var activityAnalyticBase = new GetActivityAnalyticBase();
 
             var userTasks = await activityAnalyticBase.GetUserTasks(filter.StartsAt, filter.EndsAt);
+
+            if (!userTasks.Any())
+                return new ParetoPrincipleModel();
+
             if (filter.CategoryId.HasValue)
                 userTasks = userTasks.Where(c => c.Category.Parent.Id == filter.CategoryId);
 
