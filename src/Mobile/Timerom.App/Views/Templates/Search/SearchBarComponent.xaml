@@ -4,7 +4,7 @@
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:customcontrol="clr-namespace:Timerom.App.CustomControl"
-             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
              x:Class="Timerom.App.Views.Templates.Search.SearchBarComponent">
   <ContentView.Content>
         <Frame Margin="0" BackgroundColor="{AppThemeBinding Light=#F1F1F1, Dark=#424242}" HeightRequest="40" HasShadow="False" Padding="15,5,15,5" CornerRadius="50">

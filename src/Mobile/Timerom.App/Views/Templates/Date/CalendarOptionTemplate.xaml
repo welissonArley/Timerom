@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
              x:Class="Timerom.App.Views.Templates.Date.CalendarOptionTemplate">
   <ContentView.Content>
         <StackLayout Orientation="Horizontal" HorizontalOptions="End">

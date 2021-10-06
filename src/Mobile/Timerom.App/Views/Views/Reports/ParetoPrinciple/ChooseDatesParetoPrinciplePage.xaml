@@ -5,7 +5,7 @@
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:resource="clr-namespace:Timerom.App"
-             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
              xmlns:enum="clr-namespace:Timerom.App.ValueObjects.Enuns"
              x:Class="Timerom.App.Views.Views.Reports.ParetoPrinciple.ChooseDatesParetoPrinciplePage">
     <ContentPage.Content>

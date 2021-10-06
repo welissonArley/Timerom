@@ -4,7 +4,7 @@
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:local="clr-namespace:Timerom.App.Converter"
-             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
              xmlns:search="clr-namespace:Timerom.App.Views.Templates.Search"
              x:Name="SelectSubCategoryForTaskContentPage"
              x:Class="Timerom.App.Views.Views.Tasks.SelectSubCategoryForTaskPage">

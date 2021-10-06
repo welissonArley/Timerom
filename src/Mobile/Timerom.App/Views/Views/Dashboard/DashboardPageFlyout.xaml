@@ -5,7 +5,7 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:resource="clr-namespace:Timerom.App"
-             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
              xmlns:enuns="clr-namespace:Timerom.App.ValueObjects.Enuns"
              x:Class="Timerom.App.Views.Views.Dashboard.DashboardPageFlyout"
              prism:ViewModelLocator.AutowireViewModel="True"

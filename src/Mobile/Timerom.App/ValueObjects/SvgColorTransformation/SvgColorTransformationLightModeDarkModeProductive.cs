@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Timerom.App.ValueObjects
+namespace Timerom.App.ValueObjects.SvgColorTransformation
 {
     public class SvgColorTransformationLightModeDarkModeProductive : FFImageLoading.Transformations.TintTransformation
     {

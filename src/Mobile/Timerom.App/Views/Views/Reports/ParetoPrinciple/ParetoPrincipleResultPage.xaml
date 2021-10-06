@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:resource="clr-namespace:Timerom.App"
-             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
              xmlns:template="clr-namespace:Timerom.App.Views.Templates.Information"
              x:Name="ParetoPrincipleResultContentPage"
              x:Class="Timerom.App.Views.Views.Reports.ParetoPrinciple.ParetoPrincipleResultPage">

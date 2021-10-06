@@ -4,7 +4,7 @@
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:customControl="clr-namespace:Timerom.App.CustomControl"
-             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
              x:Class="Timerom.App.Views.Views.Reports.ParetoPrinciple.WhatIsParetoPrinciplePage">
     <ContentPage.Content>
         <ScrollView Margin="0,0,0,30">

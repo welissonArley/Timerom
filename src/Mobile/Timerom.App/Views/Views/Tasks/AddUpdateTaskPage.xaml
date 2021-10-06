@@ -7,7 +7,7 @@
                                            xmlns:resource="clr-namespace:Timerom.App"
                                            xmlns:local="clr-namespace:Timerom.App.Converter"
                                            xmlns:customcontrol="clr-namespace:Timerom.App.CustomControl"
-                                           xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects"
+                                           xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
                                            xmlns:template="clr-namespace:Timerom.App.Views.Templates.Input"
                                            xmlns:statusTemplate="clr-namespace:Timerom.App.Views.Templates.Status"
                                            xmlns:textwithlabel="clr-namespace:Timerom.App.Views.Templates.TextWithLabel"

@@ -1,4 +1,4 @@
-﻿namespace Timerom.App.ValueObjects
+﻿namespace Timerom.App.ValueObjects.SvgColorTransformation
 {
     public class SvgColorTransformationLightModeDarkModeDefault : FFImageLoading.Transformations.TintTransformation
     {
