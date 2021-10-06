@@ -35,11 +35,11 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
         private List<ActivitiesAnalyticModel> TasksPerSubcategory(List<ValueObjects.Entity.Category> categories,
             IEnumerable<TaskModel> tasks, DateTime searchDate)
         {
-            var result = new List<ActivitiesAnalyticModel>();
-
             var totalTime = tasks.Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
 
             var subCategoryIds = tasks.Select(c => c.Category.Id).Distinct();
+
+            var result = new List<ActivitiesAnalyticModel>(subCategoryIds.Count());
 
             foreach (var subcategoryId in subCategoryIds)
             {
