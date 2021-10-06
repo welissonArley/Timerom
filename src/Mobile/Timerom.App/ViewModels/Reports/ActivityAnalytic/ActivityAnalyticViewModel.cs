@@ -1,6 +1,7 @@
 ﻿using Prism.Navigation;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
@@ -48,8 +49,17 @@ namespace Timerom.App.ViewModels.Reports.ActivityAnalytic
             var chart = await _chartUseCase.Execute();
             ChartModel = new ObservableCollection<ChartActivityAnalyticModel>(chart);
 
-            RaisePropertyChanged("AnalyticModel");
-            RaisePropertyChanged("ChartModel");
+            if (ChartModel.Any())
+            {
+                CurrentState = Xamarin.CommunityToolkit.UI.Views.LayoutState.None;
+
+                RaisePropertyChanged("AnalyticModel");
+                RaisePropertyChanged("ChartModel");
+            }
+            else
+                CurrentState = Xamarin.CommunityToolkit.UI.Views.LayoutState.Empty;
+
+            RaisePropertyChanged("CurrentState");
         }
     }
 }

@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:local="clr-namespace:Timerom.App.Converter"
              xmlns:enum="clr-namespace:Timerom.App.ValueObjects.Enuns"
              xmlns:chart="clr-namespace:Timerom.App.Views.Templates.Information"
+             x:Name="ActivityAnalyticContentPage"
              x:Class="Timerom.App.Views.Views.Reports.ActivityAnalytic.ActivityAnalyticPage">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -14,7 +16,23 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource MarginStyleDefault}">
+        <StackLayout Style="{StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding Path=BindingContext.CurrentState, Source={x:Reference Name=ActivityAnalyticContentPage}}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Empty" VerticalOptions="FillAndExpand">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <StackLayout VerticalOptions="FillAndExpand">
+                                <Label Text="{x:Static resource:ResourceText.TITLE_ACTIVITY_ANALYTIC}" Style="{StaticResource LabelTitle}"/>
+                                
+                                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Label HorizontalOptions="CenterAndExpand" Text="{x:Static resource:ResourceText.TITLE_NO_TASK_THIS_DATE}" Style="{StaticResource LabelBold}" FontSize="18"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+
             <Label Text="{x:Static resource:ResourceText.TITLE_ACTIVITY_ANALYTIC}" Style="{StaticResource LabelTitle}"/>
 
             <Frame BackgroundColor="Transparent" CornerRadius="0" Margin="0,20,0,0" HasShadow="False" BorderColor="{AppThemeBinding Light=#1A000000, Dark=#1AFFFFFF}" Padding="20,15,20,0" HeightRequest="180">
