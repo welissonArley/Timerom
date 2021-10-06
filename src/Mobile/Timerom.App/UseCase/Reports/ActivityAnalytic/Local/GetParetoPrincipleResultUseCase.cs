@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
-using Timerom.App.Repository;
 using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
 using Timerom.App.ValueObjects.Dto;
 
@@ -18,15 +17,19 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
 
             var userTasks = await activityAnalyticBase.GetUserTasks(filter.StartsAt, filter.EndsAt);
 
-            if (!userTasks.Any())
-                return new ParetoPrincipleModel();
-
             if (filter.CategoryId.HasValue)
                 userTasks = userTasks.Where(c => c.Category.Parent.Id == filter.CategoryId);
 
+            if (!userTasks.Any())
+                return new ParetoPrincipleModel();
+
             var totalTime = (int)userTasks.Sum(c => (c.EndsAt - c.StartsAt).TotalMinutes);
 
-            var tasksPerCategory = await TasksPerCategory(totalTime, userTasks);
+            List<RankingParetoPrincipleModel> tasksPerCategory;
+            if (filter.CategoryId.HasValue)
+                tasksPerCategory = TasksPerSubcategory(totalTime, userTasks);
+            else
+                tasksPerCategory = TasksPerCategory(totalTime, userTasks);
 
             ApplyParetoPrinciple(tasksPerCategory);
 
@@ -38,20 +41,37 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             };
         }
 
-        private async Task<List<RankingParetoPrincipleModel>> TasksPerCategory(int totalTimeForAllTasks, IEnumerable<TaskModel> tasks)
+        private List<RankingParetoPrincipleModel> TasksPerCategory(int totalTimeForAllTasks, IEnumerable<TaskModel> tasks)
         {
-            CategoryDatabase categoryDatabase = await CategoryDatabase.Instance();
-            var categories = await categoryDatabase.GetAll();
-
             var categoryIds = tasks.Select(c => c.Category.Parent.Id).Distinct();
 
             var result = new List<RankingParetoPrincipleModel>(categoryIds.Count());
 
-            for(var index = 0; index < categoryIds.Count(); index++)
+            for (var index = 0; index < categoryIds.Count(); index++)
             {
                 var categoryId = categoryIds.ElementAt(index);
 
-                result.Insert(index, CreateResultModel(categories, categoryId, tasks, totalTimeForAllTasks));
+                var tasksForTheCategory = tasks.Where(c => c.Category.Parent.Id == categoryId);
+
+                result.Insert(index, CreateResultModel(tasksForTheCategory.First().Category.Parent, tasksForTheCategory, totalTimeForAllTasks));
+            }
+
+            return result.OrderByDescending(c => c.Time).ToList();
+        }
+
+        private List<RankingParetoPrincipleModel> TasksPerSubcategory(int totalTimeForAllTasks, IEnumerable<TaskModel> tasks)
+        {
+            var subcategoryIds = tasks.Select(c => c.Category.Id).Distinct();
+
+            var result = new List<RankingParetoPrincipleModel>(subcategoryIds.Count());
+
+            for (var index = 0; index < subcategoryIds.Count(); index++)
+            {
+                var subcategoryId = subcategoryIds.ElementAt(index);
+
+                var tasksForTheSubcategory = tasks.Where(c => c.Category.Id == subcategoryId);
+
+                result.Insert(index, CreateResultModel(tasksForTheSubcategory.First().Category, tasksForTheSubcategory, totalTimeForAllTasks));
             }
 
             return result.OrderByDescending(c => c.Time).ToList();
@@ -87,13 +107,8 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             lastTask.AccumulatedPercentage = 100.0;
         }
     
-        private RankingParetoPrincipleModel CreateResultModel(List<ValueObjects.Entity.Category> categories,
-            long categoryId, IEnumerable<TaskModel> tasks, int totalTimeForAllTasks)
+        private RankingParetoPrincipleModel CreateResultModel(Category category, IEnumerable<TaskModel> tasksForTheCategory, int totalTimeForAllTasks)
         {
-            var category = categories.First(c => c.Id == categoryId);
-
-            var tasksForTheCategory = tasks.Where(c => c.Category.Parent.Id == categoryId);
-
             var totalTimeCategory = (int)tasksForTheCategory.Sum(c => (c.EndsAt - c.StartsAt).TotalMinutes);
 
             return new RankingParetoPrincipleModel
@@ -104,7 +119,8 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
                 {
                     Id = category.Id,
                     Name = category.Name,
-                    Type = category.Type
+                    Type = category.Type,
+                    Parent = category.Parent
                 },
                 Percentage = Math.Round(100 * totalTimeCategory / (double)totalTimeForAllTasks, 2)
             };

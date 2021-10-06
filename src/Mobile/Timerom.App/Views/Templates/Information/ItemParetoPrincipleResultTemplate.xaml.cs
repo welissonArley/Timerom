@@ -1,6 +1,7 @@
 ﻿using System;
 using Timerom.App.Converter;
 using Timerom.App.Model;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,6 +10,18 @@ namespace Timerom.App.Views.Templates.Information
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemParetoPrincipleResultTemplate : ContentView
     {
+        public IAsyncCommand<long> ItemSelectedCommand
+        {
+            get => (IAsyncCommand<long>)GetValue(ItemSelectedCommandProperty);
+            set => SetValue(ItemSelectedCommandProperty, value);
+        }
+        public static readonly BindableProperty ItemSelectedCommandProperty = BindableProperty.Create(
+                                                        propertyName: "ItemSelectedCommand",
+                                                        returnType: typeof(IAsyncCommand<long>),
+                                                        declaringType: typeof(ItemParetoPrincipleResultTemplate),
+                                                        defaultValue: null,
+                                                        defaultBindingMode: BindingMode.OneWay,
+                                                        propertyChanged: null);
         public RankingParetoPrincipleModel Ranking
         {
             get => (RankingParetoPrincipleModel)GetValue(RankingProperty);
@@ -39,11 +52,18 @@ namespace Timerom.App.Views.Templates.Information
             component.LabelHours.Text = $"{new HoursStringconverter().Convert(ranking.Time, typeof(Label), null, null)}";
             component.LabelAccumulatedPercentage.Text = $"{ranking.AccumulatedPercentage}%";
             component.IllustrationPartOf80Percent.IsVisible = ranking.IsPartOf80Percent;
+            component.IconArrow.IsVisible = ranking.Category.Parent == null;
         }
 
         public ItemParetoPrincipleResultTemplate()
         {
             InitializeComponent();
+        }
+
+        private void Item_Tapped(object sender, EventArgs e)
+        {
+            if(Ranking.Category.Parent == null)
+                ItemSelectedCommand?.Execute(Ranking.Category.Id);
         }
     }
 }

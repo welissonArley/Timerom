@@ -6,6 +6,9 @@
              x:Class="Timerom.App.Views.Templates.Information.ItemParetoPrincipleResultTemplate">
   <ContentView.Content>
       <StackLayout>
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Item_Tapped"/>
+            </StackLayout.GestureRecognizers>
             <StackLayout Orientation="Horizontal">
                 <Grid ColumnDefinitions="30, *" RowDefinitions="30, *" ColumnSpacing="10">
                     <Ellipse x:Name="EllipseIndex" Grid.Column="0" Grid.Row="0" HeightRequest="30" WidthRequest="30" HorizontalOptions="Start"/>
@@ -43,7 +46,7 @@
                         <Label x:Name="LabelAccumulatedPercentage" Style="{StaticResource LabelBold}" FontSize="11" TextColor="{AppThemeBinding Light=White, Dark=Black}"/>
                     </StackLayout>
 
-                    <ffimageloadingsvg:SvgCachedImage Grid.Column="0" Grid.Row="1" HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest="18" HeightRequest="18" Source="resource://Timerom.App.Resources.Svgs.IconArrow.svg">
+                    <ffimageloadingsvg:SvgCachedImage x:Name="IconArrow" Grid.Column="0" Grid.Row="1" HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest="18" HeightRequest="18" Source="resource://Timerom.App.Resources.Svgs.IconArrow.svg">
                         <ffimageloadingsvg:SvgCachedImage.Transformations>
                             <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
                         </ffimageloadingsvg:SvgCachedImage.Transformations>

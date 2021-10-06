@@ -54,7 +54,7 @@
             <CollectionView ItemsSource="{Binding Model.Ranking}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <template:ItemParetoPrincipleResultTemplate Ranking="{Binding .}" Margin="0,20,0,0"/>
+                        <template:ItemParetoPrincipleResultTemplate Ranking="{Binding .}" ItemSelectedCommand="{Binding Path=BindingContext.ItemSelectedCommand, Source={x:Reference Name=ParetoPrincipleResultContentPage}}" Margin="0,20,0,0"/>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
                 <CollectionView.EmptyView>
