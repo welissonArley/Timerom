@@ -40,37 +40,18 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
 
         private async Task<List<RankingParetoPrincipleModel>> TasksPerCategory(int totalTimeForAllTasks, IEnumerable<TaskModel> tasks)
         {
-            var result = new List<RankingParetoPrincipleModel>();
-
             CategoryDatabase categoryDatabase = await CategoryDatabase.Instance();
             var categories = await categoryDatabase.GetAll();
 
-            var subCategoryIds = tasks.Select(c => c.Category.Id).Distinct();
+            var categoryIds = tasks.Select(c => c.Category.Parent.Id).Distinct();
 
-            var subCategoriesList = categories.Where(c => subCategoryIds.Any(k => k == c.Id));
+            var result = new List<RankingParetoPrincipleModel>(categoryIds.Count());
 
-            var categoryIds = subCategoriesList.Select(c => c.ParentCategoryId).Distinct();
-
-            foreach (var categoryId in categoryIds)
+            for(var index = 0; index < categoryIds.Count(); index++)
             {
-                var category = categories.First(c => c.Id == categoryId);
-                var subCategories = subCategoriesList.Where(k => k.ParentCategoryId == categoryId);
+                var categoryId = categoryIds.ElementAt(index);
 
-                var tasksForTheCategory = tasks.Where(c => subCategories.Any(k => k.Id == c.Category.Id));
-                var totalTimeCategory = (int)tasksForTheCategory.Sum(c => (c.EndsAt - c.StartsAt).TotalMinutes);
-
-                result.Add(new RankingParetoPrincipleModel
-                {
-                    AmountOfTasks = tasksForTheCategory.Count(),
-                    Time = new TimeSpan(hours: 0, seconds: 0, minutes: totalTimeCategory),
-                    Category = new Category
-                    {
-                        Id = category.Id,
-                        Name = category.Name,
-                        Type = category.Type
-                    },
-                    Percentage = Math.Round(100 * totalTimeCategory / (double)totalTimeForAllTasks, 2)
-                });
+                result.Insert(index, CreateResultModel(categories, categoryId, tasks, totalTimeForAllTasks));
             }
 
             return result.OrderByDescending(c => c.Time).ToList();
@@ -80,6 +61,7 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
         {
             var index = 1;
             double accumulatedPercentage = 0.0;
+            bool haveFoundTheFirstTaskGet80Percent = false;
 
             foreach (var task in tasks)
             {
@@ -87,21 +69,45 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
 
                 task.Index = index++;
                 task.AccumulatedPercentage = accumulatedPercentage;
-            }
 
-            var firstTaskGet80Percent = tasks.First(c => c.AccumulatedPercentage >= 80.0);
-            for(index = 0; index <= tasks.IndexOf(firstTaskGet80Percent); index++)
-            {
-                var task = tasks.ElementAt(index);
-                task.IsPartOf80Percent = true;
+                if(!haveFoundTheFirstTaskGet80Percent && accumulatedPercentage >= 80.0)
+                {
+                    haveFoundTheFirstTaskGet80Percent = true;
+                    task.IsPartOf80Percent = true;
+                }
+                else if (!haveFoundTheFirstTaskGet80Percent)
+                    task.IsPartOf80Percent = true;
             }
 
             /*
              This is used just to make the sum of Percentage and the accumulated percentage equals to 100%
              */
             var lastTask = tasks.Last();
-            lastTask.Percentage += 100.0 - accumulatedPercentage;
+            lastTask.Percentage = Math.Round(lastTask.Percentage + 100.0 - accumulatedPercentage, 2);
             lastTask.AccumulatedPercentage = 100.0;
+        }
+    
+        private RankingParetoPrincipleModel CreateResultModel(List<ValueObjects.Entity.Category> categories,
+            long categoryId, IEnumerable<TaskModel> tasks, int totalTimeForAllTasks)
+        {
+            var category = categories.First(c => c.Id == categoryId);
+
+            var tasksForTheCategory = tasks.Where(c => c.Category.Parent.Id == categoryId);
+
+            var totalTimeCategory = (int)tasksForTheCategory.Sum(c => (c.EndsAt - c.StartsAt).TotalMinutes);
+
+            return new RankingParetoPrincipleModel
+            {
+                AmountOfTasks = tasksForTheCategory.Count(),
+                Time = new TimeSpan(hours: 0, seconds: 0, minutes: totalTimeCategory),
+                Category = new Category
+                {
+                    Id = category.Id,
+                    Name = category.Name,
+                    Type = category.Type
+                },
+                Percentage = Math.Round(100 * totalTimeCategory / (double)totalTimeForAllTasks, 2)
+            };
         }
     }
 }
