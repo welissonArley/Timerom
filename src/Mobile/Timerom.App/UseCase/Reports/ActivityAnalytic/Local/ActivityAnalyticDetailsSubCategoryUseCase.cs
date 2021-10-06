@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
-using Timerom.App.Repository;
 using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
 using Timerom.App.ValueObjects.Functions;
 
@@ -26,14 +25,10 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
 
             userTasks = userTasks.Where(c => c.Category.Parent.Id == categoryId);
 
-            CategoryDatabase categoryDatabase = await CategoryDatabase.Instance();
-            var categories = await categoryDatabase.GetAll();
-
-            return new ObservableCollection<ActivitiesAnalyticModel>(TasksPerSubcategory(categories, userTasks, date));
+            return new ObservableCollection<ActivitiesAnalyticModel>(TasksPerSubcategory(userTasks, date));
         }
 
-        private List<ActivitiesAnalyticModel> TasksPerSubcategory(List<ValueObjects.Entity.Category> categories,
-            IEnumerable<TaskModel> tasks, DateTime searchDate)
+        private List<ActivitiesAnalyticModel> TasksPerSubcategory(IEnumerable<TaskModel> tasks, DateTime searchDate)
         {
             var totalTime = tasks.Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
 
@@ -43,9 +38,11 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
 
             foreach (var subcategoryId in subCategoryIds)
             {
-                var subcategory = categories.First(c => c.Id == subcategoryId);
+                var tasksForTheSubcategory = tasks.Where(c => c.Category.Id == subcategoryId);
 
-                var totalTimeCategory = tasks.Where(c => c.Category.Id == subcategoryId)
+                var subcategory = tasksForTheSubcategory.First().Category;
+
+                var totalTimeCategory = tasksForTheSubcategory
                     .Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
 
                 result.Add(new ActivitiesAnalyticModel

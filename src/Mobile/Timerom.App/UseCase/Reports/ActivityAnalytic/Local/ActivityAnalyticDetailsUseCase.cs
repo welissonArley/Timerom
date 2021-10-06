@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
-using Timerom.App.Repository;
 using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
 using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.ValueObjects.Functions;
@@ -29,7 +28,7 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             var neutralTasks = userTasks.Where(c => c.Category.Type == CategoryType.Neutral);
             var unproductiveTasks = userTasks.Where(c => c.Category.Type == CategoryType.Unproductive);
 
-            var tasksPerCategory = await TasksPerCategory(userTasks, date);
+            var tasksPerCategory = TasksPerCategory(userTasks, date);
 
             return new ActivityAnalyticStatisticsModel
             {
@@ -57,11 +56,8 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             return (int)userTasks.Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
         }
 
-        private async Task<List<ActivitiesAnalyticModel>> TasksPerCategory(IEnumerable<TaskModel> tasks, DateTime searchDate)
+        private List<ActivitiesAnalyticModel> TasksPerCategory(IEnumerable<TaskModel> tasks, DateTime searchDate)
         {
-            CategoryDatabase categoryDatabase = await CategoryDatabase.Instance();
-            var categories = await categoryDatabase.GetAll();
-
             var categoryIds = tasks.Select(c => c.Category.Parent.Id).Distinct();
 
             var totalTime = tasks.Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
@@ -70,9 +66,11 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
 
             foreach (var categoryId in categoryIds)
             {
-                var category = categories.First(c => c.Id == categoryId);
+                var tasksForTheCategory = tasks.Where(c => c.Category.Parent.Id == categoryId);
 
-                var totalTimeCategory = tasks.Where(c => c.Category.Parent.Id == categoryId)
+                var category = tasksForTheCategory.First().Category.Parent;
+
+                var totalTimeCategory = tasksForTheCategory
                     .Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
 
                 result.Add(new ActivitiesAnalyticModel
