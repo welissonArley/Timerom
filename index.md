@@ -1,37 +1,27 @@
-## Welcome to GitHub Pages
+### Timerom
 
-You can use the [editor on GitHub](https://github.com/welissonArley/Timerom/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Tempo é o bem mais valioso que temos, pois ele não volta. Nosso objetivo não é dizer se o que você faz está certo ou errado, mas sim te ajudar a organizar sua rotina. Nós estamos te oferencendo uma oportunidade para você conhecer sua própria rotina e descobrir onde gasta a maior parte do seu tempo.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Como coletamos seus dados?
 
-### Markdown
+Não coletamos. Todos os dados são salvos no seu próprio Smartphone.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### E se eu decidir encerrar minha conta?
 
-```markdown
-Syntax highlighted code block
+Se você resolver nos deixar, vamos respeitar sua decisão. Para isso basta deletar o App e todos os seus dados serão deletados. ATENÇÃO: este processo é irreversível.
 
-# Header 1
-## Header 2
-### Header 3
+### Meus dados podem ser compartilhados?
 
-- Bulleted
-- List
+Seus dados e informações são salvos localmente em seu Smartphone. Nossa equipe ou empresas parceiras não terão acesso aos seus dados.
 
-1. Numbered
-2. List
+### Comunicação
 
-**Bold** and _Italic_ and `Code` text
+Nós não entraremos em contato com você, seja por telefone e/ou e-mail. Se receber emails ou telefonemas de pessoas se passando pela gente, entre em contato para que possamos tomar as devidas providências.
 
-[Link](url) and ![Image](src)
-```
+### Como mantemos seus dados?
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Todos os dados referentes a suas tarefas são salvos no seu proprio Smartphone, nós NÃO utilizamos qualquer canal para armazenar e/ou verificar seus dados.
 
-### Jekyll Themes
+### Atualização
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/welissonArley/Timerom/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Podemos alterar informações disponibilizadas aqui, então pedimos que visite esta página periodicamente.
