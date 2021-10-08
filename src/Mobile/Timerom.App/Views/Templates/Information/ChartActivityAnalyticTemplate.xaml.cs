@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Shapes;
 using Xamarin.Forms.Xaml;
 
+#pragma warning disable S4275
 namespace Timerom.App.Views.Templates.Information
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
