@@ -48,11 +48,12 @@ namespace Timerom.App.ViewModels.Category
         private Task OnSearchTextChanged(string value)
         {
             ProductiveCategories = new ObservableCollection<Model.Category>(_productiveCategories.Where(c => c.Name.ToUpper().Contains(value.ToUpper())).ToList());
-            NeutralCategories = new ObservableCollection<Model.Category>(_neutralCategories.Where(c => c.Name.ToUpper().Contains(value.ToUpper())).ToList());
-            UnproductiveCategories = new ObservableCollection<Model.Category>(_unproductiveCategories.Where(c => c.Name.ToUpper().Contains(value.ToUpper())).ToList());
-
             RaisePropertyChanged("ProductiveCategories");
+
+            NeutralCategories = new ObservableCollection<Model.Category>(_neutralCategories.Where(c => c.Name.ToUpper().Contains(value.ToUpper())).ToList());
             RaisePropertyChanged("NeutralCategories");
+
+            UnproductiveCategories = new ObservableCollection<Model.Category>(_unproductiveCategories.Where(c => c.Name.ToUpper().Contains(value.ToUpper())).ToList());
             RaisePropertyChanged("UnproductiveCategories");
 
             return Task.CompletedTask;
