@@ -1,5 +1,6 @@
 ﻿using FFImageLoading.Transformations;
 using System.Collections.ObjectModel;
+using Timerom.App.Converter;
 using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.ValueObjects.SvgColorTransformation;
 using Xamarin.CommunityToolkit.ObjectModel;
@@ -83,28 +84,27 @@ namespace Timerom.App.Views.Templates.Information
         }
         private static void CategoryTypeChanged(BindableObject bindable, object oldValue, object newValue)
         {
+            var colorConverter = new CategoryTypeColorConverter();
+
             switch ((CategoryType)newValue)
             {
-                case CategoryType.Productive:
-                    {
-                        var color = Application.Current.RequestedTheme == OSAppTheme.Light ? 
-                            (Color)Application.Current.Resources["LigthProductiveColor"] : (Color)Application.Current.Resources["DarkProductiveColor"];
-
-                        ChangeComponentsHeaderColor(bindable, color, new SvgColorTransformationLightModeDarkModeProductive());
-                    }
-                    break;
                 case CategoryType.Neutral:
                     {
-                        var color = Application.Current.RequestedTheme == OSAppTheme.Light ?
-                            (Color)Application.Current.Resources["LigthNeutralColor"] : (Color)Application.Current.Resources["DarkNeutralColor"];
+                        var color = (Color)colorConverter.Convert(CategoryType.Neutral, typeof(Color), null, null);
 
                         ChangeComponentsHeaderColor(bindable, color, new SvgColorTransformationLightModeDarkModeNeutral());
                     }
                     break;
+                case CategoryType.Productive:
+                    {
+                        var color = (Color)colorConverter.Convert(CategoryType.Productive, typeof(Color), null, null);
+
+                        ChangeComponentsHeaderColor(bindable, color, new SvgColorTransformationLightModeDarkModeProductive());
+                    }
+                    break;
                 case CategoryType.Unproductive:
                     {
-                        var color = Application.Current.RequestedTheme == OSAppTheme.Light ?
-                            (Color)Application.Current.Resources["LigthUnproductiveColor"] : (Color)Application.Current.Resources["DarkUnproductiveColor"];
+                        var color = (Color)colorConverter.Convert(CategoryType.Unproductive, typeof(Color), null, null);
 
                         ChangeComponentsHeaderColor(bindable, color, new SvgColorTransformationLightModeDarkModeUnproductive());
                     }

@@ -48,11 +48,12 @@ namespace Timerom.App.ViewModels.Category
         private Task OnSearchTextChanged(string value)
         {
             ProductiveCategories = new ObservableCollection<Model.Category>(_productiveCategories.Where(c => c.Name.ToUpper().Contains(value.ToUpper())).ToList());
-            NeutralCategories = new ObservableCollection<Model.Category>(_neutralCategories.Where(c => c.Name.ToUpper().Contains(value.ToUpper())).ToList());
-            UnproductiveCategories = new ObservableCollection<Model.Category>(_unproductiveCategories.Where(c => c.Name.ToUpper().Contains(value.ToUpper())).ToList());
-
             RaisePropertyChanged("ProductiveCategories");
+
+            NeutralCategories = new ObservableCollection<Model.Category>(_neutralCategories.Where(c => c.Name.ToUpper().Contains(value.ToUpper())).ToList());
             RaisePropertyChanged("NeutralCategories");
+
+            UnproductiveCategories = new ObservableCollection<Model.Category>(_unproductiveCategories.Where(c => c.Name.ToUpper().Contains(value.ToUpper())).ToList());
             RaisePropertyChanged("UnproductiveCategories");
 
             return Task.CompletedTask;
@@ -74,15 +75,15 @@ namespace Timerom.App.ViewModels.Category
                 var response = await _useCase.Execute();
 
                 _productiveCategories = new ObservableCollection<Model.Category>(response.Productive);
-                _neutralCategories = new ObservableCollection<Model.Category>(response.Neutral);
-                _unproductiveCategories = new ObservableCollection<Model.Category>(response.Unproductive);
-
                 ProductiveCategories = new ObservableCollection<Model.Category>(response.Productive);
-                NeutralCategories = new ObservableCollection<Model.Category>(response.Neutral);
-                UnproductiveCategories = new ObservableCollection<Model.Category>(response.Unproductive);
-
                 RaisePropertyChanged("ProductiveCategories");
+
+                _neutralCategories = new ObservableCollection<Model.Category>(response.Neutral);
+                NeutralCategories = new ObservableCollection<Model.Category>(response.Neutral);
                 RaisePropertyChanged("NeutralCategories");
+
+                _unproductiveCategories = new ObservableCollection<Model.Category>(response.Unproductive);
+                UnproductiveCategories = new ObservableCollection<Model.Category>(response.Unproductive);
                 RaisePropertyChanged("UnproductiveCategories");
             }
             catch (System.Exception exception)

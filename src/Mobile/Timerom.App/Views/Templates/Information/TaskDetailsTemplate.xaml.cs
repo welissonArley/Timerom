@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using Timerom.App.Converter;
 using Timerom.App.Model;
 using Timerom.App.ValueObjects.Enuns;
 using Xamarin.CommunityToolkit.ObjectModel;
@@ -45,7 +46,7 @@ namespace Timerom.App.Views.Templates.Information
                 var task = (TaskModel)newValue;
                 component.LabelTitle.Text = task.Title;
 
-                var categoryColor = GetColor(task.Category.Type);
+                var categoryColor = (Color)new CategoryTypeColorConverter().Convert(task.Category.Type, typeof(Color), null, null);
 
                 component.LabelCategory.BackgroundColor = categoryColor;
                 component.LabelSubcategory.BackgroundColor = categoryColor.MultiplyAlpha(0.1);
@@ -60,20 +61,6 @@ namespace Timerom.App.Views.Templates.Information
             }
         }
 
-        private static Color GetColor(CategoryType categoryType)
-        {
-            switch (categoryType)
-            {
-                case CategoryType.Productive:
-                    return Application.Current.RequestedTheme == OSAppTheme.Dark ? (Color)Application.Current.Resources["DarkProductiveColor"] : (Color)Application.Current.Resources["LigthProductiveColor"];
-                case CategoryType.Neutral:
-                    return Application.Current.RequestedTheme == OSAppTheme.Dark ? (Color)Application.Current.Resources["DarkNeutralColor"] : (Color)Application.Current.Resources["LigthNeutralColor"];
-                case CategoryType.Unproductive:
-                    return Application.Current.RequestedTheme == OSAppTheme.Dark ? (Color)Application.Current.Resources["DarkUnproductiveColor"] : (Color)Application.Current.Resources["LigthUnproductiveColor"];
-                default:
-                    return Color.Black;
-            }
-        }
         private static string GetDuration(DateTime startsAt, DateTime endsAt)
         {
             if (startsAt.Date == endsAt.Date)
