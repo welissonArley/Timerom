@@ -88,18 +88,18 @@ namespace Timerom.App.Views.Templates.Information
 
             switch ((CategoryType)newValue)
             {
-                case CategoryType.Productive:
-                    {
-                        var color = (Color)colorConverter.Convert(CategoryType.Productive, typeof(Color), null, null);
-
-                        ChangeComponentsHeaderColor(bindable, color, new SvgColorTransformationLightModeDarkModeProductive());
-                    }
-                    break;
                 case CategoryType.Neutral:
                     {
                         var color = (Color)colorConverter.Convert(CategoryType.Neutral, typeof(Color), null, null);
 
                         ChangeComponentsHeaderColor(bindable, color, new SvgColorTransformationLightModeDarkModeNeutral());
+                    }
+                    break;
+                case CategoryType.Productive:
+                    {
+                        var color = (Color)colorConverter.Convert(CategoryType.Productive, typeof(Color), null, null);
+
+                        ChangeComponentsHeaderColor(bindable, color, new SvgColorTransformationLightModeDarkModeProductive());
                     }
                     break;
                 case CategoryType.Unproductive:
