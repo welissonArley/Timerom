@@ -972,11 +972,11 @@ namespace Timerom.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Studing English.
+        ///   Looks up a localized string similar to Studying English.
         /// </summary>
-        public static string TITLE_STUDING_ENGLISH {
+        public static string TITLE_STUDYING_ENGLISH {
             get {
-                return ResourceManager.GetString("TITLE_STUDING_ENGLISH", resourceCulture);
+                return ResourceManager.GetString("TITLE_STUDYING_ENGLISH", resourceCulture);
             }
         }
         
