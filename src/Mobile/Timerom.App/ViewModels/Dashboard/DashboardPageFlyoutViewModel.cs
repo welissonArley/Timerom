@@ -10,6 +10,7 @@ using Timerom.App.Views.Views.Reports.ParetoPrinciple;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 
+#pragma warning disable S2696
 namespace Timerom.App.ViewModels.Dashboard
 {
     public class DashboardPageFlyoutViewModel : ViewModelBase

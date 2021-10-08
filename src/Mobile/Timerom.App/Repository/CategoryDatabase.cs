@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Timerom.App.ValueObjects.Entity;
 using Timerom.App.ValueObjects.Enuns;
 
+#pragma warning disable S3010
 namespace Timerom.App.Repository
 {
     public class CategoryDatabase

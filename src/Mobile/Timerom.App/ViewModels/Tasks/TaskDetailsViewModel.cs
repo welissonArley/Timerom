@@ -87,7 +87,7 @@ namespace Timerom.App.ViewModels.Tasks
                 await GetUserTasks(date, new List<long>());
         }
 
-        public void OnNavigatedFrom(INavigationParameters parameters) { }
+        public void OnNavigatedFrom(INavigationParameters parameters) { /* We dont need this method, but it's necessary from interface */ }
 
         public async void OnNavigatedTo(INavigationParameters parameters)
         {

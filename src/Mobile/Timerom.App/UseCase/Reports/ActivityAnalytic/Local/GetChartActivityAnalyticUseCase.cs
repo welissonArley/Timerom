@@ -60,8 +60,12 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
         {
             var value = Math.Max(Math.Max(productiveTotalTime, neutralTotalTime), unproductiveTotalTime);
 
-            var category = value == productiveTotalTime ?
-                CategoryType.Productive : value == neutralTotalTime ? CategoryType.Neutral : CategoryType.Unproductive;
+            CategoryType category = CategoryType.Productive;
+
+            if (value == neutralTotalTime)
+                category = CategoryType.Neutral;
+            else if(value == unproductiveTotalTime)
+                category = CategoryType.Unproductive;
 
             return (category, value);
         }

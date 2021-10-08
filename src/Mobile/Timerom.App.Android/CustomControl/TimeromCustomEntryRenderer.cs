@@ -12,7 +12,7 @@ namespace Timerom.App.Droid.CustomControl
 {
     public abstract class TimeromCustomEntryRenderer : EntryRenderer
     {
-        public TimeromCustomEntryRenderer(Context context) : base(context) { }
+        protected TimeromCustomEntryRenderer(Context context) : base(context) { }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
