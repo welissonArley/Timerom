@@ -10,6 +10,8 @@ namespace Timerom.App.Views.Views.Reports.ParetoPrinciple
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WhatIsParetoPrinciplePage : ContentPage
     {
+        private const string PARETO_PRINCIPLE = "https://www.investopedia.com/terms/1/80-20-rule.asp";
+
         public WhatIsParetoPrinciplePage()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace Timerom.App.Views.Views.Reports.ParetoPrinciple
 
         private async Task LinkCommandExecuted()
         {
-            await Launcher.OpenAsync(new Uri("https://www.investopedia.com/terms/1/80-20-rule.asp"));
+            await Launcher.OpenAsync(new Uri(PARETO_PRINCIPLE));
         }
     }
 }

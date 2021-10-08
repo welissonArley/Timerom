@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.ValueObjects.Entity;
 
+#pragma warning disable S3010
 namespace Timerom.App.Repository
 {
     public class UserTaskDatabase
@@ -14,7 +15,7 @@ namespace Timerom.App.Repository
         private static readonly AsyncLazy<UserTaskDatabase> _instance = new AsyncLazy<UserTaskDatabase>(async () =>
         {
             UserTaskDatabase instance = new UserTaskDatabase();
-            CreateTableResult result = await _database.CreateTableAsync<UserTask>();
+            await _database.CreateTableAsync<UserTask>();
 
             return instance;
         });

@@ -90,7 +90,7 @@ namespace Timerom.App.ViewModels.Category
             }
         }
 
-        public void OnNavigatedFrom(INavigationParameters parameters) { }
+        public void OnNavigatedFrom(INavigationParameters parameters) { /* We dont need this method, but it's necessary from interface */ }
 
         public void OnNavigatedTo(INavigationParameters parameters)
         {

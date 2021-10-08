@@ -51,10 +51,6 @@ namespace Timerom.App.ViewModels.Dashboard
 
             await _navigationService.NavigateAsync(nameof(TaskDetailsPage), navParameters);
         }
-        private async Task SelectedCategoryToShowDetailsCommandExecuted(DashboardTaskModel taskModel)
-        {
-            await ViewAllTasksCommandExecuted(taskModel);
-        }
 
         private async Task FloatActionCommandExecuted()
         {
@@ -80,7 +76,7 @@ namespace Timerom.App.ViewModels.Dashboard
             await GetDashboard(DateTime.Now);
         }
 
-        public void OnNavigatedFrom(INavigationParameters parameters) { }
+        public void OnNavigatedFrom(INavigationParameters parameters) { /* We dont need this method, but it's necessary from interface */ }
 
         public async void OnNavigatedTo(INavigationParameters parameters)
         {

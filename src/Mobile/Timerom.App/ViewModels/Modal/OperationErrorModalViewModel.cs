@@ -22,7 +22,7 @@ namespace Timerom.App.ViewModels.Modal
             await _navigationService.ClearPopupStackAsync();
         }
 
-        public void OnNavigatedFrom(INavigationParameters parameters){}
+        public void OnNavigatedFrom(INavigationParameters parameters) { /* We dont need this method, but it's necessary from interface */ }
 
         public void OnNavigatedTo(INavigationParameters parameters)
         {

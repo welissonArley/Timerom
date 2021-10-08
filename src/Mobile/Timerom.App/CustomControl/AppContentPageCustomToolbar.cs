@@ -22,12 +22,11 @@ namespace Timerom.App.CustomControl
 
             item.PropertyChanged += (sender, e) =>
             {
-                propertyChanged(sender, e, component, item);
+                propertyChanged(e, component, item);
             };
         }
 
-        private static void propertyChanged(object sender,
-            PropertyChangedEventArgs e, AppContentPageCustomToolbar appContent, AppToolbarItem item)
+        private static void propertyChanged(PropertyChangedEventArgs e, AppContentPageCustomToolbar appContent, AppToolbarItem item)
         {
             if(e.PropertyName.Equals("IsVisible"))
                 UpdateToolbar(appContent, item);

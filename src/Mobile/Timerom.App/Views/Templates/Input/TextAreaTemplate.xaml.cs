@@ -6,7 +6,7 @@ namespace Timerom.App.Views.Templates.Input
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TextAreaTemplate : ContentView
     {
-        public string PlaceHolderText { set => Input.Placeholder = value; }
+        public string PlaceHolderText { set => Input.Placeholder = value; get => Input.Placeholder; }
 
         public object BindingEntry
         {

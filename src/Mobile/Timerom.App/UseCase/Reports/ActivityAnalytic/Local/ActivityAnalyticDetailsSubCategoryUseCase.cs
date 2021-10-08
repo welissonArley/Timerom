@@ -18,12 +18,12 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             _funcCorrectDate = new FuncCorrectDate();
         }
 
-        public async Task<ObservableCollection<ActivitiesAnalyticModel>> Execute(long categoryId, DateTime date)
+        public async Task<ObservableCollection<ActivitiesAnalyticModel>> Execute(long subcategoryId, DateTime date)
         {
             var activityAnalyticBase = new GetActivityAnalyticBase();
             var userTasks = await activityAnalyticBase.GetUserTasks(date, date);
 
-            userTasks = userTasks.Where(c => c.Category.Parent.Id == categoryId);
+            userTasks = userTasks.Where(c => c.Category.Parent.Id == subcategoryId);
 
             return new ObservableCollection<ActivitiesAnalyticModel>(TasksPerSubcategory(userTasks, date));
         }
