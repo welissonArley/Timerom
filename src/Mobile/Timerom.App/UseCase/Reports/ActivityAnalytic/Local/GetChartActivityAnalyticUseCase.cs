@@ -70,11 +70,6 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             return (category, value);
         }
 
-        private void GetCategoryType()
-        {
-
-        }
-
         private int TotalTime(IEnumerable<TaskModel> userTasks, DateTime searchDate)
         {
             return (int)userTasks.Sum(c => (_funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Ends - _funcCorrectDate.CorrectDate(c.StartsAt, c.EndsAt, searchDate).Starts).TotalMinutes);
