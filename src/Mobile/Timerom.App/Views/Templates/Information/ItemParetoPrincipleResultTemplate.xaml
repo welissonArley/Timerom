@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
+             x:Class="Timerom.App.Views.Templates.Information.ItemParetoPrincipleResultTemplate">
+  <ContentView.Content>
+      <StackLayout>
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Item_Tapped"/>
+            </StackLayout.GestureRecognizers>
+            <StackLayout Orientation="Horizontal">
+                <Grid ColumnDefinitions="30, *" RowDefinitions="30, *" ColumnSpacing="10">
+                    <Ellipse x:Name="EllipseIndex" Grid.Column="0" Grid.Row="0" HeightRequest="30" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Label x:Name="LabelIndex" Grid.Column="0" Grid.Row="0" Style="{StaticResource LabelBold}" FontSize="12" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="{AppThemeBinding Light=White, Dark=Black}"/>
+                    <StackLayout Grid.Column="1" Grid.Row="0" Spacing="0">
+                        <Label x:Name="LabelName" Style="{StaticResource LabelBold}" FontSize="18"/>
+                        <Label x:Name="LabelAmountTasks" Style="{StaticResource LabelExtraLight}" FontSize="16"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="0,20,0,0">
+                        <ffimageloadingsvg:SvgCachedImage VerticalOptions="CenterAndExpand" WidthRequest="12" HeightRequest="12" Source="resource://Timerom.App.Resources.Svgs.IconPercentage.svg">
+                            <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                            </ffimageloadingsvg:SvgCachedImage.Transformations>
+                        </ffimageloadingsvg:SvgCachedImage>
+                        <Label x:Name="LabelPercentage" Style="{StaticResource LabelExtraLight}" Margin="0,-2,0,0" FontSize="12"/>
+
+                        <ffimageloadingsvg:SvgCachedImage Margin="20,0,0,0" VerticalOptions="CenterAndExpand" WidthRequest="12" HeightRequest="12" Source="resource://Timerom.App.Resources.Svgs.IconClock.svg">
+                            <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                            </ffimageloadingsvg:SvgCachedImage.Transformations>
+                        </ffimageloadingsvg:SvgCachedImage>
+                        <Label x:Name="LabelHours" Style="{StaticResource LabelExtraLight}" Margin="0,-2,0,0" FontSize="12"/>
+                    </StackLayout>
+                </Grid>
+
+                <Grid ColumnDefinitions="70" RowDefinitions="28, *" HorizontalOptions="EndAndExpand">
+                    <BoxView Grid.Column="0" Grid.Row="0" CornerRadius="0,10,10,0" Color="{AppThemeBinding Light=#D43900, Dark=#FF6347}" HeightRequest="28" WidthRequest="70"/>
+                    <StackLayout Spacing="2" Grid.Row="0" Orientation="Horizontal" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <ffimageloadingsvg:SvgCachedImage x:Name="IllustrationPartOf80Percent" VerticalOptions="CenterAndExpand" WidthRequest="16" HeightRequest="16" Source="resource://Timerom.App.Resources.Svgs.IconFire.svg">
+                            <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                <appTransformation:SvgColorTransformationLightModeDarkModeDefaultInverted/>
+                            </ffimageloadingsvg:SvgCachedImage.Transformations>
+                        </ffimageloadingsvg:SvgCachedImage>
+                        <Label x:Name="LabelAccumulatedPercentage" Style="{StaticResource LabelBold}" FontSize="11" TextColor="{AppThemeBinding Light=White, Dark=Black}"/>
+                    </StackLayout>
+
+                    <ffimageloadingsvg:SvgCachedImage x:Name="IconArrow" Grid.Column="0" Grid.Row="1" HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest="18" HeightRequest="18" Source="resource://Timerom.App.Resources.Svgs.IconArrow.svg">
+                        <ffimageloadingsvg:SvgCachedImage.Transformations>
+                            <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                        </ffimageloadingsvg:SvgCachedImage.Transformations>
+                    </ffimageloadingsvg:SvgCachedImage>
+                </Grid>
+            </StackLayout>
+
+            <Line/>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

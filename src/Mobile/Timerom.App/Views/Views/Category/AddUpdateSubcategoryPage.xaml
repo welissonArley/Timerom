@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<customcontrol:AppContentPageCustomToolbar xmlns="http://xamarin.com/schemas/2014/forms"
+                                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                                           xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                                           xmlns:resource="clr-namespace:Timerom.App"
+                                           xmlns:local="clr-namespace:Timerom.App.Converter"
+                                           xmlns:customcontrol="clr-namespace:Timerom.App.CustomControl"
+                                           xmlns:statusTemplate="clr-namespace:Timerom.App.Views.Templates.Status"
+                                           xmlns:textwithlabel="clr-namespace:Timerom.App.Views.Templates.TextWithLabel"
+                                           x:Name="AddUpdateSubcategoryContentPage"
+                                           x:Class="Timerom.App.Views.Views.Category.AddUpdateSubcategoryPage">
+    <customcontrol:AppContentPageCustomToolbar.CustomToolbar>
+        <customcontrol:AppToolbarItem IsVisible="{Binding Path=BindingContext.SubCategory.Id, Source={x:Reference Name=AddUpdateSubcategoryContentPage}}" Text="" IconImageSource="{AppThemeBinding Light=IcontrashToolbar_LightMode.png, Dark=IcontrashToolbar_DarkMode.png}" Command="{Binding DeleteCommand}" />
+    </customcontrol:AppContentPageCustomToolbar.CustomToolbar>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:CategoryTypeColorConverter x:Key="ColorCategoryType" />
+            <local:CategoryTypeStringConverter x:Key="StringCategoryType" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MarginStyleDefault}" xct:StateLayout.CurrentState="{Binding CurrentState}">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Saving" VerticalOptions="FillAndExpand">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <statusTemplate:LoadingTemplate Message="{x:Static resource:ResourceText.TITLE_SAVING}" VerticalOptions="FillAndExpand"/>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+                <xct:StateView StateKey="Success" VerticalOptions="FillAndExpand">
+                    <xct:StateView.Template>
+                        <DataTemplate>
+                            <statusTemplate:SuccessTemplate Title="{x:Static resource:ResourceText.TITLE_SUCCESS}" VerticalOptions="FillAndExpand">
+                                <statusTemplate:SuccessTemplate.Triggers>
+                                    <DataTrigger TargetType="statusTemplate:SuccessTemplate" Binding="{Binding Path=BindingContext.SubCategory.Id, Source={x:Reference Name=AddUpdateSubcategoryContentPage}}" Value="0">
+                                        <Setter Property="Message" Value="{x:Static resource:ResourceText.TITLE_YOU_CAN_SAVE_MORE_SUBCATEGORIES}"/>
+                                    </DataTrigger>
+                                </statusTemplate:SuccessTemplate.Triggers>
+                            </statusTemplate:SuccessTemplate>
+                        </DataTemplate>
+                    </xct:StateView.Template>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+
+            <Label Text="{x:Static resource:ResourceText.TITLE_UPDATE_SUBCATEGOY}" Style="{StaticResource LabelTitle}">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding SubCategory.Id}" Value="0">
+                        <Setter Property="Text" Value="{x:Static resource:ResourceText.TITLE_CREATE_SUBCATEGORY}"/>
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+            <StackLayout Margin="0,10,0,30" Orientation="Horizontal">
+                <Ellipse Fill="{Binding SubCategory.Type, Converter={StaticResource ColorCategoryType}}" WidthRequest="10" VerticalOptions="CenterAndExpand" HeightRequest="10" HorizontalOptions="Start"/>
+                <Label Style="{StaticResource LabelSemiBold}" Text="{Binding SubCategory.Type, Converter={StaticResource StringCategoryType}}" TextColor="{Binding SubCategory.Type, Converter={StaticResource ColorCategoryType}}" Margin="0,-4,0,0" ></Label>
+            </StackLayout>
+
+            <Label Text="{x:Static resource:ResourceText.TITLE_BELONGS_CATEGORY_TWO_POINTS}" FontSize="12" Style="{StaticResource LabelLight}"/>
+            <Label Text="{Binding Category.Name}" FontSize="18" Style="{StaticResource LabelExtraBold}" Margin="0,15,0,30"/>
+
+            <textwithlabel:InputTextWithLabelComponent BindingEntry="{Binding SubCategory.Name}" Title="{x:Static resource:ResourceText.TITLE_SUBCATEGORY_TITLE_TWO_POINTS}" PlaceHolder="{x:Static resource:ResourceText.TITLE_STUDIES}"/>
+
+            <Button VerticalOptions="EndAndExpand" Text="{x:Static resource:ResourceText.TITLE_SAVE}" Command="{Binding SaveCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</customcontrol:AppContentPageCustomToolbar>

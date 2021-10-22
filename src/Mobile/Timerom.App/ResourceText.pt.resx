@@ -1,0 +1,539 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DESCRIPTION_DELETE_CATEGORY" xml:space="preserve">
+    <value>Você tem certeza que deseja deletar a Categoria “{0}” e todas as suas subcategorias? Esta ação não poderá ser desfeita.</value>
+  </data>
+  <data name="DESCRIPTION_DELETE_SUBCATEGORY" xml:space="preserve">
+    <value>Você tem certeza que deseja deletar a Subcategoria “{0}”? Esta ação não poderá ser desfeita.</value>
+  </data>
+  <data name="DESCRIPTION_DELETE_TASK" xml:space="preserve">
+    <value>Você tem certeza que deseja deletar a tarefa “{0}”? Esta ação não poderá ser desfeita.</value>
+  </data>
+  <data name="DESCRIPTION_ILUSTRATIONS_INFORMATIONS" xml:space="preserve">
+    <value>Um dos objetivos deste App é ser desenhado de forma criativa. E para isso nada melhor que fazer uso de imagens para ilustrar e divertir o usuário, certo? 
+
+Todas as images utilizadas possuem licença gratuitas para o uso, e como agradecimento, deixamos abaixo os links para os sites que nossa equipe utilizou :)</value>
+  </data>
+  <data name="DESCRIPTION_OFTEN_MISINTERPRETED" xml:space="preserve">
+    <value>Você pode imaginar que sempre a somatória das causas e dos resultados resulta em 100%, mas isso não é verdade, é apenas uma coincidência que 80% e 20% são iguais a 100%. Os resultados e as causas podem representar diferentes valores, ou seja, a somatória não necessariamente precisa resultar em 100%.</value>
+  </data>
+  <data name="DESCRIPTION_PARETO_PRINCIPLE_BENEFITS" xml:space="preserve">
+    <value>Utilize esta regra para focar nos 20% que estão gerando os 80% dos seus resultados ou até mesmo evitar os 20% que geram 80% dos seus problemas. Tudo depende de onde você aplica esta regra.</value>
+  </data>
+  <data name="DESCRIPTION_PARETO_PRINCIPLE_EXEMPLE_1" xml:space="preserve">
+    <value>• 80% das receitas de uma empresa é gerada por apenas 20% dos seus clientes.</value>
+  </data>
+  <data name="DESCRIPTION_PARETO_PRINCIPLE_EXEMPLE_2" xml:space="preserve">
+    <value>• 80% dos problemas em uma equipe de trabalho é gerado por apenas 20% dos integrantes da equipe.</value>
+  </data>
+  <data name="DESCRIPTION_PARETO_PRINCIPLE_EXEMPLE_3" xml:space="preserve">
+    <value>• 20% de todos os sites que você utiliza são responsáveis por 80% do tempo que você gasta na internet.</value>
+  </data>
+  <data name="DESCRIPTION_PARETO_PRINCIPLE_WHAT_IS" xml:space="preserve">
+    <value>O Princípio de Pareto ou Regra dos 80-20, é uma máxima o qual afirma que 80% dos resultados (outputs) é gerado por apenas 20% das causas (inputs) para qualquer evento dado. O conceito se aplica tanto à vida pessoal quanto a grandes acontecimentos e negócios.</value>
+  </data>
+  <data name="PHRASE_MENU_FLYOUT_1" xml:space="preserve">
+    <value>Não precisa acelerar, basta não parar.</value>
+  </data>
+  <data name="TITLE_ABOUT" xml:space="preserve">
+    <value>Sobre</value>
+  </data>
+  <data name="TITLE_ABOUT_THIS_PROJECT" xml:space="preserve">
+    <value>Sobre este projeto</value>
+  </data>
+  <data name="TITLE_ABSTRACT" xml:space="preserve">
+    <value>Resumo</value>
+  </data>
+  <data name="TITLE_ACCUMULATED_PERCENTAGE" xml:space="preserve">
+    <value>Porcentagem acumulada</value>
+  </data>
+  <data name="TITLE_ACTIVITIES" xml:space="preserve">
+    <value>Atividades</value>
+  </data>
+  <data name="TITLE_ACTIVITY_ANALYTIC" xml:space="preserve">
+    <value>Análise de Atividades</value>
+  </data>
+  <data name="TITLE_ACTIVITY_PROGRESS" xml:space="preserve">
+    <value>Progresso das atividades</value>
+  </data>
+  <data name="TITLE_ADD_NEUTRAL_CATEGORY" xml:space="preserve">
+    <value>Inserir Categoria Neutra</value>
+  </data>
+  <data name="TITLE_ADD_PRODUCTIVE_CATEGORY" xml:space="preserve">
+    <value>Inserir Categoria Produtiva</value>
+  </data>
+  <data name="TITLE_ADD_TASK" xml:space="preserve">
+    <value>Add Tarefa</value>
+  </data>
+  <data name="TITLE_ADD_UNPRODUCTIVE_CATEGORY" xml:space="preserve">
+    <value>Inserir Categoria Improdutiva</value>
+  </data>
+  <data name="TITLE_ANALYTIC" xml:space="preserve">
+    <value>Análise</value>
+  </data>
+  <data name="TITLE_BELONGS_CATEGORY_TWO_POINTS" xml:space="preserve">
+    <value>Pertence a Categoria:</value>
+  </data>
+  <data name="TITLE_BOOKS" xml:space="preserve">
+    <value>Livros</value>
+  </data>
+  <data name="TITLE_BREAKFAST" xml:space="preserve">
+    <value>Café da manhã</value>
+  </data>
+  <data name="TITLE_CALL" xml:space="preserve">
+    <value>Chamada</value>
+  </data>
+  <data name="TITLE_CANCEL" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="TITLE_CATEGORIES" xml:space="preserve">
+    <value>Categorias</value>
+  </data>
+  <data name="TITLE_CATEGORY_NAME_TWO_POINTS" xml:space="preserve">
+    <value>Nome Categoria:</value>
+  </data>
+  <data name="TITLE_CHOOSE_AN_OPTION" xml:space="preserve">
+    <value>Escolha uma opção</value>
+  </data>
+  <data name="TITLE_CHOOSE_YOUR_OPTION" xml:space="preserve">
+    <value>Escolha sua opção</value>
+  </data>
+  <data name="TITLE_CLICK_HERE_FILL_TASK_TITLE" xml:space="preserve">
+    <value>Clique aqui para add o título da tarefa</value>
+  </data>
+  <data name="TITLE_CLICK_IN_THE_BARS" xml:space="preserve">
+    <value>Clique nas barras para ver mais detalhes.</value>
+  </data>
+  <data name="TITLE_CONTACT_US" xml:space="preserve">
+    <value>Contate-nos</value>
+  </data>
+  <data name="TITLE_CONTINUE" xml:space="preserve">
+    <value>Continuar</value>
+  </data>
+  <data name="TITLE_COURSES" xml:space="preserve">
+    <value>Cursos</value>
+  </data>
+  <data name="TITLE_CREATE_CATEGORY" xml:space="preserve">
+    <value>Criar Categoria</value>
+  </data>
+  <data name="TITLE_CREATE_SUBCATEGORY" xml:space="preserve">
+    <value>Criar Subcategoria</value>
+  </data>
+  <data name="TITLE_CREATE_TASK" xml:space="preserve">
+    <value>Criar tarefa</value>
+  </data>
+  <data name="TITLE_CUSTOM_DATES" xml:space="preserve">
+    <value>Customizar datas</value>
+  </data>
+  <data name="TITLE_DASHBOARD" xml:space="preserve">
+    <value>Início</value>
+  </data>
+  <data name="TITLE_DAY" xml:space="preserve">
+    <value>Dia</value>
+  </data>
+  <data name="TITLE_DAYS" xml:space="preserve">
+    <value>Dias</value>
+  </data>
+  <data name="TITLE_DELETE_CATEGORY" xml:space="preserve">
+    <value>Deletar Categoria</value>
+  </data>
+  <data name="TITLE_DELETE_SUBCATEGORY" xml:space="preserve">
+    <value>Deletar Subcategoria</value>
+  </data>
+  <data name="TITLE_DELETE_TASK" xml:space="preserve">
+    <value>Deletar Tarefa</value>
+  </data>
+  <data name="TITLE_DESCRIPTION_TWO_POINTS" xml:space="preserve">
+    <value>Descrição:</value>
+  </data>
+  <data name="TITLE_DETAILS" xml:space="preserve">
+    <value>Detalhes</value>
+  </data>
+  <data name="TITLE_DINNER" xml:space="preserve">
+    <value>Jantar</value>
+  </data>
+  <data name="TITLE_EMPTY_LIST" xml:space="preserve">
+    <value>Lista vazia</value>
+  </data>
+  <data name="TITLE_ENDS_TWO_POINTS" xml:space="preserve">
+    <value>Fim:</value>
+  </data>
+  <data name="TITLE_FACEBOOK" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="TITLE_FAMILY" xml:space="preserve">
+    <value>Familia</value>
+  </data>
+  <data name="TITLE_FOOD" xml:space="preserve">
+    <value>Alimentação</value>
+  </data>
+  <data name="TITLE_FOR_THE_LAST_SEVEN_DAYS" xml:space="preserve">
+    <value>para os últimos 7 dias</value>
+  </data>
+  <data name="TITLE_FROM_TO" xml:space="preserve">
+    <value>De {0} até {1}</value>
+  </data>
+  <data name="TITLE_GYM" xml:space="preserve">
+    <value>Academia</value>
+  </data>
+  <data name="TITLE_HOME" xml:space="preserve">
+    <value>Início</value>
+  </data>
+  <data name="TITLE_HOUR" xml:space="preserve">
+    <value>Hora</value>
+  </data>
+  <data name="TITLE_HOURS" xml:space="preserve">
+    <value>Horas</value>
+  </data>
+  <data name="TITLE_ICONS_ILLUSTRATIONS_USED" xml:space="preserve">
+    <value>Icones e ilustrações utilizados</value>
+  </data>
+  <data name="TITLE_IMPROVE_YOUR_TIME" xml:space="preserve">
+    <value>Melhore seu tempo</value>
+  </data>
+  <data name="TITLE_INSTAGRAM" xml:space="preserve">
+    <value>Instagram</value>
+  </data>
+  <data name="TITLE_ITEM_1_WHAT_IS" xml:space="preserve">
+    <value>1. O que é?</value>
+  </data>
+  <data name="TITLE_ITEM_2_EXAMPLES" xml:space="preserve">
+    <value>2. Exemplos</value>
+  </data>
+  <data name="TITLE_ITEM_3_OFTEN_MISINTERPRETED" xml:space="preserve">
+    <value>3. Frequentemente mal interpretado</value>
+  </data>
+  <data name="TITLE_ITEM_4_BENEFITS" xml:space="preserve">
+    <value>4. Benefícios</value>
+  </data>
+  <data name="TITLE_IT_IS_PART_80_PERCENT" xml:space="preserve">
+    <value>Faz parte dos 80%</value>
+  </data>
+  <data name="TITLE_LAST_DAYS" xml:space="preserve">
+    <value>últimos dias</value>
+  </data>
+  <data name="TITLE_LAST_MONTH" xml:space="preserve">
+    <value>Mês passado</value>
+  </data>
+  <data name="TITLE_LUNCH" xml:space="preserve">
+    <value>Almoço</value>
+  </data>
+  <data name="TITLE_MEETINGS" xml:space="preserve">
+    <value>Reuniões</value>
+  </data>
+  <data name="TITLE_MINUTE" xml:space="preserve">
+    <value>Minuto</value>
+  </data>
+  <data name="TITLE_MINUTES" xml:space="preserve">
+    <value>Minutos</value>
+  </data>
+  <data name="TITLE_NEUTRAL" xml:space="preserve">
+    <value>Neutro</value>
+  </data>
+  <data name="TITLE_NO_TASK_THIS_DATE" xml:space="preserve">
+    <value>Sem tarefas para esta data.</value>
+  </data>
+  <data name="TITLE_PARETO_PRINCIPLE" xml:space="preserve">
+    <value>Princípio de Pareto</value>
+  </data>
+  <data name="TITLE_PERCENTAGE_CAUSE" xml:space="preserve">
+    <value>% da causa</value>
+  </data>
+  <data name="TITLE_PERCENTAGE_RESULT" xml:space="preserve">
+    <value>% do resultado</value>
+  </data>
+  <data name="TITLE_PERSONAL_PROJECTS" xml:space="preserve">
+    <value>Projetos pessoais</value>
+  </data>
+  <data name="TITLE_PLANNER" xml:space="preserve">
+    <value>Planner</value>
+  </data>
+  <data name="TITLE_PODCASTS" xml:space="preserve">
+    <value>Podcasts</value>
+  </data>
+  <data name="TITLE_PRIVACY_POLICY" xml:space="preserve">
+    <value>Política de Privacidade</value>
+  </data>
+  <data name="TITLE_PRODUCTIVE" xml:space="preserve">
+    <value>Produtivo</value>
+  </data>
+  <data name="TITLE_PRODUCT_SEARCH" xml:space="preserve">
+    <value>Pesquisa de produto</value>
+  </data>
+  <data name="TITLE_PURCHASES" xml:space="preserve">
+    <value>Compras</value>
+  </data>
+  <data name="TITLE_RANKING" xml:space="preserve">
+    <value>Ranking</value>
+  </data>
+  <data name="TITLE_REPORTS" xml:space="preserve">
+    <value>Relatórios</value>
+  </data>
+  <data name="TITLE_SAVE" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="TITLE_SAVING" xml:space="preserve">
+    <value>Salvando ...</value>
+  </data>
+  <data name="TITLE_SEARCH_BY_NAME" xml:space="preserve">
+    <value>Pesquise por nome</value>
+  </data>
+  <data name="TITLE_SEE_TIMER" xml:space="preserve">
+    <value>Ver Timer</value>
+  </data>
+  <data name="TITLE_SELECT_CATEGORY" xml:space="preserve">
+    <value>Selecione uma Categoria</value>
+  </data>
+  <data name="TITLE_SELECT_CATEGORY_FOR_YOUR_TASK" xml:space="preserve">
+    <value>Selecione uma categoria para sua Tarefa</value>
+  </data>
+  <data name="TITLE_SELECT_SUBCATEGORY_YOUR_TASK" xml:space="preserve">
+    <value>Selecione uma Subcategoria para sua tarefa</value>
+  </data>
+  <data name="TITLE_SOCIAL_MEDIA" xml:space="preserve">
+    <value>Midias sociais</value>
+  </data>
+  <data name="TITLE_SPORT" xml:space="preserve">
+    <value>Esporte</value>
+  </data>
+  <data name="TITLE_STARTS_TWO_POINTS" xml:space="preserve">
+    <value>Início:</value>
+  </data>
+  <data name="TITLE_START_TASK" xml:space="preserve">
+    <value>Iniciar Tarefa</value>
+  </data>
+  <data name="TITLE_STUDIES" xml:space="preserve">
+    <value>Estudos</value>
+  </data>
+  <data name="TITLE_STUDYING_ENGLISH" xml:space="preserve">
+    <value>Estudando Inglês</value>
+  </data>
+  <data name="TITLE_SUBCATEGORIES_TITLE_TWO_POINTS" xml:space="preserve">
+    <value>Sub categorias:</value>
+  </data>
+  <data name="TITLE_SUBCATEGORY_TITLE_TWO_POINTS" xml:space="preserve">
+    <value>Subcategoria:</value>
+  </data>
+  <data name="TITLE_SUCCESS" xml:space="preserve">
+    <value>Sucesso</value>
+  </data>
+  <data name="TITLE_SUPERMARKET" xml:space="preserve">
+    <value>Supermercado</value>
+  </data>
+  <data name="TITLE_TASKS" xml:space="preserve">
+    <value>Tarefas</value>
+  </data>
+  <data name="TITLE_TASK_DETAILS" xml:space="preserve">
+    <value>Detalhes das tarefas</value>
+  </data>
+  <data name="TITLE_TASK_TITLE" xml:space="preserve">
+    <value>Título tarefa</value>
+  </data>
+  <data name="TITLE_TECHNOLOGY" xml:space="preserve">
+    <value>Tecnologia</value>
+  </data>
+  <data name="TITLE_THIS_IS_PERCENTAGE_YOUR_DAY" xml:space="preserve">
+    <value>Isto representa {0}% do seu dia.</value>
+  </data>
+  <data name="TITLE_THIS_IS_RESULTING_IN" xml:space="preserve">
+    <value>Isto está resultando em:</value>
+  </data>
+  <data name="TITLE_THIS_MONTH" xml:space="preserve">
+    <value>Este mês</value>
+  </data>
+  <data name="TITLE_TOTAL" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="TITLE_TOTAL_OF_TASKS" xml:space="preserve">
+    <value>Total de {0} tarefas</value>
+  </data>
+  <data name="TITLE_TOUR" xml:space="preserve">
+    <value>Passeio</value>
+  </data>
+  <data name="TITLE_UNKNOWN_ERROR" xml:space="preserve">
+    <value>Erro desconhecido</value>
+  </data>
+  <data name="TITLE_UNPRODUCTIVE" xml:space="preserve">
+    <value>Improdutivo</value>
+  </data>
+  <data name="TITLE_UPDATE_CATEGORY" xml:space="preserve">
+    <value>Atualizar Categoria</value>
+  </data>
+  <data name="TITLE_UPDATE_SUBCATEGOY" xml:space="preserve">
+    <value>Atualizar Subcategoria</value>
+  </data>
+  <data name="TITLE_UPDATE_TASK" xml:space="preserve">
+    <value>Atualizar tarefa</value>
+  </data>
+  <data name="TITLE_USE_BUTTON_BELLOW_ADD_ONE" xml:space="preserve">
+    <value>Use o botam abaixo + para adiconar uma.</value>
+  </data>
+  <data name="TITLE_USE_FIELD_ABOVE_ADD_NEW_SUBCATEGORIES" xml:space="preserve">
+    <value>Utilize o campo acima para Adicionar novas Subcategorias</value>
+  </data>
+  <data name="TITLE_USE_TERMS" xml:space="preserve">
+    <value>Termos de Uso</value>
+  </data>
+  <data name="TITLE_VERSION_NUMBER" xml:space="preserve">
+    <value>Versão: {0}</value>
+  </data>
+  <data name="TITLE_VIEW_ALL" xml:space="preserve">
+    <value>Ver todas</value>
+  </data>
+  <data name="TITLE_WALKING" xml:space="preserve">
+    <value>Caminhada</value>
+  </data>
+  <data name="TITLE_WHAT_IS_PARETO_PRINCIPLE" xml:space="preserve">
+    <value>O que é Princípio de Pareto?</value>
+  </data>
+  <data name="TITLE_WINNING_CATEGORIES" xml:space="preserve">
+    <value>Categorias vencedoras</value>
+  </data>
+  <data name="TITLE_WORK" xml:space="preserve">
+    <value>Trabalho</value>
+  </data>
+  <data name="TITLE_YES_IAM_SURE" xml:space="preserve">
+    <value>Sim, certeza</value>
+  </data>
+  <data name="TITLE_YOUR_ARE_SEEING_WHICH_CATEGORIES_MAKE_UP_THE_RESULT" xml:space="preserve">
+    <value>Você está vendo quais categorias compõem o resultado para o dia: {0}.</value>
+  </data>
+  <data name="TITLE_YOUR_ARE_SEEING_WHICH_SUBCATEGORIES_MAKE_UP_THE_RESULT" xml:space="preserve">
+    <value>Você está vendo quais subcategorias de {0} compõem o resultado para o dia: {1}.</value>
+  </data>
+  <data name="TITLE_YOUR_DESCRIPTION" xml:space="preserve">
+    <value>Sua descrição</value>
+  </data>
+  <data name="TITLE_YOUR_STATISTICS" xml:space="preserve">
+    <value>Suas estatísticas</value>
+  </data>
+  <data name="TITLE_YOUTUBE" xml:space="preserve">
+    <value>YouTube</value>
+  </data>
+  <data name="TITLE_YOU_ARE_SEEING_GRAPHIC_FOR" xml:space="preserve">
+    <value>Você está vendo o grafico {0}.</value>
+  </data>
+  <data name="TITLE_YOU_CAN_SAVE_MORE_CATEGORIES" xml:space="preserve">
+    <value>Você pode salvar mais categorias do mesmo tipo se desejar :)</value>
+  </data>
+  <data name="TITLE_YOU_CAN_SAVE_MORE_SUBCATEGORIES" xml:space="preserve">
+    <value>Você pode salvar mais subcategorias do mesmo tipo se desejar :)</value>
+  </data>
+</root>

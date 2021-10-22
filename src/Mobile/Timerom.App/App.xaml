@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication   xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:prism="http://prismlibrary.com"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                          x:Class="Timerom.App.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DarkModePrimaryColor">#1F1E19</Color>
+            <Color x:Key="LigthProductiveColor">#37705C</Color>
+            <Color x:Key="LigthNeutralColor">#3455DB</Color>
+            <Color x:Key="LigthUnproductiveColor">#DC143C</Color>
+            <Color x:Key="DarkProductiveColor">#90EE90</Color>
+            <Color x:Key="DarkNeutralColor">#99D2E5</Color>
+            <Color x:Key="DarkUnproductiveColor">#F690B5</Color>
+
+            <Style TargetType="StackLayout" x:Key="MarginStyleDefault">
+                <Setter Property="Margin" Value="20,0,20,30"></Setter>
+                <Setter Property="Spacing" Value="0"></Setter>
+            </Style>
+            
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" />
+                <Setter Property="NavigationPage.BackButtonTitle" Value=""></Setter>
+            </Style>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}"></Setter>
+                <Setter Property="BarTextColor" Value="{AppThemeBinding Light=Black, Dark=White}"></Setter>
+                <Setter Property="ios:NavigationPage.HideNavigationBarSeparator" Value="True" ></Setter>
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelBaseStyle">
+                <Setter Property="FontFamily" Value="RalewayRegular"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}"></Setter>
+            </Style>
+
+            <Style TargetType="Label" ApplyToDerivedTypes="True" BasedOn="{StaticResource LabelBaseStyle}"/>
+
+            <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelLight" BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="FontFamily" Value="RalewayLight"></Setter>
+            </Style>
+            <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelExtraLight" BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="FontFamily" Value="RalewayExtraLight"></Setter>
+            </Style>
+            <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelBold" BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="FontFamily" Value="RalewayBold"></Setter>
+            </Style>
+            <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelSemiBold" BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="FontFamily" Value="RalewaySemiBold"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelUrlLink">
+                <Setter Property="FontFamily" Value="RalewayRegular"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light='#0077AA', Dark='#05B4FF'}"></Setter>
+            </Style>
+            <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelExtraBold" BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="FontFamily" Value="RalewayExtraBold"></Setter>
+            </Style>
+            <Style TargetType="Label" ApplyToDerivedTypes="True" x:Key="LabelTitle" BasedOn="{StaticResource LabelExtraBold}">
+                <Setter Property="FontSize" Value="23"></Setter>
+            </Style>
+            
+            <Style TargetType="Line" ApplyToDerivedTypes="True">
+                <Setter Property="Opacity" Value="0.05"></Setter>
+                <Setter Property="HeightRequest" Value="2"></Setter>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=White, Light=Black}"></Setter>
+                <Setter Property="Margin" Value="0,10,0,0"></Setter>
+            </Style>
+
+            <Style TargetType="Editor" ApplyToDerivedTypes="True">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontFamily" Value="RalewayRegular"/>
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light=#696969, Dark=#989898}"/>
+            </Style>
+            <Style TargetType="Entry" ApplyToDerivedTypes="True">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontFamily" Value="RalewayRegular"/>
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light=#696969, Dark=#989898}"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=White, Dark=Black}"/>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                <Setter Property="CornerRadius" Value="7"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="RalewayBold"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="Margin" Value="0,30,0,0"/>
+            </Style>
+            <Style TargetType="Button" ApplyToDerivedTypes="True" x:Key="DeleteButton">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LigthUnproductiveColor}, Dark={StaticResource DarkUnproductiveColor}}"/>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}"/>
+                <Setter Property="CornerRadius" Value="0"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="RalewayLight"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="150"/>
+            </Style>
+            <Style TargetType="TimePicker">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontFamily" Value="RalewayRegular"/>
+            </Style>
+            <Style TargetType="DatePicker">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontFamily" Value="RalewayRegular"/>
+            </Style>
+            <Style TargetType="CheckBox" ApplyToDerivedTypes="True">
+                <Setter Property="Color" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>

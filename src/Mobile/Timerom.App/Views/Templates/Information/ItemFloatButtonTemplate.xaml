@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="Timerom.App.Views.Templates.Information.ItemFloatButtonTemplate">
+  <ContentView.Content>
+        <Grid ColumnDefinitions="*,40" RowDefinitions="40" HorizontalOptions="End">
+            <Label  Grid.Column="0" Grid.Row="0" x:Name="OptionName" VerticalOptions="CenterAndExpand" Padding="6" Style="{StaticResource LabelExtraBold}" TextColor="{AppThemeBinding Light=White, Dark={StaticResource DarkModePrimaryColor}}" BackgroundColor="{AppThemeBinding Light={StaticResource DarkModePrimaryColor}, Dark=White}"/>
+
+            <Ellipse Grid.Column="1" Grid.Row="0">
+                <Ellipse.Fill>
+                    <SolidColorBrush Color="{AppThemeBinding Light={StaticResource DarkModePrimaryColor}, Dark=White}"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <ffimageloadingsvg:SvgCachedImage x:Name="SvgImage" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="0" WidthRequest="20" HeightRequest="20"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

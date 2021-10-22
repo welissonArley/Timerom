@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
+             x:Class="Timerom.App.Views.Templates.Information.TaskDetailsTemplate">
+  <ContentView.Content>
+      <StackLayout Margin="0,0,0,15">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Item_Tapped" CommandParameter="{Binding .}"/>
+            </StackLayout.GestureRecognizers>
+
+            <Label x:Name="LabelTitle" FontSize="20" Style="{StaticResource LabelExtraBold}" />
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="LabelCategory" Padding="5,3,5,3" TextColor="{AppThemeBinding Dark=Black, Light=White}" FontSize="10" Style="{StaticResource LabelBold}"/>
+                <Label x:Name="LabelSubcategory" Padding="5,3,5,3" FontSize="10" Style="{StaticResource LabelBold}"/>
+            </StackLayout>
+
+            <xct:Expander IsEnabled="{Binding HasDescription}" IsExpanded="False" Margin="0,20,0,0" x:Name="ExpanderToShowDescription">
+                <xct:Expander.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <ffimageloadingsvg:SvgCachedImage VerticalOptions="CenterAndExpand" WidthRequest="12" HeightRequest="12" Source="resource://Timerom.App.Resources.Svgs.IconClock.svg">
+                            <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                            </ffimageloadingsvg:SvgCachedImage.Transformations>
+                        </ffimageloadingsvg:SvgCachedImage>
+                        <Label x:Name="LabelDuration" FontSize="13" VerticalOptions="CenterAndExpand" Style="{StaticResource LabelSemiBold}" Margin="0,-4,0,0"/>
+                        <ffimageloadingsvg:SvgCachedImage Margin="0,0,1,0" IsVisible="{Binding HasDescription}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="15" HeightRequest="15" Source="resource://Timerom.App.Resources.Svgs.IconChat.svg">
+                            <ffimageloadingsvg:SvgCachedImage.Transformations>
+                                <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                            </ffimageloadingsvg:SvgCachedImage.Transformations>
+                        </ffimageloadingsvg:SvgCachedImage>
+                    </StackLayout>
+                </xct:Expander.Header>
+                <xct:Expander.ContentTemplate>
+                    <DataTemplate>
+                        <Label Margin="0,10,0,0" Text="{Binding Description}"/>
+                    </DataTemplate>
+                </xct:Expander.ContentTemplate>
+            </xct:Expander>
+            <Line/>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

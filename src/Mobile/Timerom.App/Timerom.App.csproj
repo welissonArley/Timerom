@@ -1,0 +1,257 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\Raleway-Bold.ttf" />
+    <None Remove="Resources\Fonts\Raleway-ExtraBold.ttf" />
+    <None Remove="Resources\Fonts\Raleway-ExtraLight.ttf" />
+    <None Remove="Resources\Fonts\Raleway-Light.ttf" />
+    <None Remove="Resources\Fonts\Raleway-Regular.ttf" />
+    <None Remove="Resources\Fonts\Raleway-SemiBold.ttf" />
+    <None Remove="Resources\Svgs\ExpansionIndicator.svg" />
+    <None Remove="Resources\Svgs\IconActionSupport.svg" />
+    <None Remove="Resources\Svgs\IconAdd.svg" />
+    <None Remove="Resources\Svgs\IconAddSolid.svg" />
+    <None Remove="Resources\Svgs\IconArrow.svg" />
+    <None Remove="Resources\Svgs\IconCalendar.svg" />
+    <None Remove="Resources\Svgs\IconCategories.svg" />
+    <None Remove="Resources\Svgs\IconChat.svg" />
+    <None Remove="Resources\Svgs\IconClock.svg" />
+    <None Remove="Resources\Svgs\IconDashboard.svg" />
+    <None Remove="Resources\Svgs\IconEdit.svg" />
+    <None Remove="Resources\Svgs\IconFire.svg" />
+    <None Remove="Resources\Svgs\IconFunnel.svg" />
+    <None Remove="Resources\Svgs\IconIconsAndIllustrations.svg" />
+    <None Remove="Resources\Svgs\IconIllustrationParetoPrinciple.svg" />
+    <None Remove="Resources\Svgs\IconInformation.svg" />
+    <None Remove="Resources\Svgs\IconPercentage.svg" />
+    <None Remove="Resources\Svgs\IconPieChart.svg" />
+    <None Remove="Resources\Svgs\IconPrivacyPolicy.svg" />
+    <None Remove="Resources\Svgs\IconSearch.svg" />
+    <None Remove="Resources\Svgs\IconSuccess.svg" />
+    <None Remove="Resources\Svgs\IconTimer.svg" />
+    <None Remove="Resources\Svgs\IconUseTerms.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-ExtraBold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-ExtraLight.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Light.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-SemiBold.ttf" />
+    <EmbeddedResource Include="Resources\Svgs\ExpansionIndicator.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconActionSupport.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconAdd.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconAddSolid.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconArrow.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconCalendar.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconCategories.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconChat.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconClock.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconDashboard.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconEdit.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconFire.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconFunnel.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconIllustrationParetoPrinciple.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconInformation.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconPercentage.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconPieChart.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconSearch.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconSuccess.svg" />
+    <EmbeddedResource Include="Resources\Svgs\IconTimer.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="10.3.1" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="8.1.97" />
+    <PackageReference Include="Prism.Forms" Version="8.1.97" />
+    <PackageReference Include="Prism.Plugin.Popups" Version="8.0.76" />
+    <PackageReference Include="Prism.Unity.Forms" Version="8.1.97" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.12" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Timerom.Exception\Timerom.Exception.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ResourceText.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceText.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Modal\ConfirmActionModal.xaml.cs">
+      <DependentUpon>ConfirmActionModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Modal\MenuOptions\FloatActionUserTaskModal.xaml.cs">
+      <DependentUpon>FloatActionUserTaskModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Templates\Information\ChartActivityAnalyticTemplate.xaml.cs">
+      <DependentUpon>ChartActivityAnalyticTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Templates\Information\SelectCategoryExpanderComponent.xaml.cs">
+      <DependentUpon>SelectCategoryExpanderComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Templates\Information\CategoryExpanderComponent.xaml.cs">
+      <DependentUpon>CategoryExpanderComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Templates\Search\SearchBarComponent.xaml.cs">
+      <DependentUpon>SearchBarComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Templates\Status\SuccessTemplate.xaml.cs">
+      <DependentUpon>SuccessTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Views\Category\SelectCategoryToUpdatePage.xaml.cs">
+      <DependentUpon>SelectCategoryToUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Views\Dashboard\DashboardPage.xaml.cs">
+      <DependentUpon>DashboardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Views\Dashboard\DashboardPageDetail.xaml.cs">
+      <DependentUpon>DashboardPageDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Views\Dashboard\DashboardPageFlyout.xaml.cs">
+      <DependentUpon>DashboardPageFlyout.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ResourceText.pt.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ResourceText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Modal\MenuOptions\FloatActionCategoriesModal.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Modal\OperationErrorModal.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Button\FloatActionButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Date\CalendarOptionTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Information\ActivitiesStatisticsTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Information\CategoryExpanderComponent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Information\ChartActivityAnalyticTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Information\ItemFloatButtonTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Information\ItemParetoPrincipleResultTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Information\ItemSubCategoryComponent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Information\ProgressLineTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Information\TaskDetailsTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Input\TextAreaTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Search\FilterOptionComponent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Search\SearchBarComponent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\Status\LoadingTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\TextWithLabel\InputTextWithLabelComponent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\AboutThisProject\IlustrationsInformationsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\AboutThisProject\PrivacyPolicyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\AboutThisProject\TermsOfUsePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Category\AddUpdateCategoryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Category\AddUpdateSubcategoryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Category\CategoriesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Category\SelectCategoryToUpdatePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Dashboard\DashboardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Dashboard\DashboardPageDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Dashboard\DashboardPageFlyout.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Home\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Reports\ActivityAnalytic\ActivityAnalyticBarSeletedCategoryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Reports\ActivityAnalytic\ActivityAnalyticBarSeletedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Reports\ActivityAnalytic\ActivityAnalyticPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Reports\ParetoPrinciple\ChooseDatesParetoPrinciplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Reports\ParetoPrinciple\ParetoPrincipleResultPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Reports\ParetoPrinciple\WhatIsParetoPrinciplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Tasks\AddUpdateTaskPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Tasks\SelectCategoryForTaskPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Tasks\TaskDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Views\Tasks\TimerTaskPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

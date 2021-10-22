@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customcontrol="clr-namespace:Timerom.App.CustomControl"
+             x:Class="Timerom.App.Views.Templates.TextWithLabel.InputTextWithLabelComponent">
+  <ContentView.Content>
+        <StackLayout>
+            <Label x:Name="LabelTitle" FontSize="12" Style="{StaticResource LabelLight}"/>
+            <Frame HasShadow="False" BorderColor="#F1F1F1" BackgroundColor="Transparent" CornerRadius="9" HeightRequest="42" Padding="7,0,7,2">
+                <customcontrol:EntryNoLine x:Name="Entry"/>
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

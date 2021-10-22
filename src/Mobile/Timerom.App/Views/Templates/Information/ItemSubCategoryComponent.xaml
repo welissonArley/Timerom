@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
+             x:Class="Timerom.App.Views.Templates.Information.ItemSubCategoryComponent">
+  <ContentView.Content>
+        <StackLayout Orientation="Horizontal" HeightRequest="45">
+            <Label x:Name="LabelName" HorizontalOptions="StartAndExpand"/>
+            <StackLayout WidthRequest="30">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OptionExecuteAction_Tapped"/>
+                </StackLayout.GestureRecognizers>
+                <ffimageloadingsvg:SvgCachedImage Margin="0,10,0,0" VerticalOptions="Start" Rotation="45" WidthRequest="10" HeightRequest="10" Source="resource://Timerom.App.Resources.Svgs.IconAddSolid.svg">
+                    <ffimageloadingsvg:SvgCachedImage.Transformations>
+                        <appTransformation:SvgColorTransformationLightModeDarkModeDefault/>
+                    </ffimageloadingsvg:SvgCachedImage.Transformations>
+                </ffimageloadingsvg:SvgCachedImage>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
