@@ -86,12 +86,12 @@ Feel free to use this project to study and help me improve them by becoming a co
 
 <!-- Build Status (Badges) -->
 ## Build Status
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=alert_status)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=bugs)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=code_smells)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=coverage)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Homuai&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=welissonArley_Homuai)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K&metric=bugs)](https://sonarcloud.io/summary/new_code?id=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K&metric=coverage)](https://sonarcloud.io/summary/new_code?id=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png
