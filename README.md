@@ -95,12 +95,12 @@ Feel free to use this project to study and help me improve them by becoming a co
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png
-[contributors-shield]: https://img.shields.io/github/contributors/welissonArley/Homuai.svg?style=for-the-badge
-[contributors-url]: https://github.com/welissonArley/Homuai/graphs/contributors
-[stars-shield]: https://img.shields.io/github/stars/welissonArley/Homuai.svg?style=for-the-badge
-[stars-url]: https://github.com/welissonArley/Homuai/stargazers
-[issues-shield]: https://img.shields.io/github/issues/welissonArley/Homuai.svg?style=for-the-badge
-[issues-url]: https://github.com/welissonArley/Homuai/issues
+[contributors-shield]: https://img.shields.io/github/contributors/welissonArley/Timerom.svg?style=for-the-badge
+[contributors-url]: https://github.com/welissonArley/Timerom/graphs/contributors
+[stars-shield]: https://img.shields.io/github/stars/welissonArley/Timerom.svg?style=for-the-badge
+[stars-url]: https://github.com/welissonArley/Timerom/stargazers
+[issues-shield]: https://img.shields.io/github/issues/welissonArley/Timerom.svg?style=for-the-badge
+[issues-url]: https://github.com/welissonArley/Timerom/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/welissonarley/
 [xamarin-shield]: https://img.shields.io/badge/Xamarin-3498DB?style=for-the-badge&logo=xamarin&logoColor=white
