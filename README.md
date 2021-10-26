@@ -33,7 +33,11 @@
 
 [![Timerom Screen Shot][product-screenshot]](https://example.com)
 
-Text here
+Did you ever notice that the days went by so quickly that you asked yourself: what did I do this week? You looked at the clock and saw that it was already 6 pm and thought: what? It's so late, and I have not done anything today. Two minutes ago it was 8 am.
+
+It seems that 24 hours in a day is not enough, right? But on the other hand, I am sure that you know somebody that can do 1001 things in a day. It's not magic! Lack of time is not the problem  because everyone has the same 24 hours in a day. You don't need a 37-hour day, but rather organization and the ability to prioritize your tasks: is this task important? If I continue doing things this way, what will happen as a result in my future?
+
+With this in mind, I created the app Timerom, a simple and fast way to help you find where you spend your daily hours. And before the haters send messages to call me crazy because I want to control the time in detail, I should say that the main idea is not tell if what you do is right or not, but help you to organize and know your own routine. Furthermore, remember: time is the most valuable thing, because it will never return. In other words, taking care of it means having success and more moments of real happiness, with what is really important to you.
 
 ### Built With
 
