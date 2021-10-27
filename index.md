@@ -2,9 +2,13 @@
 
 Tempo é o bem mais valioso que temos, pois ele não volta. Nosso objetivo não é dizer se o que você faz está certo ou errado, mas sim te ajudar a organizar sua rotina. Nós estamos te oferencendo uma oportunidade para você conhecer sua própria rotina e descobrir onde gasta a maior parte do seu tempo.
 
-### Como coletamos seus dados?
+### Como coletamos seus dados pessoais e das tarefas cadastradas?
 
 Não coletamos. Todos os dados são salvos no seu próprio Smartphone.
+
+### O app utiliza Google Analytics?
+
+Sim. Queremos que nossos usuários tenha uma ótima experiencia no App, então fazemos uso de Analytics para saber quais são as paginas mais utilizas. NÃO se preocupe, somos informados apenas sobre quais as paginas os usuários mais utilizam, não sabemos QUEM é este usuário, ou seja, não coletamos dados que possam identificar você.
 
 ### E se eu decidir encerrar minha conta?
 
