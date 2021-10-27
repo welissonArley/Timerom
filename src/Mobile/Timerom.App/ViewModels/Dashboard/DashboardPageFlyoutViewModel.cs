@@ -40,16 +40,19 @@ namespace Timerom.App.ViewModels.Dashboard
             {
                 case MenuItemOptions.IconsAndIllustrations:
                     {
+                        TrackEvent("DashboardMenuFlyoutPage", "IlustrationsInformationsPage", EventFlag.Navigation);
                         await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(IlustrationsInformationsPage)}", UriKind.Absolute));
                     }
                     break;
                 case MenuItemOptions.Dashboard:
                     {
+                        TrackEvent("DashboardMenuFlyoutPage", "DashboardPageDetail", EventFlag.Navigation);
                         await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(DashboardPageDetail)}", UriKind.Absolute));
                     }
                     break;
                 case MenuItemOptions.Categories:
                     {
+                        TrackEvent("DashboardMenuFlyoutPage", "CategoriesPage", EventFlag.Navigation);
                         await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(CategoriesPage)}", UriKind.Absolute));
                     }
                     break;
@@ -60,16 +63,19 @@ namespace Timerom.App.ViewModels.Dashboard
                     break;
                 case MenuItemOptions.ParetoPrinciple:
                     {
+                        TrackEvent("DashboardMenuFlyoutPage", "ParetoPrinciplePage", EventFlag.Navigation);
                         await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(ChooseDatesParetoPrinciplePage)}", UriKind.Absolute));
                     }
                     break;
                 case MenuItemOptions.PrivacyPolicy:
                     {
+                        TrackEvent("DashboardMenuFlyoutPage", "PrivacyPolicyPage", EventFlag.Navigation);
                         await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(PrivacyPolicyPage)}", UriKind.Absolute));
                     }
                     break;
                 case MenuItemOptions.UseTerms:
                     {
+                        TrackEvent("DashboardMenuFlyoutPage", "TermsOfUsePage", EventFlag.Navigation);
                         await _navigationService.NavigateAsync(new Uri($"/DashboardPage/NavigationPage/{nameof(TermsOfUsePage)}", UriKind.Absolute));
                     }
                     break;

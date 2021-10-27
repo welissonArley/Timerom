@@ -1,6 +1,7 @@
 ﻿using Prism.Navigation;
 using System;
 using System.Threading.Tasks;
+using Timerom.App.ValueObjects.Enuns;
 using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Tasks
@@ -19,6 +20,8 @@ namespace Timerom.App.ViewModels.Tasks
 
         private async Task SaveCommandExecuted()
         {
+            TrackEvent("TitleTaskPage", "Save", EventFlag.Click);
+
             CallbackCommand?.Execute(TitleTask);
             await _navigationService.GoBackAsync();
         }

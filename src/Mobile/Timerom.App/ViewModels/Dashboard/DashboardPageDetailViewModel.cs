@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.UseCase.Dashboard.Interfaces;
+using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.Views.Modal.MenuOptions;
 using Timerom.App.Views.Views.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
@@ -27,7 +28,13 @@ namespace Timerom.App.ViewModels.Dashboard
         {
             this.useCase = useCase;
 
-            DateChangedCommand = new AsyncCommand<DateTime>(GetDashboard, onException: HandleException, allowsMultipleExecutions: false);
+            DateChangedCommand = new AsyncCommand<DateTime>(async (value) =>
+            {
+                TrackEvent("DashboardPage", "DateChanged", EventFlag.Click);
+                await GetDashboard(value);
+            },
+            onException: HandleException, allowsMultipleExecutions: false);
+            
             ViewAllTasksCommand = new AsyncCommand(async () => await ViewAllTasksCommandExecuted(), onException: HandleException, allowsMultipleExecutions: false);
             FloatActionCommand = new AsyncCommand(FloatActionCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
             SelectedCategoryToShowDetailsCommand = new AsyncCommand<DashboardTaskModel>(ViewAllTasksCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
@@ -47,7 +54,12 @@ namespace Timerom.App.ViewModels.Dashboard
             };
 
             if (taskModel != null)
+            {
+                TrackEvent("DashboardPage", "TaskDetailsPage-FilterTasks", EventFlag.Navigation);
                 navParameters.Add("CategoriesFilter", new List<long> { taskModel.CategoryId });
+            }
+            else
+                TrackEvent("DashboardPage", "TaskDetailsPage-ViewAllTasks", EventFlag.Navigation);
 
             await _navigationService.NavigateAsync(nameof(TaskDetailsPage), navParameters);
         }

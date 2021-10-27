@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.Services.BackGroundService;
 using Timerom.App.UseCase.Categories.Interfaces;
+using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.Views.Views.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Forms;
@@ -40,6 +41,8 @@ namespace Timerom.App.ViewModels.Tasks
 
         private Task StartTimeCommandExecuted()
         {
+            TrackEvent("TimerTaskPage", "Start", EventFlag.Click);
+
             StartBackgroundService_Properties();
 
             var navigation = GetNavigation();
@@ -79,6 +82,8 @@ namespace Timerom.App.ViewModels.Tasks
 
         private async Task AddTaskTitleCommandExecuted()
         {
+            TrackEvent("TimerTaskPage", "TitleTaskPage", EventFlag.Navigation);
+
             var navParameters = new NavigationParameters
             {
                 { "Title", Title.Equals(ResourceText.TITLE_CLICK_HERE_FILL_TASK_TITLE) ? "" : Title },

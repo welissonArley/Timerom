@@ -1,4 +1,7 @@
-﻿using Prism.Ioc;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Prism.Ioc;
 using Prism.Plugin.Popups;
 using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.App.UseCase.Dashboard.Interfaces;
@@ -36,6 +39,8 @@ namespace Timerom.App
 
             Xamarin.Essentials.VersionTracking.Track();
 
+            StartAnalyticsTrack();
+
             SetAppTheme();
 
             DashboardPageFlyoutViewModel.Initialize();
@@ -45,6 +50,14 @@ namespace Timerom.App
         private void SetAppTheme()
         {
             Current.UserAppTheme = Current.RequestedTheme == OSAppTheme.Unspecified ? OSAppTheme.Light : Current.RequestedTheme;
+        }
+
+        private void StartAnalyticsTrack()
+        {
+#if RELEASE
+            AppCenter.Start("ios={Your App Secret};" +
+                "android={Your App Secret};", typeof(Analytics), typeof(Crashes));
+#endif
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
+using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.Views.Views.Reports.ActivityAnalytic;
 using Xamarin.CommunityToolkit.ObjectModel;
 
@@ -34,6 +35,8 @@ namespace Timerom.App.ViewModels.Reports.ActivityAnalytic
 
         private async Task DaySelectedCommandExecuted(DateTime date)
         {
+            TrackEvent("ActivityAnalyticPage", "BarSelected", EventFlag.Navigation);
+
             var navParameters = new NavigationParameters
             {
                 { "Date", date }

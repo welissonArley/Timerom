@@ -1,8 +1,11 @@
-﻿using Prism.Mvvm;
+﻿using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Prism.Mvvm;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Timerom.App.ValueObjects.Enuns;
 using Timerom.Exception.ExceptionBase;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
@@ -45,6 +48,8 @@ namespace Timerom.App.ViewModels
 
         protected void HandleException(System.Exception exception)
         {
+            Crashes.TrackError(exception);
+
             NavigationParameters navParameters = new NavigationParameters
             {
                 { "Messages", ShowException(exception) }
@@ -61,6 +66,16 @@ namespace Timerom.App.ViewModels
                 return (Application.Current.MainPage as Views.Views.Dashboard.DashboardPage).Detail.Navigation;
 
             return Application.Current.MainPage.Navigation;
+        }
+
+        protected void TrackEvent(string pageName, string eventName, EventFlag flag)
+        {
+            var properties = new Dictionary<string, string>
+            {
+                { Enum.GetName(typeof(EventFlag), flag), eventName }
+            };
+
+            Analytics.TrackEvent(pageName, properties);
         }
 
         private List<string> ShowException(System.Exception exception)

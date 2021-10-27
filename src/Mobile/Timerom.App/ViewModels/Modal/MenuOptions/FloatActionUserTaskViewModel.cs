@@ -23,6 +23,8 @@ namespace Timerom.App.ViewModels.Modal.MenuOptions
 
         private async Task AddUserTaskCommandExecuted()
         {
+            TrackEvent("FloatActionButtonDashboard", "AddUserTask", EventFlag.Navigation);
+
             await _navigationService.ClearPopupStackAsync();
 
             var navParameters = new NavigationParameters
@@ -34,6 +36,8 @@ namespace Timerom.App.ViewModels.Modal.MenuOptions
         }
         private async Task StartUserTaskCommandExecuted()
         {
+            TrackEvent("FloatActionButtonDashboard", "StartTimeTask", EventFlag.Navigation);
+
             await _navigationService.ClearPopupStackAsync();
 
             if (ThereIsTimer)

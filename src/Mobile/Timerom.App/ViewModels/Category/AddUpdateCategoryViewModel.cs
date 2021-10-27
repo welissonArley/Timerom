@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.UseCase.Categories.Interfaces;
+using Timerom.App.ValueObjects.Enuns;
 using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Category
@@ -78,6 +79,7 @@ namespace Timerom.App.ViewModels.Category
 
         private async Task DeleteCategory()
         {
+            TrackEvent("AddUpdateCategoryPage", "Delete", EventFlag.Click);
             SavingStatus();
             await _deleteUseCase.Execute(Category);
             await SucessStatus();
@@ -88,6 +90,7 @@ namespace Timerom.App.ViewModels.Category
 
         private async Task CreateCategory()
         {
+            TrackEvent("AddUpdateCategoryPage", "Create", EventFlag.Click);
             var result = await _createUseCase.Execute(Category);
 
             _categoriesCreated.Add(result);
@@ -101,6 +104,7 @@ namespace Timerom.App.ViewModels.Category
         }
         private async Task UpdateCategory()
         {
+            TrackEvent("AddUpdateCategoryPage", "Update", EventFlag.Click);
             _updateCategory = await _updateUseCase.Execute(Category);
             await SucessStatus();
         }

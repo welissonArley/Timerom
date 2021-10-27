@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.UseCase.UserTask.Interfaces;
+using Timerom.App.ValueObjects.Enuns;
 using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Timerom.App.ViewModels.Tasks
@@ -66,6 +67,8 @@ namespace Timerom.App.ViewModels.Tasks
 
         private async Task CreateTask()
         {
+            TrackEvent("AddUpdateTaskPage", "Create", EventFlag.Click);
+
             await _insertTaskUseCase.Execute(Task);
 
             await SucessStatus();
@@ -80,6 +83,8 @@ namespace Timerom.App.ViewModels.Tasks
 
         private async Task UpdateTask()
         {
+            TrackEvent("AddUpdateTaskPage", "Update", EventFlag.Click);
+
             await _updateTaskUseCase.Execute(Task);
 
             await SucessStatus();
@@ -106,6 +111,8 @@ namespace Timerom.App.ViewModels.Tasks
 
         private async Task DeleteTask()
         {
+            TrackEvent("AddUpdateTaskPage", "Delete", EventFlag.Click);
+
             SavingStatus();
             await _deleteUseCase.Execute(Task);
             await SucessStatus();

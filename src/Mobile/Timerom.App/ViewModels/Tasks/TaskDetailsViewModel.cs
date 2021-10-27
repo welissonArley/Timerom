@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
 using Timerom.App.UseCase.UserTask.Interfaces;
+using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.Views.Views.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
 
@@ -31,6 +32,7 @@ namespace Timerom.App.ViewModels.Tasks
             SearchTextChangedCommand = new AsyncCommand<string>(OnSearchTextChanged);
             DateChangedCommand = new AsyncCommand<DateTime>(async (value) =>
             {
+                TrackEvent("TaskDetailsPage", "DateChanged", EventFlag.Click);
                 await GetUserTasks(value, Model.Filters.Where(c => c.Checked).Select(c => c.Id).ToList());
             }, onException: HandleException, allowsMultipleExecutions: false);
 
@@ -60,6 +62,8 @@ namespace Timerom.App.ViewModels.Tasks
 
         private async Task SelectedItemCommandExecuted(TaskModel task)
         {
+            TrackEvent("TaskDetailsPage", "AddUpdateTaskPage", EventFlag.Navigation);
+
             var navParameters = new NavigationParameters
             {
                 { "Task", task }
@@ -70,6 +74,7 @@ namespace Timerom.App.ViewModels.Tasks
 
         private async Task FilterListCommandExecuted()
         {
+            TrackEvent("TaskDetailsPage", "FilterTasks", EventFlag.Click);
             await GetUserTasks(Model.Date, Model.Filters.Where(c => c.Checked).Select(c => c.Id).ToList());
         }
 
