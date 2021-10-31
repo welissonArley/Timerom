@@ -48,7 +48,7 @@ With this in mind, I created the app Timerom, a simple and fast way to help you 
 
 You can download the App for free on:
 
-[![google-play-shield]](https://play.google.com/store/apps/details?id=com.id1tech.homuai.app)
+[![google-play-shield]](https://play.google.com/store/apps/details?id=com.id1tech.timerom.app)
 [![app-store-shield]](https://example.com)
 
 To get a local copy up and running follow these simple example steps.
