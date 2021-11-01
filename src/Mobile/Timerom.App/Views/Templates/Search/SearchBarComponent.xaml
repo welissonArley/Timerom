@@ -7,7 +7,7 @@
              xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
              x:Class="Timerom.App.Views.Templates.Search.SearchBarComponent">
   <ContentView.Content>
-        <Frame Margin="0" BackgroundColor="{AppThemeBinding Light=#F1F1F1, Dark=#424242}" HeightRequest="40" HasShadow="False" Padding="15,5,15,5" CornerRadius="50">
+        <Frame Margin="0" BackgroundColor="{AppThemeBinding Light=#F1F1F1, Dark=#424242}" HeightRequest="40" HasShadow="False" Padding="15,5,15,5" CornerRadius="20">
             <StackLayout Orientation="Horizontal">
                 <ffimageloadingsvg:SvgCachedImage VerticalOptions="CenterAndExpand" WidthRequest="15" HeightRequest="15" Source="resource://Timerom.App.Resources.Svgs.IconSearch.svg">
                     <ffimageloadingsvg:SvgCachedImage.Transformations>
