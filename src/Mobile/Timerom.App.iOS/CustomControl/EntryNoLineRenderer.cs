@@ -11,8 +11,7 @@ namespace Timerom.App.iOS.CustomControl
 	{
 		protected override CGColor GetLineColor()
 		{
-			return Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? UIColor.White.CGColor :
-				UIColor.FromRGB(31, 30, 25).CGColor;
+			return Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? UIColor.FromRGB(31, 30, 25).CGColor : UIColor.White.CGColor;
 		}
 		protected override UIColor GetCursor()
 		{
