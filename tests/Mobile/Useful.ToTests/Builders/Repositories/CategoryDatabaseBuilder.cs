@@ -20,6 +20,11 @@ namespace Useful.ToTests.Builders.Repositories
             return _instance;
         }
 
+        public CategoryDatabaseBuilder ExistChildrensCategoryWithNameAndParentId(string name, long parentId)
+        {
+            _repository.Setup(x => x.ExistChildrensCategoryWithNameAndParentId(name, parentId, It.IsAny<long>())).ReturnsAsync(true);
+            return this;
+        }
         public CategoryDatabaseBuilder ExistParentCategoryWithName(string name)
         {
             _repository.Setup(x => x.ExistParentCategoryWithName(name, It.IsAny<long>())).ReturnsAsync(true);
