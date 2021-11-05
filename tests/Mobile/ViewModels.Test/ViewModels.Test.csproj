@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Mobile\Timerom.App\Timerom.App.csproj" />
+    <ProjectReference Include="..\Useful.ToTests\Useful.ToTests.csproj" />
   </ItemGroup>
 
 </Project>
