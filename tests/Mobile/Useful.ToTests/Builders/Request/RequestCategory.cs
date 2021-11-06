@@ -33,6 +33,7 @@ namespace Useful.ToTests.Builders.Request
             for(var index = 0; index < amount; index++)
             {
                 list.Add(new Faker<Category>()
+                .RuleFor(u => u.Id, () => index+1)
                 .RuleFor(u => u.Name, (f) => f.Internet.UserName())
                 .RuleFor(u => u.Type, (f) => f.PickRandom<CategoryType>()));
             }
