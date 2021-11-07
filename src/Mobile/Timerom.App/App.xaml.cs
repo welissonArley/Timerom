@@ -54,6 +54,7 @@ namespace Timerom.App
 
         private void StartAnalyticsTrack()
         {
+            /*To avoid unnecessary data, we will only use Analytics in the production environment */
 #if RELEASE
             AppCenter.Start("ios={Your App Secret};" +
                 "android={Your App Secret};", typeof(Analytics), typeof(Crashes));
