@@ -8,7 +8,10 @@
              xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
              xmlns:enuns="clr-namespace:Timerom.App.ValueObjects.Enuns"
              x:Class="Timerom.App.Views.Views.Dashboard.DashboardPageFlyout"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              prism:ViewModelLocator.AutowireViewModel="True"
+             ios:Page.UseSafeArea="True"
+             IconImageSource="MenuIcon.png"
              Title=" ">
     <StackLayout Margin="40,30,20,5">
         <StackLayout Orientation="Horizontal">

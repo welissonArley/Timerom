@@ -47,12 +47,12 @@ namespace Timerom.App.Repository
             return await _database.Table<Category>().ToListAsync();
         }
 
-        public async Task<bool> ExistParentCategoryWithName(string name, long disregardId)
+        public virtual async Task<bool> ExistParentCategoryWithName(string name, long disregardId)
         {
             var count = await _database.Table<Category>().CountAsync(c => c.Name.ToUpper().Equals(name.ToUpper()) && c.ParentCategoryId == null && c.Id != disregardId);
             return count > 0;
         }
-        public async Task<bool> ExistChildrensCategoryWithNameAndParentId(string name, long parentId, long disregardId)
+        public virtual async Task<bool> ExistChildrensCategoryWithNameAndParentId(string name, long parentId, long disregardId)
         {
             var count = await _database.Table<Category>().CountAsync(c => c.Name.ToUpper().Equals(name.ToUpper()) && c.ParentCategoryId == parentId && c.Id != disregardId);
             return count > 0;
