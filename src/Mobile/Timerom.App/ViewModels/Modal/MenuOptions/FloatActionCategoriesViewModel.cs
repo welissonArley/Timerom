@@ -20,6 +20,8 @@ namespace Timerom.App.ViewModels.Modal.MenuOptions
 
         private async Task AddCategoryCommandExecuted(CategoryType categoryType)
         {
+            TrackEvent("FloatActionButtonCategories", $"AddCategory - {Enum.GetName(typeof(CategoryType), categoryType)}", EventFlag.Navigation);
+
             var navParameters = new NavigationParameters
             {
                 { "Category", new Model.Category { Type = categoryType } }
@@ -29,6 +31,7 @@ namespace Timerom.App.ViewModels.Modal.MenuOptions
         }
         private async Task UpdateCategoryCommandExecuted()
         {
+            TrackEvent("FloatActionButtonCategories", "UpdateCategory", EventFlag.Navigation);
             await _navigationService.NavigateAsync(nameof(SelectCategoryToUpdatePage));
         }
     }

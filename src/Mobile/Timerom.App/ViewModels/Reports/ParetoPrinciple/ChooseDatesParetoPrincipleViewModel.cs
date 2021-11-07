@@ -49,10 +49,13 @@ namespace Timerom.App.ViewModels.Reports.ParetoPrinciple
 
         private async Task WhatIsParetoPrincipleCommandExecuted()
         {
+            TrackEvent("ChooseDatesParetoPrinciplePage", "WhatIsParetoPrinciplePage", EventFlag.Navigation);
             await _navigationService.NavigateAsync(nameof(WhatIsParetoPrinciplePage));
         }
         private async Task ExecuteCommandExecuted()
         {
+            TrackEvent("ChooseDatesParetoPrinciplePage", $"ParetoPrincipleResultPage - {Enum.GetName(typeof(SelectDateParetoPrincipleOptions), Option)}", EventFlag.Navigation);
+
             var navParameters = new NavigationParameters
             {
                 { "Period", $"{StartsAt.ToShortDateString()} - {EndsAt.ToShortDateString()}" },

@@ -73,6 +73,8 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="10.3.1" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.4.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.4.0" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="8.1.97" />
     <PackageReference Include="Prism.Forms" Version="8.1.97" />
     <PackageReference Include="Prism.Plugin.Popups" Version="8.0.76" />

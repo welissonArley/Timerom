@@ -29,10 +29,13 @@ namespace Timerom.App.ViewModels.Home
 
         private async Task HomeCommandExecuted()
         {
+            TrackEvent("HomePage", "DashboardPageDetail", EventFlag.Navigation);
             _ = await _navigationService.NavigateAsync($"/DashboardPage/NavigationPage/{nameof(DashboardPageDetail)}");
         }
         private async Task AddTaskCommandExecuted()
         {
+            TrackEvent("HomePage", "AddTask", EventFlag.Navigation);
+
             var navParameters = new NavigationParameters
             {
                 { "Option", OnSelectCategoryOptions.AddTask }
@@ -41,6 +44,8 @@ namespace Timerom.App.ViewModels.Home
         }
         private async Task StartTaskCommandExecuted()
         {
+            TrackEvent("HomePage", "StartTimer", EventFlag.Navigation);
+
             if (ThereIsTimer)
                 _ = await _navigationService.NavigateAsync(nameof(TimerTaskPage));
             else
@@ -54,6 +59,7 @@ namespace Timerom.App.ViewModels.Home
         }
         private async Task ShowReportCommandExecuted()
         {
+            TrackEvent("HomePage", "ActivityAnalyticPage", EventFlag.Navigation);
             _ = await _navigationService.NavigateAsync(nameof(ActivityAnalyticPage));
         }
 

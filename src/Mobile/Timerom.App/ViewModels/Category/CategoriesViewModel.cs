@@ -47,6 +47,7 @@ namespace Timerom.App.ViewModels.Category
         }
         private async Task AddSubCategoryCommandExecute(Model.Category category)
         {
+            TrackEvent("CategoriesPage", "AddSubcategoryPage", EventFlag.Navigation);
             var navParameters = new NavigationParameters
             {
                 { "SubCategory", new Model.Category { Type = category.Type } },
@@ -57,6 +58,7 @@ namespace Timerom.App.ViewModels.Category
         }
         private async Task UpdateSubCategoryCommandExecute(Model.Category category)
         {
+            TrackEvent("CategoriesPage", "UpdateSubcategoryPage", EventFlag.Navigation);
             var navParameters = new NavigationParameters
             {
                 { "SubCategory", category },
