@@ -21,10 +21,32 @@ namespace Useful.ToTests.Builders.Request
             return new Faker<Category>()
                 .RuleFor(u => u.Name, (f) => f.Internet.UserName())
                 .RuleFor(u => u.Type, (f) => f.PickRandom<CategoryType>())
-                .RuleFor(u => u.Childrens, () => ChildrensCategory());
+                .RuleFor(u => u.Childrens, (_, u) => ChildrensCategory(u));
         }
 
-        private ObservableCollection<Category> ChildrensCategory()
+        public Category Productive()
+        {
+            return new Faker<Category>()
+                .RuleFor(u => u.Name, (f) => f.Internet.UserName())
+                .RuleFor(u => u.Type, () => CategoryType.Productive)
+                .RuleFor(u => u.Childrens, (_, u) => ChildrensCategory(u));
+        }
+        public Category Unproductive()
+        {
+            return new Faker<Category>()
+                .RuleFor(u => u.Name, (f) => f.Internet.UserName())
+                .RuleFor(u => u.Type, () => CategoryType.Unproductive)
+                .RuleFor(u => u.Childrens, (_, u) => ChildrensCategory(u));
+        }
+        public Category Neutral()
+        {
+            return new Faker<Category>()
+                .RuleFor(u => u.Name, (f) => f.Internet.UserName())
+                .RuleFor(u => u.Type, () => CategoryType.Neutral)
+                .RuleFor(u => u.Childrens, (_, u) => ChildrensCategory(u));
+        }
+
+        private ObservableCollection<Category> ChildrensCategory(Category category)
         {
             var list = new ObservableCollection<Category>();
 
@@ -35,7 +57,7 @@ namespace Useful.ToTests.Builders.Request
                 list.Add(new Faker<Category>()
                 .RuleFor(u => u.Id, () => index+1)
                 .RuleFor(u => u.Name, (f) => f.Internet.UserName())
-                .RuleFor(u => u.Type, (f) => f.PickRandom<CategoryType>()));
+                .RuleFor(u => u.Type, () => category.Type));
             }
 
             return list;
