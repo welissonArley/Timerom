@@ -22,6 +22,7 @@ namespace Useful.ToTests.Builders.Navigation
 
         public INavigationParametersBuilder Parameter(string key, object parameter)
         {
+            _repository.Setup(x => x.ContainsKey(key)).Returns(true);
             _repository.Setup(x => x.GetValue<object>(key)).Returns(parameter);
             return this;
         }
