@@ -72,7 +72,7 @@ namespace ViewModels.Test.Reports.ParetoPrinciple
 
             await viewModel.InitializeAsync(parameters);
 
-            Action action = () => viewModel.ItemSelectedCommand.Execute(1l);
+            Action action = () => viewModel.ItemSelectedCommand.Execute(1L);
 
             action.Should().NotThrow();
         }
