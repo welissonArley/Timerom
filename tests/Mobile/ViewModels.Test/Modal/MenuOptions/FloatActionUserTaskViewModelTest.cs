@@ -39,7 +39,6 @@ namespace ViewModels.Test.Modal.MenuOptions
         public void Validade_Command_StartUserTask()
         {
             var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
-
             ReplaceExtensionMethodToFake.Replace(typeof(PopupExtensions), typeof(TimeromPopupExtensionsMock));
 
             var viewModel = new FloatActionUserTaskViewModel(navigation);
