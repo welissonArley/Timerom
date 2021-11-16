@@ -34,7 +34,7 @@ namespace Useful.ToTests.Helper
             {
                 if (IntPtr.Size == 4)
                     Replace32Bit(a, b);
-                else if (IntPtr.Size == 8)
+                else
                     Replace64Bit(a, b);
             }
         }
