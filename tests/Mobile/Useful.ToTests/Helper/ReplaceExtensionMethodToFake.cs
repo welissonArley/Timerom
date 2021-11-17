@@ -27,9 +27,6 @@ namespace Useful.ToTests.Helper
 
         private static void SwapMethodBodies(MethodInfo a, MethodInfo b)
         {
-            RuntimeHelpers.PrepareMethod(a.MethodHandle);
-            RuntimeHelpers.PrepareMethod(b.MethodHandle);
-
             unsafe
             {
                 if (IntPtr.Size == 4)
