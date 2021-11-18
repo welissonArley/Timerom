@@ -130,5 +130,25 @@ namespace ViewModels.Test.Dashboard
 
             action.Should().NotThrow();
         }
+
+        [Fact]
+        public void Validade_Command_DateChanged()
+        {
+            var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
+            var useCase = new Lazy<IDashboardUseCase>(() => DashboardUseCaseBuilder.Instance().Execute().Build());
+
+            var viewModel = new DashboardPageDetailViewModel(useCase, navigation)
+            {
+                Model = new Timerom.App.Model.DashboardDateModel
+                {
+                    Date = DateTime.Now,
+                    Dashboard = RequestDashboardModel.Instance().Build()
+                }
+            };
+
+            Action action = () => viewModel.DateChangedCommand.Execute(DateTime.UtcNow);
+
+            action.Should().NotThrow();
+        }
     }
 }
