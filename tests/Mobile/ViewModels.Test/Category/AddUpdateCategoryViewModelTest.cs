@@ -83,6 +83,11 @@ namespace ViewModels.Test.Category
             Action action = () => viewModel.SaveCommand.Execute(null);
 
             action.Should().NotThrow();
+
+            var parameters = INavigationParametersBuilder.Instance().Build();
+            action = () => viewModel.OnNavigatedFrom(parameters);
+
+            action.Should().NotThrow();
         }
 
         [Fact]

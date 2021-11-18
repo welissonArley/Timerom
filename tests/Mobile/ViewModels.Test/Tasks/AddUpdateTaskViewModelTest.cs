@@ -24,6 +24,12 @@ namespace ViewModels.Test.Tasks
 
             viewModel.SaveCommand.Should().NotBeNull();
             viewModel.DeleteCommand.Should().NotBeNull();
+
+            viewModel.TotalTime.TotalHours.Should().Equals(0);
+            viewModel.TimeStartsAt.TotalHours.Should().Equals(0);
+            viewModel.TimeEndsAt.TotalHours.Should().Equals(0);
+            viewModel.DateStartsAt.Date.Should().Equals(DateTime.Now.Date);
+            viewModel.DateEndsAt.Date.Should().Equals(DateTime.Now.Date);
         }
 
         [Fact]
@@ -43,6 +49,7 @@ namespace ViewModels.Test.Tasks
             Action action = () => viewModel.Initialize(parameters);
 
             action.Should().NotThrow();
+            viewModel.TotalTime.TotalHours.Should().BeGreaterThan(0);
         }
 
         [Fact]

@@ -1,5 +1,8 @@
 ﻿using Moq;
+using System.Collections.Generic;
+using Timerom.App.Model;
 using Timerom.App.UseCase.Categories.Interfaces;
+using Timerom.Exception.ExceptionBase;
 
 namespace Useful.ToTests.Builders.UseCase
 {
@@ -18,6 +21,18 @@ namespace Useful.ToTests.Builders.UseCase
         {
             _instance = new InsertCategoryUseCaseBuilder();
             return _instance;
+        }
+
+        public InsertCategoryUseCaseBuilder TimeromError()
+        {
+            _repository.Setup(c => c.Execute(It.IsAny<Category>())).Throws(new TimeromException(""));
+            return this;
+        }
+
+        public InsertCategoryUseCaseBuilder ValidationError()
+        {
+            _repository.Setup(c => c.Execute(It.IsAny<Category>())).Throws(new ErrorOnValidationException(new List<string>()));
+            return this;
         }
 
         public IInsertCategoryUseCase Build()
