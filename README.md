@@ -99,6 +99,21 @@ Feel free to use this project to study and help me improve them by becoming a co
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Timerom&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=welissonArley_Timerom)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Timerom&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=welissonArley_Timerom)
 
+## Unit testing
+Here I will make a disclaimer about the Sonarclound.io configuration. I excluded some files from coverage report because I did not find out a good way to make unit tests for them, if you kwon how I can make this, please teach me 😀
+
+* Timerom/src/Mobile/Timerom.App/Converter/**
+
+* Timerom/src/Mobile/Timerom.App/CustomControl/**
+
+* Timerom/src/Mobile/Timerom.App/Repository/**
+
+* Timerom/src/Mobile/Timerom.App/ValueObjects/**
+
+* Timerom/src/Mobile/Timerom.App/Views/**
+
+* Timerom/src/Mobile/Timerom.App/App.xaml.cs
+
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png
 [contributors-shield]: https://img.shields.io/github/contributors/welissonArley/Timerom.svg?style=for-the-badge
