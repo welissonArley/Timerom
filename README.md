@@ -100,7 +100,7 @@ Feel free to use this project to study and help me improve them by becoming a co
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Timerom&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=welissonArley_Timerom)
 
 ## Unit testing
-Here I will make a disclaimer about the Sonarclound.io configuration. I excluded some files from coverage report because I did not find out a good way to make unit tests for them, if you kwon how I can make this, please teach me 😀.
+Here I will make a disclaimer about the Sonarclound.io configuration. I excluded some files from coverage report because I did not find out a good way to make unit tests for them, if you kwon how I can make this, please teach me 😀
 
 * Timerom/src/Mobile/Timerom.App/Converter/**
 
