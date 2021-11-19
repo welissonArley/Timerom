@@ -3,6 +3,8 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Prism.Ioc;
 using Prism.Plugin.Popups;
+using Timerom.App.Services.XamarinEssentials;
+using Timerom.App.Services.XamarinEssentials.Interface;
 using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.App.UseCase.Dashboard.Interfaces;
 using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
@@ -69,6 +71,7 @@ namespace Timerom.App
             RegisterPages(containerRegistry);
             RegisterModals(containerRegistry);
             RegisterUseCases(containerRegistry);
+            RegisterServices(containerRegistry);
         }
 
         private void RegisterPages(IContainerRegistry containerRegistry)
@@ -126,6 +129,10 @@ namespace Timerom.App
             containerRegistry.RegisterScoped<IActivityAnalyticDetailsUseCase, UseCase.Reports.ActivityAnalytic.Local.ActivityAnalyticDetailsUseCase>();
             containerRegistry.RegisterScoped<IActivityAnalyticDetailsSubCategoryUseCase, UseCase.Reports.ActivityAnalytic.Local.ActivityAnalyticDetailsSubCategoryUseCase>();
             containerRegistry.RegisterScoped<IGetParetoPrincipleResultUseCase, UseCase.Reports.ActivityAnalytic.Local.GetParetoPrincipleResultUseCase>();
+        }
+        private void RegisterServices(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterScoped<ILauncher, Launcher>();
         }
     }
 }
