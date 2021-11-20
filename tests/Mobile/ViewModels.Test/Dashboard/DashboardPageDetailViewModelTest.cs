@@ -150,5 +150,25 @@ namespace ViewModels.Test.Dashboard
 
             action.Should().NotThrow();
         }
+
+        [Fact]
+        public void Validate_Callback_TaskDetailsPage()
+        {
+            var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().ExecuteCommandParameter("CallbackUpdateUserTask").Build());
+            var useCase = new Lazy<IDashboardUseCase>(() => DashboardUseCaseBuilder.Instance().Execute().Build());
+
+            var viewModel = new DashboardPageDetailViewModel(useCase, navigation)
+            {
+                Model = new Timerom.App.Model.DashboardDateModel
+                {
+                    Date = DateTime.Now,
+                    Dashboard = RequestDashboardModel.Instance().Build()
+                }
+            };
+
+            Action action = () => viewModel.ViewAllTasksCommand.Execute(null);
+
+            action.Should().NotThrow();
+        }
     }
 }
