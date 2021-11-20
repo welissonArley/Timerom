@@ -3,6 +3,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Prism.Ioc;
 using Prism.Plugin.Popups;
+using Timerom.App.Services.BackGroundService;
 using Timerom.App.Services.Navigation;
 using Timerom.App.Services.XamarinEssentials;
 using Timerom.App.Services.XamarinEssentials.Interface;
@@ -136,6 +137,8 @@ namespace Timerom.App
             containerRegistry.RegisterScoped<ILauncher, Launcher>();
             containerRegistry.RegisterScoped<IVersionTracking, VersionTracking>();
             containerRegistry.RegisterScoped<IMenuPath, MenuPath>();
+            containerRegistry.RegisterScoped<IPreferences, Preferences>();
+            containerRegistry.RegisterScoped<ITimerUserTask, UserTaskTimer>();
         }
     }
 }

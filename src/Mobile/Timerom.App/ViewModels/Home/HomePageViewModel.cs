@@ -12,6 +12,9 @@ namespace Timerom.App.ViewModels.Home
 {
     public class HomePageViewModel : ViewModelBase, INavigationAware
     {
+        private readonly Lazy<ITimerUserTask> timerUserTask;
+        private ITimerUserTask _timerUserTask => timerUserTask.Value;
+
         public IAsyncCommand HomeCommand { get; private set; }
         public IAsyncCommand AddTaskCommand { get; private set; }
         public IAsyncCommand StartTaskCommand { get; private set; }
@@ -19,8 +22,10 @@ namespace Timerom.App.ViewModels.Home
 
         public bool ThereIsTimer { get; private set; }
 
-        public HomePageViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
+        public HomePageViewModel(Lazy<INavigationService> navigationService, Lazy<ITimerUserTask> timerUserTask) : base(navigationService)
         {
+            this.timerUserTask = timerUserTask;
+
             HomeCommand = new AsyncCommand(HomeCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
             AddTaskCommand = new AsyncCommand(AddTaskCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
             StartTaskCommand = new AsyncCommand(StartTaskCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
@@ -67,7 +72,7 @@ namespace Timerom.App.ViewModels.Home
 
         public void OnNavigatedTo(INavigationParameters parameters)
         {
-            ThereIsTimer = TimerUserTaskService.IsRunning();
+            ThereIsTimer = _timerUserTask.IsRunning();
 
             RaisePropertyChanged("ThereIsTimer");
         }

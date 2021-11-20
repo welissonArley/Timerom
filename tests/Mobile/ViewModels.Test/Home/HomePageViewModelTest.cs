@@ -1,8 +1,10 @@
 ﻿using FluentAssertions;
 using Prism.Navigation;
 using System;
+using Timerom.App.Services.BackGroundService;
 using Timerom.App.ViewModels.Home;
 using Useful.ToTests.Builders.Navigation;
+using Useful.ToTests.Builders.Service;
 using Xunit;
 
 namespace ViewModels.Test.Home
@@ -13,8 +15,9 @@ namespace ViewModels.Test.Home
         public void Validade_Sucess()
         {
             var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
+            var timerUserTask = new Lazy<ITimerUserTask>(() => TimerUserTaskBuilder.Instance().TimerRunning().Build());
 
-            var viewModel = new HomePageViewModel(navigation);
+            var viewModel = new HomePageViewModel(navigation, timerUserTask);
 
             viewModel.HomeCommand.Should().NotBeNull();
             viewModel.AddTaskCommand.Should().NotBeNull();
@@ -27,8 +30,9 @@ namespace ViewModels.Test.Home
         public void Validade_Command_HomeCommand()
         {
             var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
+            var timerUserTask = new Lazy<ITimerUserTask>(() => TimerUserTaskBuilder.Instance().TimerRunning().Build());
 
-            var viewModel = new HomePageViewModel(navigation);
+            var viewModel = new HomePageViewModel(navigation, timerUserTask);
 
             Action action = () => viewModel.HomeCommand.Execute(null);
 
@@ -39,8 +43,9 @@ namespace ViewModels.Test.Home
         public void Validade_Command_AddTask()
         {
             var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
+            var timerUserTask = new Lazy<ITimerUserTask>(() => TimerUserTaskBuilder.Instance().TimerRunning().Build());
 
-            var viewModel = new HomePageViewModel(navigation);
+            var viewModel = new HomePageViewModel(navigation, timerUserTask);
 
             Action action = () => viewModel.AddTaskCommand.Execute(null);
 
@@ -51,20 +56,31 @@ namespace ViewModels.Test.Home
         public void Validade_Command_ShowReport()
         {
             var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
+            var timerUserTask = new Lazy<ITimerUserTask>(() => TimerUserTaskBuilder.Instance().TimerRunning().Build());
 
-            var viewModel = new HomePageViewModel(navigation);
+            var viewModel = new HomePageViewModel(navigation, timerUserTask);
 
             Action action = () => viewModel.ShowReportCommand.Execute(null);
 
             action.Should().NotThrow();
         }
 
-        [Fact]
-        public void Validade_Command_StartTask()
+        [Theory]
+        [InlineData(false)]
+        [InlineData(true)]
+        public void Validade_Command_StartTask(bool thereIsTimer)
         {
             var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
+            Lazy<ITimerUserTask> timerUserTask;
 
-            var viewModel = new HomePageViewModel(navigation);
+            if(thereIsTimer)
+                timerUserTask = new Lazy<ITimerUserTask>(() => TimerUserTaskBuilder.Instance().TimerRunning().Build());
+            else
+                timerUserTask = new Lazy<ITimerUserTask>(() => TimerUserTaskBuilder.Instance().Build());
+
+            var viewModel = new HomePageViewModel(navigation, timerUserTask);
+
+            viewModel.OnNavigatedTo(null);
 
             Action action = () => viewModel.StartTaskCommand.Execute(null);
 
@@ -75,10 +91,24 @@ namespace ViewModels.Test.Home
         public void Validade_OnNavigatedFrom_Sucess()
         {
             var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
+            var timerUserTask = new Lazy<ITimerUserTask>(() => TimerUserTaskBuilder.Instance().TimerRunning().Build());
 
-            var viewModel = new HomePageViewModel(navigation);
+            var viewModel = new HomePageViewModel(navigation, timerUserTask);
 
             Action action = () => viewModel.OnNavigatedFrom(null);
+
+            action.Should().NotThrow();
+        }
+
+        [Fact]
+        public void Validade_OnNavigatedTo_Sucess()
+        {
+            var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
+            var timerUserTask = new Lazy<ITimerUserTask>(() => TimerUserTaskBuilder.Instance().TimerRunning().Build());
+
+            var viewModel = new HomePageViewModel(navigation, timerUserTask);
+
+            Action action = () => viewModel.OnNavigatedTo(null);
 
             action.Should().NotThrow();
         }
