@@ -32,6 +32,17 @@ namespace Useful.ToTests.Builders.Navigation
             return this;
         }
 
+        public INavigationServiceBuilder ExecuteCommandParameterFromModal(string parameterName)
+        {
+            _repository.Setup(c => c.NavigateAsync(It.IsAny<string>(), It.IsAny<INavigationParameters>(), It.IsAny<bool>(), It.IsAny<bool>())).Callback(async (string page, INavigationParameters parameters, bool? useModalNavigation, bool animated) =>
+            {
+                var callbackCommand = parameters.GetValue<AsyncCommand>(parameterName);
+                await callbackCommand.ExecuteAsync();
+            });
+
+            return this;
+        }
+
         public INavigationService Build()
         {
             return _repository.Object;

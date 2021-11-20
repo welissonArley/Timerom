@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Prism.Navigation;
 using System;
+using System.Threading.Tasks;
 using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.App.ViewModels.Category;
 using Useful.ToTests.Builders.Navigation;
@@ -118,6 +119,29 @@ namespace ViewModels.Test.Category
                 .Build();
 
             viewModel.OnNavigatedTo(parameters);
+        }
+
+        [Fact]
+        public async Task Validate_Callback_TaskDetailsPage()
+        {
+            var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().ExecuteCommandParameterFromModal("Action").Build());
+
+            var createUseCase = new Lazy<IInsertSubcategoryUseCase>(() => InsertSubcategoryUseCaseBuilder.Instance().Build());
+            var updateUseCase = new Lazy<IUpdateSubcategoryUseCase>(() => UpdateSubcategoryUseCaseBuilder.Instance().Build());
+            var deleteUseCase = new Lazy<IDeleteSubcategoryUseCase>(() => DeleteSubcategoryUseCaseBuilder.Instance().Build());
+
+            var viewModel = new AddUpdateSubcategoryViewModel(navigation, createUseCase, updateUseCase, deleteUseCase);
+
+            StartViewModelToTest(viewModel, 1);
+
+            Func<Task> action = async () => await viewModel.DeleteCommand.ExecuteAsync();
+
+            await action.Should().NotThrowAsync();
+
+            var parameters = INavigationParametersBuilder.Instance().Build();
+            Action actionNavigateFrom = () => viewModel.OnNavigatedFrom(parameters);
+
+            actionNavigateFrom.Should().NotThrow();
         }
     }
 }
