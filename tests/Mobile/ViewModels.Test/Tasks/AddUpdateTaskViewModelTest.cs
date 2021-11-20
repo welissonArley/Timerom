@@ -108,5 +108,49 @@ namespace ViewModels.Test.Tasks
 
             action.Should().NotThrow();
         }
+
+        [Fact]
+        public void Validate_Callback_DeleteTask()
+        {
+            var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().ExecuteCommandParameterFromModal("Action").Build());
+
+            var insertTaskUseCase = new Lazy<IInsertTaskUseCase>(() => InsertTaskUseCaseBuilder.Instance().Build());
+            var deleteUseCase = new Lazy<IDeleteUserTaskUseCase>(() => DeleteUserTaskUseCaseBuilder.Instance().Build());
+            var updateTaskUseCase = new Lazy<IUpdateUserTaskUseCase>(() => UpdateUserTaskUseCase.Instance().Build());
+
+            var viewModel = new AddUpdateTaskViewModel(insertTaskUseCase, deleteUseCase, updateTaskUseCase, navigation)
+            {
+                Task = RequestTask.Instance().Build()
+            };
+
+            Action action = () => viewModel.DeleteCommand.Execute(null);
+
+            action.Should().NotThrow();
+        }
+
+        [Fact]
+        public void Validate_Dates()
+        {
+            var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
+            var insertTaskUseCase = new Lazy<IInsertTaskUseCase>(() => InsertTaskUseCaseBuilder.Instance().Build());
+            var deleteUseCase = new Lazy<IDeleteUserTaskUseCase>(() => DeleteUserTaskUseCaseBuilder.Instance().Build());
+            var updateTaskUseCase = new Lazy<IUpdateUserTaskUseCase>(() => UpdateUserTaskUseCase.Instance().Build());
+
+            var viewModel = new AddUpdateTaskViewModel(insertTaskUseCase, deleteUseCase, updateTaskUseCase, navigation)
+            {
+                Task = RequestTask.Instance().Build()
+            };
+
+            viewModel.TimeStartsAt = new TimeSpan(1,0,0);
+            viewModel.TimeEndsAt = new TimeSpan(2,0,0);
+            viewModel.DateStartsAt = DateTime.Today;
+            viewModel.DateEndsAt = DateTime.Today;
+
+            viewModel.TotalTime.TotalHours.Should().BeGreaterThan(0);
+            viewModel.TimeStartsAt.TotalHours.Should().BeGreaterThan(0);
+            viewModel.TimeEndsAt.TotalHours.Should().BeGreaterThan(0);
+            viewModel.DateStartsAt.Date.Should().Equals(DateTime.Today);
+            viewModel.DateEndsAt.Date.Should().Equals(DateTime.Today);
+        }
     }
 }
