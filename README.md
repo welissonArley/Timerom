@@ -102,17 +102,21 @@ Feel free to use this project to study and help me improve them by becoming a co
 ## Unit testing
 Here I will make a disclaimer about the Sonarclound.io configuration. I excluded some files from coverage report because I did not find out a good way to make unit tests for them, if you kwon how I can make this, please teach me 😀
 
-* Timerom/src/Mobile/Timerom.App/Converter/**
+* src/Mobile/Timerom.App/Converter/**
 
-* Timerom/src/Mobile/Timerom.App/CustomControl/**
+* src/Mobile/Timerom.App/CustomControl/**
 
-* Timerom/src/Mobile/Timerom.App/Repository/**
+* src/Mobile/Timerom.App/Repository/**
 
-* Timerom/src/Mobile/Timerom.App/ValueObjects/**
+* src/Mobile/Timerom.App/ValueObjects/**
 
-* Timerom/src/Mobile/Timerom.App/Views/**
+* src/Mobile/Timerom.App/Views/**
 
-* Timerom/src/Mobile/Timerom.App/App.xaml.cs
+* src/Mobile/Timerom.App/App.xaml.cs
+
+* src/Mobile/Timerom.App/Services/XamarinEssentials/**
+
+* src/Mobile/Timerom.App/Services/Navigation/**
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png
