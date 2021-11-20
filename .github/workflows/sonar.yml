@@ -1,6 +1,10 @@
-name: SonarBuild
+name: Sonar Build
 
-on: push
+on:
+  push:
+    branches:
+      - develop
+      - **-sonar
 
 jobs:
   build:
