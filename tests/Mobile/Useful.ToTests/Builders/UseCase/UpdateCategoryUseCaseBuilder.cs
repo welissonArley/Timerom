@@ -1,4 +1,5 @@
 ﻿using Moq;
+using Timerom.App.Model;
 using Timerom.App.UseCase.Categories.Interfaces;
 
 namespace Useful.ToTests.Builders.UseCase
@@ -18,6 +19,12 @@ namespace Useful.ToTests.Builders.UseCase
         {
             _instance = new UpdateCategoryUseCaseBuilder();
             return _instance;
+        }
+
+        public UpdateCategoryUseCaseBuilder Execute()
+        {
+            _repository.Setup(c => c.Execute(It.IsAny<Category>())).ReturnsAsync(new Category());
+            return this;
         }
 
         public IUpdateCategoryUseCase Build()

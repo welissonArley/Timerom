@@ -96,7 +96,7 @@ namespace ViewModels.Test.Category
             var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
 
             var createUseCase = new Lazy<IInsertCategoryUseCase>(() => InsertCategoryUseCaseBuilder.Instance().Build());
-            var updateUseCase = new Lazy<IUpdateCategoryUseCase>(() => UpdateCategoryUseCaseBuilder.Instance().Build());
+            var updateUseCase = new Lazy<IUpdateCategoryUseCase>(() => UpdateCategoryUseCaseBuilder.Instance().Execute().Build());
             var deleteUseCase = new Lazy<IDeleteCategoryUseCase>(() => DeleteCategoryUseCaseBuilder.Instance().Build());
             var canDeleteUseCase = new Lazy<ICanDeleteSubcategoryUseCase>(() => CanDeleteSubcategoryUseCaseBuilder.Instance().Build());
 
@@ -107,6 +107,11 @@ namespace ViewModels.Test.Category
             Action action = () => viewModel.SaveCommand.Execute(null);
 
             action.Should().NotThrow();
+
+            var parameters = INavigationParametersBuilder.Instance().Build();
+            Action actionNavigateFrom = () => viewModel.OnNavigatedFrom(parameters);
+
+            actionNavigateFrom.Should().NotThrow();
         }
 
         [Fact]
@@ -122,6 +127,28 @@ namespace ViewModels.Test.Category
             var viewModel = new AddUpdateCategoryViewModel(navigation, createUseCase, updateUseCase, deleteUseCase, canDeleteUseCase)
             {
                 SubCategoryName = "Adding subCategory"
+            };
+
+            StartViewModelToTest(viewModel);
+
+            Action action = () => viewModel.AddSubCategoryCommand.Execute(null);
+
+            action.Should().NotThrow();
+        }
+
+        [Fact]
+        public void Validate_Command_AddSubCategory_EmptyName()
+        {
+            var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
+
+            var createUseCase = new Lazy<IInsertCategoryUseCase>(() => InsertCategoryUseCaseBuilder.Instance().Build());
+            var updateUseCase = new Lazy<IUpdateCategoryUseCase>(() => UpdateCategoryUseCaseBuilder.Instance().Build());
+            var deleteUseCase = new Lazy<IDeleteCategoryUseCase>(() => DeleteCategoryUseCaseBuilder.Instance().Build());
+            var canDeleteUseCase = new Lazy<ICanDeleteSubcategoryUseCase>(() => CanDeleteSubcategoryUseCaseBuilder.Instance().Build());
+
+            var viewModel = new AddUpdateCategoryViewModel(navigation, createUseCase, updateUseCase, deleteUseCase, canDeleteUseCase)
+            {
+                SubCategoryName = ""
             };
 
             StartViewModelToTest(viewModel);
@@ -148,6 +175,30 @@ namespace ViewModels.Test.Category
             Action action = () => viewModel.OptionCategoryCommand.Execute(viewModel.Category);
 
             action.Should().NotThrow();
+        }
+
+        [Fact]
+        public void Validate_Callback_DeleteCategory()
+        {
+            var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().ExecuteCommandParameterFromModal("Action").Build());
+
+            var createUseCase = new Lazy<IInsertCategoryUseCase>(() => InsertCategoryUseCaseBuilder.Instance().Build());
+            var updateUseCase = new Lazy<IUpdateCategoryUseCase>(() => UpdateCategoryUseCaseBuilder.Instance().Build());
+            var deleteUseCase = new Lazy<IDeleteCategoryUseCase>(() => DeleteCategoryUseCaseBuilder.Instance().Build());
+            var canDeleteUseCase = new Lazy<ICanDeleteSubcategoryUseCase>(() => CanDeleteSubcategoryUseCaseBuilder.Instance().Build());
+
+            var viewModel = new AddUpdateCategoryViewModel(navigation, createUseCase, updateUseCase, deleteUseCase, canDeleteUseCase);
+
+            StartViewModelToTest(viewModel, 1);
+
+            Action action = () => viewModel.DeleteCommand.Execute(null);
+
+            action.Should().NotThrow();
+
+            var parameters = INavigationParametersBuilder.Instance().Build();
+            Action actionNavigateFrom = () => viewModel.OnNavigatedFrom(parameters);
+
+            actionNavigateFrom.Should().NotThrow();
         }
 
         private void StartViewModelToTest(AddUpdateCategoryViewModel viewModel, long? id = null)

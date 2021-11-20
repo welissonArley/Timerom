@@ -122,7 +122,7 @@ namespace ViewModels.Test.Category
         }
 
         [Fact]
-        public async Task Validate_Callback_TaskDetailsPage()
+        public async Task Validate_Callback_DeleteSubcategory()
         {
             var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().ExecuteCommandParameterFromModal("Action").Build());
 
