@@ -13,6 +13,8 @@ namespace Timerom.App.ViewModels.Tasks
 {
     public class TimerTaskViewModel : ViewModelBase, IInitializeAsync
     {
+        private readonly Lazy<ITimerUserTask> timerUserTask;
+        private ITimerUserTask _timerUserTask => timerUserTask.Value;
         private readonly Lazy<IGetByIdCategoryUseCase> useCase;
         private IGetByIdCategoryUseCase _useCase => useCase.Value;
 
@@ -26,13 +28,11 @@ namespace Timerom.App.ViewModels.Tasks
         public IAsyncCommand StopTimerCommand { get; private set; }
         public IAsyncCommand AddTaskTitleCommand { get; private set; }
 
-        private readonly TimerUserTaskService _timerUserTaskService;
-
-        public TimerTaskViewModel(Lazy<INavigationService> navigationService, Lazy<IGetByIdCategoryUseCase> useCase) : base(navigationService)
+        public TimerTaskViewModel(Lazy<INavigationService> navigationService, Lazy<IGetByIdCategoryUseCase> useCase,
+            Lazy<ITimerUserTask> timerUserTask) : base(navigationService)
         {
             this.useCase = useCase;
-
-            _timerUserTaskService = new TimerUserTaskService();
+            this.timerUserTask = timerUserTask;
 
             StartTimerCommand = new AsyncCommand(StartTimeCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
             StopTimerCommand = new AsyncCommand(StopTimeCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
@@ -57,7 +57,7 @@ namespace Timerom.App.ViewModels.Tasks
         {
             Subscribe();
 
-            _timerUserTaskService.StartJob(Subcategory);
+            _timerUserTask.StartJob(Subcategory);
 
             IsRunning = true;
             RaisePropertyChanged("IsRunning");
@@ -65,9 +65,9 @@ namespace Timerom.App.ViewModels.Tasks
 
         private async Task StopTimeCommandExecuted()
         {
-            var timerStartsAt = _timerUserTaskService.TimerStartsAt();
+            var timerStartsAt = _timerUserTask.TimerStartsAt();
 
-            _timerUserTaskService.StopJob();
+            _timerUserTask.StopJob();
 
             var navParameters = new NavigationParameters
             {
@@ -97,7 +97,7 @@ namespace Timerom.App.ViewModels.Tasks
         {
             Title = string.IsNullOrWhiteSpace(title) ? ResourceText.TITLE_CLICK_HERE_FILL_TASK_TITLE : title;
 
-            _timerUserTaskService.SetTitle(Title);
+            _timerUserTask.SetTitle(Title);
 
             RaisePropertyChanged("Title");
 
@@ -106,7 +106,7 @@ namespace Timerom.App.ViewModels.Tasks
 
         private void Subscribe()
         {
-            _timerUserTaskService.Subscribe(new Command((seconds) =>
+            _timerUserTask.Subscribe(new Command((seconds) =>
             {
                 Device.BeginInvokeOnMainThread(() =>
                 {
@@ -119,14 +119,14 @@ namespace Timerom.App.ViewModels.Tasks
 
         public async Task InitializeAsync(INavigationParameters parameters)
         {
-            if (TimerUserTaskService.IsRunning())
+            if (_timerUserTask.IsRunning())
             {
-                _totalSeconds = _timerUserTaskService.GetTime();
+                _totalSeconds = _timerUserTask.GetTotalSeconds();
                 Time = DateTime.Now.Date.AddSeconds(_totalSeconds);
                 RaisePropertyChanged("Time");
                 
-                Subcategory = await _useCase.Execute(_timerUserTaskService.SubcategoryId());
-                Title = _timerUserTaskService.GetTitle();
+                Subcategory = await _useCase.Execute(_timerUserTask.SubcategoryId());
+                Title = _timerUserTask.GetTitle();
                 Title = string.IsNullOrWhiteSpace(Title) ? ResourceText.TITLE_CLICK_HERE_FILL_TASK_TITLE : Title;
                 StartBackgroundService_Properties();
             }
