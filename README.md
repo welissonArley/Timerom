@@ -114,9 +114,7 @@ Here I will make a disclaimer about the Sonarclound.io configuration. I excluded
 
 * src/Mobile/Timerom.App/App.xaml.cs
 
-* src/Mobile/Timerom.App/Services/XamarinEssentials/**
-
-* src/Mobile/Timerom.App/Services/Navigation/**
+* src/Mobile/Timerom.App/Services/**
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png

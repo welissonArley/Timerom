@@ -43,6 +43,17 @@ namespace Useful.ToTests.Builders.Navigation
             return this;
         }
 
+        public INavigationServiceBuilder ExecuteCommandParameter(string parameterName, string propertyToReturn)
+        {
+            _repository.Setup(c => c.NavigateAsync(It.IsAny<string>(), It.IsAny<INavigationParameters>())).Callback(async (string page, INavigationParameters parameters) =>
+            {
+                var callbackCommand = parameters.GetValue<AsyncCommand<string>>(parameterName);
+                await callbackCommand.ExecuteAsync(propertyToReturn);
+            });
+
+            return this;
+        }
+
         public INavigationService Build()
         {
             return _repository.Object;
