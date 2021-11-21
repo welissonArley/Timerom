@@ -10,13 +10,18 @@ namespace Timerom.App.ViewModels.Modal.MenuOptions
 {
     public class FloatActionUserTaskViewModel : ViewModelBase, IInitialize
     {
+        private readonly Lazy<ITimerUserTask> timerUserTask;
+        private ITimerUserTask _timerUserTask => timerUserTask.Value;
+
         public bool ThereIsTimer { get; private set; }
 
         public IAsyncCommand AddUserTaskCommand { get; private set; }
         public IAsyncCommand StartUserTaskCommand { get; private set; }
 
-        public FloatActionUserTaskViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
+        public FloatActionUserTaskViewModel(Lazy<INavigationService> navigationService, Lazy<ITimerUserTask> timerUserTask) : base(navigationService)
         {
+            this.timerUserTask = timerUserTask;
+
             AddUserTaskCommand = new AsyncCommand(AddUserTaskCommandExecuted, allowsMultipleExecutions: false);
             StartUserTaskCommand = new AsyncCommand(StartUserTaskCommandExecuted, allowsMultipleExecutions: false);
         }
@@ -55,7 +60,7 @@ namespace Timerom.App.ViewModels.Modal.MenuOptions
 
         public void Initialize(INavigationParameters parameters)
         {
-            ThereIsTimer = TimerUserTaskService.IsRunning();
+            ThereIsTimer = _timerUserTask.IsRunning();
 
             RaisePropertyChanged("ThereIsTimer");
         }
