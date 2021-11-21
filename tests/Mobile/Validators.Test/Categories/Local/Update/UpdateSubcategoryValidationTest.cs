@@ -15,7 +15,7 @@ namespace Validators.Test.Categories.Local.Update
         {
             var request = RequestSubcategory.Instance().Build();
 
-            var categoryDatabase = CategoryDatabaseBuilder.Instance().Build();
+            var categoryDatabase = CategoryReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new UpdateSubcategoryValidation(categoryDatabase, 1);
 
@@ -30,7 +30,7 @@ namespace Validators.Test.Categories.Local.Update
             var request = RequestSubcategory.Instance().Build();
             request.Name = "";
 
-            var categoryDatabase = CategoryDatabaseBuilder.Instance().Build();
+            var categoryDatabase = CategoryReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new UpdateSubcategoryValidation(categoryDatabase, 1);
 
@@ -45,7 +45,7 @@ namespace Validators.Test.Categories.Local.Update
         {
             var request = RequestSubcategory.Instance().Build();
 
-            var categoryDatabase = CategoryDatabaseBuilder.Instance()
+            var categoryDatabase = CategoryReadOnlyRepositoryBuilder.Instance()
                 .ExistChildrensCategoryWithNameAndParentId(request.Name, 1)
                 .Build();
 

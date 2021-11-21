@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
-using Timerom.App.Repository;
+using Timerom.App.Repository.Interface;
 using Timerom.App.UseCase.Dashboard.Interfaces;
 using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.ValueObjects.Functions;
@@ -15,22 +15,26 @@ namespace Timerom.App.UseCase.Dashboard.Local
     {
         private readonly FuncCorrectDate _funcCorrectDate;
 
-        public DashboardUseCase()
+        private readonly Lazy<IUserTaskReadOnlyRepository> repositoryUserTask;
+        private readonly Lazy<ICategoryReadOnlyRepository> repository;
+        private ICategoryReadOnlyRepository _repository => repository.Value;
+        private IUserTaskReadOnlyRepository _repositoryUserTask => repositoryUserTask.Value;
+
+        public DashboardUseCase(Lazy<ICategoryReadOnlyRepository> repository, Lazy<IUserTaskReadOnlyRepository> repositoryUserTask)
         {
             _funcCorrectDate = new FuncCorrectDate();
+            this.repository = repository;
+            this.repositoryUserTask = repositoryUserTask;
         }
 
         public async Task<DashboardModel> Execute(DateTime date)
         {
-            UserTaskDatabase database = await UserTaskDatabase.Instance();
-            
-            var models = await database.GetAll(date);
+            var models = await _repositoryUserTask.GetAll(date);
 
             if (!models.Any())
                 return new DashboardModel { TotalTasks = 0 };
 
-            CategoryDatabase categoryDatabase = await CategoryDatabase.Instance();
-            var categories = await categoryDatabase.GetAll();
+            var categories = await _repository.GetAll();
 
             var totalProductive = CalculateTotalTimeMinutesPerCategory(categories, models, CategoryType.Productive, date);
             var totalNeutral = CalculateTotalTimeMinutesPerCategory(categories, models, CategoryType.Neutral, date);

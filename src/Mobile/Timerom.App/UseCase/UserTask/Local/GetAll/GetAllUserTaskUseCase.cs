@@ -4,19 +4,28 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
-using Timerom.App.Repository;
+using Timerom.App.Repository.Interface;
 using Timerom.App.UseCase.UserTask.Interfaces;
 
 namespace Timerom.App.UseCase.UserTask.Local.GetAll
 {
     public class GetAllUserTaskUseCase : IGetAllUserTaskUseCase
     {
+        private readonly Lazy<IUserTaskReadOnlyRepository> repositoryUserTask;
+        private readonly Lazy<ICategoryReadOnlyRepository> repositoryReadOnly;
+        private ICategoryReadOnlyRepository _repositoryReadOnly => repositoryReadOnly.Value;
+        private IUserTaskReadOnlyRepository _repositoryUserTask => repositoryUserTask.Value;
+
+        public GetAllUserTaskUseCase(Lazy<ICategoryReadOnlyRepository> repositoryReadOnly,
+            Lazy<IUserTaskReadOnlyRepository> repositoryUserTask)
+        {
+            this.repositoryReadOnly = repositoryReadOnly;
+            this.repositoryUserTask = repositoryUserTask;
+        }
+
         public async Task<TasksDetailsModel> Execute(DateTime date, IList<long> categoriesToFilterIds)
         {
-            UserTaskDatabase database = await UserTaskDatabase.Instance();
-            CategoryDatabase categoryDatabase = await CategoryDatabase.Instance();
-
-            var models = await database.GetAll(date);
+            var models = await _repositoryUserTask.GetAll(date);
 
             var tasks = models.Select(c => Task.Run(async () =>
             {
@@ -27,7 +36,7 @@ namespace Timerom.App.UseCase.UserTask.Local.GetAll
                     Title = c.Title,
                     EndsAt = c.EndsAt,
                     StartsAt = c.StartsAt,
-                    Category = await GetCategory(categoryDatabase, c.CategoryId)
+                    Category = await GetCategory(c.CategoryId)
                 };
             })).ToList();
 
@@ -58,10 +67,10 @@ namespace Timerom.App.UseCase.UserTask.Local.GetAll
             return result.OrderBy(c => c.StartsAt).ThenBy(c => c.Title).ToList();
         }
 
-        private async Task<Category> GetCategory(CategoryDatabase categoryDatabase, long categoryId)
+        private async Task<Category> GetCategory(long categoryId)
         {
-            var model = await categoryDatabase.GetById(categoryId);
-            var parentCategory = await categoryDatabase.GetById(model.ParentCategoryId.Value);
+            var model = await _repositoryReadOnly.GetById(categoryId);
+            var parentCategory = await _repositoryReadOnly.GetById(model.ParentCategoryId.Value);
 
             return new Category
             {

@@ -3,6 +3,8 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Prism.Ioc;
 using Prism.Plugin.Popups;
+using Timerom.App.Repository;
+using Timerom.App.Repository.Interface;
 using Timerom.App.Services.BackGroundService;
 using Timerom.App.Services.Navigation;
 using Timerom.App.Services.XamarinEssentials;
@@ -71,6 +73,7 @@ namespace Timerom.App
             RegisterModals(containerRegistry);
             RegisterUseCases(containerRegistry);
             RegisterServices(containerRegistry);
+            RegisterRepositories(containerRegistry);
         }
 
         private void RegisterPages(IContainerRegistry containerRegistry)
@@ -136,6 +139,13 @@ namespace Timerom.App
             containerRegistry.RegisterScoped<IMenuPath, MenuPath>();
             containerRegistry.RegisterScoped<IPreferences, Preferences>();
             containerRegistry.RegisterScoped<ITimerUserTask, UserTaskTimer>();
+        }
+        private void RegisterRepositories(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterScoped<ICategoryReadOnlyRepository, CategoryRepository>();
+            containerRegistry.RegisterScoped<ICategoryWriteOnlyRepository, CategoryRepository>();
+            containerRegistry.RegisterScoped<IUserTaskWriteOnlyRepository, UserTaskRepository>();
+            containerRegistry.RegisterScoped<IUserTaskReadOnlyRepository, UserTaskRepository>();
         }
     }
 }

@@ -1,8 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
-using Timerom.App.Repository;
+using Timerom.App.Repository.Interface;
 using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.Exception.ExceptionBase;
 
@@ -10,18 +11,26 @@ namespace Timerom.App.UseCase.Categories.Local.Insert
 {
     public class InsertCategoryUseCase : IInsertCategoryUseCase
     {
-        public async Task<Category> Execute(Category category)
+        private readonly Lazy<ICategoryReadOnlyRepository> repositoryReadOnly;
+        private readonly Lazy<ICategoryWriteOnlyRepository> repository;
+        private ICategoryWriteOnlyRepository _repository => repository.Value;
+
+        public InsertCategoryUseCase(Lazy<ICategoryWriteOnlyRepository> repository, Lazy<ICategoryReadOnlyRepository> repositoryReadOnly)
         {
-            CategoryDatabase database = await CategoryDatabase.Instance();
-
-            await Validate(category, database);
-
-            return await Save(category, database);
+            this.repository = repository;
+            this.repositoryReadOnly = repositoryReadOnly;
         }
 
-        private async Task<Category> Save(Category category, CategoryDatabase database)
+        public async Task<Category> Execute(Category category)
         {
-            long parentCategoryId = await SaveParent(database, category);
+            await Validate(category);
+
+            return await Save(category);
+        }
+
+        private async Task<Category> Save(Category category)
+        {
+            long parentCategoryId = await SaveParent(category);
 
             var childrensList = category.Childrens.Select(c => new ValueObjects.Entity.Category
             {
@@ -30,7 +39,7 @@ namespace Timerom.App.UseCase.Categories.Local.Insert
                 Type = category.Type
             }).ToList();
 
-            await database.Save(childrensList);
+            await _repository.Save(childrensList);
 
             return new Category
             {
@@ -45,7 +54,7 @@ namespace Timerom.App.UseCase.Categories.Local.Insert
                 }).OrderBy(c => c.Name))
             };
         }
-        private async Task<long> SaveParent(CategoryDatabase database, Category category)
+        private async Task<long> SaveParent(Category category)
         {
             var parentCategory = new ValueObjects.Entity.Category
             {
@@ -53,14 +62,14 @@ namespace Timerom.App.UseCase.Categories.Local.Insert
                 Type = category.Type
             };
 
-            await database.Save(parentCategory);
+            await _repository.Save(parentCategory);
 
             return parentCategory.Id;
         }
 
-        private async Task Validate(Category category, CategoryDatabase database)
+        private async Task Validate(Category category)
         {
-            var validation = await new InsertCategoryValidation(database).ValidateAsync(category);
+            var validation = await new InsertCategoryValidation(repositoryReadOnly.Value).ValidateAsync(category);
 
             if (!validation.IsValid)
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());

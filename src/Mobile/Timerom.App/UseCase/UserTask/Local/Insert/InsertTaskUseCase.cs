@@ -1,7 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
-using Timerom.App.Repository;
+using Timerom.App.Repository.Interface;
 using Timerom.App.UseCase.UserTask.Interfaces;
 using Timerom.Exception.ExceptionBase;
 
@@ -9,6 +10,14 @@ namespace Timerom.App.UseCase.UserTask.Local.Insert
 {
     public class InsertTaskUseCase : IInsertTaskUseCase
     {
+        private readonly Lazy<IUserTaskWriteOnlyRepository> repository;
+        private IUserTaskWriteOnlyRepository _repositoryUserTask => repository.Value;
+
+        public InsertTaskUseCase(Lazy<IUserTaskWriteOnlyRepository> repository)
+        {
+            this.repository = repository;
+        }
+
         public async Task Execute(TaskModel task)
         {
             Validate(task);
@@ -18,8 +27,6 @@ namespace Timerom.App.UseCase.UserTask.Local.Insert
 
         private async Task Save(TaskModel task)
         {
-            UserTaskDatabase database = await UserTaskDatabase.Instance();
-
             var model = new ValueObjects.Entity.UserTask
             {
                 Title = task.Title,
@@ -29,7 +36,7 @@ namespace Timerom.App.UseCase.UserTask.Local.Insert
                 CategoryId = task.Category.Id
             };
 
-            await database.Save(model);
+            await _repositoryUserTask.Save(model);
         }
 
         private void Validate(TaskModel task)

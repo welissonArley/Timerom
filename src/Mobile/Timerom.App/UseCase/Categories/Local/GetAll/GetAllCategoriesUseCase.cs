@@ -1,18 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using Timerom.App.Repository;
+using Timerom.App.Repository.Interface;
 using Timerom.App.UseCase.Categories.Interfaces;
 
 namespace Timerom.App.UseCase.Categories.Local.GetAll
 {
     public class GetAllCategoriesUseCase : IGetAllCategoriesUseCase
     {
+        private readonly Lazy<ICategoryReadOnlyRepository> repository;
+        private ICategoryReadOnlyRepository _repository => repository.Value;
+
+        public GetAllCategoriesUseCase(Lazy<ICategoryReadOnlyRepository> repository)
+        {
+            this.repository = repository;
+        }
+
         public async Task<(IList<Model.Category> Productive, IList<Model.Category> Neutral, IList<Model.Category> Unproductive)> Execute()
         {
-            CategoryDatabase database = await CategoryDatabase.Instance();
-            List<ValueObjects.Entity.Category> response = await database.GetAll();
+            List<ValueObjects.Entity.Category> response = await _repository.GetAll();
 
             var productiveList = response.Where(c => c.Type == ValueObjects.Enuns.CategoryType.Productive);
             var neutralList = response.Where(c => c.Type == ValueObjects.Enuns.CategoryType.Neutral);

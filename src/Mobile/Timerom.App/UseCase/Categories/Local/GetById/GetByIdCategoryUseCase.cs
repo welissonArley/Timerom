@@ -1,18 +1,26 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
-using Timerom.App.Repository;
+using Timerom.App.Repository.Interface;
 using Timerom.App.UseCase.Categories.Interfaces;
 
 namespace Timerom.App.UseCase.Categories.Local.GetById
 {
     public class GetByIdCategoryUseCase : IGetByIdCategoryUseCase
     {
+        private readonly Lazy<ICategoryReadOnlyRepository> repository;
+        private ICategoryReadOnlyRepository _repository => repository.Value;
+
+        public GetByIdCategoryUseCase(Lazy<ICategoryReadOnlyRepository> repository)
+        {
+            this.repository = repository;
+        }
+
         public async Task<Category> Execute(long id)
         {
-            CategoryDatabase database = await CategoryDatabase.Instance();
-            ValueObjects.Entity.Category model = await database.GetById(id);
+            ValueObjects.Entity.Category model = await _repository.GetById(id);
 
             var response = new Category
             {
@@ -23,7 +31,7 @@ namespace Timerom.App.UseCase.Categories.Local.GetById
 
             if (model.ParentCategoryId.HasValue)
             {
-                ValueObjects.Entity.Category parent = await database.GetById(model.ParentCategoryId.Value);
+                ValueObjects.Entity.Category parent = await _repository.GetById(model.ParentCategoryId.Value);
                 response.Parent = new Category
                 {
                     Id = parent.Id,
@@ -33,7 +41,7 @@ namespace Timerom.App.UseCase.Categories.Local.GetById
             }
             else
             {
-                var childrens = await database.GetChildrensByParentId(model.Id);
+                var childrens = await _repository.GetChildrensByParentId(model.Id);
                 response.Childrens = new ObservableCollection<Category>(childrens.Select(c => new Category
                 {
                     Id = c.Id,
