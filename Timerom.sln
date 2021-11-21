@@ -21,11 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A837AE2A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{805323AD-3C35-420B-B916-E0B87809F449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels.Test", "tests\Mobile\ViewModels.Test\ViewModels.Test.csproj", "{074FA762-5858-4C7B-912C-3666D0A5AB05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModels.Test", "tests\Mobile\ViewModels.Test\ViewModels.Test.csproj", "{074FA762-5858-4C7B-912C-3666D0A5AB05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validators.Test", "tests\Mobile\Validators.Test\Validators.Test.csproj", "{71A7A757-C789-40B4-828E-C920F4E51D5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validators.Test", "tests\Mobile\Validators.Test\Validators.Test.csproj", "{71A7A757-C789-40B4-828E-C920F4E51D5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Useful.ToTests", "tests\Mobile\Useful.ToTests\Useful.ToTests.csproj", "{6CA15428-82ED-41CE-A97A-A4242478B795}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Useful.ToTests", "tests\Mobile\Useful.ToTests\Useful.ToTests.csproj", "{6CA15428-82ED-41CE-A97A-A4242478B795}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
