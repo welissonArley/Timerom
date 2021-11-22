@@ -38,6 +38,12 @@ namespace Useful.ToTests.Builders.Repositories
             return this;
         }
 
+        public CategoryReadOnlyRepositoryBuilder GetById_Subcategory()
+        {
+            _repository.Setup(x => x.GetById(It.IsAny<long>())).ReturnsAsync(SubcategoryEntityBuilder.Instance().Build());
+            return this;
+        }
+
         public CategoryReadOnlyRepositoryBuilder GetChildrensByParentId()
         {
             _repository.Setup(x => x.GetChildrensByParentId(It.IsAny<long>()))
@@ -50,8 +56,11 @@ namespace Useful.ToTests.Builders.Repositories
             _repository.Setup(x => x.GetAll()).ReturnsAsync(new List<Timerom.App.ValueObjects.Entity.Category>
             {
                 CategoryEntityBuilder.Instance().Productive(),
+                SubcategoryEntityBuilder.Instance().Productive(),
                 CategoryEntityBuilder.Instance().Neutral(),
-                CategoryEntityBuilder.Instance().Unproductive()
+                SubcategoryEntityBuilder.Instance().Neutral(),
+                CategoryEntityBuilder.Instance().Unproductive(),
+                SubcategoryEntityBuilder.Instance().Unproductive()
             });
             return this;
         }
