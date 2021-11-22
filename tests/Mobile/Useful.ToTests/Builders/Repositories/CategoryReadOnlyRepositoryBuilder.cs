@@ -45,6 +45,17 @@ namespace Useful.ToTests.Builders.Repositories
             return this;
         }
 
+        public CategoryReadOnlyRepositoryBuilder GetAll()
+        {
+            _repository.Setup(x => x.GetAll()).ReturnsAsync(new List<Timerom.App.ValueObjects.Entity.Category>
+            {
+                CategoryEntityBuilder.Instance().Productive(),
+                CategoryEntityBuilder.Instance().Neutral(),
+                CategoryEntityBuilder.Instance().Unproductive()
+            });
+            return this;
+        }
+
         public ICategoryReadOnlyRepository Build()
         {
             return _repository.Object;
