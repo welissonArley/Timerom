@@ -1,8 +1,11 @@
 ﻿using FluentAssertions;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Timerom.App.Repository.Interface;
 using Timerom.App.UseCase.Categories.Local.GetById;
+using Timerom.App.ValueObjects.Entity;
+using Useful.ToTests.Builders.Entity;
 using Useful.ToTests.Builders.Repositories;
 using Xunit;
 
@@ -13,7 +16,9 @@ namespace UseCases.Test.Categories.Local.GetById
         [Fact]
         public async Task Category_Sucess()
         {
-            var repository = new Lazy<ICategoryReadOnlyRepository>(() => CategoryReadOnlyRepositoryBuilder.Instance().GetById().GetChildrensByParentId().Build());
+            (Category parent, IList<Category> childrens) = CategoryEntityBuilder.Instance().Build();
+
+            var repository = new Lazy<ICategoryReadOnlyRepository>(() => CategoryReadOnlyRepositoryBuilder.Instance().GetById(parent, childrens).Build());
 
             var useCase = new GetByIdCategoryUseCase(repository);
 
@@ -29,7 +34,9 @@ namespace UseCases.Test.Categories.Local.GetById
         [Fact]
         public async Task Subcategory_Sucess()
         {
-            var repository = new Lazy<ICategoryReadOnlyRepository>(() => CategoryReadOnlyRepositoryBuilder.Instance().GetById_Subcategory().Build());
+            (Category parent, IList<Category> childrens) = CategoryEntityBuilder.Instance().Build();
+
+            var repository = new Lazy<ICategoryReadOnlyRepository>(() => CategoryReadOnlyRepositoryBuilder.Instance().GetById(parent, childrens).Build());
 
             var useCase = new GetByIdCategoryUseCase(repository);
 

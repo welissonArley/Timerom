@@ -1,4 +1,6 @@
 ﻿using Bogus;
+using System.Collections.Generic;
+using System.Security.Cryptography;
 using Timerom.App.ValueObjects.Entity;
 using Timerom.App.ValueObjects.Enuns;
 
@@ -14,30 +16,73 @@ namespace Useful.ToTests.Builders.Entity
             return _instance;
         }
 
-        public Category Build()
+        public (Category parent, IList<Category> childrens) Build()
         {
-            return new Faker<Category>()
+            var parentId = 1;
+            CategoryType type = CategoryType.Neutral;
+
+            var parent = new Faker<Category>()
+                .RuleFor(u => u.Id, () => parentId)
                 .RuleFor(u => u.Name, (f) => f.Internet.UserName())
-                .RuleFor(u => u.Type, (f) => f.PickRandom<CategoryType>());
+                .RuleFor(u => u.Type, (f) => f.PickRandom<CategoryType>())
+                .FinishWith((f, u) =>
+                {
+                    type = u.Type;
+                });
+
+            return (parent, CreateChildrens(type, parentId));
         }
 
-        public Category Productive()
+        public (Category parent, IList<Category> childrens) Productive()
         {
-            return new Faker<Category>()
+            var parentId = 2;
+
+            var parent = new Faker<Category>()
+                .RuleFor(u => u.Id, () => parentId)
                 .RuleFor(u => u.Name, (f) => f.Internet.UserName())
                 .RuleFor(u => u.Type, () => CategoryType.Productive);
+
+            return (parent, CreateChildrens(CategoryType.Productive, parentId));
         }
-        public Category Unproductive()
+        public (Category parent, IList<Category> childrens) Unproductive()
         {
-            return new Faker<Category>()
+            var parentId = 3;
+
+            var parent = new Faker<Category>()
+                .RuleFor(u => u.Id, () => parentId)
                 .RuleFor(u => u.Name, (f) => f.Internet.UserName())
                 .RuleFor(u => u.Type, () => CategoryType.Unproductive);
+
+            return (parent, CreateChildrens(CategoryType.Unproductive, parentId));
         }
-        public Category Neutral()
+        public (Category parent, IList<Category> childrens) Neutral()
         {
-            return new Faker<Category>()
+            var parentId = 4;
+
+            var parent = new Faker<Category>()
+                .RuleFor(u => u.Id, () => parentId)
                 .RuleFor(u => u.Name, (f) => f.Internet.UserName())
                 .RuleFor(u => u.Type, () => CategoryType.Neutral);
+
+            return (parent, CreateChildrens(CategoryType.Neutral, parentId));
+        }
+
+        private IList<Category> CreateChildrens(CategoryType type, long parentId)
+        {
+            var childrens = new List<Category>();
+
+            var amount = RandomNumberGenerator.GetInt32(1, 7);
+
+            for (var index = 0; index < amount; index++)
+            {
+                childrens.Add(new Faker<Category>()
+                .RuleFor(u => u.Id, () => 1 + (parentId * 100))
+                .RuleFor(u => u.Name, (f) => f.Internet.UserName())
+                .RuleFor(u => u.ParentCategoryId, () => parentId)
+                .RuleFor(u => u.Type, () => type));
+            }
+
+            return childrens;
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Moq;
 using System.Collections.Generic;
+using System.Linq;
 using Timerom.App.Repository.Interface;
+using Timerom.App.ValueObjects.Entity;
 using Useful.ToTests.Builders.Entity;
 
 namespace Useful.ToTests.Builders.Repositories
@@ -32,36 +34,41 @@ namespace Useful.ToTests.Builders.Repositories
             _repository.Setup(x => x.ExistParentCategoryWithName(name, It.IsAny<long>())).ReturnsAsync(true);
             return this;
         }
-        public CategoryReadOnlyRepositoryBuilder GetById()
+        public CategoryReadOnlyRepositoryBuilder GetById(Category parent, IList<Category> childrens = null)
         {
-            _repository.Setup(x => x.GetById(It.IsAny<long>())).ReturnsAsync(CategoryEntityBuilder.Instance().Build());
-            return this;
-        }
+            _repository.Setup(x => x.GetById(parent.Id)).ReturnsAsync(parent);
 
-        public CategoryReadOnlyRepositoryBuilder GetById_Subcategory()
-        {
-            _repository.Setup(x => x.GetById(It.IsAny<long>())).ReturnsAsync(SubcategoryEntityBuilder.Instance().Build());
-            return this;
-        }
+            if(childrens != null)
+            {
+                foreach(var subcategory in childrens)
+                    _repository.Setup(x => x.GetById(subcategory.Id)).ReturnsAsync(subcategory);
 
-        public CategoryReadOnlyRepositoryBuilder GetChildrensByParentId()
-        {
-            _repository.Setup(x => x.GetChildrensByParentId(It.IsAny<long>()))
-                .ReturnsAsync(new List<Timerom.App.ValueObjects.Entity.Category> { CategoryEntityBuilder.Instance().Build() });
+                _repository.Setup(x => x.GetChildrensByParentId(parent.Id)).ReturnsAsync(childrens.ToList());
+            }
+
             return this;
         }
 
         public CategoryReadOnlyRepositoryBuilder GetAll()
         {
-            _repository.Setup(x => x.GetAll()).ReturnsAsync(new List<Timerom.App.ValueObjects.Entity.Category>
-            {
-                CategoryEntityBuilder.Instance().Productive(),
-                SubcategoryEntityBuilder.Instance().Productive(),
-                CategoryEntityBuilder.Instance().Neutral(),
-                SubcategoryEntityBuilder.Instance().Neutral(),
-                CategoryEntityBuilder.Instance().Unproductive(),
-                SubcategoryEntityBuilder.Instance().Unproductive()
-            });
+            var response = new List<Category>();
+
+            (Category parent, IList<Category> childrens) = CategoryEntityBuilder.Instance().Productive();
+
+            response.Add(parent);
+            response.AddRange(childrens);
+
+            (parent, childrens) = CategoryEntityBuilder.Instance().Neutral();
+
+            response.Add(parent);
+            response.AddRange(childrens);
+
+            (parent, childrens) = CategoryEntityBuilder.Instance().Unproductive();
+
+            response.Add(parent);
+            response.AddRange(childrens);
+
+            _repository.Setup(x => x.GetAll()).ReturnsAsync(response);
             return this;
         }
 
