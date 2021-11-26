@@ -17,12 +17,12 @@ namespace ViewModels.Test.Reports.ParetoPrinciple
 
             var viewModel = new ChooseDatesParetoPrincipleViewModel(navigation);
 
-            viewModel.Option.Should().Equals(SelectDateParetoPrincipleOptions.Last7Days);
+            viewModel.Option.Should().Be(SelectDateParetoPrincipleOptions.Last7Days);
             viewModel.OptionCommand.Should().NotBeNull();
             viewModel.ExecuteCommand.Should().NotBeNull();
             viewModel.WhatIsParetoPrincipleCommand.Should().NotBeNull();
-            viewModel.StartsAt.Should().Equals(DateTime.Today.AddDays(-7));
-            viewModel.EndsAt.Should().Equals(DateTime.Today);
+            viewModel.StartsAt.Should().Be(DateTime.Today.AddDays(-7));
+            viewModel.EndsAt.Should().Be(DateTime.Today);
         }
 
         [Fact]

@@ -57,7 +57,7 @@ namespace ViewModels.Test.Reports.ActivityAnalytic
 
             viewModel.ChartModel.Should().NotBeNullOrEmpty();
             viewModel.AnalyticModel.Should().NotBeNull();
-            viewModel.CurrentState.Should().Equals(Xamarin.CommunityToolkit.UI.Views.LayoutState.None);
+            viewModel.CurrentState.Should().Be(Xamarin.CommunityToolkit.UI.Views.LayoutState.None);
         }
 
         [Fact]
@@ -75,7 +75,7 @@ namespace ViewModels.Test.Reports.ActivityAnalytic
             await action.Should().NotThrowAsync();
 
             viewModel.ChartModel.Should().BeEmpty();
-            viewModel.CurrentState.Should().Equals(Xamarin.CommunityToolkit.UI.Views.LayoutState.Empty);
+            viewModel.CurrentState.Should().Be(Xamarin.CommunityToolkit.UI.Views.LayoutState.Empty);
         }
     }
 }

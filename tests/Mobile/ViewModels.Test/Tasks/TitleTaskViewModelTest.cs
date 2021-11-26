@@ -47,7 +47,7 @@ namespace ViewModels.Test.Tasks
             Action action = () => viewModel.Initialize(parameters);
 
             action.Should().NotThrow();
-            viewModel.TitleTask.Should().Equals("Title test");
+            viewModel.TitleTask.Should().Be("Title test");
         }
     }
 }

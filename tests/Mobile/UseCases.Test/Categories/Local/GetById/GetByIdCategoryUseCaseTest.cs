@@ -24,11 +24,16 @@ namespace UseCases.Test.Categories.Local.GetById
 
             Timerom.App.Model.Category category = null;
 
-            Func<Task> action = async () => category = await useCase.Execute(1);
+            Func<Task> action = async () => category = await useCase.Execute(parent.Id);
 
             await action.Should().NotThrowAsync();
 
             category.Should().NotBeNull();
+            category.Id.Should().Be(parent.Id);
+            category.Name.Should().Be(parent.Name);
+            category.Type.Should().Be(parent.Type);
+            category.Childrens.Should().HaveCount(childrens.Count);
+            category.Parent.Should().BeNull();
         }
 
         [Fact]
@@ -42,11 +47,20 @@ namespace UseCases.Test.Categories.Local.GetById
 
             Timerom.App.Model.Category category = null;
 
-            Func<Task> action = async () => category = await useCase.Execute(1);
+            foreach(var subcategory in childrens)
+            {
+                Func<Task> action = async () => category = await useCase.Execute(subcategory.Id);
 
-            await action.Should().NotThrowAsync();
+                await action.Should().NotThrowAsync();
 
-            category.Should().NotBeNull();
+                category.Should().NotBeNull();
+                category.Id.Should().Be(subcategory.Id);
+                category.Name.Should().Be(subcategory.Name);
+                category.Type.Should().Be(subcategory.Type);
+                category.Childrens.Should().BeEmpty();
+                category.Parent.Should().NotBeNull();
+                category.Parent.Id.Should().Be(parent.Id);
+            }
         }
     }
 }

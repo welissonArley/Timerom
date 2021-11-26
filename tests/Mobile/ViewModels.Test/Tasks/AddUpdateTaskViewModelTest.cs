@@ -25,11 +25,11 @@ namespace ViewModels.Test.Tasks
             viewModel.SaveCommand.Should().NotBeNull();
             viewModel.DeleteCommand.Should().NotBeNull();
 
-            viewModel.TotalTime.TotalHours.Should().Equals(0);
-            viewModel.TimeStartsAt.TotalHours.Should().Equals(0);
-            viewModel.TimeEndsAt.TotalHours.Should().Equals(0);
-            viewModel.DateStartsAt.Date.Should().Equals(DateTime.Now.Date);
-            viewModel.DateEndsAt.Date.Should().Equals(DateTime.Now.Date);
+            viewModel.TotalTime.TotalHours.Should().Be(0);
+            viewModel.TimeStartsAt.TotalHours.Should().Be(0);
+            viewModel.TimeEndsAt.TotalHours.Should().Be(0);
+            viewModel.DateStartsAt.Date.Should().Be(DateTime.Now.Date);
+            viewModel.DateEndsAt.Date.Should().Be(DateTime.Now.Date);
         }
 
         [Fact]
@@ -149,8 +149,8 @@ namespace ViewModels.Test.Tasks
             viewModel.TotalTime.TotalHours.Should().BeGreaterThan(0);
             viewModel.TimeStartsAt.TotalHours.Should().BeGreaterThan(0);
             viewModel.TimeEndsAt.TotalHours.Should().BeGreaterThan(0);
-            viewModel.DateStartsAt.Date.Should().Equals(DateTime.Today);
-            viewModel.DateEndsAt.Date.Should().Equals(DateTime.Today);
+            viewModel.DateStartsAt.Date.Should().Be(DateTime.Today);
+            viewModel.DateEndsAt.Date.Should().Be(DateTime.Today);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace ViewModels.Test.Dashboard
 
             viewModel.MenuItemSelectedCommand.Should().NotBeNull();
             viewModel.VersionText.Should().NotBeNull();
-            viewModel.MenuItemSelected.Should().Equals(MenuItemOptions.Dashboard);
+            viewModel.MenuItemSelected.Should().Be(MenuItemOptions.Dashboard);
         }
 
         [Theory]

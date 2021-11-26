@@ -76,7 +76,7 @@ namespace Useful.ToTests.Builders.Entity
             for (var index = 0; index < amount; index++)
             {
                 childrens.Add(new Faker<Category>()
-                .RuleFor(u => u.Id, () => 1 + (parentId * 100))
+                .RuleFor(u => u.Id, () => index + 1 + (parentId * 100))
                 .RuleFor(u => u.Name, (f) => f.Internet.UserName())
                 .RuleFor(u => u.ParentCategoryId, () => parentId)
                 .RuleFor(u => u.Type, () => type));
