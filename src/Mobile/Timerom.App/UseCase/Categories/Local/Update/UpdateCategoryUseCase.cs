@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
-using Timerom.App.Repository;
 using Timerom.App.Repository.Interface;
 using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.Exception;

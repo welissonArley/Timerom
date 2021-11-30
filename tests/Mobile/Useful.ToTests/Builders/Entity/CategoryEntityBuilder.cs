@@ -71,7 +71,7 @@ namespace Useful.ToTests.Builders.Entity
         {
             var childrens = new List<Category>();
 
-            var amount = RandomNumberGenerator.GetInt32(1, 7);
+            var amount = RandomNumberGenerator.GetInt32(2, 7);
 
             for (var index = 0; index < amount; index++)
             {
