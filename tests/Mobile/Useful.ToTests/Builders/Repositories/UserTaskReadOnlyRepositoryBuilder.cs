@@ -1,8 +1,6 @@
-﻿using Bogus;
-using Moq;
+﻿using Moq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Timerom.App.Repository.Interface;
 using Timerom.App.ValueObjects.Entity;
 using Useful.ToTests.Builders.Entity;
@@ -38,39 +36,21 @@ namespace Useful.ToTests.Builders.Repositories
             return this;
         }
 
-        public UserTaskReadOnlyRepositoryBuilder GetAll()
+        public UserTaskReadOnlyRepositoryBuilder GetAll(CategoryReadOnlyRepositoryBuilder categoryBuilder = null)
         {
             var response = new List<UserTask>();
 
-            (_, IList<Category> childrens) = CategoryEntityBuilder.Instance().Productive();
+            (UserTask task, Category parent, IList<Category> childrens) = UserTaskEntityBuilder.Instance().Productive();
+            categoryBuilder?.GetById(parent, childrens);
+            response.Add(task);
 
-            response.Add(new Faker<UserTask>()
-                .RuleFor(u => u.Id, () => 1)
-                .RuleFor(u => u.Title, (f) => f.Internet.UserName())
-                .RuleFor(u => u.Description, (f) => f.Lorem.Paragraph())
-                .RuleFor(u => u.StartsAt, () => DateTime.Today.Date)
-                .RuleFor(u => u.EndsAt, (_, u) => u.StartsAt.AddMinutes(60))
-                .RuleFor(u => u.CategoryId, () => childrens.First().Id));
+            (task, parent, childrens) = UserTaskEntityBuilder.Instance().Neutral();
+            categoryBuilder?.GetById(parent, childrens);
+            response.Add(task);
 
-            (_, childrens) = CategoryEntityBuilder.Instance().Neutral();
-
-            response.Add(new Faker<UserTask>()
-                .RuleFor(u => u.Id, () => 2)
-                .RuleFor(u => u.Title, (f) => f.Internet.UserName())
-                .RuleFor(u => u.Description, (f) => f.Lorem.Paragraph())
-                .RuleFor(u => u.StartsAt, () => DateTime.Today.Date.AddMinutes(60))
-                .RuleFor(u => u.EndsAt, (_, u) => u.StartsAt.AddMinutes(60))
-                .RuleFor(u => u.CategoryId, () => childrens.First().Id));
-
-            (_, childrens) = CategoryEntityBuilder.Instance().Unproductive();
-
-            response.Add(new Faker<UserTask>()
-                .RuleFor(u => u.Id, () => 3)
-                .RuleFor(u => u.Title, (f) => f.Internet.UserName())
-                .RuleFor(u => u.Description, (f) => f.Lorem.Paragraph())
-                .RuleFor(u => u.StartsAt, () => DateTime.Today.Date.AddMinutes(120))
-                .RuleFor(u => u.EndsAt, (_, u) => u.StartsAt.AddMinutes(60))
-                .RuleFor(u => u.CategoryId, () => childrens.First().Id));
+            (task, parent, childrens) = UserTaskEntityBuilder.Instance().Unproductive();
+            categoryBuilder?.GetById(parent, childrens);
+            response.Add(task);
 
             _repository.Setup(c => c.GetAll(It.IsAny<DateTime>())).ReturnsAsync(response);
             return this;
