@@ -76,6 +76,21 @@ namespace Useful.ToTests.Builders.Repositories
             return this;
         }
 
+        public UserTaskReadOnlyRepositoryBuilder GetById(Timerom.App.Model.TaskModel task)
+        {
+            _repository.Setup(c => c.GetById(task.Id)).ReturnsAsync(new UserTask
+            {
+                Id = task.Id,
+                Description = task.Description,
+                Title = task.Title,
+                EndsAt = task.EndsAt,
+                StartsAt = task.StartsAt,
+                CategoryId = task.Category.Id
+            });
+
+            return this;
+        }
+
         public IUserTaskReadOnlyRepository Build()
         {
             return _repository.Object;
