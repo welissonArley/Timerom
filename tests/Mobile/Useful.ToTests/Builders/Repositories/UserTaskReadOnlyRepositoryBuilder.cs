@@ -71,6 +71,12 @@ namespace Useful.ToTests.Builders.Repositories
             return this;
         }
 
+        public UserTaskReadOnlyRepositoryBuilder GetLast(DateTime endsAt)
+        {
+            _repository.Setup(c => c.GetLast(It.IsAny<DateTime>())).ReturnsAsync(new UserTask { EndsAt = endsAt});
+            return this;
+        }
+
         public IUserTaskReadOnlyRepository Build()
         {
             return _repository.Object;
