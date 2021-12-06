@@ -76,6 +76,12 @@ namespace Useful.ToTests.Builders.Repositories
             return this;
         }
 
+        public UserTaskReadOnlyRepositoryBuilder GetBetweenDates_Empty()
+        {
+            _repository.Setup(c => c.GetBetweenDates(It.IsAny<DateTime>(), It.IsAny<DateTime>())).ReturnsAsync(new List<UserTask>());
+            return this;
+        }
+
         private List<UserTask> GetUserTasks(CategoryReadOnlyRepositoryBuilder categoryBuilder = null,
             CategoryType? categoryWithMaxTime = null)
         {
