@@ -25,12 +25,12 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
             this.repositoryReadOnly = repositoryReadOnly;
         }
 
-        public async Task<ObservableCollection<ActivitiesAnalyticModel>> Execute(long subcategoryId, DateTime date)
+        public async Task<ObservableCollection<ActivitiesAnalyticModel>> Execute(long categoryId, DateTime date)
         {
             var activityAnalyticBase = new GetActivityAnalyticBase(repositoryReadOnly, repositoryUserTask);
             var userTasks = await activityAnalyticBase.GetUserTasks(date, date);
 
-            userTasks = userTasks.Where(c => c.Category.Parent.Id == subcategoryId);
+            userTasks = userTasks.Where(c => c.Category.Parent.Id == categoryId);
 
             return new ObservableCollection<ActivitiesAnalyticModel>(TasksPerSubcategory(userTasks, date));
         }
