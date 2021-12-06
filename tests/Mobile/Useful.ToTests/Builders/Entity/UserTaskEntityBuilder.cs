@@ -58,8 +58,8 @@ namespace Useful.ToTests.Builders.Entity
                 .RuleFor(u => u.Id, () => taskId)
                 .RuleFor(u => u.Title, (f) => f.Internet.UserName())
                 .RuleFor(u => u.Description, (f) => f.Lorem.Paragraph())
-                .RuleFor(u => u.StartsAt, () => DateTime.Now)
-                .RuleFor(u => u.EndsAt, () => DateTime.Now.AddHours(-1))
+                .RuleFor(u => u.StartsAt, () => DateTime.Now.AddHours(-1))
+                .RuleFor(u => u.EndsAt, () => DateTime.Now)
                 .RuleFor(u => u.CategoryId, () => subcategories.First().Id);
         }
     }
