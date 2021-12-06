@@ -7,6 +7,6 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces
 {
     public interface IActivityAnalyticDetailsSubCategoryUseCase
     {
-        Task<ObservableCollection<ActivitiesAnalyticModel>> Execute(long subcategoryId, DateTime date);
+        Task<ObservableCollection<ActivitiesAnalyticModel>> Execute(long categoryId, DateTime date);
     }
 }
