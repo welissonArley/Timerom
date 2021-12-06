@@ -1,8 +1,10 @@
 ﻿using Moq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Timerom.App.Repository.Interface;
 using Timerom.App.ValueObjects.Entity;
+using Timerom.App.ValueObjects.Enuns;
 using Useful.ToTests.Builders.Entity;
 
 namespace Useful.ToTests.Builders.Repositories
@@ -65,29 +67,37 @@ namespace Useful.ToTests.Builders.Repositories
             return this;
         }
 
-        public UserTaskReadOnlyRepositoryBuilder GetBetweenDates(CategoryReadOnlyRepositoryBuilder categoryBuilder = null)
+        public UserTaskReadOnlyRepositoryBuilder GetBetweenDates(CategoryReadOnlyRepositoryBuilder categoryBuilder = null,
+            CategoryType? categoryWithMaxTime = null)
         {
-            var response = GetUserTasks(categoryBuilder);
-
+            var response = GetUserTasks(categoryBuilder, categoryWithMaxTime);
+            
             _repository.Setup(c => c.GetBetweenDates(It.IsAny<DateTime>(), It.IsAny<DateTime>())).ReturnsAsync(response);
             return this;
         }
 
-        private List<UserTask> GetUserTasks(CategoryReadOnlyRepositoryBuilder categoryBuilder = null)
+        private List<UserTask> GetUserTasks(CategoryReadOnlyRepositoryBuilder categoryBuilder = null,
+            CategoryType? categoryWithMaxTime = null)
         {
             var response = new List<UserTask>();
 
             (UserTask task, Category parent, IList<Category> childrens) = UserTaskEntityBuilder.Instance().Productive();
             categoryBuilder?.GetById(parent, childrens);
             response.Add(task);
+            if (categoryWithMaxTime.HasValue && categoryWithMaxTime.Value == CategoryType.Productive)
+                task.StartsAt = DateTime.Now.AddHours(-5);
 
             (task, parent, childrens) = UserTaskEntityBuilder.Instance().Neutral();
             categoryBuilder?.GetById(parent, childrens);
             response.Add(task);
+            if (categoryWithMaxTime.HasValue && categoryWithMaxTime.Value == CategoryType.Neutral)
+                task.StartsAt = DateTime.Now.AddHours(-5);
 
             (task, parent, childrens) = UserTaskEntityBuilder.Instance().Unproductive();
             categoryBuilder?.GetById(parent, childrens);
             response.Add(task);
+            if (categoryWithMaxTime.HasValue && categoryWithMaxTime.Value == CategoryType.Unproductive)
+                task.StartsAt = DateTime.Now.AddHours(-5);
 
             return response;
         }
