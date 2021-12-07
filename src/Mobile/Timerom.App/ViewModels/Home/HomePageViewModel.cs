@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Timerom.App.Services.BackGroundService;
 using Timerom.App.ValueObjects.Enuns;
+using Timerom.App.Views.Views.Category;
 using Timerom.App.Views.Views.Dashboard;
 using Timerom.App.Views.Views.Reports.ActivityAnalytic;
 using Timerom.App.Views.Views.Tasks;
@@ -19,6 +20,7 @@ namespace Timerom.App.ViewModels.Home
         public IAsyncCommand AddTaskCommand { get; private set; }
         public IAsyncCommand StartTaskCommand { get; private set; }
         public IAsyncCommand ShowReportCommand { get; private set; }
+        public IAsyncCommand ShowCategoriesCommand { get; private set; }
 
         public bool ThereIsTimer { get; private set; }
 
@@ -30,6 +32,7 @@ namespace Timerom.App.ViewModels.Home
             AddTaskCommand = new AsyncCommand(AddTaskCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
             StartTaskCommand = new AsyncCommand(StartTaskCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
             ShowReportCommand = new AsyncCommand(ShowReportCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
+            ShowCategoriesCommand = new AsyncCommand(ShowCategoriesCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
         }
 
         private async Task HomeCommandExecuted()
@@ -66,6 +69,11 @@ namespace Timerom.App.ViewModels.Home
         {
             TrackEvent("HomePage", "ActivityAnalyticPage", EventFlag.Navigation);
             _ = await _navigationService.NavigateAsync(nameof(ActivityAnalyticPage));
+        }
+        private async Task ShowCategoriesCommandExecuted()
+        {
+            TrackEvent("HomePage", "CategoriesPage", EventFlag.Navigation);
+            _ = await _navigationService.NavigateAsync(nameof(CategoriesPage));
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters) { /* We dont need this method, but it's necessary from interface */ }
