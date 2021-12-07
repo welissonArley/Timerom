@@ -51,9 +51,11 @@ namespace Timerom.App.Views.Templates.Information
                 component.LabelCategory.BackgroundColor = categoryColor;
                 component.LabelSubcategory.BackgroundColor = categoryColor.MultiplyAlpha(0.1);
                 component.LabelSubcategory.TextColor = categoryColor;
+                component.LabelTime.TextColor = categoryColor;
 
                 component.LabelSubcategory.Text = task.Category.Name;
                 component.LabelCategory.Text = task.Category.Parent.Name;
+                component.LabelTime.Text = new HoursStringconverter().Convert(task.EndsAt - task.StartsAt, null, null, null).ToString();
 
                 component.LabelDuration.Text = GetDuration(task.StartsAt, task.EndsAt);
 
