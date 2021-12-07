@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-APP_CONSTANT_FILE=$APPCENTER_SOURCE_DIRECTORY/Timerom/src/Mobile/Timerom.App/AppConstant.cs
+APP_CONSTANT_FILE=$APPCENTER_SOURCE_DIRECTORY/src/Mobile/Timerom.App/AppConstant.cs
+echo "To aqui"
 echo $APP_CONSTANT_FILE
 
 if [ -e "$APP_CONSTANT_FILE" ]
