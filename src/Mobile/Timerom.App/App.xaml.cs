@@ -60,8 +60,8 @@ namespace Timerom.App
 
         private void StartAnalyticsTrack()
         {
-            AppCenter.Start("ios={Your App Secret};" +
-                "android={Your App Secret};", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start($"ios={AppConstant.iOS_AppCenterSecret};android={AppConstant.Android_AppCenterSecret};",
+                typeof(Analytics), typeof(Crashes));
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
