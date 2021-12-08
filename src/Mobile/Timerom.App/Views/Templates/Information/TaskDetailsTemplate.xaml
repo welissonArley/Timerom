@@ -15,6 +15,7 @@
             <StackLayout Orientation="Horizontal">
                 <Label x:Name="LabelCategory" Padding="5,3,5,3" TextColor="{AppThemeBinding Dark=Black, Light=White}" FontSize="10" Style="{StaticResource LabelBold}"/>
                 <Label x:Name="LabelSubcategory" Padding="5,3,5,3" FontSize="10" Style="{StaticResource LabelBold}"/>
+                <Label x:Name="LabelTime" BackgroundColor="{AppThemeBinding Dark=#585858, Light=#EEEEEE}" Padding="5,3,5,3" FontSize="10" Style="{StaticResource LabelBold}"/>
             </StackLayout>
 
             <xct:Expander IsEnabled="{Binding HasDescription}" IsExpanded="False" Margin="0,20,0,0" x:Name="ExpanderToShowDescription">

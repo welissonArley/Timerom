@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
-using Timerom.App.Repository;
+using Timerom.App.Repository.Interface;
 using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.Exception;
 using Timerom.Exception.ExceptionBase;
@@ -12,26 +13,39 @@ namespace Timerom.App.UseCase.Categories.Local.Update
 {
     public class UpdateCategoryUseCase : IUpdateCategoryUseCase
     {
-        public async Task<Category> Execute(Category category)
+        private readonly Lazy<IUserTaskReadOnlyRepository> repositoryUserTask;
+        private readonly Lazy<ICategoryReadOnlyRepository> repositoryReadOnly;
+        private readonly Lazy<ICategoryWriteOnlyRepository> repositoryWriteOnly;
+        private ICategoryWriteOnlyRepository _repositoryWriteOnly => repositoryWriteOnly.Value;
+        private ICategoryReadOnlyRepository _repositoryReadOnly => repositoryReadOnly.Value;
+        private IUserTaskReadOnlyRepository _repositoryUserTask => repositoryUserTask.Value;
+
+        public UpdateCategoryUseCase(Lazy<ICategoryWriteOnlyRepository> repositoryWriteOnly,
+            Lazy<ICategoryReadOnlyRepository> repositoryReadOnly, Lazy<IUserTaskReadOnlyRepository> repositoryUserTask)
         {
-            CategoryDatabase database = await CategoryDatabase.Instance();
-
-            await Validate(database, category);
-
-            return await Save(database, category);
+            this.repositoryWriteOnly = repositoryWriteOnly;
+            this.repositoryReadOnly = repositoryReadOnly;
+            this.repositoryUserTask = repositoryUserTask;
         }
 
-        private async Task<Category> Save(CategoryDatabase database, Category category)
+        public async Task<Category> Execute(Category category)
         {
-            ValueObjects.Entity.Category categoryModel = await database.GetById(category.Id);
+            await Validate(category);
+
+            return await Save(category);
+        }
+
+        private async Task<Category> Save(Category category)
+        {
+            ValueObjects.Entity.Category categoryModel = await _repositoryReadOnly.GetById(category.Id);
             
-            await RemoveCategoriesChildrens(database, category, categoryModel);
-            await InsertNewCategoriesChildrens(database, category);
+            await RemoveCategoriesChildrens(category, categoryModel);
+            await InsertNewCategoriesChildrens(category);
 
             categoryModel.Name = category.Name;
-            await database.Update(categoryModel);
+            await _repositoryWriteOnly.Update(categoryModel);
 
-            var childrensList = await database.GetChildrensByParentId(categoryModel.Id);
+            var childrensList = await _repositoryReadOnly.GetChildrensByParentId(categoryModel.Id);
 
             return new Category
             {
@@ -47,7 +61,7 @@ namespace Timerom.App.UseCase.Categories.Local.Update
             };
         }
 
-        private async Task InsertNewCategoriesChildrens(CategoryDatabase database, Category category)
+        private async Task InsertNewCategoriesChildrens(Category category)
         {
             var insertList = category.Childrens.Where(c => c.Id == 0).Select(c => new ValueObjects.Entity.Category
             {
@@ -56,11 +70,11 @@ namespace Timerom.App.UseCase.Categories.Local.Update
                 Type = category.Type
             }).ToList();
 
-            await database.Save(insertList);
+            await _repositoryWriteOnly.Save(insertList);
         }
-        private async Task RemoveCategoriesChildrens(CategoryDatabase database, Category category, ValueObjects.Entity.Category categoryModel)
+        private async Task RemoveCategoriesChildrens(Category category, ValueObjects.Entity.Category categoryModel)
         {
-            var childrensList = await database.GetChildrensByParentId(categoryModel.Id);
+            var childrensList = await _repositoryReadOnly.GetChildrensByParentId(categoryModel.Id);
 
             var deletList = childrensList.Where(c => category.Childrens.All(k => k.Id != c.Id)).ToList();
 
@@ -68,15 +82,15 @@ namespace Timerom.App.UseCase.Categories.Local.Update
 
             var tasks = deletList.Select(c => Task.Run(async() =>
             {
-                await database.Delete(c);
+                await _repositoryWriteOnly.Delete(c);
             })).ToList();
 
             await Task.WhenAll(tasks);
         }
 
-        private async Task Validate(CategoryDatabase database, Category category)
+        private async Task Validate(Category category)
         {
-            var validation = await new UpdateCategoryValidation(database).ValidateAsync(category);
+            var validation = await new UpdateCategoryValidation(_repositoryReadOnly).ValidateAsync(category);
 
             if (!validation.IsValid)
                 throw new ErrorOnValidationException(validation.Errors.Select(c => c.ErrorMessage).ToList());
@@ -84,11 +98,9 @@ namespace Timerom.App.UseCase.Categories.Local.Update
 
         private async Task ValidateIfCanDeleteSubcategories(List<ValueObjects.Entity.Category> deletList)
         {
-            UserTaskDatabase database = await UserTaskDatabase.Instance();
-
             var tasks = deletList.Select(c => Task.Run(async () =>
             {
-                return await database.ExistTaskForSubcategory(c.Id);
+                return await _repositoryUserTask.ExistTaskForSubcategory(c.Id);
             })).ToList();
 
             await Task.WhenAll(tasks);

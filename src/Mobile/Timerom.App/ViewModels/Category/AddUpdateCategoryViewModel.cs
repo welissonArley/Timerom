@@ -82,7 +82,6 @@ namespace Timerom.App.ViewModels.Category
             TrackEvent("AddUpdateCategoryPage", "Delete", EventFlag.Click);
             SavingStatus();
             await _deleteUseCase.Execute(Category);
-            await SucessStatus();
 
             _categoriesDeleted = Category;
             await _navigationService.GoBackAsync();

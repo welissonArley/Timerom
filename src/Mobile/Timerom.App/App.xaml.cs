@@ -3,6 +3,12 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Prism.Ioc;
 using Prism.Plugin.Popups;
+using Timerom.App.Repository;
+using Timerom.App.Repository.Interface;
+using Timerom.App.Services.BackGroundService;
+using Timerom.App.Services.Navigation;
+using Timerom.App.Services.XamarinEssentials;
+using Timerom.App.Services.XamarinEssentials.Interface;
 using Timerom.App.UseCase.Categories.Interfaces;
 using Timerom.App.UseCase.Dashboard.Interfaces;
 using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
@@ -54,11 +60,8 @@ namespace Timerom.App
 
         private void StartAnalyticsTrack()
         {
-            /*To avoid unnecessary data, we will only use Analytics in the production environment */
-#if RELEASE
-            AppCenter.Start("ios={Your App Secret};" +
-                "android={Your App Secret};", typeof(Analytics), typeof(Crashes));
-#endif
+            AppCenter.Start($"ios={AppConstant.iOS_AppCenterSecret};android={AppConstant.Android_AppCenterSecret};",
+                typeof(Analytics), typeof(Crashes));
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -69,6 +72,8 @@ namespace Timerom.App
             RegisterPages(containerRegistry);
             RegisterModals(containerRegistry);
             RegisterUseCases(containerRegistry);
+            RegisterServices(containerRegistry);
+            RegisterRepositories(containerRegistry);
         }
 
         private void RegisterPages(IContainerRegistry containerRegistry)
@@ -126,6 +131,21 @@ namespace Timerom.App
             containerRegistry.RegisterScoped<IActivityAnalyticDetailsUseCase, UseCase.Reports.ActivityAnalytic.Local.ActivityAnalyticDetailsUseCase>();
             containerRegistry.RegisterScoped<IActivityAnalyticDetailsSubCategoryUseCase, UseCase.Reports.ActivityAnalytic.Local.ActivityAnalyticDetailsSubCategoryUseCase>();
             containerRegistry.RegisterScoped<IGetParetoPrincipleResultUseCase, UseCase.Reports.ActivityAnalytic.Local.GetParetoPrincipleResultUseCase>();
+        }
+        private void RegisterServices(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterScoped<ILauncher, Launcher>();
+            containerRegistry.RegisterScoped<IVersionTracking, VersionTracking>();
+            containerRegistry.RegisterScoped<IMenuPath, MenuPath>();
+            containerRegistry.RegisterScoped<IPreferences, Preferences>();
+            containerRegistry.RegisterScoped<ITimerUserTask, UserTaskTimer>();
+        }
+        private void RegisterRepositories(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterScoped<ICategoryReadOnlyRepository, CategoryRepository>();
+            containerRegistry.RegisterScoped<ICategoryWriteOnlyRepository, CategoryRepository>();
+            containerRegistry.RegisterScoped<IUserTaskWriteOnlyRepository, UserTaskRepository>();
+            containerRegistry.RegisterScoped<IUserTaskReadOnlyRepository, UserTaskRepository>();
         }
     }
 }

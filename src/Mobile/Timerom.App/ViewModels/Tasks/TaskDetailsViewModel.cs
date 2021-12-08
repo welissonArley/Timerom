@@ -19,6 +19,7 @@ namespace Timerom.App.ViewModels.Tasks
 
         private ObservableCollection<TaskModel> _tasks { get; set; }
         public TasksDetailsModel Model { get; set; }
+        public bool FilterOptionIsExpanded { get; set; }
 
         public IAsyncCommand<string> SearchTextChangedCommand { get; private set; }
         public IAsyncCommand<DateTime> DateChangedCommand { get; private set; }
@@ -28,16 +29,21 @@ namespace Timerom.App.ViewModels.Tasks
 
         public TaskDetailsViewModel(Lazy<INavigationService> navigationService, Lazy<IGetAllUserTaskUseCase> useCase) : base(navigationService)
         {
+            FilterOptionIsExpanded = false;
             this.useCase = useCase;
             SearchTextChangedCommand = new AsyncCommand<string>(OnSearchTextChanged);
-            DateChangedCommand = new AsyncCommand<DateTime>(async (value) =>
-            {
-                TrackEvent("TaskDetailsPage", "DateChanged", EventFlag.Click);
-                await GetUserTasks(value, Model.Filters.Where(c => c.Checked).Select(c => c.Id).ToList());
-            }, onException: HandleException, allowsMultipleExecutions: false);
-
+            DateChangedCommand = new AsyncCommand<DateTime>(DateChangedCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
             SelectedItemCommand = new AsyncCommand<TaskModel>(SelectedItemCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
             FilterListCommand = new AsyncCommand(FilterListCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
+        }
+
+        private async Task DateChangedCommandExecuted(DateTime date)
+        {
+            FilterOptionIsExpanded = false;
+            RaisePropertyChanged("FilterOptionIsExpanded");
+
+            TrackEvent("TaskDetailsPage", "DateChanged", EventFlag.Click);
+            await GetUserTasks(date, Model.Filters.Where(c => c.Checked).Select(c => c.Id).ToList());
         }
 
         private Task OnSearchTextChanged(string value)
@@ -102,6 +108,5 @@ namespace Timerom.App.ViewModels.Tasks
                 _callbackUpdateUserTask?.Execute(null);
             }
         }
-
     }
 }

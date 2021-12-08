@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using System;
 using Timerom.App.Model;
+using Timerom.App.ValueObjects.Enuns;
 
 namespace Useful.ToTests.Builders.Request
 {
@@ -19,7 +20,11 @@ namespace Useful.ToTests.Builders.Request
             return new Faker<TaskModel>()
                 .RuleFor(u => u.Title, (f) => f.Internet.UserName())
                 .RuleFor(u => u.StartsAt, () => DateTime.Now.AddHours(-2))
-                .RuleFor(u => u.EndsAt, () => DateTime.Now);
+                .RuleFor(u => u.EndsAt, () => DateTime.Now)
+                .RuleFor(u => u.Description, (f) => f.Lorem.Paragraph())
+                .RuleFor(u => u.Category, () => new Faker<Category>()
+                    .RuleFor(u => u.Name, (f) => f.Internet.UserName())
+                    .RuleFor(u => u.Type, (f) => f.PickRandom<CategoryType>()));
         }
     }
 }

@@ -186,5 +186,19 @@ namespace ViewModels.Test.Category
 
             action.Should().NotThrow();
         }
+
+        [Fact]
+        public void Validade_Sucess_OnNavigatedFrom()
+        {
+            var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
+
+            var getAllUseCase = new Lazy<IGetAllCategoriesUseCase>(() => GetAllCategoriesUseCaseBuilder.Instance().Categories().Build());
+
+            var viewModel = new CategoriesViewModel(getAllUseCase, navigation);
+
+            Action action = () => viewModel.OnNavigatedFrom(null);
+
+            action.Should().NotThrow();
+        }
     }
 }

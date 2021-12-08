@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
+using Timerom.App.Repository.Interface;
 using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
 using Timerom.App.ValueObjects.Enuns;
 using Timerom.App.ValueObjects.Functions;
@@ -13,14 +14,21 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
     {
         private readonly FuncCorrectDate _funcCorrectDate;
 
-        public GetChartActivityAnalyticUseCase()
+        private readonly Lazy<IUserTaskReadOnlyRepository> repositoryUserTask;
+        private readonly Lazy<ICategoryReadOnlyRepository> repositoryReadOnly;
+
+        public GetChartActivityAnalyticUseCase(Lazy<ICategoryReadOnlyRepository> repositoryReadOnly,
+            Lazy<IUserTaskReadOnlyRepository> repositoryUserTask)
         {
+            this.repositoryReadOnly = repositoryReadOnly;
+            this.repositoryUserTask = repositoryUserTask;
+
             _funcCorrectDate = new FuncCorrectDate();
         }
 
         public async Task<IList<ChartActivityAnalyticModel>> Execute()
         {
-            var activityAnalyticBase = new GetActivityAnalyticBase();
+            var activityAnalyticBase = new GetActivityAnalyticBase(repositoryReadOnly, repositoryUserTask);
 
             var startsAt = DateTime.Now.Date.AddDays(-7);
             var endsAt = DateTime.Now.Date;

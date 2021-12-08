@@ -100,9 +100,8 @@ namespace Timerom.App.ViewModels.Category
             var subcategory = Category.Childrens.First(c => c.Id == SubCategory.Id);
             Category.Childrens.Remove(subcategory);
 
-            await SucessStatus();
-
             _updated = true;
+
             await _navigationService.GoBackAsync();
         }
 

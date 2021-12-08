@@ -102,6 +102,10 @@ namespace ViewModels.Test.Category
             Action action = () => viewModel.OnNavigatedTo(parameters);
 
             action.Should().NotThrow();
+
+            action = () => viewModel.OnNavigatedFrom(parameters);
+
+            action.Should().NotThrow();
         }
 
         [Theory]
@@ -120,6 +124,10 @@ namespace ViewModels.Test.Category
                 .Build();
 
             Action action = () => viewModel.OnNavigatedTo(parameters);
+
+            action.Should().NotThrow();
+
+            action = () => viewModel.OnNavigatedFrom(parameters);
 
             action.Should().NotThrow();
         }

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Timerom.App.Model;
+using Timerom.App.Repository.Interface;
 using Timerom.App.UseCase.Reports.ActivityAnalytic.Interfaces;
 using Timerom.App.ValueObjects.Functions;
 
@@ -11,19 +12,25 @@ namespace Timerom.App.UseCase.Reports.ActivityAnalytic.Local
 {
     public class ActivityAnalyticDetailsSubCategoryUseCase : IActivityAnalyticDetailsSubCategoryUseCase
     {
+        private readonly Lazy<IUserTaskReadOnlyRepository> repositoryUserTask;
+        private readonly Lazy<ICategoryReadOnlyRepository> repositoryReadOnly;
         private readonly FuncCorrectDate _funcCorrectDate;
 
-        public ActivityAnalyticDetailsSubCategoryUseCase()
+        public ActivityAnalyticDetailsSubCategoryUseCase(Lazy<ICategoryReadOnlyRepository> repositoryReadOnly,
+            Lazy<IUserTaskReadOnlyRepository> repositoryUserTask)
         {
             _funcCorrectDate = new FuncCorrectDate();
+
+            this.repositoryUserTask = repositoryUserTask;
+            this.repositoryReadOnly = repositoryReadOnly;
         }
 
-        public async Task<ObservableCollection<ActivitiesAnalyticModel>> Execute(long subcategoryId, DateTime date)
+        public async Task<ObservableCollection<ActivitiesAnalyticModel>> Execute(long categoryId, DateTime date)
         {
-            var activityAnalyticBase = new GetActivityAnalyticBase();
+            var activityAnalyticBase = new GetActivityAnalyticBase(repositoryReadOnly, repositoryUserTask);
             var userTasks = await activityAnalyticBase.GetUserTasks(date, date);
 
-            userTasks = userTasks.Where(c => c.Category.Parent.Id == subcategoryId);
+            userTasks = userTasks.Where(c => c.Category.Parent.Id == categoryId);
 
             return new ObservableCollection<ActivitiesAnalyticModel>(TasksPerSubcategory(userTasks, date));
         }

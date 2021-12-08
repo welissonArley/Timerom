@@ -115,12 +115,11 @@ namespace Timerom.App.ViewModels.Tasks
 
             SavingStatus();
             await _deleteUseCase.Execute(Task);
-            await SucessStatus();
 
             var navParameters = new NavigationParameters
-                {
-                    { "Refresh", 1 }
-                };
+            {
+                { "Refresh", 1 }
+            };
 
             await _navigationService.GoBackAsync(navParameters);
         }

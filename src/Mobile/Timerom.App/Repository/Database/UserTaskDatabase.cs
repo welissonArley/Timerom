@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Timerom.App.ValueObjects.Entity;
 
 #pragma warning disable S3010
-namespace Timerom.App.Repository
+namespace Timerom.App.Repository.Database
 {
     public class UserTaskDatabase
     {

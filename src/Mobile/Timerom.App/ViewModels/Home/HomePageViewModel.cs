@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Timerom.App.Services.BackGroundService;
 using Timerom.App.ValueObjects.Enuns;
+using Timerom.App.Views.Views.Category;
 using Timerom.App.Views.Views.Dashboard;
 using Timerom.App.Views.Views.Reports.ActivityAnalytic;
 using Timerom.App.Views.Views.Tasks;
@@ -12,19 +13,26 @@ namespace Timerom.App.ViewModels.Home
 {
     public class HomePageViewModel : ViewModelBase, INavigationAware
     {
+        private readonly Lazy<ITimerUserTask> timerUserTask;
+        private ITimerUserTask _timerUserTask => timerUserTask.Value;
+
         public IAsyncCommand HomeCommand { get; private set; }
         public IAsyncCommand AddTaskCommand { get; private set; }
         public IAsyncCommand StartTaskCommand { get; private set; }
         public IAsyncCommand ShowReportCommand { get; private set; }
+        public IAsyncCommand ShowCategoriesCommand { get; private set; }
 
         public bool ThereIsTimer { get; private set; }
 
-        public HomePageViewModel(Lazy<INavigationService> navigationService) : base(navigationService)
+        public HomePageViewModel(Lazy<INavigationService> navigationService, Lazy<ITimerUserTask> timerUserTask) : base(navigationService)
         {
+            this.timerUserTask = timerUserTask;
+
             HomeCommand = new AsyncCommand(HomeCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
             AddTaskCommand = new AsyncCommand(AddTaskCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
             StartTaskCommand = new AsyncCommand(StartTaskCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
             ShowReportCommand = new AsyncCommand(ShowReportCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
+            ShowCategoriesCommand = new AsyncCommand(ShowCategoriesCommandExecuted, onException: HandleException, allowsMultipleExecutions: false);
         }
 
         private async Task HomeCommandExecuted()
@@ -62,12 +70,17 @@ namespace Timerom.App.ViewModels.Home
             TrackEvent("HomePage", "ActivityAnalyticPage", EventFlag.Navigation);
             _ = await _navigationService.NavigateAsync(nameof(ActivityAnalyticPage));
         }
+        private async Task ShowCategoriesCommandExecuted()
+        {
+            TrackEvent("HomePage", "CategoriesPage", EventFlag.Navigation);
+            _ = await _navigationService.NavigateAsync(nameof(CategoriesPage));
+        }
 
         public void OnNavigatedFrom(INavigationParameters parameters) { /* We dont need this method, but it's necessary from interface */ }
 
         public void OnNavigatedTo(INavigationParameters parameters)
         {
-            ThereIsTimer = TimerUserTaskService.IsRunning();
+            ThereIsTimer = _timerUserTask.IsRunning();
 
             RaisePropertyChanged("ThereIsTimer");
         }

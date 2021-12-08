@@ -90,12 +90,31 @@ Feel free to use this project to study and help me improve them by becoming a co
 
 <!-- Build Status (Badges) -->
 ## Build Status
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K&metric=bugs)](https://sonarcloud.io/summary/new_code?id=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K&metric=coverage)](https://sonarcloud.io/summary/new_code?id=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=HUPqWd2dIpbhiN9UiB6iCEmROaCIb1Sge4Lkl8WFpe1kMltf0K)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Timerom&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=welissonArley_Timerom)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Timerom&metric=bugs)](https://sonarcloud.io/summary/new_code?id=welissonArley_Timerom)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Timerom&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=welissonArley_Timerom)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Timerom&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=welissonArley_Timerom)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Timerom&metric=coverage)](https://sonarcloud.io/summary/new_code?id=welissonArley_Timerom)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Timerom&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=welissonArley_Timerom)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Timerom&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=welissonArley_Timerom)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=welissonArley_Timerom&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=welissonArley_Timerom)
+
+## Unit testing
+Here I will make a disclaimer about the Sonarclound.io configuration. I excluded some files from coverage report because I did not find out a good way to make unit tests for them, if you kwon how I can make this, please teach me 😀
+
+* src/Mobile/Timerom.App/Converter/**
+
+* src/Mobile/Timerom.App/CustomControl/**
+
+* src/Mobile/Timerom.App/Repository/**
+
+* src/Mobile/Timerom.App/ValueObjects/**
+
+* src/Mobile/Timerom.App/Views/**
+
+* src/Mobile/Timerom.App/App.xaml.cs
+
+* src/Mobile/Timerom.App/Services/**
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme-images/screenshot.png

@@ -16,8 +16,7 @@ namespace Validators.Test.Categories.Local.Update
         {
             var request = RequestCategory.Instance().Build();
 
-            var categoryDatabase = CategoryDatabaseBuilder.Instance()
-                .Build();
+            var categoryDatabase = CategoryReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new UpdateCategoryValidation(categoryDatabase);
 
@@ -32,8 +31,7 @@ namespace Validators.Test.Categories.Local.Update
             var request = RequestCategory.Instance().Build();
             request.Name = "";
 
-            var categoryDatabase = CategoryDatabaseBuilder.Instance()
-                .Build();
+            var categoryDatabase = CategoryReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new UpdateCategoryValidation(categoryDatabase);
 
@@ -49,8 +47,7 @@ namespace Validators.Test.Categories.Local.Update
             var request = RequestCategory.Instance().Build();
             request.Childrens.Clear();
 
-            var categoryDatabase = CategoryDatabaseBuilder.Instance()
-                .Build();
+            var categoryDatabase = CategoryReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new UpdateCategoryValidation(categoryDatabase);
 
@@ -69,8 +66,7 @@ namespace Validators.Test.Categories.Local.Update
                 Name = request.Childrens.First().Name
             });
 
-            var categoryDatabase = CategoryDatabaseBuilder.Instance()
-                .Build();
+            var categoryDatabase = CategoryReadOnlyRepositoryBuilder.Instance().Build();
 
             var validator = new UpdateCategoryValidation(categoryDatabase);
 
@@ -85,7 +81,7 @@ namespace Validators.Test.Categories.Local.Update
         {
             var request = RequestCategory.Instance().Build();
 
-            var categoryDatabase = CategoryDatabaseBuilder.Instance()
+            var categoryDatabase = CategoryReadOnlyRepositoryBuilder.Instance()
                 .ExistParentCategoryWithName(request.Name)
                 .Build();
 
