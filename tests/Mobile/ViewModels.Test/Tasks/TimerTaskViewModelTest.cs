@@ -30,8 +30,7 @@ namespace ViewModels.Test.Tasks
         }
 
         [Theory]
-        [InlineData("")]
-        [InlineData("Task Title")]
+        [ClassData(typeof(TimerTaskInlineDataTest))]
         public void Validade_Command_AddTaskTitle(string title)
         {
             var timerUserTask = new Lazy<ITimerUserTask>(() => TimerUserTaskBuilder.Instance().Build());
@@ -49,8 +48,7 @@ namespace ViewModels.Test.Tasks
         }
 
         [Theory]
-        [InlineData("")]
-        [InlineData("Task Title")]
+        [ClassData(typeof(TimerTaskInlineDataTest))]
         public void Validate_Callback_AddTaskTitle(string title)
         {
             var timerUserTask = new Lazy<ITimerUserTask>(() => TimerUserTaskBuilder.Instance().Build());
@@ -67,7 +65,7 @@ namespace ViewModels.Test.Tasks
         [Theory]
         [InlineData(false)]
         [InlineData(true)]
-        public async Task Validade_Initialize(bool thereIsTimer)
+        public async Task Validade_Initialize_WithoutTitle(bool thereIsTimer)
         {
             var timerBuilder = TimerUserTaskBuilder.Instance();
 
@@ -75,6 +73,31 @@ namespace ViewModels.Test.Tasks
                 timerBuilder = timerBuilder.TimerRunning();
 
             Lazy<ITimerUserTask> timerUserTask = new Lazy<ITimerUserTask>(() => timerBuilder.Build());
+            var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
+            var useCase = new Lazy<IGetByIdCategoryUseCase>(() => GetByIdCategoryUseCaseBuilder.Instance().Build());
+
+            var viewModel = new TimerTaskViewModel(navigation, useCase, timerUserTask);
+
+            var parameters = INavigationParametersBuilder.Instance()
+                .Parameter("Subcategory", RequestSubcategory.Instance().Build())
+                .Build();
+
+            Func<Task> action = () => viewModel.InitializeAsync(parameters);
+
+            await action.Should().NotThrowAsync();
+        }
+
+        [Theory]
+        [InlineData(false)]
+        [InlineData(true)]
+        public async Task Validade_Initialize(bool thereIsTimer)
+        {
+            var timerBuilder = TimerUserTaskBuilder.Instance();
+
+            if (thereIsTimer)
+                timerBuilder = timerBuilder.TimerRunning();
+
+            Lazy<ITimerUserTask> timerUserTask = new Lazy<ITimerUserTask>(() => timerBuilder.GetTitle().Build());
             var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
             var useCase = new Lazy<IGetByIdCategoryUseCase>(() => GetByIdCategoryUseCaseBuilder.Instance().Build());
 

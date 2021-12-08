@@ -26,6 +26,12 @@ namespace Useful.ToTests.Builders.Service
             return this;
         }
 
+        public TimerUserTaskBuilder GetTitle()
+        {
+            _repository.Setup(c => c.GetTitle()).Returns("Title");
+            return this;
+        }
+
         public ITimerUserTask Build()
         {
             return _repository.Object;
