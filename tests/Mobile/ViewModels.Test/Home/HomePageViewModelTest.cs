@@ -88,6 +88,19 @@ namespace ViewModels.Test.Home
         }
 
         [Fact]
+        public void Validade_Command_ShowCategories()
+        {
+            var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
+            var timerUserTask = new Lazy<ITimerUserTask>(() => TimerUserTaskBuilder.Instance().TimerRunning().Build());
+
+            var viewModel = new HomePageViewModel(navigation, timerUserTask);
+
+            Action action = () => viewModel.ShowCategoriesCommand.Execute(null);
+
+            action.Should().NotThrow();
+        }
+
+        [Fact]
         public void Validade_OnNavigatedFrom_Sucess()
         {
             var navigation = new Lazy<INavigationService>(() => INavigationServiceBuilder.Instance().Build());
