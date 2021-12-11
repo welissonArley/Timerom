@@ -120,7 +120,7 @@ Here I will make a disclaimer about the Sonarclound.io configuration. I excluded
 [maintained-shield]: https://img.shields.io/badge/Maintained%3F-yes-314100.svg?style=for-the-badge
 [contributors-shield]: https://img.shields.io/github/contributors/welissonArley/Timerom.svg?style=for-the-badge&color=992A14
 [stars-shield]: https://img.shields.io/github/stars/welissonArley/Timerom.svg?style=for-the-badge&color=03146F
-[issues-shield]: https://img.shields.io/github/issues/welissonArley/Timerom.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/welissonArley/Timerom.svg?style=for-the-badge&color=1E5E07
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 
 [windows-shield]: https://img.shields.io/badge/Windows-00599E?style=for-the-badge&logo=windows&logoColor=white
