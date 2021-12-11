@@ -6,6 +6,7 @@
              xmlns:information="clr-namespace:Timerom.App.Views.Templates.Information"
              xmlns:search="clr-namespace:Timerom.App.Views.Templates.Search"
              x:Name="SelectCategoryForTaskContentPage"
+             AutomationId="SelectCategoryForTaskContentPage"
              x:Class="Timerom.App.Views.Views.Tasks.SelectCategoryForTaskPage">
     <ContentPage.Content>
         <StackLayout>

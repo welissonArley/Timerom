@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Useful.ToTests", "tests\Mob
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases.Test", "tests\Mobile\UseCases.Test\UseCases.Test.csproj", "{52095903-8A0D-4A88-A5F2-593A563BE8E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.UI.Test", "tests\Mobile\App.UI.Test\App.UI.Test.csproj", "{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,18 @@ Global
 		{52095903-8A0D-4A88-A5F2-593A563BE8E6}.Release|iPhone.Build.0 = Release|Any CPU
 		{52095903-8A0D-4A88-A5F2-593A563BE8E6}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{52095903-8A0D-4A88-A5F2-593A563BE8E6}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}.Release|iPhone.Build.0 = Release|Any CPU
+		{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -155,6 +169,7 @@ Global
 		{71A7A757-C789-40B4-828E-C920F4E51D5E} = {805323AD-3C35-420B-B916-E0B87809F449}
 		{6CA15428-82ED-41CE-A97A-A4242478B795} = {805323AD-3C35-420B-B916-E0B87809F449}
 		{52095903-8A0D-4A88-A5F2-593A563BE8E6} = {805323AD-3C35-420B-B916-E0B87809F449}
+		{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546} = {805323AD-3C35-420B-B916-E0B87809F449}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCF5513B-F4DB-43B9-A114-95CF52A32B59}

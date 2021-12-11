@@ -7,6 +7,7 @@
              xmlns:enum="clr-namespace:Timerom.App.ValueObjects.Enuns"
              xmlns:chart="clr-namespace:Timerom.App.Views.Templates.Information"
              x:Name="ActivityAnalyticContentPage"
+             AutomationId="ActivityAnalyticContentPage"
              x:Class="Timerom.App.Views.Views.Reports.ActivityAnalytic.ActivityAnalyticPage">
     <ContentPage.Resources>
         <ResourceDictionary>
