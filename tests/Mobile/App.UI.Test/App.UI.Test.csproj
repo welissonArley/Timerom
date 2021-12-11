@@ -33,12 +33,6 @@
     <PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Mobile\Timerom.App.Android\Timerom.App.Android.csproj">
-      <Project>{f00c3108-322c-42a2-bd4b-3b8026453b0f}</Project>
-      <Name>Timerom.App.Android</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Home\HomePageUiTest.cs" />
     <Compile Include="AppInitializer.cs" />
     <Compile Include="UiTestBase.cs" />
