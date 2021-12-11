@@ -10,6 +10,7 @@
              xmlns:information="clr-namespace:Timerom.App.Views.Templates.Information"
              x:Class="Timerom.App.Views.Views.Dashboard.DashboardPageDetail"
              x:Name="DashboardPageDetailContentPage"
+             AutomationId="DashboardPageDetailContentPage"
              prism:ViewModelLocator.AutowireViewModel="True"
              Title=" ">
     <ContentPage.Resources>

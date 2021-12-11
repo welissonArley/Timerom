@@ -6,6 +6,7 @@
              xmlns:templateButton="clr-namespace:Timerom.App.Views.Templates.Button"
              xmlns:component="clr-namespace:Timerom.App.Views.Templates.Information"
              x:Name="CategoriesContentPage"
+             AutomationId="CategoriesContentPage"
              x:Class="Timerom.App.Views.Views.Category.CategoriesPage">
     <ContentPage.Content>
         <Grid RowDefinitions="*">
