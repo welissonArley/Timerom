@@ -1,4 +1,4 @@
-![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)
+![maintained-shield]
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
@@ -49,7 +49,7 @@ With this in mind, I created the app Timerom, a simple and fast way to help you 
 You can download the App for free on:
 
 [![google-play-shield]](https://play.google.com/store/apps/details?id=com.id1tech.timerom.app)
-[![app-store-shield]](https://example.com)
+![app-store-shield]
 
 To get a local copy up and running follow these simple example steps.
 
@@ -116,22 +116,27 @@ Here I will make a disclaimer about the Sonarclound.io configuration. I excluded
 
 * src/Mobile/Timerom.App/Services/**
 
-<!-- MARKDOWN LINKS & IMAGES -->
-[product-screenshot]: readme-images/screenshot.png
-[contributors-shield]: https://img.shields.io/github/contributors/welissonArley/Timerom.svg?style=for-the-badge
-[contributors-url]: https://github.com/welissonArley/Timerom/graphs/contributors
-[stars-shield]: https://img.shields.io/github/stars/welissonArley/Timerom.svg?style=for-the-badge
-[stars-url]: https://github.com/welissonArley/Timerom/stargazers
+<!-- Shields -->
+[maintained-shield]: https://img.shields.io/badge/Maintained%3F-yes-314100.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/welissonArley/Timerom.svg?style=for-the-badge&color=992A14
+[stars-shield]: https://img.shields.io/github/stars/welissonArley/Timerom.svg?style=for-the-badge&color=03146F
 [issues-shield]: https://img.shields.io/github/issues/welissonArley/Timerom.svg?style=for-the-badge
-[issues-url]: https://github.com/welissonArley/Timerom/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/welissonarley/
-[xamarin-shield]: https://img.shields.io/badge/Xamarin-3498DB?style=for-the-badge&logo=xamarin&logoColor=white
-[android-shield]: https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white
-[ios-shield]: https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white
-[windows-shield]: https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white
+
+[windows-shield]: https://img.shields.io/badge/Windows-00599E?style=for-the-badge&logo=windows&logoColor=white
+[figma-shield]: https://img.shields.io/badge/Figma-353535?style=for-the-badge&logo=figma&logoColor=white
 [visualstudio-shield]: https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white
-[figma-shield]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
-[buymecoffe-shield]: https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black
+[xamarin-shield]: https://img.shields.io/badge/Xamarin.Forms-1F567A?style=for-the-badge&logo=xamarin&logoColor=white
+[android-shield]: https://img.shields.io/badge/Android-1C633B?style=for-the-badge&logo=android&logoColor=white
+[ios-shield]: https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white
 [google-play-shield]: https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white
 [app-store-shield]: https://img.shields.io/badge/App_Store-0D96F6?style=for-the-badge&logo=app-store&logoColor=white
+
+<!-- Urls -->
+[contributors-url]: https://github.com/welissonArley/Timerom/graphs/contributors
+[stars-url]: https://github.com/welissonArley/Timerom/stargazers
+[issues-url]: https://github.com/welissonArley/Timerom/issues
+[linkedin-url]: https://www.linkedin.com/in/welissonarley/
+
+<!-- Images -->
+[product-screenshot]: readme-images/screenshot.png
