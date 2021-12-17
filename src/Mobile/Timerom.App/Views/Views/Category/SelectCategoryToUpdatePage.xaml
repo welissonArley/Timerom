@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resource="clr-namespace:Timerom.App"
+             xmlns:dto="clr-namespace:Timerom.App.ValueObjects.Dto"
              xmlns:enuns="clr-namespace:Timerom.App.ValueObjects.Enuns"
              xmlns:information="clr-namespace:Timerom.App.Views.Templates.Information"
              xmlns:search="clr-namespace:Timerom.App.Views.Templates.Search"
@@ -20,19 +21,11 @@
             </ScrollView>
 
             <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Margin="0,0,0,30">
-                <Ellipse HeightRequest="10" WidthRequest="10" StrokeThickness="2">
-                    <Ellipse.Fill>
-                        <SolidColorBrush Color="{AppThemeBinding Dark=White, Light=Black}"></SolidColorBrush>
-                    </Ellipse.Fill>
-                    <Ellipse.Stroke>
-                        <SolidColorBrush Color="{AppThemeBinding Dark=White, Light=Black}"></SolidColorBrush>
-                    </Ellipse.Stroke>
-                </Ellipse>
-                <Ellipse HeightRequest="10" WidthRequest="10" StrokeThickness="2">
-                    <Ellipse.Stroke>
-                        <SolidColorBrush Color="{AppThemeBinding Dark=White, Light=Black}"></SolidColorBrush>
-                    </Ellipse.Stroke>
-                </Ellipse>
+                <information:StepProgressTemplate>
+                    <information:StepProgressTemplate.StepConfig>
+                        <dto:StepConfig TotalNumberOfSteps="2" StepsCompleted="1"/>
+                    </information:StepProgressTemplate.StepConfig>
+                </information:StepProgressTemplate>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -4,7 +4,9 @@
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:resource="clr-namespace:Timerom.App"
              xmlns:local="clr-namespace:Timerom.App.Converter"
+             xmlns:dto="clr-namespace:Timerom.App.ValueObjects.Dto"
              xmlns:appTransformation="clr-namespace:Timerom.App.ValueObjects.SvgColorTransformation"
+             xmlns:information="clr-namespace:Timerom.App.Views.Templates.Information"
              xmlns:search="clr-namespace:Timerom.App.Views.Templates.Search"
              x:Name="SelectSubCategoryForTaskContentPage"
              x:Class="Timerom.App.Views.Views.Tasks.SelectSubCategoryForTaskPage">
@@ -42,27 +44,11 @@
             </ScrollView>
 
             <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Margin="0,0,0,30">
-                <Ellipse HeightRequest="10" WidthRequest="10" StrokeThickness="2">
-                    <Ellipse.Fill>
-                        <SolidColorBrush Color="{AppThemeBinding Dark=White, Light=Black}"></SolidColorBrush>
-                    </Ellipse.Fill>
-                    <Ellipse.Stroke>
-                        <SolidColorBrush Color="{AppThemeBinding Dark=White, Light=Black}"></SolidColorBrush>
-                    </Ellipse.Stroke>
-                </Ellipse>
-                <Ellipse HeightRequest="10" WidthRequest="10" StrokeThickness="2">
-                    <Ellipse.Fill>
-                        <SolidColorBrush Color="{AppThemeBinding Dark=White, Light=Black}"></SolidColorBrush>
-                    </Ellipse.Fill>
-                    <Ellipse.Stroke>
-                        <SolidColorBrush Color="{AppThemeBinding Dark=White, Light=Black}"></SolidColorBrush>
-                    </Ellipse.Stroke>
-                </Ellipse>
-                <Ellipse HeightRequest="10" WidthRequest="10" StrokeThickness="2">
-                    <Ellipse.Stroke>
-                        <SolidColorBrush Color="{AppThemeBinding Dark=White, Light=Black}"></SolidColorBrush>
-                    </Ellipse.Stroke>
-                </Ellipse>
+                <information:StepProgressTemplate>
+                    <information:StepProgressTemplate.StepConfig>
+                        <dto:StepConfig TotalNumberOfSteps="3" StepsCompleted="2"/>
+                    </information:StepProgressTemplate.StepConfig>
+                </information:StepProgressTemplate>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

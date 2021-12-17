@@ -107,6 +107,9 @@
     <Compile Update="Views\Templates\Information\ChartActivityAnalyticTemplate.xaml.cs">
       <DependentUpon>ChartActivityAnalyticTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Templates\Information\StepProgressTemplate.xaml.cs">
+      <DependentUpon>StepProgressTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Templates\Information\SelectCategoryExpanderComponent.xaml.cs">
       <DependentUpon>SelectCategoryExpanderComponent.xaml</DependentUpon>
     </Compile>
