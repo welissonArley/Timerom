@@ -1,6 +1,7 @@
 ﻿using Timerom.App.ValueObjects.Dto;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
+using Xamarin.Forms.Shapes;
 using Xamarin.Forms.Xaml;
 
 namespace Timerom.App.Views.Templates.Information
@@ -51,16 +52,36 @@ namespace Timerom.App.Views.Templates.Information
             };
         }
 
-        private static AvatarView NextStep(int index)
+        private static Grid NextStep(int index)
         {
-            return new AvatarView
+            var grid = new Grid
             {
-                TextColor = Application.Current.RequestedTheme == OSAppTheme.Light ? Color.Black : Color.White,
-                Color = Color.Transparent,
-                BorderColor = Application.Current.RequestedTheme == OSAppTheme.Light ? Color.Black : Color.White,
-                Size = 16,
-                Text = $"{index}"
+                RowDefinitions =
+                {
+                    new RowDefinition { Height = new GridLength(16) }
+                },
+                ColumnDefinitions =
+                {
+                    new ColumnDefinition { Width = new GridLength(16) }
+                }
             };
+
+            grid.Children.Add(new Ellipse
+            {
+                Fill = Color.Transparent,
+                Stroke = new SolidColorBrush(Application.Current.RequestedTheme == OSAppTheme.Light ? Color.Black : Color.White),
+                StrokeThickness = 1
+            });
+            grid.Children.Add(new Label
+            {
+                Text = $"{index}",
+                FontSize = 8,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                FontFamily = ""
+            });
+
+            return grid;
         }
 
         private static BoxView LineStep()
