@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validators.Test", "tests\Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Useful.ToTests", "tests\Mobile\Useful.ToTests\Useful.ToTests.csproj", "{6CA15428-82ED-41CE-A97A-A4242478B795}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases.Test", "tests\Mobile\UseCases.Test\UseCases.Test.csproj", "{52095903-8A0D-4A88-A5F2-593A563BE8E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseCases.Test", "tests\Mobile\UseCases.Test\UseCases.Test.csproj", "{52095903-8A0D-4A88-A5F2-593A563BE8E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.UI.Test", "tests\Mobile\App.UI.Test\App.UI.Test.csproj", "{B8E514E8-FE1E-45FD-A451-E1DEC4F8A546}"
 EndProject
