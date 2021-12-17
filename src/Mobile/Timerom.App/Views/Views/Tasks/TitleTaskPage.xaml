@@ -8,7 +8,7 @@
         <StackLayout Style="{StaticResource MarginStyleDefault}">
             <Label Text="{x:Static resource:ResourceText.TITLE_TASK_TITLE}" Style="{StaticResource LabelTitle}"/>
 
-            <customcontrol:EntryNoLine Text="{Binding TitleTask}" Placeholder="{x:Static resource:ResourceText.TITLE_STUDYING_ENGLISH}" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+            <customcontrol:EntryNoLine Text="{Binding TitleTask}" Placeholder="{x:Static resource:ResourceText.TITLE_STUDYING_ENGLISH}" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Keyboard="Text"/>
 
             <Button Text="{x:Static resource:ResourceText.TITLE_SAVE}" Command="{Binding SaveCommand}"/>
         </StackLayout>

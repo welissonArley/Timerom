@@ -7,7 +7,7 @@
         <StackLayout>
             <Label x:Name="LabelTitle" FontSize="12" Style="{StaticResource LabelLight}"/>
             <Frame HasShadow="False" BorderColor="#F1F1F1" BackgroundColor="Transparent" CornerRadius="9" HeightRequest="42" Padding="7,0,7,2">
-                <customcontrol:EntryNoLine x:Name="Entry"/>
+                <customcontrol:EntryNoLine x:Name="Entry" Keyboard="Text"/>
             </Frame>
         </StackLayout>
     </ContentView.Content>
