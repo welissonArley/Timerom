@@ -56,7 +56,7 @@ namespace Timerom.App.Views.Templates.Information
             return new AvatarView
             {
                 TextColor = Application.Current.RequestedTheme == OSAppTheme.Light ? Color.Black : Color.White,
-                Color = Application.Current.RequestedTheme == OSAppTheme.Light ? Color.White : Color.Black,
+                Color = Color.Transparent,
                 BorderColor = Application.Current.RequestedTheme == OSAppTheme.Light ? Color.Black : Color.White,
                 Size = 16,
                 Text = $"{index}"

@@ -20,13 +20,13 @@
                 </StackLayout>
             </ScrollView>
 
-            <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Margin="0,0,0,30">
+            <Grid RowDefinitions="16" Margin="0,10,0,30" VerticalOptions="End">
                 <information:StepProgressTemplate>
                     <information:StepProgressTemplate.StepConfig>
                         <dto:StepConfig TotalNumberOfSteps="2" StepsCompleted="1"/>
                     </information:StepProgressTemplate.StepConfig>
                 </information:StepProgressTemplate>
-            </StackLayout>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
