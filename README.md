@@ -43,13 +43,15 @@ With this in mind, I created the app Timerom, a simple and fast way to help you 
 
 ![windows-shield] ![figma-shield] ![visualstudio-shield] ![xamarin-shield] ![android-shield] ![ios-shield]
 
+##### Figma
+See the design at: https://www.figma.com/file/8SnhWomQjCPi02VAqgIujm/Timerom?node-id=0%3A1
+
 <!-- GETTING STARTED -->
 ## Getting Started
 
 You can download the App for free on:
 
 [![google-play-shield]](https://play.google.com/store/apps/details?id=com.id1tech.timerom.app)
-![app-store-shield]
 
 To get a local copy up and running follow these simple example steps.
 
