@@ -118,7 +118,7 @@ Here I will make a disclaimer about the Sonarclound.io configuration. I excluded
 
 * src/Mobile/Timerom.App/Services/**
 
-## Buyme a book
+## Buy me a book
 [![buy-me-book]](https://www.buymeacoffee.com/welissonArley)
 
 <!-- Shields -->
