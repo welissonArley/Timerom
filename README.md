@@ -118,6 +118,9 @@ Here I will make a disclaimer about the Sonarclound.io configuration. I excluded
 
 * src/Mobile/Timerom.App/Services/**
 
+## Buyme a book
+[![buy-me-book]](https://www.buymeacoffee.com/welissonArley)
+
 <!-- Shields -->
 [maintained-shield]: https://img.shields.io/badge/Maintained%3F-yes-314100.svg?style=for-the-badge
 [contributors-shield]: https://img.shields.io/github/contributors/welissonArley/Timerom.svg?style=for-the-badge&color=992A14
@@ -139,6 +142,7 @@ Here I will make a disclaimer about the Sonarclound.io configuration. I excluded
 [stars-url]: https://github.com/welissonArley/Timerom/stargazers
 [issues-url]: https://github.com/welissonArley/Timerom/issues
 [linkedin-url]: https://www.linkedin.com/in/welissonarley/
+[buy-me-book]: https://img.shields.io/badge/-buy_me_a_book-gray?logo=buy-me-a-coffee&style=for-the-badge
 
 <!-- Images -->
 [product-screenshot]: readme-images/screenshot.png
