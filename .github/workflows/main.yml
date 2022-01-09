@@ -1,4 +1,4 @@
-name: Sonar Build
+name: Build Project and Execute Sonar
 
 on:
   push:
@@ -7,8 +7,37 @@ on:
       - '**-sonar'
 
 jobs:
-  build:
-    name: Build
+  buildSolution:
+    name: Building Project
+    env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      buildConfiguration: 'Release'
+      SolutionPath: 'Timerom.sln'
+    
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+    
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+      
+    - name: Clean Solution
+      run: msbuild.exe ${{ env.SolutionPath }} /t:Clean /p:configuration=${{ env.buildConfiguration }}
+      
+    - name: Restore Packages
+      run: nuget restore ${{ env.SolutionPath }}
+      
+    - name: Build Solution
+      run: msbuild.exe ${{ env.SolutionPath }} /restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /p:Configuration=${{ env.buildConfiguration }}
+
+  executeSonar:
+    needs: buildSolution
+    name: Execute Sonar
     runs-on: windows-latest
     steps:
       - name: Set up JDK 11
