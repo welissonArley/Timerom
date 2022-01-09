@@ -124,7 +124,7 @@ namespace Timerom.App
             containerRegistry.RegisterScoped<IDeleteUserTaskUseCase, UseCase.UserTask.Local.Delete.DeleteUserTaskUseCase>();
             containerRegistry.RegisterScoped<IDashboardUseCase, UseCase.Dashboard.Local.DashboardUseCase>();
             containerRegistry.RegisterScoped<IUpdateUserTaskUseCase, UseCase.UserTask.Local.Update.UpdateUserTaskUseCase>();
-            containerRegistry.RegisterScoped<ILastTaskTimeForTodayUseCase, UseCase.UserTask.Local.Insert.LastTaskTimeForTodayUseCase>();
+            containerRegistry.RegisterScoped<ILastTaskTimeForTodayUseCase, UseCase.UserTask.Local.Insert.LastTaskTimeUseCase>();
             containerRegistry.RegisterScoped<IGetByIdCategoryUseCase, UseCase.Categories.Local.GetById.GetByIdCategoryUseCase>();
             containerRegistry.RegisterScoped<IGetActivityAnalyticTotalUseCase, UseCase.Reports.ActivityAnalytic.Local.GetActivityAnalyticTotalUseCase>();
             containerRegistry.RegisterScoped<IGetChartActivityAnalyticUseCase, UseCase.Reports.ActivityAnalytic.Local.GetChartActivityAnalyticUseCase>();

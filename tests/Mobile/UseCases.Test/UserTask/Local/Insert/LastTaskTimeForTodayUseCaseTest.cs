@@ -15,7 +15,7 @@ namespace UseCases.Test.UserTask.Local.Insert
         {
             var repositoryUserTaskRead = new Lazy<IUserTaskReadOnlyRepository>(() => UserTaskReadOnlyRepositoryBuilder.Instance().Build());
 
-            var useCase = new LastTaskTimeForTodayUseCase(repositoryUserTaskRead);
+            var useCase = new LastTaskTimeUseCase(repositoryUserTaskRead);
 
             DateTime response = new DateTime();
             Func<Task> action = async () => response = await useCase.Execute();
@@ -31,7 +31,7 @@ namespace UseCases.Test.UserTask.Local.Insert
             DateTime lastTask = DateTime.Now.AddHours(-2);
             var repositoryUserTaskRead = new Lazy<IUserTaskReadOnlyRepository>(() => UserTaskReadOnlyRepositoryBuilder.Instance().GetLast(lastTask).Build());
 
-            var useCase = new LastTaskTimeForTodayUseCase(repositoryUserTaskRead);
+            var useCase = new LastTaskTimeUseCase(repositoryUserTaskRead);
 
             DateTime response = new DateTime();
             Func<Task> action = async () => response = await useCase.Execute();

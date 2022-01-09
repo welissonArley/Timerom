@@ -5,12 +5,12 @@ using Timerom.App.UseCase.UserTask.Interfaces;
 
 namespace Timerom.App.UseCase.UserTask.Local.Insert
 {
-    public class LastTaskTimeForTodayUseCase : ILastTaskTimeForTodayUseCase
+    public class LastTaskTimeUseCase : ILastTaskTimeForTodayUseCase
     {
         private readonly Lazy<IUserTaskReadOnlyRepository> repository;
         private IUserTaskReadOnlyRepository _repository => repository.Value;
 
-        public LastTaskTimeForTodayUseCase(Lazy<IUserTaskReadOnlyRepository> repository)
+        public LastTaskTimeUseCase(Lazy<IUserTaskReadOnlyRepository> repository)
         {
             this.repository = repository;
         }
@@ -18,6 +18,9 @@ namespace Timerom.App.UseCase.UserTask.Local.Insert
         public async Task<DateTime> Execute()
         {
             var model = await _repository.GetLast(DateTime.Now);
+
+            if (model == null)
+                model = await _repository.GetLast(DateTime.Now.AddDays(-1));
 
             return model == null ? DateTime.Now : model.EndsAt;
         }
