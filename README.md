@@ -41,7 +41,7 @@ With this in mind, I created the app Timerom, a simple and fast way to help you 
 
 ### Built With
 
-![windows-shield] ![figma-shield] ![visualstudio-shield] ![xamarin-shield] ![android-shield] ![ios-shield]
+![windows-shield] ![figma-shield] ![visualstudio-shield] ![xamarin-shield]
 
 ##### Figma
 See the design at: https://www.figma.com/file/8SnhWomQjCPi02VAqgIujm/Timerom?node-id=0%3A1
@@ -132,8 +132,6 @@ Here I will make a disclaimer about the Sonarclound.io configuration. I excluded
 [figma-shield]: https://img.shields.io/badge/Figma-353535?style=for-the-badge&logo=figma&logoColor=white
 [visualstudio-shield]: https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white
 [xamarin-shield]: https://img.shields.io/badge/Xamarin.Forms-1F567A?style=for-the-badge&logo=xamarin&logoColor=white
-[android-shield]: https://img.shields.io/badge/Android-1C633B?style=for-the-badge&logo=android&logoColor=white
-[ios-shield]: https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white
 [google-play-shield]: https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white
 [app-store-shield]: https://img.shields.io/badge/App_Store-0D96F6?style=for-the-badge&logo=app-store&logoColor=white
 
